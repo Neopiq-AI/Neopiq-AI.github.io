@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neopiq &mdash; find the D365 planning settings that stopped matching reality</title>
+<meta name="description" content="Your planning system does exactly what you configured. Neopiq finds the lead times, safety stocks, MOQs and coverage groups that no longer match what actually happens in Dynamics 365, and shows the evidence. The check runs in your browser; nothing is uploaded.">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">N</span>
+      <span class="brand__text">
+        Neopiq
+        <span class="brand__sub">Digital employees for Dynamics&nbsp;365</span>
+      </span>
+    </a>
+    <span class="site-header__spacer"></span>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="tools/level0/">Free check</a></li>
+        <li><a href="product-supply-chain.html">Planning</a></li>
+        <li><a href="product-process-data.html">Master data</a></li>
+        <li><a href="product-azure-admin.html">Azure &amp; Power Platform</a></li>
+        <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <p class="eyebrow">Planning health for Dynamics 365</p>
+        <h1>Your planning system is doing exactly what you configured. That is the problem.</h1>
+        <p class="lead">
+          Lead times, safety stock, minimum order quantities and coverage groups were set once
+          &mdash; before the supplier changed, before the volumes moved, before the product went
+          end-of-life. Neopiq finds the settings that no longer match what actually happens, quotes
+          the numbers that prove it, and names the change to make.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="tools/level0/">Run the free check on your own data</a>
+          <a class="btn btn--ghost" href="product-supply-chain.html">See what it looks for</a>
+        </div>
+        <p class="small muted" style="margin-top:1rem">
+          It runs inside your browser. No account, no install, nothing uploaded &mdash; you can
+          disconnect from the network first and it still works.
+          <a href="how-it-works.html#privacy">Why that is true</a>.
+        </p>
+      </div>
+
+      <div class="level level--0">
+        <span class="level__tag">Example finding</span>
+        <h2 style="font-size:1.2rem">Configured 30 days. Received in 70. No safety stock.</h2>
+        <ul>
+          <li>Item <span class="mono">ITM-X123</span>, vendor <span class="mono">VEN-045</span></li>
+          <li>Lead time in the item master: 30 days</li>
+          <li>Actual receipts: 69.88 days on average, over 8 purchase receipts</li>
+          <li>Safety stock: zero</li>
+          <li>Owner on record: planner <span class="mono">PLN-02</span></li>
+        </ul>
+        <p>
+          Master planning proposes supply too late <em>by design</em>, and there is no buffer
+          between the gap and the customer. It looks like a supplier problem. It started as a
+          parameter.
+        </p>
+        <p class="level__where">
+          This is the worked example in the sample data that ships with the free check. The data is
+          synthetic, not a customer. Open the tool and the same finding appears in one click.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>You have heard these sentences in your own meetings</h2>
+        <p>
+          Each one has the same shape: the system is blamed for a decision that a setting made
+          years ago.
+        </p>
+      </div>
+
+      <div class="grid grid--3" style="margin-top:2rem">
+        <article class="card">
+          <h3>&ldquo;We order too late, so we expedite&rdquo;</h3>
+          <p>
+            Purchasing knows the supplier takes ten weeks. The item master still says four. Master
+            planning believes the item master, so every order starts late and finishes expensive.
+          </p>
+        </article>
+        <article class="card">
+          <h3>&ldquo;Full of the wrong stock, out of the right stock&rdquo;</h3>
+          <p>
+            A minimum order quantity set for a product that used to sell ten times faster. A
+            forecast that keeps consuming demand for an item you stopped selling. The stock is the
+            symptom; the parameter is the cause.
+          </p>
+        </article>
+        <article class="card">
+          <h3>&ldquo;The planners override the system&rdquo;</h3>
+          <p>
+            When planned orders stop making sense, people plan in a spreadsheet and key the answer
+            back in. Every manual override is a vote of no confidence in a setting somebody should
+            have changed.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>What comes back is a work list, not a dashboard</h2>
+        <p>
+          Every finding is written the way a senior planner would write it, and it is addressed to
+          somebody. There is no chat window and nothing to interpret.
+        </p>
+      </div>
+
+      <div class="grid grid--3" style="margin-top:2rem">
+        <article class="card">
+          <h3>What is wrong, on which item</h3>
+          <p>
+            Named item, vendor and site. Not a score, not a heat map &mdash; the specific object
+            somebody has to open in D365 tomorrow morning.
+          </p>
+        </article>
+        <article class="card">
+          <h3>The numbers it used</h3>
+          <p>
+            The configured value, the observed value, how many transactions it was measured over,
+            and the threshold it crossed. You can check the arithmetic in Excel and disagree with
+            it.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Impact, likely cause, and the fix</h3>
+          <p>
+            What this costs the business, the most likely reason the setting drifted, the change to
+            make, and the planner or buyer on record as the owner.
+          </p>
+        </article>
+      </div>
+
+      <p style="margin-top:1.75rem">
+        <a href="how-it-works.html#finding">See the full anatomy of a finding, field by field</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>What the free check looks at today</h2>
+        <p>
+          Twenty-six checks over eleven extracts a planner can pull out of D365 without help:
+          items, vendors, purchase receipts, sales order lines, on-hand, production orders and
+          routes, forecast, coverage groups, reduction keys and planners.
+        </p>
+      </div>
+
+      <div class="grid grid--3" style="margin-top:2rem">
+        <article class="card">
+          <h3>Lead time against reality</h3>
+          <p>
+            Configured lead time versus what receipts actually did &mdash; whole-horizon gaps,
+            items drifting away from their own history, values far outside their peer group, and
+            item lead times that contradict the vendor record.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Safety stock and service</h3>
+          <p>
+            Safety stock against demand volatility and the service target, on-time delivery that is
+            measurably falling, service levels sitting below target, and supplier confirmations
+            that are not worth planning on.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Order quantities and excess</h3>
+          <p>
+            Minimum order quantities that buy years of demand, and the months of cover that
+            produced &mdash; measured per item <em>and per site</em>, because an item can be
+            healthy in one plant and drowning in another.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Forecast and consumption</h3>
+          <p>
+            Forecast running above real order intake, forecast lines with no reduction key to
+            consume them, and obsolete items still being forecast and still holding stock.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Planning policy that points nowhere</h3>
+          <p>
+            Coverage groups and reduction keys that are missing, or that reference a record which
+            no longer exists. Manufactured items with no route; purchased items carrying one.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Ownership and sourcing gaps</h3>
+          <p>
+            Active planning items with no planner, no supplier, no site or no item group &mdash;
+            and planner references pointing at people who have left.
+          </p>
+        </article>
+      </div>
+
+      <p style="margin-top:1.75rem">
+        <a href="product-supply-chain.html">The full list, area by area, and what each check
+        actually compares</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="grid grid--2">
+        <article class="level level--0">
+          <span class="level__tag">Nothing leaves your machine</span>
+          <h2>The security conversation is a short one</h2>
+          <p>
+            The free check is a web page that reads your CSV files locally. There is no upload, no
+            account, no login, no cookie, no analytics and no server to send anything to. Nothing is
+            stored either &mdash; closing the tab is the delete button.
+          </p>
+          <p>
+            You do not have to take that on trust. Open your browser's network tab while it runs,
+            or pull the network cable first. Your item master and your vendor lead times are
+            commercially sensitive; that is exactly why the first useful answer should not require a
+            data-processing agreement.
+          </p>
+          <p class="level__where">
+            No procurement step. No security review. No integration project. One person and one
+            export.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>What this is not</h3>
+          <ul>
+            <li>
+              <strong>Not a chatbot.</strong> There is no prompt and no model guessing at your
+              business. The same export produces the same findings, in the same order, every time.
+            </li>
+            <li>
+              <strong>Not another dashboard.</strong> A report shows you the shortage. This names
+              the setting that caused it &mdash; including the ones nobody thought to build a report
+              for.
+            </li>
+            <li>
+              <strong>Not a data quality score.</strong> A lead time of 30 days is present, numeric
+              and valid. It passes every completeness check ever written. It is still wrong.
+            </li>
+            <li>
+              <strong>Not a robot in your ERP.</strong> Nothing is written back. Every finding is a
+              hypothesis with the evidence attached, and a person decides.
+            </li>
+          </ul>
+          <p class="card__more"><a href="tools/level0/">Try it against your own export</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>Start free, and only pay when there is something worth paying for</h2>
+        <p>
+          One step at a time, and each step is a decision you make after the previous one has
+          already been useful. Each step is also a pricing tier, named for the level it unlocks.
+        </p>
+      </div>
+      <ol class="steps narrow" style="margin-top:1.75rem">
+        <li>
+          <h3><a href="tools/level0/">Available today &mdash; the free check</a></h3>
+          <p class="muted">
+            Unlimited local checks on your own extracts, on the
+            <a href="pricing.html#free">Free tier</a>. Nothing to approve, nothing to install,
+            nothing transferred. This is the only part of the product you can use today, and it is
+            the part that has to earn everything after it.
+          </p>
+        </li>
+        <li>
+          <h3>In development &mdash; findings explained and written up</h3>
+          <p class="muted">
+            The plan is that the local check keeps doing the reading and the arithmetic, and a cloud
+            service turns the result into a written report and learns which patterns matter across
+            customers &mdash; without your records ever being part of what is sent. That is the
+            <a href="pricing.html#trial">Trial tier</a>, and it is not open yet.
+          </p>
+        </li>
+        <li>
+          <h3>Planned &mdash; the heavy work, inside your own Azure</h3>
+          <p class="muted">
+            Optimisation, simulation and repair at full data volume are intended to run in your own
+            Azure subscription, under your own controls, with the compute on your Microsoft
+            agreement. That is the <a href="pricing.html#enterprise">Enterprise tier</a>. It is a
+            direction, not a product you can buy today.
+          </p>
+        </li>
+      </ol>
+      <p><a href="pricing.html">What each tier unlocks, and what is honestly not available yet</a></p>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="wrap center">
+      <h2>Your own export will settle this faster than we can</h2>
+      <p class="lede" style="margin-inline:auto">
+        Export the tables, drop them on the page, read the findings. If none of them is worth
+        acting on, it cost you nothing. If one of them is, you already know what to do on Monday.
+      </p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn--primary" href="tools/level0/">Run the free check</a>
+        <a class="btn btn--ghost" href="how-it-works.html">How it works</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div>
+        <p><strong>Neopiq</strong> &mdash; digital employees for Dynamics&nbsp;365</p>
+        <p class="muted">
+          We find why enterprise systems behave wrongly, not only whether fields are filled in.
+        </p>
+        <p class="ph">[PLACEHOLDER: contact e-mail, postal address, company registration / legal entity details for Neopiq]</p>
+      </div>
+      <div>
+        <h2>What we do</h2>
+        <ul>
+          <li><a href="tools/level0/">The free planning check &mdash; runs in your browser</a></li>
+          <li><a href="product-supply-chain.html">Planning settings vs reality</a></li>
+          <li><a href="product-process-data.html">Master data and process checks</a></li>
+          <li><a href="product-azure-admin.html">Azure &amp; Power Platform &mdash; in development</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="about.html">About Neopiq</a></li>
+        </ul>
+        <p class="ph" style="margin-top:.75rem">[PLACEHOLDER: privacy policy, terms of service, imprint &mdash; pages not yet written]</p>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <p class="ph">[PLACEHOLDER: copyright line &mdash; needs the registered legal entity behind Neopiq]</p>
+      <p class="small">
+        Pre-launch site. Every yellow dashed marker is content the owner still has to supply. No
+        customers, results, certifications or performance figures are claimed anywhere on this site,
+        and only the free check exists today &mdash; everything described as in development or
+        planned is exactly that.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Neopiq &mdash; why we start with the boring, checkable part</title>
+<meta name="description" content="Neopiq builds digital employees for Dynamics 365. We find why enterprise systems behave wrongly, not only whether fields are missing. Read-only, evidence on every finding, and honest about what is built and what is not.">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">N</span>
+      <span class="brand__text">
+        Neopiq
+        <span class="brand__sub">Digital employees for Dynamics&nbsp;365</span>
+      </span>
+    </a>
+    <span class="site-header__spacer"></span>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tools/level0/">Free check</a></li>
+        <li><a href="product-supply-chain.html">Planning</a></li>
+        <li><a href="product-process-data.html">Master data</a></li>
+        <li><a href="product-azure-admin.html">Azure &amp; Power Platform</a></li>
+        <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">About Neopiq</li>
+        </ol>
+      </nav>
+      <h1>We find why enterprise systems behave wrongly</h1>
+      <p class="lead">
+        Not only whether a field is missing. Most tools that look at ERP data can tell you a cell is
+        empty. Very few can tell you that a lead time of 30 days has been contradicted by your own
+        receipts for two years, that there is no safety stock behind it, and that this is why the
+        same customer keeps getting a late delivery. That gap is the whole company.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap narrow">
+      <h2>The problem we set out to fix</h2>
+      <p>
+        ERP systems are configured once, by people who were right at the time. Then the supplier
+        changes, the volumes move, a product is discontinued, a plant is added &mdash; and the
+        settings stay exactly as they were. The system keeps obeying them perfectly. The results get
+        steadily worse, and the blame lands on planners, on suppliers, on the ERP itself, on
+        anything except the parameter that quietly stopped being true.
+      </p>
+      <p>
+        Meanwhile the tool that could find it arrives late, because getting it approved takes longer
+        than running it. A security review, a procurement step, an integration project &mdash; and
+        by then the shortage has already shipped, or not shipped, which is worse.
+      </p>
+
+      <h2>What we do about it</h2>
+      <p>
+        We put the cheapest, safest form of the analysis first. Rules and arithmetic, running on your
+        own machine, over an export you already know how to produce. Nothing moves, so there is
+        nothing to approve, so the first useful answer arrives on day one instead of in quarter
+        three. Only when that has proved useful does anything heavier make sense.
+      </p>
+
+      <h2>What we hold ourselves to</h2>
+
+      <div class="stack" style="margin-top:1.5rem">
+        <div class="callout">
+          <h3>Evidence, or it does not get printed</h3>
+          <p>
+            Every finding names its objects, quotes the numbers it compared, states the business
+            impact and the likely cause, recommends a specific change, and points at an owner. No
+            unexplained recommendations, ever. If we cannot show the working, we do not make the
+            claim.
+          </p>
+        </div>
+        <div class="callout">
+          <h3>Your data stays yours</h3>
+          <p>
+            The free check moves nothing at all. The steps we are building are designed so that what
+            crosses the boundary is results, never your records &mdash; and so that the heavy work
+            eventually runs inside your own environment, on your own controls, rather than in ours.
+          </p>
+        </div>
+        <div class="callout">
+          <h3>Read first, act later</h3>
+          <p>
+            Diagnosis before automation, always. Nothing writes back to your system today, and when
+            something eventually does, it will be after a person has read the evidence and approved
+            the change.
+          </p>
+        </div>
+        <div class="callout">
+          <h3>We would rather be checkable than impressive</h3>
+          <p>
+            Thresholds are written in plain rule files so you can argue with them. Confidence is
+            reported as judgement rather than dressed up as probability. Checks that could not run
+            are listed instead of quietly skipped. This site claims no customers, no results and no
+            certifications, because we do not have them yet.
+          </p>
+        </div>
+      </div>
+
+      <p style="margin-top:1.5rem">
+        <a href="how-it-works.html">How that turns into a working check</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap narrow">
+      <h2>Where we actually are</h2>
+      <p>
+        Stated plainly, because you will find out anyway and it is better if you hear it here.
+      </p>
+      <ul>
+        <li>
+          <strong>What exists:</strong> the local check for Dynamics&nbsp;365 planning and master
+          data &mdash; 26 checks, running free in your browser, over extracts you produce yourself.
+        </li>
+        <li>
+          <strong>What does not exist:</strong> the cloud explanation and reporting step, the
+          in-tenant execution step, and the Azure and Power Platform family. They are described on
+          this site in the future tense, under visible markers, and nowhere else.
+        </li>
+        <li>
+          <strong>What has not been proved:</strong> the thresholds have not been tuned against a
+          real customer tenant, and the sample data that demonstrates the checks is synthetic. We
+          say so on the pages where it matters.
+        </li>
+        <li>
+          <strong>What we have not got:</strong> customers we can name, published results,
+          certifications, or a price. When those exist they will appear here; until then this site
+          will keep being conspicuously empty where competitors put logos.
+        </li>
+      </ul>
+
+      <div class="ph-block">
+        <span class="ph-block__label">Placeholder &mdash; owner decisions still open</span>
+        <p>
+          [PLACEHOLDER: whether to publish the delivery sequence for the two unbuilt steps.
+          Publishing dates creates commitments; publishing the order without dates is probably the
+          safer version.]
+        </p>
+        <p>
+          [PLACEHOLDER: whether to say publicly how small the team is. The architecture is
+          deliberately designed so a very small company can serve enterprise customers safely &mdash;
+          that is either a credibility problem or the most interesting sentence on this page, and it
+          is the owner's call which.]
+        </p>
+        <p>
+          [PLACEHOLDER: founder or team section &mdash; name, background, photo. No real person is
+          named anywhere on this site without explicit permission.]
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap narrow">
+      <h2>Talk to us</h2>
+      <p>
+        Worth a conversation: you have run the free check and want the findings challenged or
+        interpreted; you are heading into a go-live, a migration or an inventory programme and want
+        the parameters reviewed first; or you want to be told when the reporting step opens.
+      </p>
+      <p>
+        Not worth a conversation yet: buying anything. Only the free check is available, and it does
+        not need us.
+      </p>
+      <div class="ph-block">
+        <span class="ph-block__label">Placeholder &mdash; no contact route exists yet</span>
+        <p>
+          [PLACEHOLDER: contact e-mail address. None is invented here, so the &ldquo;ask to hear
+          when it opens&rdquo; and &ldquo;talk to us about the roadmap&rdquo; buttons on the pricing
+          page lead to this section and no further.]
+        </p>
+        <p>[PLACEHOLDER: LinkedIn or other channel.]</p>
+        <p>
+          [PLACEHOLDER: decide whether to add a contact form. A form needs a backend, which this
+          static site does not have, and a privacy notice before it could collect anything.]
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="wrap center">
+      <h2>The best introduction is the one that costs you nothing</h2>
+      <p class="lede" style="margin-inline:auto">
+        Run the check on your own export. If it finds nothing worth acting on, you owe us nothing
+        and you have learned something reassuring about your planning setup.
+      </p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn--primary" href="tools/level0/">Run the free check</a>
+        <a class="btn btn--ghost" href="how-it-works.html">How it works</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div>
+        <p><strong>Neopiq</strong> &mdash; digital employees for Dynamics&nbsp;365</p>
+        <p class="muted">
+          We find why enterprise systems behave wrongly, not only whether fields are filled in.
+        </p>
+        <p class="ph">[PLACEHOLDER: contact e-mail, postal address, company registration / legal entity details for Neopiq]</p>
+      </div>
+      <div>
+        <h2>What we do</h2>
+        <ul>
+          <li><a href="tools/level0/">The free planning check &mdash; runs in your browser</a></li>
+          <li><a href="product-supply-chain.html">Planning settings vs reality</a></li>
+          <li><a href="product-process-data.html">Master data and process checks</a></li>
+          <li><a href="product-azure-admin.html">Azure &amp; Power Platform &mdash; in development</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="about.html">About Neopiq</a></li>
+        </ul>
+        <p class="ph" style="margin-top:.75rem">[PLACEHOLDER: privacy policy, terms of service, imprint &mdash; pages not yet written]</p>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <p class="ph">[PLACEHOLDER: copyright line &mdash; needs the registered legal entity behind Neopiq]</p>
+      <p class="small">
+        Pre-launch site. Every yellow dashed marker is content the owner still has to supply. No
+        customers, results, certifications or performance figures are claimed anywhere on this site,
+        and only the free check exists today &mdash; everything described as in development or
+        planned is exactly that.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

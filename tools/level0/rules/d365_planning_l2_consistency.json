@@ -1,0 +1,284 @@
+{
+  "schema_version": "1.0",
+  "module": "d365_planning_logic",
+  "description": "Level 2 (consistency) rules. Each field is individually populated and plausible; the combination is not. These are the findings a field-by-field data quality tool cannot produce.",
+  "rules": [
+    {
+      "rule_id": "PLN_L2_PURCHASED_WITH_ROUTE",
+      "title": "Purchased item that still carries a production route",
+      "level": "L2",
+      "severity": "medium",
+      "detector": "detect_cross_table_conflict",
+      "entity": "items",
+      "key_field": "item_id",
+      "filter": {
+        "op": "all",
+        "conditions": [
+          {"op": "equals", "field": "item_status", "value": "Active"},
+          {"op": "equals", "field": "production_type", "value": "Purchased"}
+        ]
+      },
+      "spec": {
+        "related": {
+          "dataset": "production_routes",
+          "key_field": "item_id",
+          "alias": "route"
+        }
+      },
+      "condition": {"op": "gte", "field": "computed.match_count", "value": 1},
+      "issue": "Item is configured as purchased but still has an active production route",
+      "business_impact": "Planning may propose production orders for an item nobody manufactures any more, or the costing roll-up uses route capacity that does not exist. Both distort capacity load and standard cost.",
+      "likely_root_cause": "Item was moved from in-house manufacturing to external purchasing and the route was never deactivated.",
+      "recommended_action": "Deactivate or delete the production route, or correct the production type if the item is genuinely still manufactured.",
+      "owner_field": "planner_id",
+      "affected_objects": [{"label": "Item", "field": "item_id"}],
+      "source_references": ["D365_ReleasedProducts", "D365_Routes"],
+      "tags": ["consistency", "make_or_buy"]
+    },
+    {
+      "rule_id": "PLN_L2_OBSOLETE_STILL_FORECASTED",
+      "title": "Obsolete item that is still carrying demand forecast",
+      "level": "L2",
+      "severity": "medium",
+      "detector": "detect_cross_table_conflict",
+      "entity": "items",
+      "key_field": "item_id",
+      "filter": {"op": "equals", "field": "item_status", "value": "Obsolete"},
+      "spec": {
+        "related": {
+          "dataset": "forecast_lines",
+          "key_field": "item_id",
+          "alias": "forecast",
+          "value_field": "forecast_qty"
+        }
+      },
+      "condition": {
+        "op": "all",
+        "conditions": [
+          {"op": "gte", "field": "computed.match_count", "value": 1},
+          {"op": "gt", "field": "computed.match_sum", "value": 0}
+        ]
+      },
+      "issue": "Item is flagged obsolete but demand forecast lines still exist for it",
+      "business_impact": "Master planning keeps generating supply for a product that is no longer sold, which turns directly into excess and eventually into write-off. It also inflates the forecast accuracy denominator and hides real demand signal.",
+      "likely_root_cause": "Item lifecycle status was changed without cleaning up the demand plan, or the forecast is maintained in a separate planning tool that was not informed.",
+      "recommended_action": "Remove or zero the remaining forecast lines, and add a lifecycle-state check to the forecast upload interface.",
+      "owner_field": "planner_id",
+      "affected_objects": [{"label": "Item", "field": "item_id"}],
+      "source_references": ["D365_ReleasedProducts", "D365_DemandForecast"],
+      "tags": ["consistency", "lifecycle", "forecast"]
+    },
+    {
+      "rule_id": "PLN_L2_VENDOR_LEADTIME_CONFLICT",
+      "title": "Item lead time disagrees with the vendor's standard lead time",
+      "level": "L2",
+      "severity": "medium",
+      "detector": "detect_cross_table_conflict",
+      "entity": "items",
+      "key_field": "item_id",
+      "filter": {
+        "op": "all",
+        "conditions": [
+          {"op": "equals", "field": "item_status", "value": "Active"},
+          {"op": "equals", "field": "production_type", "value": "Purchased"}
+        ]
+      },
+      "spec": {
+        "related": {
+          "dataset": "vendors",
+          "key_field": "vendor_id",
+          "local_field": "primary_vendor_id",
+          "alias": "vendor"
+        }
+      },
+      "condition": {
+        "op": "all",
+        "conditions": [
+          {"op": "gte", "field": "computed.match_count", "value": 1},
+          {"op": "abs_diff_gte", "field": "vendor.standard_lead_time_days", "other_field": "lead_time_days", "value": 10}
+        ]
+      },
+      "issue": "Configured item lead time differs materially from the primary vendor's standard lead time",
+      "business_impact": "Two systems of record disagree about the same supply promise. Whichever one planning uses, buyers will be expediting against a date the other side never agreed to.",
+      "likely_root_cause": "Vendor master was updated after a sourcing change while the item default order settings kept the old assumption (or vice versa).",
+      "recommended_action": "Decide which value is authoritative for this item/vendor combination, align the other, and confirm against recent receipt performance before changing the planning parameter.",
+      "owner_field": "planner_id",
+      "affected_objects": [
+        {"label": "Item", "field": "item_id"},
+        {"label": "Vendor", "field": "vendor.vendor_id"}
+      ],
+      "source_references": ["D365_ReleasedProducts", "D365_VendorMaster"],
+      "tags": ["consistency", "lead_time", "sourcing"]
+    },
+    {
+      "rule_id": "PLN_L2_UNKNOWN_COVERAGE_GROUP",
+      "title": "Item points at a coverage group that does not exist",
+      "level": "L2",
+      "severity": "medium",
+      "detector": "detect_cross_table_conflict",
+      "entity": "items",
+      "key_field": "item_id",
+      "filter": {
+        "op": "all",
+        "conditions": [
+          {"op": "equals", "field": "item_status", "value": "Active"},
+          {"op": "present", "field": "coverage_group"}
+        ]
+      },
+      "spec": {
+        "related": {
+          "dataset": "coverage_groups",
+          "key_field": "coverage_group",
+          "local_field": "coverage_group",
+          "alias": "coverage"
+        }
+      },
+      "condition": {"op": "lt", "field": "computed.match_count", "value": 1},
+      "issue": "Item references a coverage group that is not defined in the coverage group master",
+      "business_impact": "The planning policy the item claims to follow does not exist, so behaviour depends on the fallback the system applies. Any analysis grouped by coverage group also silently loses this item.",
+      "likely_root_cause": "Coverage group was renamed or deleted, or the item was imported from a legacy system with unmapped codes.",
+      "recommended_action": "Remap the item to a valid coverage group, and add the coverage group to the data-migration mapping table so the import stops reintroducing it.",
+      "owner_field": "planner_id",
+      "affected_objects": [{"label": "Item", "field": "item_id"}],
+      "source_references": ["D365_ItemCoverage", "D365_CoverageGroups"],
+      "tags": ["consistency", "referential_integrity"]
+    },
+    {
+      "rule_id": "PLN_L2_UNKNOWN_REDUCTION_KEY",
+      "title": "Item points at a forecast reduction key that does not exist",
+      "level": "L2",
+      "severity": "medium",
+      "detector": "detect_cross_table_conflict",
+      "entity": "items",
+      "key_field": "item_id",
+      "filter": {
+        "op": "all",
+        "conditions": [
+          {"op": "equals", "field": "item_status", "value": "Active"},
+          {"op": "present", "field": "reduction_key"}
+        ]
+      },
+      "spec": {
+        "related": {
+          "dataset": "reduction_keys",
+          "key_field": "reduction_key",
+          "local_field": "reduction_key",
+          "alias": "reduction"
+        }
+      },
+      "condition": {"op": "lt", "field": "computed.match_count", "value": 1},
+      "issue": "Item references a forecast reduction key that is not defined in the reduction key master",
+      "business_impact": "The reduction principle the item claims to follow does not exist, so forecast consumption falls back to whatever the system default is. Forecast is then reduced on a period the business never agreed, which shows up as demand appearing twice near the horizon boundary or disappearing too early.",
+      "likely_root_cause": "Reduction key was renamed or deleted, or the item was imported from a legacy system whose codes were never mapped.",
+      "recommended_action": "Remap the item to a valid reduction key, and add the obsolete code to the migration mapping table so imports stop reintroducing it.",
+      "owner_field": "planner_id",
+      "affected_objects": [{"label": "Item", "field": "item_id"}],
+      "source_references": ["D365_ItemCoverage", "D365_ForecastReductionKeys"],
+      "tags": ["consistency", "referential_integrity", "reduction_key", "forecast"]
+    },
+    {
+      "rule_id": "PLN_L2_FORECAST_WITHOUT_REDUCTION_KEY",
+      "title": "Item carries demand forecast but no forecast reduction key",
+      "level": "L2",
+      "severity": "high",
+      "detector": "detect_cross_table_conflict",
+      "entity": "items",
+      "key_field": "item_id",
+      "filter": {
+        "op": "all",
+        "conditions": [
+          {"op": "equals", "field": "item_status", "value": "Active"},
+          {"op": "missing", "field": "reduction_key"}
+        ]
+      },
+      "spec": {
+        "related": {
+          "dataset": "forecast_lines",
+          "key_field": "item_id",
+          "alias": "forecast",
+          "value_field": "forecast_qty"
+        }
+      },
+      "condition": {
+        "op": "all",
+        "conditions": [
+          {"op": "gte", "field": "computed.match_count", "value": 1},
+          {"op": "gt", "field": "computed.match_sum", "value": 0}
+        ]
+      },
+      "issue": "Item has an active demand forecast but no reduction key, so incoming sales orders never consume the forecast",
+      "business_impact": "Forecast and actual orders are both counted as demand for the same period, so master planning sees roughly double the real requirement. The result is systematic over-supply on exactly the items the business forecasts most carefully, and it looks like a forecast accuracy problem rather than a configuration one.",
+      "likely_root_cause": "Forecast was loaded from a separate planning tool or spreadsheet, and the item coverage record that carries the reduction key was never completed.",
+      "recommended_action": "Set the reduction key that matches the agreed consumption principle, then re-run master planning and compare the planned order volume before and after to quantify the over-supply that had been generated.",
+      "owner_field": "planner_id",
+      "affected_objects": [{"label": "Item", "field": "item_id"}],
+      "source_references": ["D365_ItemCoverage", "D365_DemandForecast"],
+      "tags": ["consistency", "forecast", "reduction_key"]
+    },
+    {
+      "rule_id": "PLN_L2_MANUFACTURED_WITHOUT_ROUTE",
+      "title": "Manufactured item with no production route",
+      "level": "L2",
+      "severity": "medium",
+      "detector": "detect_cross_table_conflict",
+      "entity": "items",
+      "key_field": "item_id",
+      "filter": {
+        "op": "all",
+        "conditions": [
+          {"op": "equals", "field": "item_status", "value": "Active"},
+          {"op": "equals", "field": "production_type", "value": "Manufactured"}
+        ]
+      },
+      "spec": {
+        "related": {
+          "dataset": "production_routes",
+          "key_field": "item_id",
+          "alias": "route"
+        }
+      },
+      "condition": {"op": "lt", "field": "computed.match_count", "value": 1},
+      "issue": "Item is configured as manufactured but has no production route",
+      "business_impact": "Master planning can propose a production order it cannot schedule, and the item consumes no capacity in the plan. Capacity utilisation therefore looks lower than it is, and the cost roll-up carries no operation cost for the item, which understates its standard cost.",
+      "likely_root_cause": "Route was never created for the item, or the production type was set to manufactured for costing reasons while the item is really purchased or phantom.",
+      "recommended_action": "Create the route (and confirm the BOM exists), or correct the production type if the item is not actually manufactured in-house.",
+      "owner_field": "planner_id",
+      "affected_objects": [{"label": "Item", "field": "item_id"}],
+      "source_references": ["D365_ReleasedProducts", "D365_Routes"],
+      "tags": ["consistency", "make_or_buy", "production"]
+    },
+    {
+      "rule_id": "PLN_L2_OBSOLETE_WITH_ON_HAND",
+      "title": "Obsolete item that still holds physical inventory",
+      "level": "L2",
+      "severity": "medium",
+      "detector": "detect_cross_table_conflict",
+      "entity": "items",
+      "key_field": "item_id",
+      "filter": {"op": "equals", "field": "item_status", "value": "Obsolete"},
+      "spec": {
+        "related": {
+          "dataset": "inventory_on_hand",
+          "key_field": "item_id",
+          "alias": "stock",
+          "value_field": "on_hand_qty"
+        }
+      },
+      "condition": {
+        "op": "all",
+        "conditions": [
+          {"op": "gte", "field": "computed.match_count", "value": 1},
+          {"op": "gt", "field": "computed.match_sum", "value": 0}
+        ]
+      },
+      "issue": "Item is flagged obsolete but physical stock is still on hand",
+      "business_impact": "This inventory has no demand path left: it will not be consumed by orders, and no planning policy will drain it. It sits as capital and warehouse space until someone writes it off, and the longer that decision waits the more likely it is taken as a surprise at year end.",
+      "likely_root_cause": "Lifecycle status was changed when the product was discontinued, without a corresponding decision about what to do with the remaining stock.",
+      "recommended_action": "Decide the disposition explicitly - scrap, sell down, or return to active for a defined service period - and record the value at risk so the write-off is a planned number rather than a discovered one.",
+      "owner_field": "planner_id",
+      "affected_objects": [{"label": "Item", "field": "item_id"}],
+      "source_references": ["D365_ReleasedProducts", "D365_InventoryOnHand"],
+      "tags": ["consistency", "lifecycle", "inventory"]
+    }
+  ]
+}

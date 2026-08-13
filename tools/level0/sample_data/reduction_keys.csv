@@ -1,0 +1,3 @@
+reduction_key,reduction_principle,reduction_period,description
+RK-STD,Transactions - reduction key,Monthly,Forecast reduced by actual sales orders
+RK-PCT,Percent - reduction key,Monthly,Forecast reduced by a fixed monthly percentage

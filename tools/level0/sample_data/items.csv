@@ -1,0 +1,25 @@
+item_id,item_name,item_group,item_status,production_type,planner_id,primary_vendor_id,coverage_group,reduction_key,lead_time_days,safety_stock_qty,min_order_qty,unit_cost,site_id
+ITM-1001,Bearing 6204,COMP,Active,Purchased,PLN-01,VEN-100,CG-STD,RK-STD,21,40,100,12.5,SITE-01
+ITM-1002,Bearing 6205,COMP,Active,Purchased,PLN-01,VEN-100,CG-STD,,21,35,100,13.1,SITE-01
+ITM-1003,Shaft 40mm,COMP,Active,Purchased,PLN-02,VEN-101,CG-STD,RK-STD,25,30,50,45.0,SITE-01
+ITM-X123,Gearbox housing,COMP,Active,Purchased,PLN-02,VEN-045,CG-STD,RK-STD,30,0,25,320.0,SITE-01
+ITM-1005,Seal kit,COMP,Active,Purchased,,VEN-101,CG-STD,,16,60,200,4.2,SITE-01
+ITM-1006,Hydraulic pump,COMP,Active,Purchased,PLN-03,,CG-STD,,35,20,10,780.0,SITE-01
+ITM-1007,Control board,COMP,Active,Purchased,PLN-01,VEN-102,,,45,15,20,210.0,SITE-01
+ITM-1008,Steel plate 5mm,RAW,Active,Purchased,PLN-02,VEN-103,CG-STD,,,100,500,2.1,SITE-01
+ITM-1009,Paint blue RAL5010,RAW,Active,Purchased,PLN-03,VEN-104,CG-MIN,,18,25,100,8.9,SITE-01
+ITM-1010,Pump assembly,FIN,Active,Manufactured,PLN-01,,CG-STD,,10,12,1,1450.0,SITE-01
+ITM-1011,Valve block,COMP,Active,Purchased,PLN-02,VEN-101,CG-STD,,28,18,25,96.0,SITE-01
+ITM-1012,Gasket set,COMP,Obsolete,Purchased,PLN-03,VEN-101,CG-STD,RK-STD,20,0,100,3.4,SITE-01
+ITM-1013,Motor 3kW,COMP,Active,Purchased,PLN-04,VEN-105,CG-STD,RK-STD,30,50,5,540.0,SITE-01
+ITM-1014,Coupling,COMP,Active,Purchased,PLN-01,VEN-106,CG-STD,,15,30,50,22.0,SITE-01
+ITM-1015,Filter cartridge,COMP,Active,Purchased,PLN-03,VEN-107,CG-STD,,180,20,50,15.0,SITE-01
+ITM-1016,Sensor unit,COMP,Active,Purchased,PLN-02,VEN-101,CG-STD,,26,5,10,130.0,SITE-01
+ITM-1017,Hose 12mm,RAW,Active,Purchased,PLN-03,VEN-103,CG-MIN,,12,40,200,3.3,SITE-01
+ITM-1018,Bracket welded,COMP,Active,Purchased,PLN-01,VEN-105,CG-XYZ,RK-ZZZ,22,25,100,18.0,SITE-01
+ITM-1019,Cable harness,COMP,Active,Purchased,PLN-02,VEN-102,CG-STD,,20,30,20,55.0,SITE-01
+ITM-1020,Label roll 60mm,PACK,Active,Purchased,PLN-01,VEN-103,CG-MIN,,14,100,5000,0.05,SITE-01
+ITM-1021,Housing cast raw,,Active,Purchased,PLN-02,VEN-101,CG-STD,,25,20,10,60.0,SITE-01
+ITM-1022,Pump assembly XL,FIN,Active,Manufactured,PLN-01,,CG-STD,,12,5,1,1600.0,SITE-01
+ITM-1023,Stretch film 500mm,PACK,Active,Purchased,PLN-03,VEN-104,CG-MIN,,18,50,100,1.2,
+ITM-1024,Rotor shaft,COMP,Active,Purchased,PLN-01,VEN-100,CG-STD,,21,25,50,30.0,SITE-01

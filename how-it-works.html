@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How it works &mdash; Neopiq finds the setting behind the problem, and shows its evidence</title>
+<meta name="description" content="What a Neopiq finding contains, how the checks decide something is wrong, where your data is while the work happens, and how far the product goes today versus where it is heading. Written for a sceptical planner and an IT reviewer.">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">N</span>
+      <span class="brand__text">
+        Neopiq
+        <span class="brand__sub">Digital employees for Dynamics&nbsp;365</span>
+      </span>
+    </a>
+    <span class="site-header__spacer"></span>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tools/level0/">Free check</a></li>
+        <li><a href="product-supply-chain.html">Planning</a></li>
+        <li><a href="product-process-data.html">Master data</a></li>
+        <li><a href="product-azure-admin.html">Azure &amp; Power Platform</a></li>
+        <li><a href="how-it-works.html" aria-current="page">How it works</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">How it works</li>
+        </ol>
+      </nav>
+      <h1>How it works, and why you can run it before you trust us</h1>
+      <p class="lead">
+        Three questions decide whether a tool like this is worth your time. What does it actually
+        tell me? Can I check whether it is right? And what happens to my data while it works? This
+        page answers them in that order, and only then explains how far the product goes.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="finding">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>What you get back: a finding, not an opinion</h2>
+        <p>
+          A finding is one problem, on one named object, with the evidence attached and an owner to
+          send it to. Nothing is ever reported without the reasoning that produced it &mdash; if we
+          cannot show the working, it does not go in the report.
+        </p>
+      </div>
+
+      <div class="grid grid--2" style="margin-top:2rem">
+        <article class="card">
+          <h3>Every finding tells you</h3>
+          <ul>
+            <li><strong>What is wrong</strong> &mdash; in one sentence, in planning language</li>
+            <li><strong>Which objects</strong> &mdash; the item, the vendor, the site</li>
+            <li><strong>The evidence</strong> &mdash; configured value, observed value, sample size, threshold crossed</li>
+            <li><strong>What it costs you</strong> &mdash; the business consequence, stated plainly</li>
+            <li><strong>The likely cause</strong> &mdash; why a setting usually ends up like this</li>
+            <li><strong>What to change</strong> &mdash; the action, not a suggestion to &ldquo;investigate&rdquo;</li>
+            <li><strong>Who owns it</strong> &mdash; the planner or buyer on record</li>
+            <li><strong>Where it came from</strong> &mdash; the D365 tables and the files that were read</li>
+            <li><strong>How sure we are</strong> &mdash; and why, with the arithmetic shown</li>
+          </ul>
+        </article>
+
+        <article class="level level--0">
+          <span class="level__tag">Worked example &middot; sample data</span>
+          <h3>&ldquo;Configured lead time is materially shorter than actual receipt behaviour, and there is no safety stock to absorb the difference&rdquo;</h3>
+          <ul>
+            <li>Objects: item <span class="mono">ITM-X123</span>, vendor <span class="mono">VEN-045</span>. Owner: <span class="mono">PLN-02</span>.</li>
+            <li>Configured lead time 30 days; observed 69.88 days across 8 receipts; ratio 2.33 against a 1.40 threshold; safety stock 0.</li>
+            <li>Impact: master planning proposes supply too late by design, and nothing stands between the gap and the customer. Expect recurring shortages, expediting cost and service failures that look like supplier problems.</li>
+            <li>Action: move the item lead time towards observed receipt behaviour and add a temporary buffer until supplier performance is stable.</li>
+            <li>Confidence 0.83 &mdash; and the finding shows how that number was built.</li>
+          </ul>
+          <p class="level__where">
+            From the synthetic sample data shipped with the free check, not from a customer. One
+            click in the tool reproduces it exactly.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>How it decides something is wrong</h2>
+        <p>
+          Three kinds of question, in increasing order of how much thinking stands between the data
+          and the claim. The first two are facts. The third is where the money is.
+        </p>
+      </div>
+
+      <div class="grid grid--3" style="margin-top:2rem">
+        <article class="card">
+          <h3>1. Is it filled in?</h3>
+          <p>
+            An active planning item with no lead time, no supplier, no planner, no site, no item
+            group, no coverage group. Directly observed, so there is nothing to argue with &mdash;
+            only to fix.
+          </p>
+        </article>
+        <article class="card">
+          <h3>2. Do the records agree with each other?</h3>
+          <p>
+            An item lead time that contradicts the vendor record. A coverage group or reduction key
+            that points at something which no longer exists. A manufactured item with no route, a
+            purchased item carrying one. An obsolete item still being forecast, and still holding
+            stock.
+          </p>
+        </article>
+        <article class="card">
+          <h3>3. Does the setting match reality?</h3>
+          <p>
+            Configured lead time against actual receipts. Safety stock against demand volatility and
+            your service target. MOQ against real consumption. Forecast against real order intake.
+            On-time delivery this half-year against last. This is the layer that explains the
+            shortages nobody can account for.
+          </p>
+        </article>
+      </div>
+
+      <div class="callout" style="margin-top:1.75rem">
+        <h3>Where we are honest with you, because you will find out anyway</h3>
+        <ul>
+          <li>
+            <strong>Findings are hypotheses, not verdicts.</strong> A rule does not know that your
+            coverage group means something unusual on purpose. It shows its evidence so a human can
+            overrule it in ten seconds.
+          </li>
+          <li>
+            <strong>Thresholds are starting points, not truths.</strong> &ldquo;At least 40% longer
+            than configured, and at least 10 days&rdquo; is a defensible default, not a fact about
+            your business. The thresholds sit in plain rule files precisely so you can argue with
+            them and change them.
+          </li>
+          <li>
+            <strong>The confidence number is judgement, not a measured probability.</strong> 0.83
+            does not mean 83% of such findings turn out to be real &mdash; nobody has that data yet.
+            It is a consistent, explainable ordering of how much inference stands behind a claim.
+          </li>
+          <li>
+            <strong>A check we cannot run is reported, not hidden.</strong> If your export is
+            missing the columns a rule needs, it says so. &ldquo;Your extract cannot answer three of
+            these questions&rdquo; is itself useful.
+          </li>
+          <li>
+            <strong>Nothing is written back to D365.</strong> The whole product is read-only today,
+            on purpose.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="privacy">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>Where your data is while the work happens</h2>
+        <p>
+          Your item master and your vendor lead times are commercially sensitive. That is exactly
+          why the first useful answer must not require anybody to sign anything.
+        </p>
+      </div>
+
+      <div class="grid grid--2" style="margin-top:2rem">
+        <article class="level level--0">
+          <span class="level__tag">The free check, today</span>
+          <h3>It never leaves the machine you run it on</h3>
+          <p>
+            The check is a web page that reads your CSV files locally. There is no upload, no
+            account, no login, no cookie, no analytics, no error reporting and no server to send
+            anything to. Nothing is stored between runs &mdash; closing the tab is the delete
+            button.
+          </p>
+          <p>
+            You do not have to believe any of that. Open your browser's network tab while it runs
+            and watch nothing happen, or disconnect from the network before you start. The tool is
+            built so it has no way to reach out even if it wanted to.
+          </p>
+          <p class="level__where">
+            <strong>What IT has to approve:</strong> nothing. There is no data transfer to review.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Why we built the free thing this way</h3>
+          <p>
+            A tool that reads business data normally has to clear a security review, a procurement
+            step and an integration project before it is allowed to say anything at all. By then the
+            question has moved on and the shortage has already happened.
+          </p>
+          <p>
+            So we inverted the order. The cheapest, safest form of the analysis comes first, because
+            nothing moves and there is nothing to approve. Only if that proves useful does anything
+            heavier make sense &mdash; and every step after it is designed to keep as much of that
+            property as possible.
+          </p>
+          <p class="card__more"><a href="tools/level0/">Run it and check the network tab</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>How far it goes: what ships today, and where it is heading</h2>
+        <p>
+          The product is built in three steps, and they differ in one thing above all: where your
+          data is when the work happens. <strong>Only the first step exists today.</strong> The
+          other two are the direction of travel, described here so you can judge whether it is a
+          direction you want to be on &mdash; not because you can buy them.
+        </p>
+      </div>
+
+      <div class="stack" style="margin-top:1.75rem">
+
+        <article class="level level--0" id="level-0">
+          <span class="level__tag">Level 0 &middot; available today</span>
+          <h3>The local check &mdash; rules and arithmetic, on your machine</h3>
+          <p>
+            Runs in the browser, on the machine you open it on. Reads your extracts, applies the
+            rule library, produces findings with evidence. Rules and arithmetic only: no model, no
+            guessing, no network. Same input, same output, every time.
+          </p>
+          <p><strong>Why it exists:</strong> to be useful to you before you owe us anything.</p>
+          <h4>What it covers today</h4>
+          <ul>
+            <li>26 checks across the three layers above, over 11 D365-shaped extracts</li>
+            <li>7 kinds of comparison: missing values, missing owners, cross-table conflicts, outliers against peers, configuration against history, service KPIs getting worse, and behaviour drifting from its own past</li>
+            <li>Findings written for a planner, with impact, cause, action, owner and sources</li>
+          </ul>
+          <p class="level__where">
+            <strong>Your data:</strong> stays where it is. Nothing is transmitted.
+          </p>
+          <p><a href="tools/level0/">Open the free check</a></p>
+        </article>
+
+        <article class="level level--1" id="level-1">
+          <span class="level__tag">Level 1 &middot; in development</span>
+          <h3>Explanation and reporting &mdash; the local check, written up</h3>
+          <p>
+            The intended next step. The reading, the aggregation and the rule work would stay local,
+            exactly as they are today. A cloud service would take the <em>results</em> &mdash;
+            summary numbers and risk signals &mdash; and turn them into a written report, a
+            prioritised story of what is going wrong and why, and a pattern library that improves as
+            more organisations use it.
+          </p>
+          <p>
+            <strong>This does not exist yet.</strong> Nothing described here is available to buy or
+            to try, and the boundary below is a design commitment, not a running service.
+          </p>
+
+          <div class="boundary">
+            <div class="boundary__zone boundary__zone--local">
+              <h4>Would stay with you</h4>
+              <p class="small muted">Everything that identifies your business.</p>
+              <ul>
+                <li>The extracts themselves</li>
+                <li>Item, customer, vendor and site identities</li>
+                <li>Quantities, prices and order history</li>
+                <li>All the reading and the rule work</li>
+              </ul>
+            </div>
+            <div class="boundary__zone boundary__zone--cloud">
+              <h4>Would be sent</h4>
+              <p class="small muted">Results, not records.</p>
+              <ul class="yesno yesno--in">
+                <li>Summary numbers</li>
+                <li>Risk signals and scores</li>
+                <li>Which patterns fired, and how strongly</li>
+              </ul>
+              <p class="small" style="margin-top:.75rem"><strong>Never:</strong> your business records.</p>
+            </div>
+          </div>
+
+          <p class="level__where">
+            <strong>What IT would have to approve:</strong> one outbound service that receives
+            results and no records &mdash; the questions an IT reviewer will ask about it are listed
+            as unanswered further down this page.
+          </p>
+        </article>
+
+        <article class="level level--2" id="level-2">
+          <span class="level__tag">Level 2 &middot; planned</span>
+          <h3>The heavy work, inside your own Azure</h3>
+          <p>
+            The long-term direction. Optimisation, simulation, process mining and supervised repair
+            at full data volume are intended to run inside your own Azure subscription, under your
+            own identity and access controls, with the compute billed to you by Microsoft on your
+            existing agreement. We would orchestrate; you would own the environment the data sits
+            in.
+          </p>
+          <p>
+            <strong>This is a roadmap position, not a product.</strong> No deployment, no
+            template and no permission model exists today, and any change to your system would come
+            after the read-only diagnosis, never instead of it.
+          </p>
+          <p class="level__where">
+            <strong>Your data:</strong> would not move at all &mdash; the compute would come to the
+            data.
+          </p>
+        </article>
+
+      </div>
+
+      <div class="callout" id="levels-to-tiers" style="margin-top:1.75rem">
+        <h3>Levels are the product. Tiers are how you buy it.</h3>
+        <p>
+          The three pricing tiers map one-to-one onto these three levels: the
+          <a href="pricing.html#free">Free tier</a> unlocks Level&nbsp;0, the
+          <a href="pricing.html#trial">Trial tier</a> unlocks Level&nbsp;1, and the
+          <a href="pricing.html#enterprise">Enterprise tier</a> unlocks Level&nbsp;2. Each tier
+          includes everything in the tier below it. Because only Level&nbsp;0 exists today, only the
+          Free tier is open today &mdash; the <a href="pricing.html">pricing page</a> says exactly
+          what that means.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="security">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>The table to take into your IT review</h2>
+        <p>
+          Where the work runs, what crosses the boundary, and who carries the risk &mdash; step by
+          step. The second and third rows describe intent, because those steps are not built.
+        </p>
+      </div>
+      <div class="table-scroll" style="margin-top:1.5rem">
+        <table>
+          <caption>Data movement and risk, by step. Only Level&nbsp;0 exists today; the other rows state design intent for capabilities that are not built.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Step</th>
+              <th scope="col">Status</th>
+              <th scope="col">What leaves your environment</th>
+              <th scope="col">Where the work runs</th>
+              <th scope="col">What it means for you</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Level 0 &mdash; the local check</th>
+              <td>Available today</td>
+              <td>Nothing</td>
+              <td>Your browser, or a small local program</td>
+              <td>Nothing to approve, nothing to sign, nothing to transfer</td>
+            </tr>
+            <tr>
+              <th scope="row">Level 1 &mdash; explanation and reporting</th>
+              <td>In development</td>
+              <td>Intended: summary numbers and risk signals only &mdash; never your records</td>
+              <td>Reading and rules stay local; the write-up would happen in our cloud service</td>
+              <td>One outbound service to review, with no business records in it</td>
+            </tr>
+            <tr>
+              <th scope="row">Level 2 &mdash; execution in your Azure</th>
+              <td>Planned</td>
+              <td>Intended: nothing &mdash; the compute comes to the data</td>
+              <td>Inside your own Azure subscription</td>
+              <td>Your identity model, your controls, your Microsoft bill for the compute</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ph-block">
+        <span class="ph-block__label">Placeholder &mdash; owner input required</span>
+        <p>
+          [PLACEHOLDER: the concrete commitments an IT reviewer will ask for once Level&nbsp;1
+          exists &mdash; data-processing agreement, sub-processor list, hosting region, retention
+          period for the signals that are sent, and the exact Azure permissions Level&nbsp;2 would
+          request. None of this is decided, so none of it is claimed here.]
+        </p>
+        <p>
+          No certification, audit, standard or compliance badge is claimed anywhere on this site.
+          Do not add one until it actually exists.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="federated-learning">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>Getting better without pooling anybody's data</h2>
+        <p>
+          The planned learning model, in one line: we want the checks to get sharper because many
+          organisations use them, without any organisation's records being part of what makes that
+          happen. It is not running today, because Level&nbsp;1 is not built.
+        </p>
+      </div>
+
+      <div class="boundary" style="margin-top:1.5rem">
+        <div class="boundary__zone boundary__zone--local">
+          <h3>What we would learn from</h3>
+          <ul class="yesno yesno--in">
+            <li>Which checks fire, and how often</li>
+            <li>Summary numbers and risk signals</li>
+            <li>Which findings people act on, and which they dismiss</li>
+          </ul>
+        </div>
+        <div class="boundary__zone boundary__zone--cloud">
+          <h3>What we would never collect</h3>
+          <ul class="yesno yesno--out">
+            <li>Your business records</li>
+            <li>Sensitive fields</li>
+            <li>Anything that identifies your items, customers or suppliers</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>What that would buy you</h3>
+      <ul class="narrow">
+        <li>Thresholds tuned on evidence instead of on judgement</li>
+        <li>Fewer findings you have to dismiss</li>
+        <li>New checks for failure patterns somebody else hit first</li>
+      </ul>
+
+      <div class="ph-block">
+        <span class="ph-block__label">Placeholder &mdash; owner input required</span>
+        <p>
+          [PLACEHOLDER: the opt-in / opt-out mechanism for cross-customer learning, whether it can
+          be switched off while keeping Level&nbsp;1, and how a customer requests deletion of
+          previously contributed signals. Undecided, so unstated.]
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="wrap center">
+      <h2>The only part you can judge today is also the free part</h2>
+      <p class="lede" style="margin-inline:auto">
+        Everything above is either something you can verify in your own browser, on your own data,
+        or something we have told you does not exist yet. Start with the part that does.
+      </p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn--primary" href="tools/level0/">Run the free check</a>
+        <a class="btn btn--ghost" href="pricing.html#free">What the Free tier includes</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div>
+        <p><strong>Neopiq</strong> &mdash; digital employees for Dynamics&nbsp;365</p>
+        <p class="muted">
+          We find why enterprise systems behave wrongly, not only whether fields are filled in.
+        </p>
+        <p class="ph">[PLACEHOLDER: contact e-mail, postal address, company registration / legal entity details for Neopiq]</p>
+      </div>
+      <div>
+        <h2>What we do</h2>
+        <ul>
+          <li><a href="tools/level0/">The free planning check &mdash; runs in your browser</a></li>
+          <li><a href="product-supply-chain.html">Planning settings vs reality</a></li>
+          <li><a href="product-process-data.html">Master data and process checks</a></li>
+          <li><a href="product-azure-admin.html">Azure &amp; Power Platform &mdash; in development</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="about.html">About Neopiq</a></li>
+        </ul>
+        <p class="ph" style="margin-top:.75rem">[PLACEHOLDER: privacy policy, terms of service, imprint &mdash; pages not yet written]</p>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <p class="ph">[PLACEHOLDER: copyright line &mdash; needs the registered legal entity behind Neopiq]</p>
+      <p class="small">
+        Pre-launch site. Every yellow dashed marker is content the owner still has to supply. No
+        customers, results, certifications or performance figures are claimed anywhere on this site,
+        and only the free check exists today &mdash; everything described as in development or
+        planned is exactly that.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

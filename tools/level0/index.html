@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Level 0 Planning Logic Health Check</title>
+<meta name="description" content="Free local diagnostic for D365 Supply Chain planning master data. Your CSV never leaves your browser.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="eyebrow">Digital Employees &middot; Level&nbsp;0 &middot; free</p>
+    <h1>Planning Logic Health Check</h1>
+    <p class="lede">
+      Drop in a few CSV extracts from your ERP and get evidence-backed findings about the gap
+      between what your planning system <em>assumes</em> and what actually <em>happened</em>&nbsp;&mdash;
+      missing parameters, contradictory master data, and lead times that reality disagrees with.
+    </p>
+    <p class="privacy-badge">
+      <span class="privacy-badge__mark" aria-hidden="true">&#9679;</span>
+      <span><strong>Nothing is uploaded.</strong> Your file is read and analysed inside this browser tab.
+      This page contains no network code at all &mdash; it works with your Wi&#8209;Fi switched off.</span>
+    </p>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+
+  <!-- ------------------------------------------------------------ input -->
+  <section class="panel" aria-labelledby="input-heading">
+    <h2 id="input-heading">1. Choose your data</h2>
+
+    <div id="dropzone" class="dropzone">
+      <p class="dropzone__hint">Drag CSV files here, or</p>
+      <p class="dropzone__actions">
+        <input class="visually-hidden-input" type="file" id="file-input" accept=".csv,text/csv" multiple>
+        <label class="button button--primary" for="file-input">Choose CSV files</label>
+        <button class="button" type="button" id="sample-button">Try the sample data</button>
+      </p>
+      <p class="dropzone__note">
+        One CSV per table. The file name becomes the table name, so <code>items.csv</code> is
+        referenced by the rules as <code>items</code>.
+      </p>
+    </div>
+
+    <div id="file-list-wrap" hidden>
+      <h3 class="subhead">Loaded tables</h3>
+      <ul id="file-list" class="file-list"></ul>
+      <p>
+        <button class="button button--primary" type="button" id="run-button">Run the diagnostic</button>
+        <button class="button button--quiet" type="button" id="clear-button">Clear</button>
+      </p>
+    </div>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+  </section>
+
+  <!-- ---------------------------------------------------------- results -->
+  <section class="panel" id="results" aria-labelledby="results-heading" hidden>
+    <h2 id="results-heading">2. Findings</h2>
+
+    <div class="summary" id="summary"></div>
+
+    <div class="toolbar">
+      <fieldset class="filters">
+        <legend class="subhead">Show severity</legend>
+        <div id="severity-filters" class="filter-row"></div>
+      </fieldset>
+      <p class="toolbar__actions">
+        <button class="button" type="button" id="download-button">Download findings as JSON</button>
+      </p>
+    </div>
+
+    <div id="run-detail" class="run-detail"></div>
+
+    <ol id="findings" class="findings"></ol>
+    <p id="no-findings" class="empty" hidden></p>
+  </section>
+
+  <!-- ------------------------------------------------------------ about -->
+  <section class="panel" aria-labelledby="about-heading">
+    <h2 id="about-heading">How this works, and what it cannot do</h2>
+
+    <details class="disclosure" open>
+      <summary>Why it runs entirely in your browser</summary>
+      <p>
+        Level&nbsp;0 exists because of a constraint, not in spite of one: it runs in your own
+        environment, with no cloud cost and <strong>no data leaving the machine</strong>. That is what
+        lets a planner run it on an export from their own laptop without a procurement process, a
+        security review, a data-processing agreement or an internet connection. The moment a single
+        network call appears, all of that comes back and the adoption story dies.
+      </p>
+      <p>
+        So this page has, by construction: no <code>fetch</code>, no <code>XMLHttpRequest</code>, no
+        <code>WebSocket</code>, no <code>sendBeacon</code>, no analytics, no telemetry, no external
+        fonts, scripts or stylesheets. The rule library and the sample data are embedded in the page
+        itself, which is also why it works when opened directly from disk.
+      </p>
+      <p class="verify">
+        <strong>Verify it yourself:</strong> open your browser's developer tools, switch to the Network
+        tab, and run the diagnostic &mdash; nothing is requested. Or simply disconnect from the network
+        first: everything still works.
+      </p>
+    </details>
+
+    <details class="disclosure">
+      <summary>How a finding is built, and what "confidence" means</summary>
+      <p>
+        Rules are JSON data, never code. Each rule names a <em>detection function</em>, a scope filter
+        and a condition built from a fixed operator set; the rule text is never executed, so a rule
+        file cannot introduce behaviour. Every finding carries the evidence that produced it &mdash;
+        the actual values compared, the thresholds applied and the arithmetic behind its confidence.
+        You should never see a recommendation here without the data underneath it.
+      </p>
+      <p>Confidence uses one documented model, applied identically to every finding:</p>
+      <pre class="formula" id="confidence-model"></pre>
+      <p class="caveat">
+        <strong>Honest caveat:</strong> these numbers are calibrated judgement, not measured
+        probability. <code>0.83</code> does not mean "83% of such findings turn out to be real" &mdash;
+        nobody has that data yet. It is a consistent, explainable ordering of how much inference stands
+        between the data and the claim.
+      </p>
+    </details>
+
+    <details class="disclosure">
+      <summary>What is deliberately missing</summary>
+      <p>
+        The strategy document names ten generic detection functions. Seven of them are honestly
+        computable from local flat files, and all seven are implemented here. The other three need a
+        knowledge layer &mdash; a business glossary, semantic models, consultant design documents
+        &mdash; which are documents rather than tables. Stubbing them would fake coverage, so they are
+        absent and named instead:
+      </p>
+      <ul id="not-implemented" class="plain-list"></ul>
+      <p>
+        Also out of scope at this tier: natural-language explanation and cross-customer pattern
+        learning (Level&nbsp;1), and any kind of write-back, parameter correction or simulation
+        (Level&nbsp;2, and only after a read-only-first rollout). Findings here are hypotheses for a
+        human, not instructions for a machine. The engine knows the column names a rule mentions; it
+        does not know what your coverage group <em>means</em>, so it cannot tell a legitimate exception
+        from a defect.
+      </p>
+    </details>
+
+    <details class="disclosure">
+      <summary>Rules in the loaded library</summary>
+      <div id="rule-list"></div>
+    </details>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      Level&nbsp;0 local diagnostic &mdash; <span id="tool-version"></span>.
+      All computation happened in this tab. No data left this machine.
+    </p>
+  </div>
+</footer>
+
+<!-- The engine, as plain scripts in dependency order. No modules, so the page
+     also works when opened directly from the file system. -->
+<script src="engine/stats.js"></script>
+<script src="engine/dataset.js"></script>
+<script src="engine/confidence.js"></script>
+<script src="engine/finding.js"></script>
+<script src="engine/operators.js"></script>
+<script src="engine/rules.js"></script>
+<script src="engine/detection.js"></script>
+<script src="engine/engine.js"></script>
+<script src="data/rule-library.js"></script>
+<script src="data/sample-data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0",
+  "module": "d365_planning_logic",
+  "description": "Level 1 (completeness) rules for D365 planning master data. A missing planning parameter is not a cosmetic data-quality issue: MRP substitutes a default and produces a plan nobody intended.",
+  "rules": [
+    {
+      "rule_id": "PLN_L1_MISSING_LEAD_TIME",
+      "title": "Active purchased item without a purchase lead time",
+      "level": "L1",
+      "severity": "high",
+      "detector": "detect_missing_fields",
+      "entity": "items",
+      "key_field": "item_id",
+      "filter": {
+        "op": "all",
+        "conditions": [
+          {"op": "equals", "field": "item_status", "value": "Active"},
+          {"op": "equals", "field": "production_type", "value": "Purchased"}
+        ]
+      },
+      "condition": {"op": "missing", "field": "lead_time_days"},
+      "issue": "Active purchased item has no configured purchase lead time",
+      "business_impact": "Master planning treats a blank lead time as zero, so planned purchase orders are created with a due date the supplier cannot meet. The shortage only becomes visible when the material is already late.",
+      "likely_root_cause": "Item was released to the purchasing site without completing the default order settings, or the lead time lives only on the trade agreement.",
+      "recommended_action": "Set the purchase lead time on the item default order settings (or confirm the vendor trade agreement lead time is used) before the next planning run.",
+      "owner_field": "planner_id",
+      "affected_objects": [{"label": "Item", "field": "item_id"}],
+      "source_references": ["D365_ReleasedProducts", "D365_DefaultOrderSettings"],
+      "tags": ["planning", "master_data", "lead_time"]
+    },
+    {
+      "rule_id": "PLN_L1_MISSING_SUPPLIER",
+      "title": "Active purchased item without a primary vendor",
+      "level": "L1",
+      "severity": "high",
+      "detector": "detect_missing_fields",
+      "entity": "items",
+      "key_field": "item_id",
+      "filter": {
+        "op": "all",
+        "conditions": [
+          {"op": "equals", "field": "item_status", "value": "Active"},
+          {"op": "equals", "field": "production_type", "value": "Purchased"}
+        ]
+      },
+      "condition": {"op": "missing", "field": "primary_vendor_id"},
+      "issue": "Active purchased item has no primary vendor assigned",
+      "business_impact": "Planned purchase orders cannot be firmed without manual vendor selection, so every replenishment for this item costs buyer time and the lead time actually applied is whatever that buyer happens to choose.",
+      "likely_root_cause": "Sourcing was never transferred from the project/prototype phase into the item master, or the approved vendor list was maintained outside D365.",
+      "recommended_action": "Assign the primary vendor on the item, or record the item as manually sourced so it is excluded from automatic planning.",
+      "owner_field": "planner_id",
+      "affected_objects": [{"label": "Item", "field": "item_id"}],
+      "source_references": ["D365_ReleasedProducts", "D365_ApprovedVendorList"],
+      "tags": ["planning", "sourcing"]
+    },
+    {
+      "rule_id": "PLN_L1_MISSING_COVERAGE_GROUP",
+      "title": "Active item without a coverage group",
+      "level": "L1",
+      "severity": "medium",
+      "detector": "detect_missing_fields",
+      "entity": "items",
+      "key_field": "item_id",
+      "filter": {"op": "equals", "field": "item_status", "value": "Active"},
+      "condition": {"op": "missing", "field": "coverage_group"},
+      "issue": "Active item has no coverage group, so it inherits the site default planning policy",
+      "business_impact": "The item is planned by whatever the default coverage code happens to be. Coverage period, safety stock behaviour and lot sizing are then accidental rather than chosen, which is a common source of both excess stock and shortages.",
+      "likely_root_cause": "Item coverage record was never created for this item/site combination.",
+      "recommended_action": "Assign the coverage group that matches the item's demand pattern, or confirm explicitly that the site default is intended.",
+      "owner_field": "planner_id",
+      "affected_objects": [{"label": "Item", "field": "item_id"}],
+      "source_references": ["D365_ItemCoverage"],
+      "tags": ["planning", "coverage_group"]
+    },
+    {
+      "rule_id": "PLN_L1_MISSING_PLANNER",
+      "title": "Active item with no planner, or a planner who does not exist",
+      "level": "L1",
+      "severity": "medium",
+      "detector": "detect_owner_gap",
+      "entity": "items",
+      "key_field": "item_id",
+      "filter": {"op": "equals", "field": "item_status", "value": "Active"},
+      "spec": {
+        "owner_field": "planner_id",
+        "reference": {"dataset": "planners", "key_field": "planner_id"}
+      },
+      "issue": "Active item has no accountable planner, or references a planner who is not in the planner master",
+      "business_impact": "Exception messages, action messages and every recommendation in this report have no addressee. Unowned items are the ones whose parameters silently rot, because nobody is measured on them.",
+      "likely_root_cause": "Planner left the company and the item was never reassigned, or the planner field was never maintained for this product group.",
+      "recommended_action": "Assign a current planner to the item; if the planner code is obsolete, remap it as part of the next master-data cleanup.",
+      "owner_field": "planner_id",
+      "affected_objects": [{"label": "Item", "field": "item_id"}],
+      "source_references": ["D365_ReleasedProducts", "D365_Planners"],
+      "tags": ["ownership", "governance"]
+    },
+    {
+      "rule_id": "PLN_L1_MISSING_ITEM_GROUP",
+      "title": "Active item with no item group (product family)",
+      "level": "L1",
+      "severity": "medium",
+      "detector": "detect_missing_fields",
+      "entity": "items",
+      "key_field": "item_id",
+      "filter": {"op": "equals", "field": "item_status", "value": "Active"},
+      "condition": {"op": "missing", "field": "item_group"},
+      "issue": "Active item does not belong to any item group, so it has no product family",
+      "business_impact": "The item is invisible to every analysis and policy that works by family: ABC segmentation, coverage policy by group, demand review, inventory targets and the peer comparisons this diagnostic itself performs. It also usually means the item bypassed the release process, so other defaults are likely missing too.",
+      "likely_root_cause": "Item was created directly rather than through the product release workflow, or migrated from a legacy system whose group codes were never mapped.",
+      "recommended_action": "Assign the item group that matches the item's role, and check the rest of that item's planning defaults at the same time - an item that escaped the release process rarely has only one field missing.",
+      "owner_field": "planner_id",
+      "affected_objects": [{"label": "Item", "field": "item_id"}],
+      "source_references": ["D365_ReleasedProducts", "D365_ItemGroups"],
+      "tags": ["planning", "master_data", "product_family"]
+    },
+    {
+      "rule_id": "PLN_L1_MISSING_SITE",
+      "title": "Active item with no planning site",
+      "level": "L1",
+      "severity": "medium",
+      "detector": "detect_missing_fields",
+      "entity": "items",
+      "key_field": "item_id",
+      "filter": {"op": "equals", "field": "item_status", "value": "Active"},
+      "condition": {"op": "missing", "field": "site_id"},
+      "issue": "Active item has no site, so master planning has no dimension to plan it on",
+      "business_impact": "Requirements for this item cannot be netted against supply at a location. Depending on the storage dimension setup, master planning either ignores the item or plans it in a dimension nobody looks at, so its shortages are discovered by the shop floor rather than by the plan.",
+      "likely_root_cause": "Default order settings or the site-specific item record were never created after the item was released to the legal entity.",
+      "recommended_action": "Create the item's site-level default order settings for every site that plans or stocks it, before the next master planning run.",
+      "owner_field": "planner_id",
+      "affected_objects": [{"label": "Item", "field": "item_id"}],
+      "source_references": ["D365_ReleasedProducts", "D365_DefaultOrderSettings"],
+      "tags": ["planning", "master_data", "site"]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+production_order_id,item_id,site_id,planned_start_date,planned_end_date,actual_end_date,qty_planned,qty_finished,status
+PRD-0001,ITM-1010,SITE-01,2026-01-12,2026-01-22,2026-02-05,20,20,Reported as finished
+PRD-0002,ITM-1010,SITE-01,2026-02-11,2026-02-21,2026-03-10,20,20,Reported as finished
+PRD-0003,ITM-1010,SITE-01,2026-03-13,2026-03-23,2026-04-07,20,20,Reported as finished
+PRD-0004,ITM-1010,SITE-01,2026-04-12,2026-04-22,2026-05-10,20,20,Reported as finished
+PRD-0005,ITM-1010,SITE-01,2026-05-12,2026-05-22,2026-06-07,20,20,Reported as finished

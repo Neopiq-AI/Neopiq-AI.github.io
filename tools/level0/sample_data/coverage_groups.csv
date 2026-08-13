@@ -1,0 +1,3 @@
+coverage_group,coverage_code,coverage_period_days,description
+CG-STD,Requirement,30,Standard MRP coverage
+CG-MIN,Min/Max,60,Consumables replenished on min/max

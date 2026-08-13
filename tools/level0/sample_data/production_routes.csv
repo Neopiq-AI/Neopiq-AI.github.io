@@ -1,0 +1,5 @@
+route_id,item_id,operation_no,work_center,runtime_minutes
+RT-001,ITM-1010,10,ASSY-01,45
+RT-002,ITM-1010,20,TEST-01,20
+RT-003,ITM-1011,10,MACH-02,30
+RT-004,ITM-1011,20,DEBUR-01,10
