@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy policy &mdash; Neopiq</title>
-<meta name="description" content="What this site does and does not collect. No cookies, no analytics, no forms, no third-party requests. The only personal data processed is what the hosting provider records in server logs, and the free check runs entirely in your browser.">
+<meta name="description" content="What this site does and does not collect. The controller is Neopiq GmbH, Sinserstrasse 67, 6330 Cham, Switzerland, contact@neopiq.ai. No cookies, no analytics, no forms, no third-party requests on this website. The free D365 check runs entirely in your browser and uploads nothing, and the Azure admin agent is a separate service that is not open to customers yet.">
     <link rel="canonical" href="https://neopiq.ai/privacy.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Neopiq">
     <meta property="og:title" content="Privacy policy &mdash; Neopiq">
-    <meta property="og:description" content="What this site does and does not collect. No cookies, no analytics, no forms, no third-party requests. The only personal data processed is what the hosting provider records in server logs, and the free check runs entirely in your browser.">
+    <meta property="og:description" content="What this site does and does not collect. The controller is Neopiq GmbH, Sinserstrasse 67, 6330 Cham, Switzerland, contact@neopiq.ai. No cookies, no analytics, no forms, no third-party requests on this website. The free D365 check runs entirely in your browser and uploads nothing, and the Azure admin agent is a separate service that is not open to customers yet.">
     <meta property="og:url" content="https://neopiq.ai/privacy.html">
     <meta name="twitter:card" content="summary">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -19,23 +19,43 @@
   ============================================================================
   NOTE FOR THE OWNER AND THE REVIEWING LAWYER - not visible to visitors.
 
-  Which data-protection regime governs this notice depends on where the entity
-  is finally registered and whom the site is aimed at, and the two candidate
-  regimes name different mandatory content:
+  THE CONTROLLER IS NOW SETTLED: Neopiq GmbH, c/o Ludwig Limbeck AG,
+  Sinserstrasse 67, 6330 Cham, Switzerland, UID CHE-345.914.300,
+  contact@neopiq.ai. The earlier version of this comment left the controller,
+  the framework and the authority open because no entity existed.
 
-    * Switzerland - revFADP / revDSG, with the controller's identity and
-      contact details, the purpose of processing, and (for disclosure abroad)
-      the recipient state. The supervisory authority is the FDPIC.
-    * Germany / EU - GDPR Art. 13, which requires a longer list: controller and
-      (where applicable) DPO, purposes AND legal bases, recipients, transfers
-      and the safeguard relied on, retention periods, the full catalogue of
-      data-subject rights, and the right to lodge a complaint with a named
-      supervisory authority.
+  BASE REGIME: the revised Swiss FADP (revFADP / revDSG). Its notice duty is
+  lighter than GDPR Art. 13 but requires the controller's identity and contact
+  details, the purposes of processing, and - for any disclosure abroad - the
+  recipient state. The Swiss supervisory authority is the FDPIC. All of that is
+  now stated below rather than placeheld.
 
-  In practice the GDPR may apply through Art. 3(2) regardless of where the
-  entity sits, if the site is aimed at people in the EU. This notice is
-  therefore written to the fuller GDPR field list, with the framework, the
-  controller, the authority and the retention period left as placeholders.
+  STILL OPEN, and the single biggest legal-review item on this page: WHETHER
+  THE GDPR ALSO APPLIES through Art. 3(2), because the site is in English, is
+  reachable from the EU and describes products for EU-based enterprises. That
+  is a targeting question, not a seat question, and it is NOT decided here. It
+  drives three further open points, each marked in the page: an Art. 27 EU
+  representative, whether a DPO is required, and whether an EU supervisory
+  authority is additionally competent. The notice is deliberately still written
+  to the fuller GDPR field list so that an affirmative answer needs no rewrite.
+
+  ALSO OPEN, and unchanged by the registration: the hosting provider's log
+  retention period, the processor agreement with the hosting provider, and the
+  transfer mechanism relied on for the transfer to the United States. These are
+  provider facts that must be read out of the provider's current documentation.
+
+  SCOPE WARNING - THIS NOTICE COVERS THE WEBSITE. There is now a second product
+  (the Azure admin agent) that authenticates to Azure, executes changes and
+  writes an audit trail. It is NOT reachable from this website, has no sign-in,
+  is not multi-tenant, and today runs only against Neopiq's own Azure
+  subscription, so no visitor or customer personal data reaches it. Those are
+  the only facts stated below about it, and they are taken from
+  product-chatadmin.html and how-it-works.html, not assumed. THE MOMENT
+  CUSTOMER ONBOARDING, SIGN-IN OR ANY MULTI-TENANT DEPLOYMENT OPENS, THIS
+  NOTICE MUST BE REWRITTEN with a real description of what the agent processes,
+  what its audit trail retains, for how long and who may read it (open question
+  Q8 in CONTENT-TODO). Nothing about that is drafted here, because nothing
+  about it has been decided.
 
   The substantive facts below (no cookies, no analytics, no forms, no external
   requests, no JavaScript on the marketing pages, browser-only Level 0 tool,
@@ -54,17 +74,16 @@
       <span class="brand__mark" aria-hidden="true">N</span>
       <span class="brand__text">
         Neopiq
-        <span class="brand__sub">Digital employees for Dynamics&nbsp;365</span>
+        <span class="brand__sub">Digital employees for Azure and Dynamics&nbsp;365</span>
       </span>
     </a>
     <span class="site-header__spacer"></span>
     <nav class="site-nav" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
+        <li><a href="product-chatadmin.html">ChatAdmin</a></li>
+        <li><a href="product-d365.html">D365 intelligence</a></li>
         <li><a href="tools/level0/">Free check</a></li>
-        <li><a href="product-supply-chain.html">Planning</a></li>
-        <li><a href="product-process-data.html">Master data</a></li>
-        <li><a href="product-azure-admin.html">Azure &amp; Power Platform</a></li>
         <li><a href="how-it-works.html">How it works</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html">About</a></li>
@@ -86,16 +105,20 @@
       <h1>Privacy policy</h1>
       <p class="lead">
         This site is static HTML and CSS. It sets no cookies, runs no scripts, loads nothing from
-        anywhere else and has no form to submit. The only personal data processed is the server-log
-        record that any web server keeps when it serves a page.
+        anywhere else and has no form to submit. The only personal data processed when you visit is
+        the server-log record that any web server keeps when it serves a page. This notice covers
+        the website and the free check; it also says, further down, what the Azure admin agent does
+        and does not do today.
       </p>
       <div class="callout">
         <p>
-          <strong>Pre-launch draft, pending legal review.</strong> The controller named below does
-          not exist yet &mdash; no legal entity has been registered &mdash; so the identity, the
-          contact route, the supervisory authority and the retention period are marked placeholders.
-          The description of what this site does and does not do is accurate and was checked against
-          the site&rsquo;s own source; the legal framing around it has not been reviewed by a lawyer.
+          <strong>Pre-launch draft, pending legal review.</strong> The controller named below is a
+          real, registered company and its identity and contact details are its actual ones. What is
+          still unreviewed is the legal framing: the retention period for the hosting
+          provider&rsquo;s logs, the transfer mechanism relied on, and above all
+          <a href="#framework">whether EU data-protection law applies alongside Swiss law</a>. The
+          description of what this site does and does not do is accurate and was checked against the
+          site&rsquo;s own source; a lawyer has not yet been over any of it.
         </p>
       </div>
     </div>
@@ -109,13 +132,22 @@
         <li>No cookies of any kind, and no consent banner because there is nothing to consent to.</li>
         <li>No analytics, no tag manager, no tracking pixel, no advertising, no A/B testing.</li>
         <li>No fonts, scripts, images, maps or embeds loaded from other servers.</li>
-        <li>No contact form, no newsletter, no account, no login, no payment.</li>
+        <li>No contact form, no newsletter, no account, no login, no payment on this website.</li>
         <li>No data of yours is uploaded by the free check &mdash; it never leaves your device.</li>
+        <li>
+          The Azure admin agent is not reachable from this website and is not open to customers, so
+          nothing of yours reaches it either &mdash; see <a href="#admin-agent">below</a>.
+        </li>
       </ul>
       <ul class="yesno yesno--in">
         <li>
           The hosting provider that serves these pages records IP addresses and request metadata in
           its server logs, as every web server does. That is described in full below.
+        </li>
+        <li>
+          If you write to <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> or telephone us,
+          we process what you send in order to answer you. That is new: until recently there was no
+          contact route at all.
         </li>
       </ul>
 
@@ -125,18 +157,42 @@
         it happens:
       </p>
       <ul>
-        <li>Controller: <span class="ph">[PLACEHOLDER: registered legal name and legal form of the controller]</span></li>
-        <li>Address: <span class="ph">[PLACEHOLDER: registered address of the controller]</span></li>
-        <li>Contact for data-protection questions: <span class="ph">[PLACEHOLDER: e-mail address for privacy enquiries]</span></li>
-        <li>Data protection officer: <span class="ph">[PLACEHOLDER: whether a DPO is required and, if so, their name and contact details &mdash; a decision for the owner and their lawyer]</span></li>
-        <li>Representative in the EU or Switzerland, where one is required: <span class="ph">[PLACEHOLDER: representative under GDPR Art. 27 / revFADP, or confirmation that none is required]</span></li>
+        <li>Controller: <strong>Neopiq GmbH</strong></li>
+        <li>Address: c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland</li>
+        <li>UID: CHE-345.914.300</li>
+        <li>Contact for data-protection questions: <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a>, or by telephone on <a href="tel:0041782236716">0041 78 223 6716</a></li>
+        <li>Data protection officer: <span class="ph">[PLACEHOLDER: whether a data protection adviser under revFADP Art. 10 or a DPO under GDPR Art. 37 is appointed. Neither is mandatory for a company of this size and processing profile under Swiss law, and none has been appointed; whether the GDPR changes that depends on the open question below. Owner and lawyer decision &mdash; no name is invented here.]</span></li>
+        <li>Representative in the EU under GDPR Art. 27: <span class="ph">[PLACEHOLDER: only required if the GDPR applies to this site through Art. 3(2). That question is open (see below) and no representative has been appointed. A Swiss controller needs no separate Swiss representative.]</span></li>
       </ul>
       <p>
-        Full provider details, once they exist, will also appear in the <a href="imprint.html">imprint</a>.
+        The same details, with the register and VAT position, are in the
+        <a href="imprint.html">imprint</a>.
       </p>
 
       <h2 id="framework">Which law applies</h2>
-      <p class="ph">[PLACEHOLDER: the applicable data-protection framework &mdash; Swiss revFADP, EU/EEA GDPR, or both. This follows from where the entity is registered and whom the site is aimed at, and neither is settled yet. The rights and legal bases below are written to the stricter of the two.]</p>
+      <p>
+        Neopiq GmbH is established in Switzerland, so the <strong>revised Swiss Federal Act on Data
+        Protection (revFADP)</strong> applies to the processing described here, and the competent
+        supervisory authority is the Swiss Federal Data Protection and Information Commissioner
+        (FDPIC) in Bern.
+      </p>
+      <p>
+        Whether the <strong>EU GDPR applies in addition</strong>, through its Art. 3(2), is not
+        settled. It would turn on whether this site is directed at people in the EU rather than on
+        where the company sits. Rather than assert an answer, this notice is written to the fuller
+        GDPR field list throughout: the rights below are stated in their broadest form, and legal
+        bases are given for each processing operation, so that nothing here becomes wrong if the
+        answer is yes.
+      </p>
+      <div class="ph-block">
+        <span class="ph-block__label">Placeholder &mdash; the main legal-review question on this page</span>
+        <p>
+          [PLACEHOLDER: whether the GDPR applies to this site alongside the revFADP. It determines
+          three things left open above and below: an EU representative under Art. 27, whether a DPO
+          is required, and whether an EU supervisory authority is additionally competent for
+          complaints.]
+        </p>
+      </div>
 
       <h2 id="not-collected">What this site does not collect</h2>
       <p>
@@ -174,8 +230,13 @@
           <h3>No forms and no accounts</h3>
           <p>
             There is no contact form, no sign-up, no newsletter subscription, no login and no
-            payment. Nothing on this site submits anything anywhere, so there is no name, e-mail
-            address or message for us to receive, store or lose.
+            payment on this website. Nothing on these pages submits anything anywhere, so browsing
+            gives us no name, e-mail address or message to receive, store or lose.
+          </p>
+          <p>
+            There is now a published e-mail address and telephone number, but they are ordinary
+            contact routes, not a form: nothing is collected unless you choose to write. See
+            <a href="#writing-to-us">writing to us</a>.
           </p>
         </article>
       </div>
@@ -244,7 +305,50 @@
       </p>
       <p class="ph">[PLACEHOLDER: the transfer mechanism actually relied on &mdash; e.g. standard contractual clauses in the provider&rsquo;s terms, an adequacy decision, or another safeguard &mdash; and where a copy can be obtained. This must be checked against the provider&rsquo;s current documentation, not assumed.]</p>
 
-      <h2 id="level0">The free check runs in your browser</h2>
+      <h2 id="writing-to-us">If you write to us</h2>
+      <p>
+        A contact route now exists: the e-mail address and telephone number published in the
+        <a href="imprint.html#contact">imprint</a>. Earlier versions of this site said no contact
+        channel existed; that is no longer true, and this section describes what happens if you use
+        one.
+      </p>
+      <ul>
+        <li>
+          <strong>What is processed:</strong> whatever you put in your message or say on the call
+          &mdash; typically your name, your e-mail address or number, and the content of your
+          enquiry. Nothing else is collected, and nothing is required of you beyond the address we
+          need in order to reply.
+        </li>
+        <li>
+          <strong>Why:</strong> to read your message, answer it, and keep the thread coherent if
+          the exchange continues.
+        </li>
+        <li>
+          <strong>Legal basis:</strong> where the GDPR applies, Art. 6(1)(b) for enquiries that are
+          pre-contractual and Art. 6(1)(f) &mdash; the legitimate interest in answering people who
+          write to us &mdash; for everything else. Under Swiss law no separate justification is
+          needed to process data you send us for the purpose you sent it for.
+        </li>
+        <li>
+          <strong>What is not done with it:</strong> it is not used for marketing, not added to any
+          mailing list &mdash; there is none &mdash; and not passed to anyone outside the company.
+        </li>
+      </ul>
+      <div class="ph-block">
+        <span class="ph-block__label">Placeholder &mdash; owner must supply, then a lawyer must check</span>
+        <p>
+          [PLACEHOLDER: which mail and telephony providers carry this correspondence, where they
+          host it, and whether they sit outside Switzerland and the EEA. This is a processor and a
+          transfer disclosure and it cannot be written without knowing the providers. Nothing is
+          assumed here.]
+        </p>
+        <p>
+          [PLACEHOLDER: how long correspondence is kept before deletion. No period has been set,
+          and a period must not be stated until one has been.]
+        </p>
+      </div>
+
+      <h2 id="level0">The free D365 check runs in your browser</h2>
       <div class="level level--0">
         <span class="level__tag">Nothing is uploaded</span>
         <h3>Your CSV files never leave your device</h3>
@@ -277,21 +381,72 @@
         your own equipment, and under whatever obligations already apply to you as its controller.
       </p>
 
+      <h2 id="admin-agent">The Azure admin agent, and why it is not part of this notice yet</h2>
+      <p>
+        This site also describes a second product: <a href="product-chatadmin.html">Digital
+        Admin</a>, a chat-based agent that signs in to Azure, carries out administrative changes
+        after an explicit approval, and writes an audit trail of what was asked, what was approved
+        or declined, and what the platform did. That is a materially heavier processing story than
+        a local browser tool, and it is described here honestly rather than glossed over.
+      </p>
+      <p>
+        What is true today, and only this:
+      </p>
+      <ul>
+        <li>It is <strong>not reachable from this website</strong>. No page here connects to it, and
+          its address is not published.</li>
+        <li>There is <strong>no sign-in and no sign-up</strong>. You cannot create an account, join a
+          waiting list or be onboarded, so it holds no account, identity or contact data about you.</li>
+        <li>It is <strong>not multi-tenant</strong>, and it runs today against
+          <strong>Neopiq&rsquo;s own Azure subscription</strong> &mdash; not against yours. No
+          customer system, tenant or data is connected to it.</li>
+        <li>It follows that <strong>no personal data of visitors or customers is processed by it</strong>,
+          and that nothing you do on this website causes anything to reach it.</li>
+      </ul>
+      <div class="ph-block">
+        <span class="ph-block__label">Placeholder &mdash; this notice must be rewritten before customer onboarding opens</span>
+        <p>
+          [PLACEHOLDER: what the admin agent processes once it runs against a customer&rsquo;s own
+          tenant &mdash; the categories of data, the roles and scope it is granted, who the
+          controller and who the processor is in that arrangement, and the data-processing
+          agreement that would govern it. None of this is decided, so none of it is described.]
+        </p>
+        <p>
+          [PLACEHOLDER: what the audit trail retains, for how long, and who may read it. Today it
+          records the action and the approval but not which person approved, because there is no
+          sign-in; once there is, it becomes a record about identifiable people and needs a
+          retention period and an access rule. This is open question Q8 and it is a legal-review
+          item, not a copy edit.]
+        </p>
+      </div>
+      <p class="small muted">
+        Until those answers exist, treat this notice as covering the website, the free check and
+        correspondence with us &mdash; and nothing else.
+      </p>
+
       <h2 id="recipients">Who receives your data</h2>
       <p>
-        Nobody, apart from the hosting provider described above. Your data is not sold, rented,
-        shared or disclosed. There is no advertising partner, no analytics vendor, no customer
-        relationship system and no e-mail platform involved in this site, because there is no
+        For your visit to this site: nobody, apart from the hosting provider described above. Your
+        data is not sold, rented, shared or disclosed. There is no advertising partner, no analytics
+        vendor and no customer relationship system involved in this site, because there is no
         mechanism by which anything could reach them.
+      </p>
+      <p>
+        For correspondence: whichever mail and telephony providers carry it, and nobody else &mdash;
+        those providers are named in the placeholder under
+        <a href="#writing-to-us">writing to us</a>, which has to be filled in before launch.
       </p>
       <p class="ph">[PLACEHOLDER: disclosure to authorities. Whether and how a legally binding order for the hosting provider&rsquo;s logs would be handled is a question for the lawyer once the entity and jurisdiction exist.]</p>
 
       <h2 id="retention">How long anything is kept</h2>
       <p>
-        We store nothing ourselves: there is no database, no log of our own and no back end. The only
-        retention question is how long the hosting provider keeps its server logs.
+        This website stores nothing itself: there is no database, no log of our own and no back end
+        behind these pages. Two retention questions remain, and neither can be answered by guessing:
+        how long the hosting provider keeps its server logs, and how long correspondence sent to the
+        contact address is kept.
       </p>
       <p class="ph">[PLACEHOLDER: retention period for the hosting provider&rsquo;s server logs, taken from the provider&rsquo;s current documentation]</p>
+      <p class="ph">[PLACEHOLDER: retention period for e-mail and telephone correspondence &mdash; see the placeholder under &ldquo;if you write to us&rdquo;]</p>
 
       <h2 id="rights">Your rights</h2>
       <p>
@@ -313,26 +468,40 @@
         In practice the honest answer to most access requests about this site is that we hold nothing
         about you: the only record of your visit sits in the hosting provider&rsquo;s logs, keyed to
         an IP address we cannot query. A request would be forwarded to the provider to the extent it
-        can be.
+        can be. If you have written to us, the correspondence itself is the exception &mdash; that we
+        do hold, and it is what an access request would actually return.
       </p>
       <ul>
-        <li>To exercise a right, contact: <span class="ph">[PLACEHOLDER: e-mail address for data-subject requests]</span></li>
-        <li>Competent supervisory authority: <span class="ph">[PLACEHOLDER: name, address and contact details of the supervisory authority &mdash; this follows from the country of establishment, which is not decided; in Switzerland this would be the FDPIC, in the EU the authority of the member state concerned]</span></li>
+        <li>
+          To exercise a right, write to <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a>, or
+          to Neopiq GmbH, c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland.
+        </li>
+        <li>
+          Competent supervisory authority in Switzerland: the Federal Data Protection and
+          Information Commissioner (FDPIC), Bern.
+        </li>
+        <li>
+          Competent supervisory authority in the EU:
+          <span class="ph">[PLACEHOLDER: only relevant if the GDPR applies to this site &mdash; the open question above. If it does, the authority of the member state concerned is competent and a lead authority may have to be identified. Not answered here.]</span>
+        </li>
       </ul>
 
       <h2 id="obligation">Is providing data required?</h2>
       <p>
-        No. You are not asked for any data, and there is nothing to withhold. The technical data in
-        the server logs is created by the act of requesting a page and cannot be separated from it,
-        which is true of every website; if you would rather not generate it, do not open the page.
+        No. You are not asked for any data by this site, and there is nothing to withhold. The
+        technical data in the server logs is created by the act of requesting a page and cannot be
+        separated from it, which is true of every website; if you would rather not generate it, do
+        not open the page. If you write to us, you decide what to put in the message &mdash; we need
+        only enough of an address to reply.
       </p>
 
       <h2 id="changes">Changes to this notice</h2>
       <p>
         This notice describes the site as it is built today. It will change when the site changes
         &mdash; and in particular it must be rewritten before anything that collects data is added:
-        a contact form, an account, a newsletter, a payment step, an embedded video, or the cloud
-        reporting step described on the <a href="pricing.html">pricing page</a> as not yet open.
+        a contact form, an account, a newsletter, a payment step, an embedded video, the cloud
+        reporting step described on the <a href="pricing.html">pricing page</a> as not yet open, or
+        customer onboarding for the <a href="#admin-agent">Azure admin agent</a>.
       </p>
       <p>
         The current version is always the one published on this page. There is no mailing list to
@@ -360,19 +529,24 @@
   <div class="wrap">
     <div class="site-footer__grid">
       <div>
-        <p><strong>Neopiq</strong> &mdash; digital employees for Dynamics&nbsp;365</p>
+        <p><strong>Neopiq</strong> &mdash; digital employees for Azure and Dynamics&nbsp;365</p>
         <p class="muted">
-          We find why enterprise systems behave wrongly, not only whether fields are filled in.
+          An admin agent that asks before it acts, and a diagnosis that finds why enterprise
+          systems behave wrongly.
         </p>
-        <p class="ph">[PLACEHOLDER: contact e-mail, postal address, company registration / legal entity details for Neopiq]</p>
+        <p class="small">
+          Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
+          UID CHE-345.914.300 &middot; not registered for VAT<br>
+          <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> &middot;
+          <a href="tel:0041782236716">0041 78 223 6716</a>
+        </p>
       </div>
       <div>
         <h2>What we do</h2>
         <ul>
-          <li><a href="tools/level0/">The free planning check &mdash; runs in your browser</a></li>
-          <li><a href="product-supply-chain.html">Planning settings vs reality</a></li>
-          <li><a href="product-process-data.html">Master data and process checks</a></li>
-          <li><a href="product-azure-admin.html">Azure &amp; Power Platform &mdash; in development</a></li>
+          <li><a href="product-chatadmin.html">ChatAdmin &mdash; the Azure admin agent, running today</a></li>
+          <li><a href="product-d365.html">D365 intelligence &mdash; planning logic and master data</a></li>
+          <li><a href="tools/level0/">The free D365 check &mdash; runs in your browser</a></li>
         </ul>
       </div>
       <div>
@@ -391,12 +565,14 @@
       </div>
     </div>
     <div class="site-footer__legal">
-      <p class="ph">[PLACEHOLDER: copyright line &mdash; needs the registered legal entity behind Neopiq]</p>
+      <p class="small">&copy; 2026 Neopiq GmbH</p>
       <p class="small">
-        Pre-launch site. Every yellow dashed marker is content the owner still has to supply. No
-        customers, results, certifications or performance figures are claimed anywhere on this site,
-        and only the free check exists today &mdash; everything described as in development or
-        planned is exactly that.
+        Pre-launch site. The company is registered and its details are real; the yellow dashed
+        markers that remain are optional fields and terms still awaiting legal review. No
+        customers, results, certifications or performance figures are claimed anywhere on this
+        site. Two things run today: the free D365 check in your browser, and the Azure admin agent
+        against our own subscription &mdash; which you cannot sign up for. Everything else is
+        marked in development or planned, and is exactly that.
       </p>
     </div>
   </div>

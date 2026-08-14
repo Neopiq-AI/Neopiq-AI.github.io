@@ -7,9 +7,18 @@
   tracked for this tree yet, and inventing them would be worse than omitting
   them (all three elements are optional).
 
+  Listed in the site's own order of importance: the two pillars first, admin
+  first within them, then the free check that is the zero-friction entry point.
+
   404.html is deliberately absent. It is served as the not-found body and
   carries <meta name="robots" content="noindex">, so listing it here would
   contradict the page itself.
+
+  product-supply-chain.html, product-process-data.html and product-azure-admin.html
+  are also deliberately absent. The first two were merged into product-d365.html;
+  the third was renamed to product-chatadmin.html when the admin product was named
+  ChatAdmin. All three survive only as noindex <meta refresh> stubs that forward
+  the old URLs; check-site.py fails the build if any is added here.
 
   /tools/level0/ is mounted at build time by build-site.py from the separate
   level0-web project; it is not a file in this source tree.
@@ -17,14 +26,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url><loc>https://neopiq.ai/</loc></url>
-  <url><loc>https://neopiq.ai/product-supply-chain.html</loc></url>
-  <url><loc>https://neopiq.ai/product-process-data.html</loc></url>
-  <url><loc>https://neopiq.ai/product-azure-admin.html</loc></url>
+  <url><loc>https://neopiq.ai/product-chatadmin.html</loc></url>
+  <url><loc>https://neopiq.ai/product-d365.html</loc></url>
+
+  <url><loc>https://neopiq.ai/tools/level0/</loc></url>
+
   <url><loc>https://neopiq.ai/how-it-works.html</loc></url>
   <url><loc>https://neopiq.ai/pricing.html</loc></url>
   <url><loc>https://neopiq.ai/about.html</loc></url>
-
-  <url><loc>https://neopiq.ai/tools/level0/</loc></url>
 
   <url><loc>https://neopiq.ai/imprint.html</loc></url>
   <url><loc>https://neopiq.ai/privacy.html</loc></url>

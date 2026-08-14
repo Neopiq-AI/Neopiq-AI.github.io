@@ -24,17 +24,16 @@
       <span class="brand__mark" aria-hidden="true">N</span>
       <span class="brand__text">
         Neopiq
-        <span class="brand__sub">Digital employees for Dynamics&nbsp;365</span>
+        <span class="brand__sub">Digital employees for Azure and Dynamics&nbsp;365</span>
       </span>
     </a>
     <span class="site-header__spacer"></span>
     <nav class="site-nav" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
+        <li><a href="product-chatadmin.html">ChatAdmin</a></li>
+        <li><a href="product-d365.html">D365 intelligence</a></li>
         <li><a href="tools/level0/">Free check</a></li>
-        <li><a href="product-supply-chain.html">Planning</a></li>
-        <li><a href="product-process-data.html">Master data</a></li>
-        <li><a href="product-azure-admin.html">Azure &amp; Power Platform</a></li>
         <li><a href="how-it-works.html">How it works</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html" aria-current="page">About</a></li>
@@ -53,12 +52,19 @@
           <li aria-current="page">About Neopiq</li>
         </ol>
       </nav>
-      <h1>We find why enterprise systems behave wrongly</h1>
+      <h1>We build digital employees, and we are specific about where each one stops</h1>
       <p class="lead">
-        Not only whether a field is missing. Most tools that look at ERP data can tell you a cell is
-        empty. Very few can tell you that a lead time of 30 days has been contradicted by your own
-        receipts for two years, that there is no safety stock behind it, and that this is why the
-        same customer keeps getting a late delivery. That gap is the whole company.
+        Two of them. <strong>ChatAdmin</strong> administers Azure through a conversation and
+        stops dead before every change until a person approves it. <strong>D365
+        intelligence</strong> reads your Dynamics&nbsp;365 planning data and stops at the
+        diagnosis, because it never writes anything back at all.
+      </p>
+      <p class="lead">
+        The second one exists because most tools that look at ERP data can tell you a cell is
+        empty, and very few can tell you that a lead time of 30 days has been contradicted by your
+        own receipts for two years, that there is no safety stock behind it, and that this is why
+        the same customer keeps getting a late delivery. The first exists because the objection to
+        an agent with cloud credentials is never capability &mdash; it is control.
       </p>
     </div>
   </section>
@@ -81,10 +87,21 @@
 
       <h2>What we do about it</h2>
       <p>
-        We put the cheapest, safest form of the analysis first. Rules and arithmetic, running on your
-        own machine, over an export you already know how to produce. Nothing moves, so there is
-        nothing to approve, so the first useful answer arrives on day one instead of in quarter
-        three. Only when that has proved useful does anything heavier make sense.
+        On the D365 side we put the cheapest, safest form of the analysis first. Rules and
+        arithmetic, running on your own machine, over an export you already know how to produce.
+        Nothing moves, so there is nothing to approve, so the first useful answer arrives on day
+        one instead of in quarter three. Only when that has proved useful does anything heavier
+        make sense.
+      </p>
+      <p>
+        On the admin side that order is impossible &mdash; administering a cloud means acting
+        inside it, and there is no read-only version of creating a resource group. So the first
+        thing built there was not a capability but a brake: an Approve / Reject gate that every
+        change has to pass, that nothing can skip, and that declines by itself if nobody answers
+        within five minutes. The capabilities were added behind it afterwards. It is also why
+        ChatAdmin is designed to execute inside your own subscription rather than reaching into it
+        from ours &mdash; if a machine is going to act on your cloud, it should do so on your side
+        of the line, under your identity.
       </p>
 
       <h2>What we hold ourselves to</h2>
@@ -105,14 +122,17 @@
             The free check moves nothing at all. The steps we are building are designed so that what
             crosses the boundary is results, never your records &mdash; and so that the heavy work
             eventually runs inside your own environment, on your own controls, rather than in ours.
+            The admin agent already works that way: it acts inside a subscription rather than
+            pulling anything out of one.
           </p>
         </div>
         <div class="callout">
-          <h3>Read first, act later</h3>
+          <h3>A person decides what changes</h3>
           <p>
-            Diagnosis before automation, always. Nothing writes back to your system today, and when
-            something eventually does, it will be after a person has read the evidence and approved
-            the change.
+            Nothing writes back to your ERP, today or in any planned step &mdash; the D365 pillar
+            produces a work list and stops there. The admin agent does change things, in Azure, and
+            every one of those changes is shown to a person first and does not happen unless it is
+            approved. Silence counts as no.
           </p>
         </div>
         <div class="callout">
@@ -140,18 +160,35 @@
       </p>
       <ul>
         <li>
-          <strong>What exists:</strong> the local check for Dynamics&nbsp;365 planning and master
-          data &mdash; 26 checks, running free in your browser, over extracts you produce yourself.
+          <strong>What exists and you can use:</strong> the local check for Dynamics&nbsp;365
+          planning and master data &mdash; 26 checks, running free in your browser, over extracts
+          you produce yourself. No account, nothing uploaded.
         </li>
         <li>
-          <strong>What does not exist:</strong> the cloud explanation and reporting step, the
-          in-tenant execution step, and the Azure and Power Platform family. They are described on
-          this site in the future tense, under visible markers, and nowhere else.
+          <strong>What exists and you cannot use:</strong> <a href="product-chatadmin.html">ChatAdmin</a>.
+          It is deployed and running, and it creates and manages real Azure resources behind an
+          approval gate. It is designed to execute inside <em>your</em> subscription &mdash; your
+          tenant, your identity, your audit trail &mdash; but so far it has only ever run inside
+          ours, because there is no sign-up, no login on the chat and no separation between
+          tenants. That is a product gap, not a waiting list.
         </li>
         <li>
-          <strong>What has not been proved:</strong> the thresholds have not been tuned against a
-          real customer tenant, and the sample data that demonstrates the checks is synthetic. We
-          say so on the pages where it matters.
+          <strong>What does not exist:</strong> Power Platform administration, ChatAdmin's
+          template-deployment, governance and devops actions, any route to install ChatAdmin into
+          a customer's subscription, the cloud explanation and reporting step, and the in-tenant
+          execution step for D365. They are described on this site in the
+          future tense, under visible markers, and nowhere else.
+        </li>
+        <li>
+          <strong>What is unfinished about the part that runs:</strong> in the demonstration
+          ChatAdmin's identity holds Owner on the subscription, which is broader than the
+          least-privilege model it should ship with; and its audit trail cannot yet name the person
+          who approved a change, because there is nobody to name until sign-in exists.
+        </li>
+        <li>
+          <strong>What has not been proved:</strong> the D365 thresholds have not been tuned
+          against a real customer tenant, and the sample data that demonstrates the checks is
+          synthetic. We say so on the pages where it matters.
         </li>
         <li>
           <strong>What we have not got:</strong> customers we can name, published results,
@@ -163,9 +200,15 @@
       <div class="ph-block">
         <span class="ph-block__label">Placeholder &mdash; owner decisions still open</span>
         <p>
-          [PLACEHOLDER: whether to publish the delivery sequence for the two unbuilt steps.
-          Publishing dates creates commitments; publishing the order without dates is probably the
-          safer version.]
+          [PLACEHOLDER: whether to publish the delivery sequence for what is unbuilt. Publishing
+          dates creates commitments; publishing the order without dates is probably the safer
+          version.]
+        </p>
+        <p>
+          [PLACEHOLDER: which pillar the company leads with commercially. The owner's position is
+          that admin is the larger market &mdash; more organisations run Azure than run D365
+          planning &mdash; while the free D365 check is the only thing a stranger can use today.
+          The site is currently built to say both, admin first. Confirm or re-order.]
         </p>
         <p>
           [PLACEHOLDER: whether to say publicly how small the team is. The architecture is
@@ -183,25 +226,30 @@
 
   <section class="section" id="contact">
     <div class="wrap narrow">
-      <h2>Getting in touch, and why you cannot yet</h2>
+      <h2>Getting in touch</h2>
+      <p>
+        Write to <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> or call
+        <a href="tel:0041782236716">0041 78 223 6716</a>. A person reads both. The full company
+        details are in the <a href="imprint.html">imprint</a>.
+      </p>
+      <p>
+        There is deliberately <strong>no contact form</strong> on this site &mdash; a form would mean
+        collecting your details through a page that otherwise collects nothing at all. An e-mail
+        reaches us just as well and leaves you in control of what you send.
+      </p>
+      <p>
+        You are also welcome not to contact us. The <a href="tools/level0/">free check</a> is the
+        whole of what a stranger can use unaided: it runs in your browser, needs no account, no
+        sign-up and no conversation, and we never see the file.
+        <a href="product-chatadmin.html">ChatAdmin</a> is real and running, but there is still
+        nothing to <em>join</em> &mdash; not a waiting list, not a private beta &mdash; because the
+        sign-in and tenant separation that would make joining mean anything have not been built. If
+        you want it pointed at your estate, say so by e-mail and we will tell you honestly where it
+        stands.
+      </p>
       <div class="ph-block">
-        <span class="ph-block__label">No contact channel is open yet</span>
-        <p>
-          <strong>There is no e-mail address, telephone number, contact form or social account for
-          Neopiq on this site, because none has been set up.</strong> Nothing has been invented to
-          fill the gap: no button anywhere on this site opens a message window, and none pretends
-          to. When a contact route exists it will be published here and in the
-          <a href="imprint.html">imprint</a>, and the buttons on the
-          <a href="pricing.html">pricing page</a> will point at it instead of at this section.
-        </p>
-        <p>
-          So the honest answer to &ldquo;how do I get started?&rdquo; is that you do not need us at
-          all. The <a href="tools/level0/">free check</a> is the whole of what exists today, it runs
-          in your browser, and it needs no account, no sign-up and no conversation. There is no
-          waiting list to join, because there is nothing yet to wait for.
-        </p>
-        <p>[PLACEHOLDER: contact e-mail address. Owner to supply; none is invented here.]</p>
-        <p>[PLACEHOLDER: LinkedIn or other channel.]</p>
+        <span class="ph-block__label">Still to decide</span>
+        <p>[PLACEHOLDER: LinkedIn or other public channel &mdash; none supplied.]</p>
         <p>
           [PLACEHOLDER: decide whether to add a contact form. A form needs a backend, which this
           static site does not have, and a privacy notice before it could collect anything.]
@@ -210,12 +258,13 @@
       <p>
         Once a route does exist, these are the conversations worth having: you have run the free
         check and want the findings challenged or interpreted; you are heading into a go-live, a
-        migration or an inventory programme and want the parameters reviewed first; or you want to
-        be told when the reporting step opens.
+        migration or an inventory programme and want the parameters reviewed first; you run Azure
+        and want to argue with how the approval gate is designed before it is ever pointed at your
+        subscription; or you want to be told when either of those opens.
       </p>
       <p>
-        Not worth a conversation even then, for now: buying anything. Only the free check is
-        available, and it does not need us.
+        Not worth a conversation even then, for now: buying anything. Nothing is for sale. The free
+        check is available and does not need us, and the admin agent has no way to take a customer.
       </p>
     </div>
   </section>
@@ -240,19 +289,24 @@
   <div class="wrap">
     <div class="site-footer__grid">
       <div>
-        <p><strong>Neopiq</strong> &mdash; digital employees for Dynamics&nbsp;365</p>
+        <p><strong>Neopiq</strong> &mdash; digital employees for Azure and Dynamics&nbsp;365</p>
         <p class="muted">
-          We find why enterprise systems behave wrongly, not only whether fields are filled in.
+          An admin agent that asks before it acts, and a diagnosis that finds why enterprise
+          systems behave wrongly.
         </p>
-        <p class="ph">[PLACEHOLDER: contact e-mail, postal address, company registration / legal entity details for Neopiq]</p>
+        <p class="small">
+          Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
+          UID CHE-345.914.300 &middot; not registered for VAT<br>
+          <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> &middot;
+          <a href="tel:0041782236716">0041 78 223 6716</a>
+        </p>
       </div>
       <div>
         <h2>What we do</h2>
         <ul>
-          <li><a href="tools/level0/">The free planning check &mdash; runs in your browser</a></li>
-          <li><a href="product-supply-chain.html">Planning settings vs reality</a></li>
-          <li><a href="product-process-data.html">Master data and process checks</a></li>
-          <li><a href="product-azure-admin.html">Azure &amp; Power Platform &mdash; in development</a></li>
+          <li><a href="product-chatadmin.html">ChatAdmin &mdash; administer Azure by conversation</a></li>
+          <li><a href="product-d365.html">D365 intelligence &mdash; planning logic and master data</a></li>
+          <li><a href="tools/level0/">The free D365 check &mdash; runs in your browser</a></li>
         </ul>
       </div>
       <div>
@@ -271,12 +325,14 @@
       </div>
     </div>
     <div class="site-footer__legal">
-      <p class="ph">[PLACEHOLDER: copyright line &mdash; needs the registered legal entity behind Neopiq]</p>
+      <p class="small">&copy; 2026 Neopiq GmbH</p>
       <p class="small">
-        Pre-launch site. Every yellow dashed marker is content the owner still has to supply. No
-        customers, results, certifications or performance figures are claimed anywhere on this site,
-        and only the free check exists today &mdash; everything described as in development or
-        planned is exactly that.
+        Pre-launch site. The company is registered and its details are real; the yellow dashed
+        markers that remain are commercial and product decisions the owner has still to make. No
+        customers, results, certifications or performance figures are claimed anywhere on this
+        site. Two things run today: the free D365 check in your browser, and ChatAdmin against our
+        own Azure subscription &mdash; which you cannot sign up for. Everything else is marked in
+        development or planned, and is exactly that.
       </p>
     </div>
   </div>

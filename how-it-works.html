@@ -24,17 +24,16 @@
       <span class="brand__mark" aria-hidden="true">N</span>
       <span class="brand__text">
         Neopiq
-        <span class="brand__sub">Digital employees for Dynamics&nbsp;365</span>
+        <span class="brand__sub">Digital employees for Azure and Dynamics&nbsp;365</span>
       </span>
     </a>
     <span class="site-header__spacer"></span>
     <nav class="site-nav" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
+        <li><a href="product-chatadmin.html">ChatAdmin</a></li>
+        <li><a href="product-d365.html">D365 intelligence</a></li>
         <li><a href="tools/level0/">Free check</a></li>
-        <li><a href="product-supply-chain.html">Planning</a></li>
-        <li><a href="product-process-data.html">Master data</a></li>
-        <li><a href="product-azure-admin.html">Azure &amp; Power Platform</a></li>
         <li><a href="how-it-works.html" aria-current="page">How it works</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html">About</a></li>
@@ -55,9 +54,17 @@
       </nav>
       <h1>How it works, and why you can run it before you trust us</h1>
       <p class="lead">
-        Three questions decide whether a tool like this is worth your time. What does it actually
-        tell me? Can I check whether it is right? And what happens to my data while it works? This
-        page answers them in that order, and only then explains how far the product goes.
+        Neopiq has two pillars, and they answer the same question from opposite ends. On
+        <strong>ChatAdmin</strong> an agent can change your cloud, so the control is a human
+        approval before every single change. On <strong>D365 intelligence</strong> nothing is ever
+        changed and nothing is ever transmitted, so the control is that there is nothing to
+        approve.
+      </p>
+      <p class="lead">
+        This page goes deep on the second one &mdash; what a finding is, how it decides something
+        is wrong, and where your data is while it works &mdash; and then puts both pillars on one
+        map of who holds the data and who carries the risk. The admin agent's own mechanics are on
+        <a href="product-chatadmin.html#approval">its own page</a>.
       </p>
     </div>
   </section>
@@ -66,6 +73,7 @@
     <div class="wrap">
       <div class="section__intro">
         <h2>What you get back: a finding, not an opinion</h2>
+        <p class="badge">Pillar 2 &mdash; D365 intelligence</p>
         <p>
           A finding is one problem, on one named object, with the evidence attached and an owner to
           send it to. Nothing is ever reported without the reasoning that produced it &mdash; if we
@@ -172,8 +180,11 @@
             these questions&rdquo; is itself useful.
           </li>
           <li>
-            <strong>Nothing is written back to D365.</strong> The whole product is read-only today,
-            on purpose.
+            <strong>Nothing is written back to D365.</strong> This pillar is read-only by
+            construction &mdash; it produces a work list, never a change. The
+            <a href="product-chatadmin.html">admin agent</a> on the other pillar <em>does</em>
+            make changes, to Azure, and only ever one you have approved first. Neither of them
+            touches your ERP.
           </li>
         </ul>
       </div>
@@ -186,7 +197,9 @@
         <h2>Where your data is while the work happens</h2>
         <p>
           Your item master and your vendor lead times are commercially sensitive. That is exactly
-          why the first useful answer must not require anybody to sign anything.
+          why the first useful answer must not require anybody to sign anything. The admin pillar
+          answers the same question differently &mdash; nothing of yours is read there yet either,
+          because it does not reach your tenant at all.
         </p>
       </div>
 
@@ -232,19 +245,30 @@
   <section class="section section--alt">
     <div class="wrap">
       <div class="section__intro">
-        <h2>How far it goes: what ships today, and where it is heading</h2>
+        <h2>The three levels are about where your data is, not how far along we are</h2>
         <p>
-          The product is built in three steps, and they differ in one thing above all: where your
-          data is when the work happens. <strong>Only the first step exists today.</strong> The
-          other two are the direction of travel, described here so you can judge whether it is a
-          direction you want to be on &mdash; not because you can buy them.
+          Level&nbsp;0, 1 and 2 classify <strong>who holds the data and who carries the risk</strong>
+          while the work happens. They are not a release timeline, and reading them as one is what
+          made an earlier version of this page wrong.
+        </p>
+        <p>
+          The two pillars entered the ladder at opposite ends. <strong>D365 intelligence started at
+          Level&nbsp;0</strong> &mdash; the cheapest, safest place, where nothing moves and nothing
+          is written. <strong>ChatAdmin started at Level&nbsp;2</strong>, because administering
+          a cloud means executing inside a subscription; there is no local, read-only version of
+          creating a resource group. That is why the admin agent is simultaneously the most
+          powerful thing we have built and the one you cannot use.
+        </p>
+        <p>
+          So <em>built</em> and <em>available to you</em> are two different facts. Each block below
+          states both, separately.
         </p>
       </div>
 
       <div class="stack" style="margin-top:1.75rem">
 
         <article class="level level--0" id="level-0">
-          <span class="level__tag">Level 0 &middot; available today</span>
+          <span class="level__tag">Level 0 &middot; Pillar 2 &middot; built, and open to you today</span>
           <h3>The local check &mdash; rules and arithmetic, on your machine</h3>
           <p>
             Runs in the browser, on the machine you open it on. Reads your extracts, applies the
@@ -265,10 +289,10 @@
         </article>
 
         <article class="level level--1" id="level-1">
-          <span class="level__tag">Level 1 &middot; in development</span>
+          <span class="level__tag">Level 1 &middot; not built on either pillar</span>
           <h3>Explanation and reporting &mdash; the local check, written up</h3>
           <p>
-            The intended next step. The reading, the aggregation and the rule work would stay local,
+            The one level where nothing exists at all. The reading, the aggregation and the rule work would stay local,
             exactly as they are today. A cloud service would take the <em>results</em> &mdash;
             summary numbers and risk signals &mdash; and turn them into a written report, a
             prioritised story of what is going wrong and why, and a pattern library that improves as
@@ -310,38 +334,69 @@
         </article>
 
         <article class="level level--2" id="level-2">
-          <span class="level__tag">Level 2 &middot; planned</span>
-          <h3>The heavy work, inside your own Azure</h3>
+          <span class="level__tag">Level 2 &middot; the work runs inside a subscription</span>
+          <h3>Execution &mdash; where the compute comes to the data</h3>
           <p>
-            The long-term direction. Optimisation, simulation, process mining and supervised repair
-            at full data volume are intended to run inside your own Azure subscription, under your
-            own identity and access controls, with the compute billed to you by Microsoft on your
-            existing agreement. We would orchestrate; you would own the environment the data sits
-            in.
+            Level&nbsp;2 means the work happens inside <strong>your</strong> Azure subscription
+            rather than in a browser or in our cloud. Nothing has to be exported for it, because
+            nothing moves: the compute goes to where your data and your resources already are, and
+            it runs under your identity and your controls. It is the most capable position on the
+            ladder and the one that demands the most trust, which is why it needs an approval gate
+            rather than a promise. Both pillars are designed to land here the same way.
           </p>
           <p>
-            <strong>This is a roadmap position, not a product.</strong> No deployment, no
-            template and no permission model exists today, and any change to your system would come
-            after the read-only diagnosis, never instead of it.
+            <strong>Two very different things sit at this level today.</strong>
           </p>
+          <ul>
+            <li>
+              <strong><a href="product-chatadmin.html">ChatAdmin</a> &mdash; built and
+              running.</strong> The agent executes inside a real Azure subscription right now,
+              behind an Approve / Reject gate that auto-declines if nobody answers. Its model is
+              exactly the Level&nbsp;2 model above: it runs inside <em>your</em> subscription,
+              under your identity, with your audit trail. <strong>What has actually happened so
+              far is that it runs inside ours</strong> &mdash; there is no sign-up, no login and no
+              tenant separation, so Level&nbsp;2 being built does not mean Level&nbsp;2 is open to
+              you. Its <a href="product-chatadmin.html#limits">full list of limits</a> is on its
+              own page.
+            </li>
+            <li>
+              <strong>D365 heavy work &mdash; not built.</strong> Optimisation, simulation, process
+              mining and supervised repair at full data volume are intended to run inside your own
+              subscription, under your own identity and access controls, with the compute billed to
+              you by Microsoft on your existing agreement. No deployment, no template and no
+              permission model exists for this, and any change to your ERP would come after the
+              read-only diagnosis, never instead of it.
+            </li>
+          </ul>
           <p class="level__where">
             <strong>Your data:</strong> would not move at all &mdash; the compute would come to the
-            data.
+            data. <strong>What is unfinished:</strong> the permission model. The admin agent's
+            identity currently holds Owner on the subscription it runs in, which is broader than
+            the least-privilege role this level is supposed to ask for.
           </p>
         </article>
 
       </div>
 
       <div class="callout" id="levels-to-tiers" style="margin-top:1.75rem">
-        <h3>Levels are the product. Tiers are how you buy it.</h3>
+        <h3>Levels are the data boundary. Tiers are how you buy it. Pillars are what it is pointed at.</h3>
         <p>
-          The three pricing tiers map one-to-one onto these three levels: the
-          <a href="pricing.html#free">Free tier</a> unlocks Level&nbsp;0, the
-          <a href="pricing.html#trial">Trial tier</a> unlocks Level&nbsp;1, and the
-          <a href="pricing.html#enterprise">Enterprise tier</a> unlocks Level&nbsp;2. Each tier
-          includes everything in the tier below it. Because only Level&nbsp;0 exists today, only the
-          Free tier is open today &mdash; the <a href="pricing.html">pricing page</a> says exactly
-          what that means.
+          Three words, three different jobs, and they are not synonyms.
+          <strong>Levels</strong> say where the work runs and what crosses the boundary.
+          <strong>Pillars</strong> say which system it is pointed at &mdash; Azure administration,
+          or Dynamics&nbsp;365. <strong>Tiers</strong> are the commercial packaging, and they still
+          map one-to-one onto the levels: the <a href="pricing.html#free">Free tier</a> unlocks
+          Level&nbsp;0, the <a href="pricing.html#trial">Trial tier</a> unlocks Level&nbsp;1, and
+          the <a href="pricing.html#enterprise">Enterprise tier</a> unlocks Level&nbsp;2. Each tier
+          includes everything in the tier below it.
+        </p>
+        <p>
+          What changed is the <em>reason</em> only the Free tier is open. It is no longer &ldquo;the
+          other levels are not built&rdquo; &mdash; Level&nbsp;2 is built and running on the admin
+          pillar. It is that <strong>the only thing anyone can be given access to today is the free
+          local check</strong>: the admin agent has no sign-up, no login and no tenant separation,
+          so there is nothing to sell even though there is something to see. The
+          <a href="pricing.html">pricing page</a> sets that out tier by tier and pillar by pillar.
         </p>
       </div>
     </div>
@@ -352,43 +407,50 @@
       <div class="section__intro">
         <h2>The table to take into your IT review</h2>
         <p>
-          Where the work runs, what crosses the boundary, and who carries the risk &mdash; step by
-          step. The second and third rows describe intent, because those steps are not built.
+          Where the work runs, what crosses the boundary, and who carries the risk. Built and
+          available are separate columns on purpose, because on this site they genuinely disagree.
         </p>
       </div>
       <div class="table-scroll" style="margin-top:1.5rem">
         <table>
-          <caption>Data movement and risk, by step. Only Level&nbsp;0 exists today; the other rows state design intent for capabilities that are not built.</caption>
+          <caption>Data movement and risk, by level and pillar. &ldquo;Built&rdquo; is an engineering fact; &ldquo;open to you&rdquo; is a commercial one. Rows marked not built state design intent only.</caption>
           <thead>
             <tr>
-              <th scope="col">Step</th>
-              <th scope="col">Status</th>
+              <th scope="col">Level and pillar</th>
+              <th scope="col">Built?</th>
+              <th scope="col">Open to you?</th>
               <th scope="col">What leaves your environment</th>
               <th scope="col">Where the work runs</th>
-              <th scope="col">What it means for you</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row">Level 0 &mdash; the local check</th>
-              <td>Available today</td>
+              <th scope="row">Level 0 &mdash; the local D365 check (Pillar 2)</th>
+              <td>Yes</td>
+              <td>Yes, free</td>
               <td>Nothing</td>
-              <td>Your browser, or a small local program</td>
-              <td>Nothing to approve, nothing to sign, nothing to transfer</td>
+              <td>Your browser, on your machine</td>
             </tr>
             <tr>
-              <th scope="row">Level 1 &mdash; explanation and reporting</th>
-              <td>In development</td>
+              <th scope="row">Level 1 &mdash; explanation and reporting (Pillar 2)</th>
+              <td>No &mdash; in development</td>
+              <td>No</td>
               <td>Intended: summary numbers and risk signals only &mdash; never your records</td>
-              <td>Reading and rules stay local; the write-up would happen in our cloud service</td>
-              <td>One outbound service to review, with no business records in it</td>
+              <td>Reading and rules would stay local; the write-up would happen in our cloud service</td>
             </tr>
             <tr>
-              <th scope="row">Level 2 &mdash; execution in your Azure</th>
-              <td>Planned</td>
+              <th scope="row">Level 2 &mdash; ChatAdmin (Pillar 1)</th>
+              <td><strong>Yes &mdash; running</strong></td>
+              <td><strong>No</strong> &mdash; no sign-up, no login, not multi-tenant</td>
+              <td>By design nothing leaves: it acts inside your subscription. So far it has only acted inside <em>ours</em></td>
+              <td>Intended: inside your own Azure subscription, behind an approval gate on every change</td>
+            </tr>
+            <tr>
+              <th scope="row">Level 2 &mdash; D365 optimisation and repair (Pillar 2)</th>
+              <td>No &mdash; planned</td>
+              <td>No</td>
               <td>Intended: nothing &mdash; the compute comes to the data</td>
-              <td>Inside your own Azure subscription</td>
-              <td>Your identity model, your controls, your Microsoft bill for the compute</td>
+              <td>Intended: inside your own Azure subscription, on your Microsoft bill</td>
             </tr>
           </tbody>
         </table>
@@ -398,8 +460,19 @@
         <p>
           [PLACEHOLDER: the concrete commitments an IT reviewer will ask for once Level&nbsp;1
           exists &mdash; data-processing agreement, sub-processor list, hosting region, retention
-          period for the signals that are sent, and the exact Azure permissions Level&nbsp;2 would
-          request. None of this is decided, so none of it is claimed here.]
+          period for the signals that are sent. None of this is decided, so none of it is claimed
+          here.]
+        </p>
+        <p>
+          [PLACEHOLDER: the exact Azure role definition ChatAdmin would request in a customer's
+          subscription, the scope it would be granted at, and how it would be installed there at
+          all. The demonstration runs with Owner on our own subscription, which is explicitly not
+          the model to ship; none of the replacements has been decided, so none is described here.]
+        </p>
+        <p>
+          [PLACEHOLDER: what ChatAdmin's audit trail retains, for how long, and who can read it,
+          once it runs in a customer's subscription and there is a sign-in that makes per-person
+          attribution possible.]
         </p>
         <p>
           No certification, audit, standard or compliance badge is claimed anywhere on this site.
@@ -459,14 +532,15 @@
 
   <section class="section cta-band">
     <div class="wrap center">
-      <h2>The only part you can judge today is also the free part</h2>
+      <h2>The only part you can put your hands on is the free part</h2>
       <p class="lede" style="margin-inline:auto">
-        Everything above is either something you can verify in your own browser, on your own data,
-        or something we have told you does not exist yet. Start with the part that does.
+        Everything above is one of three things: something you can verify yourself in your own
+        browser on your own data, something running that we have told you is not open to you, or
+        something we have told you does not exist yet. Start with the first one.
       </p>
       <div class="btn-row" style="justify-content:center">
         <a class="btn btn--primary" href="tools/level0/">Run the free check</a>
-        <a class="btn btn--ghost" href="pricing.html#free">What the Free tier includes</a>
+        <a class="btn btn--ghost" href="product-chatadmin.html#limits">What the admin agent cannot do yet</a>
       </div>
     </div>
   </section>
@@ -477,19 +551,24 @@
   <div class="wrap">
     <div class="site-footer__grid">
       <div>
-        <p><strong>Neopiq</strong> &mdash; digital employees for Dynamics&nbsp;365</p>
+        <p><strong>Neopiq</strong> &mdash; digital employees for Azure and Dynamics&nbsp;365</p>
         <p class="muted">
-          We find why enterprise systems behave wrongly, not only whether fields are filled in.
+          An admin agent that asks before it acts, and a diagnosis that finds why enterprise
+          systems behave wrongly.
         </p>
-        <p class="ph">[PLACEHOLDER: contact e-mail, postal address, company registration / legal entity details for Neopiq]</p>
+        <p class="small">
+          Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
+          UID CHE-345.914.300 &middot; not registered for VAT<br>
+          <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> &middot;
+          <a href="tel:0041782236716">0041 78 223 6716</a>
+        </p>
       </div>
       <div>
         <h2>What we do</h2>
         <ul>
-          <li><a href="tools/level0/">The free planning check &mdash; runs in your browser</a></li>
-          <li><a href="product-supply-chain.html">Planning settings vs reality</a></li>
-          <li><a href="product-process-data.html">Master data and process checks</a></li>
-          <li><a href="product-azure-admin.html">Azure &amp; Power Platform &mdash; in development</a></li>
+          <li><a href="product-chatadmin.html">ChatAdmin &mdash; administer Azure by conversation</a></li>
+          <li><a href="product-d365.html">D365 intelligence &mdash; planning logic and master data</a></li>
+          <li><a href="tools/level0/">The free D365 check &mdash; runs in your browser</a></li>
         </ul>
       </div>
       <div>
@@ -508,12 +587,14 @@
       </div>
     </div>
     <div class="site-footer__legal">
-      <p class="ph">[PLACEHOLDER: copyright line &mdash; needs the registered legal entity behind Neopiq]</p>
+      <p class="small">&copy; 2026 Neopiq GmbH</p>
       <p class="small">
-        Pre-launch site. Every yellow dashed marker is content the owner still has to supply. No
-        customers, results, certifications or performance figures are claimed anywhere on this site,
-        and only the free check exists today &mdash; everything described as in development or
-        planned is exactly that.
+        Pre-launch site. The company is registered and its details are real; the yellow dashed
+        markers that remain are commercial and product decisions the owner has still to make. No
+        customers, results, certifications or performance figures are claimed anywhere on this
+        site. Two things run today: the free D365 check in your browser, and ChatAdmin against our
+        own Azure subscription &mdash; which you cannot sign up for. Everything else is marked in
+        development or planned, and is exactly that.
       </p>
     </div>
   </div>

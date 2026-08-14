@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatAdmin &mdash; administer Azure by saying what you want, with approval before every change</title>
+<meta name="description" content="ChatAdmin is Azure administration through a chat instead of a portal: you describe the outcome, it chains the steps, and it stops for an Approve or Reject before every change, declining by default if nobody answers. It is designed to execute inside your own Azure subscription. Today the same agent runs against our subscription; customer onboarding is not open, and Power Platform administration is not built.">
+<link rel="canonical" href="https://neopiq.ai/product-chatadmin.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Neopiq">
+<meta property="og:title" content="ChatAdmin &mdash; administer Azure by saying what you want, with approval before every change">
+<meta property="og:description" content="ChatAdmin is Azure administration through a chat instead of a portal: you describe the outcome, it chains the steps, and it stops for an Approve or Reject before every change, declining by default if nobody answers. It is designed to execute inside your own Azure subscription. Today the same agent runs against our subscription; customer onboarding is not open, and Power Platform administration is not built.">
+<meta property="og:url" content="https://neopiq.ai/product-chatadmin.html">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">N</span>
+      <span class="brand__text">
+        Neopiq
+        <span class="brand__sub">Digital employees for Azure and Dynamics&nbsp;365</span>
+      </span>
+    </a>
+    <span class="site-header__spacer"></span>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product-chatadmin.html" aria-current="page">ChatAdmin</a></li>
+        <li><a href="product-d365.html">D365 intelligence</a></li>
+        <li><a href="tools/level0/">Free check</a></li>
+        <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">ChatAdmin</li>
+        </ol>
+      </nav>
+      <p class="eyebrow">Pillar 1 &middot; ChatAdmin &middot; built and running today &middot; not open for sign-up</p>
+      <h1>ChatAdmin administers Azure by conversation, and changes nothing until you say yes</h1>
+      <p class="lead">
+        You say what you want. You do not go and find where it lives. Ask for a resource group, a
+        storage account, a virtual network, a key vault, a Log Analytics workspace or a Container
+        App and ChatAdmin works out the calls, chains the steps and feeds each result into the
+        next. It looks things up without interrupting you. Before it changes anything it stops,
+        shows you the exact call it is about to make, and waits for <strong>Approve</strong> or
+        <strong>Reject</strong>. If nobody answers, it declines. Every action goes into an audit
+        trail.
+      </p>
+      <p class="lead">
+        <strong>The model is that ChatAdmin executes inside your own Azure subscription</strong>
+        &mdash; your tenant, your identity, your audit trail, nothing about your estate exported to
+        us. <strong>What is demonstrable today is the same agent running against our
+        subscription.</strong> Those are two different sentences and this page keeps them apart:
+        the design is on this page under <a href="#model">where it is designed to run</a>, and
+        everything that is not true yet is under <a href="#limits">what is deliberately not true
+        yet</a>.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="#today">What it does today</a>
+        <a class="btn btn--ghost" href="#limits">What it cannot do yet</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="chat">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>Why a chat, and not another admin portal</h2>
+        <p>
+          The interface is the product decision, not a wrapper around one. This is a comparison of
+          two interaction models, not a claim that one tool is better than another &mdash; the
+          Azure and Microsoft&nbsp;365 admin portals are comprehensive, and ChatAdmin is not.
+        </p>
+      </div>
+
+      <div class="grid grid--2" style="margin-top:2rem">
+        <article class="card">
+          <h3>What a portal is genuinely better at</h3>
+          <ul>
+            <li><strong>Coverage.</strong> Every service, every setting. ChatAdmin knows a handful of resource types, listed in the table below, and nothing else.</li>
+            <li><strong>Discovery.</strong> It shows you state you did not think to ask about. A chat only answers the question you asked.</li>
+            <li><strong>Browsing.</strong> When you do not yet know what you are looking for, a form beats a sentence.</li>
+          </ul>
+          <p>
+            If you administer Azure all day and know exactly where everything lives, a portal is a
+            fast tool and we are not going to pretend otherwise.
+          </p>
+        </article>
+
+        <article class="level level--2">
+          <span class="level__tag">The differentiator</span>
+          <h3>What changes when you can just say it</h3>
+          <ul>
+            <li>
+              <strong>You describe the outcome, not the route.</strong> A portal asks you to know
+              which blade the setting lives in. A chat asks you to know what you want. Those are
+              different kinds of knowledge, and only one of them is about the product you are
+              using.
+            </li>
+            <li>
+              <strong>Multi-step work stays in one place.</strong> Standing up an environment
+              normally means carrying identifiers between blades by hand. ChatAdmin has built a
+              whole environment from a single instruction &mdash; network, key vault, storage, Log
+              Analytics workspace, Container Apps environment and the app on top of it &mdash;
+              feeding each resource ID forward itself.
+            </li>
+            <li>
+              <strong>The record is of the intent, before the fact.</strong> Platform logs tell you
+              what happened. ChatAdmin's approval card captures what was <em>asked for</em>, the
+              exact call it produced, and a person's decision &mdash; recorded before the change
+              is made rather than reconstructed after it.
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <p style="margin-top:1.75rem">
+        The honest summary: a portal is better when you are exploring, and a chat is better when
+        you already know what you want and would rather say it once than click it eleven times.
+        <a href="#limits">What ChatAdmin cannot do yet</a> is the other half of that sentence.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="today">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>What is actually built, and what is still a name in a menu</h2>
+        <p>
+          Everything in the first block has been executed against a live Azure subscription. The
+          rest is listed because the agent advertises the action &mdash; and then refuses to do
+          anything useful with it. Saying so here is cheaper than letting you find out.
+        </p>
+      </div>
+
+      <div class="table-scroll" style="margin-top:1.75rem">
+        <table>
+          <caption>Capability status for ChatAdmin. &ldquo;Running&rdquo; means it has created or changed the real resource type against a real subscription, through the chat, behind the approval gate.</caption>
+          <thead>
+            <tr>
+              <th scope="col">What you can ask for</th>
+              <th scope="col">Status</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">List resource groups and resources</th>
+              <td>Running today</td>
+              <td>Read-only, so it answers immediately &mdash; no approval card, because nothing changes</td>
+            </tr>
+            <tr>
+              <th scope="row">Create and manage resource groups</th>
+              <td>Running today</td>
+              <td>Behind the approval gate</td>
+            </tr>
+            <tr>
+              <th scope="row">Storage accounts</th>
+              <td>Running today</td>
+              <td>Behind the approval gate</td>
+            </tr>
+            <tr>
+              <th scope="row">Virtual networks and subnets</th>
+              <td>Running today</td>
+              <td>Behind the approval gate. Subnets you leave out of the request are removed &mdash; the tool description says so, and it is still a sharp edge</td>
+            </tr>
+            <tr>
+              <th scope="row">Key vaults</th>
+              <td>Running today</td>
+              <td>Behind the approval gate. It manages the vault; it does not read secrets out of it</td>
+            </tr>
+            <tr>
+              <th scope="row">Log Analytics workspaces</th>
+              <td>Running today</td>
+              <td>Behind the approval gate</td>
+            </tr>
+            <tr>
+              <th scope="row">Container Apps and their environments</th>
+              <td>Running today</td>
+              <td>Behind the approval gate. This is the one that shows what the chat buys you &mdash; a whole environment chained from one instruction</td>
+            </tr>
+            <tr>
+              <th scope="row">Virtual machines</th>
+              <td>Written, never run live</td>
+              <td>The code exists and is tested by construction, but no VM has been created by it. Until one has, we are not calling it a capability</td>
+            </tr>
+            <tr>
+              <th scope="row">ARM and Bicep template deployment</th>
+              <td>Not implemented &mdash; stub</td>
+              <td>The action name exists. There is no implementation behind it</td>
+            </tr>
+            <tr>
+              <th scope="row">Governance &mdash; tagging, naming, compliance reporting</th>
+              <td>Not implemented &mdash; stub</td>
+              <td>Same: named, not built</td>
+            </tr>
+            <tr>
+              <th scope="row">DevOps &mdash; environment build, diagnostics, dependency analysis</th>
+              <td>Not implemented &mdash; stub</td>
+              <td>Same: named, not built</td>
+            </tr>
+            <tr>
+              <th scope="row">Power Platform administration</th>
+              <td>Not started</td>
+              <td>No code at all. It is the <a href="#next">next admin domain</a>, not a feature</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="approval">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>The approval gate is the product, not a safety wrapper bolted on afterwards</h2>
+        <p>
+          An agent holding cloud credentials is only as good as what it does when nobody is
+          watching. That is the question this design answers first, and everything else is
+          downstream of it.
+        </p>
+      </div>
+
+      <div class="grid grid--2" style="margin-top:2rem">
+        <article class="level level--2">
+          <span class="level__tag">Running today</span>
+          <h3>Silence means no</h3>
+          <p>
+            Every mutating call stops and raises an Approve / Reject card. The agent loop
+            <em>waits</em> &mdash; it does not carry on and reconcile later. If the card is left
+            unanswered for five minutes it is <strong>automatically declined</strong> and the change
+            does not happen.
+          </p>
+          <p>
+            Nothing is ever auto-approved. There is no &ldquo;trusted action&rdquo; list that skips
+            the card, and no confidence score that lets the model decide it is probably fine.
+          </p>
+          <p class="level__where">
+            Verified rather than asserted: an approved change created a real resource group in a
+            real subscription, driven from the browser over the public internet. The decline and
+            time-out paths are covered by the approval-loop tests that ship with the agent.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Reading is free. Changing is not.</h3>
+          <p>
+            Looking up what exists runs straight through &mdash; you are not clicking Approve to
+            ask a question. The gate sits precisely where the risk is, so it stays meaningful
+            instead of becoming a habit you click past.
+          </p>
+          <h3>You approve the call, not a summary of it</h3>
+          <p>
+            The card shows the action and its parameters, so you are agreeing to a specific change
+            to a specific resource. Password and key parameters are masked in the card, and
+            capability results redact secrets before anything is returned or logged.
+          </p>
+          <h3>Every action lands in an audit trail</h3>
+          <p>
+            What was asked for, what was approved or declined, and what the platform did.
+            <strong>What it does not yet record is which signed-in person approved it</strong>
+            &mdash; because there is no sign-in yet. That is honestly a gap, and it is named again
+            below.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="model">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>Where ChatAdmin is designed to run: inside your subscription</h2>
+        <p>
+          This is the architectural model, and it is the reason ChatAdmin sits at Level&nbsp;2 on
+          <a href="how-it-works.html#level-2">our ladder</a>. Administering a cloud means acting
+          inside it, so the agent goes to where your resources already are rather than reaching
+          across a boundary to manage them from outside.
+        </p>
+      </div>
+
+      <div class="grid grid--2" style="margin-top:2rem">
+        <article class="level level--2">
+          <span class="level__tag">The model &middot; designed, not yet deployed for anyone</span>
+          <h3>Your subscription, your tenant, your identity</h3>
+          <ul>
+            <li><strong>It executes inside your Azure subscription,</strong> not in a service of ours that holds keys to it.</li>
+            <li><strong>Your identity and your role assignment</strong> bound what it is able to do, on your side of the line.</li>
+            <li><strong>Your audit trail.</strong> The record of what was asked, approved and executed belongs where the resources do.</li>
+            <li><strong>Nothing about your estate is exported to us</strong> in order to be administered. The compute comes to the environment; the environment does not come to us.</li>
+          </ul>
+          <p class="level__where">
+            <strong>Status:</strong> this is the design. No customer deployment exists, no
+            installation mechanism exists, and the least-privilege role it would ask for has not
+            been decided.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>What is demonstrable today, and where it stops</h3>
+          <p>
+            The same agent, the same approval gate, the same capabilities &mdash; running against
+            <strong>our own</strong> Azure subscription. It authenticates by managed identity and
+            drives real ARM calls, so the mechanism is real rather than mocked.
+          </p>
+          <p>
+            <strong>That demonstrates the mechanism. It does not deploy the model.</strong> No
+            customer subscription has ever been connected to it, and there is nothing to connect
+            one with: pointing ChatAdmin at your tenant needs sign-in, tenant separation and a
+            role definition, and none of those exists.
+          </p>
+          <p>
+            We would rather you read that sentence here than infer the opposite from a page that
+            only talked about the design.
+          </p>
+          <p class="card__more"><a href="#limits">The complete list of what is not true yet</a></p>
+        </article>
+      </div>
+
+      <div class="ph-block">
+        <span class="ph-block__label">Placeholder &mdash; owner input required</span>
+        <p>
+          [PLACEHOLDER: how ChatAdmin would actually be installed into a customer subscription
+          &mdash; a container app the customer deploys, a Marketplace offer, a managed application,
+          or something else. This is the decision that turns the model on this page into a product,
+          and it has not been made.]
+        </p>
+        <p>
+          [PLACEHOLDER: which Azure scope a customer deployment would be offered at &mdash; a whole
+          subscription, a single resource group, or a management group &mdash; and the exact role
+          definition it would ask for. Undecided, so unstated.]
+        </p>
+        <p>
+          [PLACEHOLDER: where the LLM inference happens in the customer-subscription model, and
+          what leaves the customer's environment to make the conversation work. It is the first
+          question a security reviewer will ask about a chat that runs inside their tenant, and it
+          has not been answered.]
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>Two more things a sceptical administrator asks in the first minute</h2>
+      </div>
+
+      <div class="grid grid--2" style="margin-top:1.75rem">
+        <article class="card">
+          <h3>&ldquo;Where are the credentials?&rdquo;</h3>
+          <p>
+            There are none in the container. The hosted agent authenticates to Azure by
+            <strong>managed identity</strong> &mdash; the platform hands it a token, so there is no
+            certificate, no client secret and no key file baked into the image to leak, rotate or
+            lose. An earlier design put a certificate inside the container; it was rejected for
+            this one.
+          </p>
+          <p>
+            The running instance reports its own auth mode, subscription and tool list over an
+            information endpoint, so the claim on this page is checkable rather than asserted.
+          </p>
+          <p class="small muted">
+            We are not publishing that URL here. The deployment has no login yet, so an address on
+            a public page would be the access control &mdash; which is exactly the sort of thing
+            this page criticises.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>&ldquo;Can it talk itself into doing something else?&rdquo;</h3>
+          <p>
+            The limits are enforced outside the model, in the dispatcher that every action has to
+            pass through, not by asking the model nicely in a prompt. Out-of-scope actions are
+            refused before any Azure call is made.
+          </p>
+          <p>
+            Concretely: it will not reach the commercial Marketplace API, it will not mint or hand
+            back credentials, and it will not disclose secret material &mdash; not in a chat reply,
+            not in a tool result, not in the audit log.
+          </p>
+          <p>
+            It also has a dry-run mode in which it does the whole conversation and the whole
+            approval flow and performs no network calls at all.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="limits">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>What is deliberately not true yet</h2>
+        <p>
+          This is the part most vendors leave out. Read it before you read anything else on this
+          page a second time.
+        </p>
+      </div>
+
+      <div class="callout" style="margin-top:1.75rem">
+        <h3>You cannot use ChatAdmin today, and here is exactly why</h3>
+        <ul>
+          <li>
+            <strong>There is no customer sign-up or onboarding.</strong> No account, no waiting
+            list, no trial. Nothing on this site opens a route to using ChatAdmin, because no such
+            route has been built.
+          </li>
+          <li>
+            <strong>The chat has no login.</strong> Adding sign-in is a known, pending piece of
+            work for every deployed surface we run. Until it exists, the deployment is a test
+            footing, not a service.
+          </li>
+          <li>
+            <strong>It is not multi-tenant.</strong> One agent, one identity, one subscription.
+            There is no separation between customers because there are no customers.
+          </li>
+          <li>
+            <strong>No customer subscription has ever been connected.</strong> Every capability
+            listed above was exercised on our own Azure account. That is a limitation of the
+            <em>demonstration</em>, not a property of the product &mdash;
+            <a href="#model">the model is execution inside your subscription</a> &mdash; but the
+            model has never been deployed for anyone, and there is currently no mechanism to
+            deploy it.
+          </li>
+          <li>
+            <strong>The identity it runs under is too broadly scoped.</strong> In the running
+            demonstration the automation identity holds <strong>Owner</strong> on the subscription,
+            which is wider than the least-privilege model this is supposed to ship with &mdash; an
+            Owner can reassign roles, which is an escalation path. Narrowing it is an open
+            decision, not a completed one.
+          </li>
+          <li>
+            <strong>The audit trail does not yet say who approved.</strong> It records the action
+            and the decision. Attributing that decision to a named person depends on the sign-in
+            that does not exist yet.
+          </li>
+          <li>
+            <strong>Power Platform administration does not exist.</strong> Not partially, not in
+            preview. There is no code.
+          </li>
+          <li>
+            <strong>No uptime, support or availability commitment.</strong> None has been offered
+            anywhere on this site, and none should be inferred from the fact that it is running.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="next">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>Where this goes next</h2>
+        <p>
+          In the order it has to happen, not in the order that sounds best. Every item below is
+          unbuilt.
+        </p>
+      </div>
+
+      <div class="grid grid--3" style="margin-top:1.75rem">
+        <article class="level level--1">
+          <span class="level__tag">Not built &middot; next</span>
+          <h3>A front door</h3>
+          <p>
+            Sign-in on the chat, then the audit trail recording which signed-in person approved
+            which change. Those two are one piece of work, and they are what turns a running
+            deployment into something a stranger could be allowed near.
+          </p>
+          <p class="level__where"><strong>Status:</strong> identified and pending. Not started.</p>
+        </article>
+
+        <article class="level level--1">
+          <span class="level__tag">Not built &middot; the model, deployed</span>
+          <h3>ChatAdmin inside your subscription</h3>
+          <p>
+            Turning <a href="#model">the design</a> into something a customer can actually run:
+            an installation route, tenant separation, and a least-privilege role instead of Owner.
+            This is the difference between a demonstration and a product, and it is not crossed
+            yet.
+          </p>
+          <p class="level__where"><strong>Status:</strong> the deployment route and the permission model are both open decisions.</p>
+        </article>
+
+        <article class="level level--1">
+          <span class="level__tag">Not built &middot; the second admin domain</span>
+          <h3>Power Platform administration</h3>
+          <p>
+            The intended next domain after Azure: environments, connectors, policies and the
+            ownership questions that go with them. It is named here as a direction so you can
+            judge where this is heading. <strong>No part of it is implemented.</strong>
+          </p>
+          <p class="level__where"><strong>Status:</strong> not started.</p>
+        </article>
+      </div>
+
+      <div class="ph-block">
+        <span class="ph-block__label">Placeholder &mdash; owner input required</span>
+        <p>
+          [PLACEHOLDER: which further admin domains follow Azure and Power Platform, and in what
+          order. The owner describes &ldquo;further admin domains later&rdquo; without naming them,
+          so none are named here.]
+        </p>
+        <p>
+          [PLACEHOLDER: the commercial model for ChatAdmin &mdash; per subscription, per
+          administrator, per approved change, or a flat subscription. It is undecided, and it is
+          the decision that unblocks the <a href="pricing.html">pricing page</a>.]
+        </p>
+        <p>
+          [PLACEHOLDER: whether to publish a target date for customer onboarding. There is none
+          today, and a date here would be the first unverifiable statement on this site.]
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>Who ChatAdmin is for, when the front door exists</h2>
+      </div>
+      <ul class="narrow" style="margin-top:1.25rem">
+        <li><strong>Azure administrators</strong> who do the same five-step build every time a project starts and would rather describe it once than click it again.</li>
+        <li><strong>Small platform teams</strong> who need the safety of a change-approval step without standing up a whole change-management process to get it.</li>
+        <li><strong>IT leaders</strong> whose objection to agents is not capability but control &mdash; and for whom &ldquo;it runs in our own subscription, it stops and asks, and it declines if nobody answers&rdquo; is the answer to the real question.</li>
+      </ul>
+      <p style="margin-top:1.5rem">
+        In the meantime the thing you can actually run is on the other pillar:
+        <a href="tools/level0/">the free D365 check</a>. It needs no account and transmits nothing,
+        and it is the only part of Neopiq a stranger can use unaided today.
+      </p>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="wrap center">
+      <h2>ChatAdmin is real. It is just not running in your subscription yet.</h2>
+      <p class="lede" style="margin-inline:auto">
+        We would rather say that plainly than take a sign-up from you for something that has no
+        login, no tenant separation and no way to reach your Azure. When that changes, this page
+        changes first.
+      </p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn--primary" href="tools/level0/">Run the free D365 check</a>
+        <a class="btn btn--ghost" href="product-d365.html">The other pillar: D365 intelligence</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div>
+        <p><strong>Neopiq</strong> &mdash; digital employees for Azure and Dynamics&nbsp;365</p>
+        <p class="muted">
+          An admin agent that asks before it acts, and a diagnosis that finds why enterprise
+          systems behave wrongly.
+        </p>
+        <p class="small">
+          Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
+          UID CHE-345.914.300 &middot; not registered for VAT<br>
+          <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> &middot;
+          <a href="tel:0041782236716">0041 78 223 6716</a>
+        </p>
+      </div>
+      <div>
+        <h2>What we do</h2>
+        <ul>
+          <li><a href="product-chatadmin.html">ChatAdmin &mdash; administer Azure by conversation</a></li>
+          <li><a href="product-d365.html">D365 intelligence &mdash; planning logic and master data</a></li>
+          <li><a href="tools/level0/">The free D365 check &mdash; runs in your browser</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="about.html">About Neopiq</a></li>
+        </ul>
+        <h2 style="margin-top:1.1rem">Legal</h2>
+        <ul>
+          <li><a href="imprint.html">Imprint</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <p class="small">&copy; 2026 Neopiq GmbH</p>
+      <p class="small">
+        Pre-launch site. The company is registered and its details are real; the yellow dashed
+        markers that remain are commercial and product decisions the owner has still to make. No
+        customers, results, certifications or performance figures are claimed anywhere on this
+        site. Two things run today: the free D365 check in your browser, and ChatAdmin against our
+        own Azure subscription &mdash; which you cannot sign up for. Everything else is marked in
+        development or planned, and is exactly that.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

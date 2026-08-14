@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neopiq &mdash; find the D365 planning settings that stopped matching reality</title>
-<meta name="description" content="Your planning system does exactly what you configured. Neopiq finds the lead times, safety stocks, MOQs and coverage groups that no longer match what actually happens in Dynamics 365, and shows the evidence. The check runs in your browser; nothing is uploaded.">
+<title>Neopiq &mdash; ChatAdmin administers Azure by conversation, and a free check finds what your D365 got wrong</title>
+<meta name="description" content="Neopiq builds digital employees for the systems a company runs on. ChatAdmin administers Azure through a chat rather than a portal: you say what you want, and it changes nothing without your approval. D365 intelligence finds the planning settings and master data that stopped matching reality, free and in your browser. This page says plainly which of the two you can use unaided today.">
 <link rel="canonical" href="https://neopiq.ai/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="Neopiq &mdash; find the D365 planning settings that stopped matching reality">
-<meta property="og:description" content="Your planning system does exactly what you configured. Neopiq finds the lead times, safety stocks, MOQs and coverage groups that no longer match what actually happens in Dynamics 365, and shows the evidence. The check runs in your browser; nothing is uploaded.">
+<meta property="og:title" content="Neopiq &mdash; ChatAdmin administers Azure by conversation, and a free check finds what your D365 got wrong">
+<meta property="og:description" content="Neopiq builds digital employees for the systems a company runs on. ChatAdmin administers Azure through a chat rather than a portal: you say what you want, and it changes nothing without your approval. D365 intelligence finds the planning settings and master data that stopped matching reality, free and in your browser. This page says plainly which of the two you can use unaided today.">
 <meta property="og:url" content="https://neopiq.ai/">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -24,17 +24,16 @@
       <span class="brand__mark" aria-hidden="true">N</span>
       <span class="brand__text">
         Neopiq
-        <span class="brand__sub">Digital employees for Dynamics&nbsp;365</span>
+        <span class="brand__sub">Digital employees for Azure and Dynamics&nbsp;365</span>
       </span>
     </a>
     <span class="site-header__spacer"></span>
     <nav class="site-nav" aria-label="Primary">
       <ul>
         <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="product-chatadmin.html">ChatAdmin</a></li>
+        <li><a href="product-d365.html">D365 intelligence</a></li>
         <li><a href="tools/level0/">Free check</a></li>
-        <li><a href="product-supply-chain.html">Planning</a></li>
-        <li><a href="product-process-data.html">Master data</a></li>
-        <li><a href="product-azure-admin.html">Azure &amp; Power Platform</a></li>
         <li><a href="how-it-works.html">How it works</a></li>
         <li><a href="pricing.html">Pricing</a></li>
         <li><a href="about.html">About</a></li>
@@ -46,125 +45,150 @@
 <main id="main">
 
   <section class="hero">
-    <div class="wrap hero__grid">
-      <div>
-        <p class="eyebrow">Planning health for Dynamics 365</p>
-        <h1>Your planning system is doing exactly what you configured. That is the problem.</h1>
-        <p class="lead">
-          Lead times, safety stock, minimum order quantities and coverage groups were set once
-          &mdash; before the supplier changed, before the volumes moved, before the product went
-          end-of-life. Neopiq finds the settings that no longer match what actually happens, quotes
-          the numbers that prove it, and names the change to make.
-        </p>
-        <div class="btn-row">
-          <a class="btn btn--primary" href="tools/level0/">Run the free check on your own data</a>
-          <a class="btn btn--ghost" href="product-supply-chain.html">See what it looks for</a>
-        </div>
-        <p class="small muted" style="margin-top:1rem">
-          It runs inside your browser. No account, no install, nothing uploaded &mdash; you can
-          disconnect from the network first and it still works.
-          <a href="how-it-works.html#privacy">Why that is true</a>.
-        </p>
-      </div>
-
-      <div class="level level--0">
-        <span class="level__tag">Example finding</span>
-        <h2 style="font-size:1.2rem">Configured 30 days. Received in 70. No safety stock.</h2>
-        <ul>
-          <li>Item <span class="mono">ITM-X123</span>, vendor <span class="mono">VEN-045</span></li>
-          <li>Lead time in the item master: 30 days</li>
-          <li>Actual receipts: 69.88 days on average, over 8 purchase receipts</li>
-          <li>Safety stock: zero</li>
-          <li>Owner on record: planner <span class="mono">PLN-02</span></li>
-        </ul>
-        <p>
-          Master planning proposes supply too late <em>by design</em>, and there is no buffer
-          between the gap and the customer. It looks like a supplier problem. It started as a
-          parameter.
-        </p>
-        <p class="level__where">
-          This is the worked example in the sample data that ships with the free check. The data is
-          synthetic, not a customer. Open the tool and the same finding appears in one click.
-        </p>
+    <div class="wrap">
+      <p class="eyebrow">Two pillars &middot; both have something running today</p>
+      <h1>ChatAdmin administers Azure by conversation, and a free check finds what your D365 got wrong</h1>
+      <p class="lead narrow">
+        Neopiq builds digital employees for the systems a company actually runs on. There are two
+        of them, they are at different stages, and the honest version of that is at the top of this
+        page rather than buried at the bottom.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="tools/level0/">Run the free D365 check</a>
+        <a class="btn btn--ghost" href="product-chatadmin.html">See ChatAdmin</a>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
-      <div class="section__intro">
-        <h2>You have heard these sentences in your own meetings</h2>
-        <p>
-          Each one has the same shape: the system is blamed for a decision that a setting made
-          years ago.
-        </p>
-      </div>
+      <div class="grid grid--2">
 
-      <div class="grid grid--3" style="margin-top:2rem">
-        <article class="card">
-          <h3>&ldquo;We order too late, so we expedite&rdquo;</h3>
+        <article class="level level--2">
+          <span class="level__tag">Pillar 1 &middot; built and running today</span>
+          <h2>ChatAdmin &mdash; Azure administration, by conversation</h2>
           <p>
-            Purchasing knows the supplier takes ten weeks. The item master still says four. Master
-            planning believes the item master, so every order starts late and finishes expensive.
+            <strong>You say what you want, instead of working out which blade it lives in.</strong>
+            Ask in plain English for a resource group, a storage account, a virtual network, a key
+            vault, a Log Analytics workspace or a Container App, and it works out the calls and
+            chains the steps. It looks things up without interrupting you, and <strong>before it
+            changes anything it stops and waits for Approve or Reject</strong>. Unanswered for five
+            minutes, it declines. Every action is audited. It signs in to Azure by managed
+            identity, so there are no credentials sitting in the container.
           </p>
-        </article>
-        <article class="card">
-          <h3>&ldquo;Full of the wrong stock, out of the right stock&rdquo;</h3>
           <p>
-            A minimum order quantity set for a product that used to sell ten times faster. A
-            forecast that keeps consuming demand for an item you stopped selling. The stock is the
-            symptom; the parameter is the cause.
+            This is the pillar we lead with, and the one we expect to reach the wider audience:
+            administering Azure is a far more common job than running D365 master planning. That is
+            our expectation, not a measurement &mdash; we have no customers on either pillar yet.
           </p>
-        </article>
-        <article class="card">
-          <h3>&ldquo;The planners override the system&rdquo;</h3>
           <p>
-            When planned orders stop making sense, people plan in a spreadsheet and key the answer
-            back in. Every manual override is a vote of no confidence in a setting somebody should
-            have changed.
+            <strong>The model is that ChatAdmin runs inside your own Azure subscription</strong>
+            &mdash; your tenant, your identity, your audit trail, nothing about your estate
+            exported to us. That is what makes it Level&nbsp;2 in
+            <a href="how-it-works.html#level-2">our ladder</a>: administering a cloud means acting
+            inside it.
           </p>
+          <p class="level__where">
+            <strong>What you cannot do yet:</strong> sign up. Today the same agent runs against
+            <em>our</em> subscription &mdash; a demonstration of the mechanism, not a deployment of
+            the model. There is no login on the chat and no tenant separation, so it cannot be
+            pointed at yours. <a href="product-chatadmin.html#limits">The full list of limits</a>.
+          </p>
+          <p><a href="product-chatadmin.html">What ChatAdmin does today, capability by capability</a></p>
         </article>
+
+        <article class="level level--0">
+          <span class="level__tag">Pillar 2 &middot; the free check is open to anyone</span>
+          <h2>D365 intelligence &mdash; planning logic and master data</h2>
+          <p>
+            Your planning system is doing exactly what you configured, and that is the problem.
+            Lead times, safety stock, minimum order quantities and coverage groups were set before
+            the supplier changed and the volumes moved. Neopiq compares them against what your
+            receipts, orders and shipments actually did, and names the setting behind the shortage.
+          </p>
+          <p>
+            26 checks over 11 D365 extracts. Every finding quotes the numbers it used, states the
+            impact, recommends the change and names the owner.
+          </p>
+          <p class="level__where">
+            <strong>What you can do right now:</strong> all of it. The check runs inside your
+            browser &mdash; no account, no install, nothing uploaded. Disconnect from the network
+            first and it still works.
+          </p>
+          <p><a href="tools/level0/">Run the free check</a> &middot; <a href="product-d365.html">what it looks for</a></p>
+        </article>
+
       </div>
     </div>
   </section>
 
-  <section class="section section--alt">
+  <section class="section section--alt" id="available">
     <div class="wrap">
       <div class="section__intro">
-        <h2>What comes back is a work list, not a dashboard</h2>
+        <h2>What is built, and what you can actually put your hands on</h2>
         <p>
-          Every finding is written the way a senior planner would write it, and it is addressed to
-          somebody. There is no chat window and nothing to interpret.
+          Two different questions, and most sites answer only the flattering one. Built is an
+          engineering fact. Available to you is a commercial one, and today they do not line up.
         </p>
       </div>
 
-      <div class="grid grid--3" style="margin-top:2rem">
-        <article class="card">
-          <h3>What is wrong, on which item</h3>
-          <p>
-            Named item, vendor and site. Not a score, not a heat map &mdash; the specific object
-            somebody has to open in D365 tomorrow morning.
-          </p>
-        </article>
-        <article class="card">
-          <h3>The numbers it used</h3>
-          <p>
-            The configured value, the observed value, how many transactions it was measured over,
-            and the threshold it crossed. You can check the arithmetic in Excel and disagree with
-            it.
-          </p>
-        </article>
-        <article class="card">
-          <h3>Impact, likely cause, and the fix</h3>
-          <p>
-            What this costs the business, the most likely reason the setting drifted, the change to
-            make, and the planner or buyer on record as the owner.
-          </p>
-        </article>
+      <div class="table-scroll" style="margin-top:1.75rem">
+        <table>
+          <caption>Everything Neopiq has, in one table. If it is not in this table, it does not exist.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Thing</th>
+              <th scope="col">Pillar</th>
+              <th scope="col">Is it built?</th>
+              <th scope="col">Can you use it today?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">The free D365 planning and master data check</th>
+              <td>2</td>
+              <td>Yes &mdash; 26 checks, running</td>
+              <td><strong>Yes.</strong> Open it in your browser. No account, nothing uploaded</td>
+            </tr>
+            <tr>
+              <th scope="row">ChatAdmin, the Azure admin agent</th>
+              <td>1</td>
+              <td>Yes &mdash; running against a real Azure subscription, behind an approval gate</td>
+              <td><strong>No.</strong> No sign-up, no login, not multi-tenant. It is designed to run inside <em>your</em> subscription; so far it has only ever run inside ours</td>
+            </tr>
+            <tr>
+              <th scope="row">Azure template deployment, governance and devops actions</th>
+              <td>1</td>
+              <td>No &mdash; the action names exist, the implementations do not</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <th scope="row">Power Platform administration</th>
+              <td>1</td>
+              <td>No &mdash; not started</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <th scope="row">D365 findings explained and written up (Level&nbsp;1)</th>
+              <td>2</td>
+              <td>No &mdash; in development</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <th scope="row">D365 optimisation and repair inside your Azure (Level&nbsp;2)</th>
+              <td>2</td>
+              <td>No &mdash; planned</td>
+              <td>No</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <p style="margin-top:1.75rem">
-        <a href="how-it-works.html#finding">See the full anatomy of a finding, field by field</a>
+      <p class="small muted">
+        <strong>Nothing on this site is for sale.</strong> The free check costs nothing and needs
+        nobody's permission; the admin agent has no way to take you as a customer yet. The
+        <a href="pricing.html">pricing page</a> explains what would eventually be paid for, and
+        marks every price as undecided.
       </p>
     </div>
   </section>
@@ -172,66 +196,43 @@
   <section class="section">
     <div class="wrap">
       <div class="section__intro">
-        <h2>What the free check looks at today</h2>
+        <h2>The same principle runs through both pillars</h2>
         <p>
-          Twenty-six checks over eleven extracts a planner can pull out of D365 without help:
-          items, vendors, purchase receipts, sales order lines, on-hand, production orders and
-          routes, forecast, coverage groups, reduction keys and planners.
+          A machine may read whatever it likes. A person decides what changes. That is not a
+          policy statement bolted on afterwards &mdash; on both pillars it is the thing that was
+          built first.
         </p>
       </div>
 
       <div class="grid grid--3" style="margin-top:2rem">
         <article class="card">
-          <h3>Lead time against reality</h3>
+          <h3>The agent stops and asks</h3>
           <p>
-            Configured lead time versus what receipts actually did &mdash; whole-horizon gaps,
-            items drifting away from their own history, values far outside their peer group, and
-            item lead times that contradict the vendor record.
+            Reading your Azure estate runs straight through. Every change raises an Approve /
+            Reject card and the agent waits. Silence is not consent: an unanswered card declines
+            itself after five minutes, so nothing happens while nobody is watching.
           </p>
+          <p class="card__more"><a href="product-chatadmin.html#approval">How the approval gate works</a></p>
         </article>
         <article class="card">
-          <h3>Safety stock and service</h3>
+          <h3>The check writes nothing back</h3>
           <p>
-            Safety stock against demand volatility and the service target, on-time delivery that is
-            measurably falling, service levels sitting below target, and supplier confirmations
-            that are not worth planning on.
+            The D365 side is read-only by construction. It produces a work list addressed to named
+            planners and buyers, with the arithmetic shown, and every change is made by your people
+            in your system on purpose.
           </p>
+          <p class="card__more"><a href="how-it-works.html#finding">What a finding contains</a></p>
         </article>
         <article class="card">
-          <h3>Order quantities and excess</h3>
+          <h3>Evidence, or it does not get printed</h3>
           <p>
-            Minimum order quantities that buy years of demand, and the months of cover that
-            produced &mdash; measured per item <em>and per site</em>, because an item can be
-            healthy in one plant and drowning in another.
+            Every finding names its objects, quotes the numbers it compared and shows the threshold
+            it crossed. Every agent action names the exact call it wants to make before it makes
+            it. If we cannot show the working, we do not make the claim.
           </p>
-        </article>
-        <article class="card">
-          <h3>Forecast and consumption</h3>
-          <p>
-            Forecast running above real order intake, forecast lines with no reduction key to
-            consume them, and obsolete items still being forecast and still holding stock.
-          </p>
-        </article>
-        <article class="card">
-          <h3>Planning policy that points nowhere</h3>
-          <p>
-            Coverage groups and reduction keys that are missing, or that reference a record which
-            no longer exists. Manufactured items with no route; purchased items carrying one.
-          </p>
-        </article>
-        <article class="card">
-          <h3>Ownership and sourcing gaps</h3>
-          <p>
-            Active planning items with no planner, no supplier, no site or no item group &mdash;
-            and planner references pointing at people who have left.
-          </p>
+          <p class="card__more"><a href="about.html">What we hold ourselves to</a></p>
         </article>
       </div>
-
-      <p style="margin-top:1.75rem">
-        <a href="product-supply-chain.html">The full list, area by area, and what each check
-        actually compares</a>
-      </p>
     </div>
   </section>
 
@@ -239,18 +240,16 @@
     <div class="wrap">
       <div class="grid grid--2">
         <article class="level level--0">
-          <span class="level__tag">Nothing leaves your machine</span>
-          <h2>The security conversation is a short one</h2>
+          <span class="level__tag">Pillar 2 &middot; nothing leaves your machine</span>
+          <h2>The security conversation about the free check is a short one</h2>
           <p>
-            The free check is a web page that reads your CSV files locally. There is no upload, no
-            account, no login, no cookie, no analytics and no server to send anything to. Nothing is
-            stored either &mdash; closing the tab is the delete button.
+            It is a web page that reads your CSV files locally. No upload, no account, no login, no
+            cookie, no analytics and no server to send anything to. Nothing is stored either
+            &mdash; closing the tab is the delete button.
           </p>
           <p>
             You do not have to take that on trust. Open your browser's network tab while it runs,
-            or pull the network cable first. Your item master and your vendor lead times are
-            commercially sensitive; that is exactly why the first useful answer should not require a
-            data-processing agreement.
+            or pull the network cable first.
           </p>
           <p class="level__where">
             No procurement step. No security review. No integration project. One person and one
@@ -258,28 +257,25 @@
           </p>
         </article>
 
-        <article class="card">
-          <h3>What this is not</h3>
-          <ul>
-            <li>
-              <strong>Not a chatbot.</strong> There is no prompt and no model guessing at your
-              business. The same export produces the same findings, in the same order, every time.
-            </li>
-            <li>
-              <strong>Not another dashboard.</strong> A report shows you the shortage. This names
-              the setting that caused it &mdash; including the ones nobody thought to build a report
-              for.
-            </li>
-            <li>
-              <strong>Not a data quality score.</strong> A lead time of 30 days is present, numeric
-              and valid. It passes every completeness check ever written. It is still wrong.
-            </li>
-            <li>
-              <strong>Not a robot in your ERP.</strong> Nothing is written back. Every finding is a
-              hypothesis with the evidence attached, and a person decides.
-            </li>
-          </ul>
-          <p class="card__more"><a href="tools/level0/">Try it against your own export</a></p>
+        <article class="level level--2">
+          <span class="level__tag">Pillar 1 &middot; no credentials in the container</span>
+          <h2>The security conversation about the agent is a longer one, and we start it</h2>
+          <p>
+            It authenticates by managed identity, so no certificate or client secret is baked into
+            the image. Secrets are masked in approval cards and redacted from results and logs.
+            Limits are enforced in the dispatcher, outside the model: out-of-scope actions are
+            refused before any Azure call happens.
+          </p>
+          <p>
+            The uncomfortable parts, stated by us rather than found by you: in the running
+            demonstration the identity holds <strong>Owner</strong> on the subscription, which is
+            broader than the least-privilege model it should ship with; the audit trail cannot yet
+            name the person who approved a change, because there is no sign-in; and no customer
+            subscription has ever been connected to it.
+          </p>
+          <p class="level__where">
+            <a href="product-chatadmin.html#limits">Every limit we know about, in one list</a>.
+          </p>
         </article>
       </div>
     </div>
@@ -288,55 +284,49 @@
   <section class="section">
     <div class="wrap">
       <div class="section__intro">
-        <h2>Start free, and only pay when there is something worth paying for</h2>
-        <p>
-          One step at a time, and each step is a decision you make after the previous one has
-          already been useful. Each step is also a pricing tier, named for the level it unlocks.
-        </p>
+        <h2>Where to start, depending on which of the two you came for</h2>
       </div>
       <ol class="steps narrow" style="margin-top:1.75rem">
         <li>
-          <h3><a href="tools/level0/">Available today &mdash; the free check</a></h3>
+          <h3><a href="tools/level0/">If you run D365: open the free check</a></h3>
           <p class="muted">
-            Unlimited local checks on your own extracts, on the
-            <a href="pricing.html#free">Free tier</a>. Nothing to approve, nothing to install,
-            nothing transferred. This is the only part of the product you can use today, and it is
-            the part that has to earn everything after it.
+            Export the tables, drop them on the page, read the findings. It is the only part of
+            Neopiq a stranger can use unaided, it costs nothing, and it needs no conversation with
+            us. If none of the findings is worth acting on, it cost you an afternoon's export.
           </p>
         </li>
         <li>
-          <h3>In development &mdash; findings explained and written up</h3>
+          <h3><a href="product-chatadmin.html">If you run Azure: read what the agent already does</a></h3>
           <p class="muted">
-            The plan is that the local check keeps doing the reading and the arithmetic, and a cloud
-            service turns the result into a written report and learns which patterns matter across
-            customers &mdash; without your records ever being part of what is sent. That is the
-            <a href="pricing.html#trial">Trial tier</a>, and it is not open yet.
+            The capability table says which resource types it has actually created against a live
+            subscription, which ones are unimplemented stubs, and the eight things that are
+            deliberately not true yet. There is nothing to sign up to, and this site will not
+            pretend otherwise.
           </p>
         </li>
         <li>
-          <h3>Planned &mdash; the heavy work, inside your own Azure</h3>
+          <h3><a href="how-it-works.html">If you are the person who has to approve it</a></h3>
           <p class="muted">
-            Optimisation, simulation and repair at full data volume are intended to run in your own
-            Azure subscription, under your own controls, with the compute on your Microsoft
-            agreement. That is the <a href="pricing.html#enterprise">Enterprise tier</a>. It is a
-            direction, not a product you can buy today.
+            Where the work runs, what crosses the boundary at each step, what the approval gate
+            actually guarantees, and which commitments have not been made yet because nobody has
+            decided them.
           </p>
         </li>
       </ol>
-      <p><a href="pricing.html">What each tier unlocks, and what is honestly not available yet</a></p>
     </div>
   </section>
 
   <section class="section cta-band">
     <div class="wrap center">
-      <h2>Your own export will settle this faster than we can</h2>
+      <h2>One of the two you can test in the next ten minutes</h2>
       <p class="lede" style="margin-inline:auto">
-        Export the tables, drop them on the page, read the findings. If none of them is worth
-        acting on, it cost you nothing. If one of them is, you already know what to do on Monday.
+        The free D365 check runs on your own export, in your own browser, and transmits nothing.
+        The admin agent is real and running, and we will tell you the day you can point it at your
+        own subscription &mdash; not before.
       </p>
       <div class="btn-row" style="justify-content:center">
         <a class="btn btn--primary" href="tools/level0/">Run the free check</a>
-        <a class="btn btn--ghost" href="how-it-works.html">How it works</a>
+        <a class="btn btn--ghost" href="product-chatadmin.html">The admin agent, honestly</a>
       </div>
     </div>
   </section>
@@ -347,19 +337,24 @@
   <div class="wrap">
     <div class="site-footer__grid">
       <div>
-        <p><strong>Neopiq</strong> &mdash; digital employees for Dynamics&nbsp;365</p>
+        <p><strong>Neopiq</strong> &mdash; digital employees for Azure and Dynamics&nbsp;365</p>
         <p class="muted">
-          We find why enterprise systems behave wrongly, not only whether fields are filled in.
+          An admin agent that asks before it acts, and a diagnosis that finds why enterprise
+          systems behave wrongly.
         </p>
-        <p class="ph">[PLACEHOLDER: contact e-mail, postal address, company registration / legal entity details for Neopiq]</p>
+        <p class="small">
+          Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
+          UID CHE-345.914.300 &middot; not registered for VAT<br>
+          <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> &middot;
+          <a href="tel:0041782236716">0041 78 223 6716</a>
+        </p>
       </div>
       <div>
         <h2>What we do</h2>
         <ul>
-          <li><a href="tools/level0/">The free planning check &mdash; runs in your browser</a></li>
-          <li><a href="product-supply-chain.html">Planning settings vs reality</a></li>
-          <li><a href="product-process-data.html">Master data and process checks</a></li>
-          <li><a href="product-azure-admin.html">Azure &amp; Power Platform &mdash; in development</a></li>
+          <li><a href="product-chatadmin.html">ChatAdmin &mdash; administer Azure by conversation</a></li>
+          <li><a href="product-d365.html">D365 intelligence &mdash; planning logic and master data</a></li>
+          <li><a href="tools/level0/">The free D365 check &mdash; runs in your browser</a></li>
         </ul>
       </div>
       <div>
@@ -378,12 +373,14 @@
       </div>
     </div>
     <div class="site-footer__legal">
-      <p class="ph">[PLACEHOLDER: copyright line &mdash; needs the registered legal entity behind Neopiq]</p>
+      <p class="small">&copy; 2026 Neopiq GmbH</p>
       <p class="small">
-        Pre-launch site. Every yellow dashed marker is content the owner still has to supply. No
-        customers, results, certifications or performance figures are claimed anywhere on this site,
-        and only the free check exists today &mdash; everything described as in development or
-        planned is exactly that.
+        Pre-launch site. The company is registered and its details are real; the yellow dashed
+        markers that remain are commercial and product decisions the owner has still to make. No
+        customers, results, certifications or performance figures are claimed anywhere on this
+        site. Two things run today: the free D365 check in your browser, and ChatAdmin against our
+        own Azure subscription &mdash; which you cannot sign up for. Everything else is marked in
+        development or planned, and is exactly that.
       </p>
     </div>
   </div>

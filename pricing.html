@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pricing &mdash; Free is open today, the other two tiers are not</title>
-<meta name="description" content="Three tiers, one per step of the product: Free is the Level 0 tier and is available today, Trial is the Level 1 tier and Enterprise is the Level 2 tier. Each tier includes everything in the tier below. Prices are not set yet and nothing here is a commitment.">
+<title>Pricing &mdash; only the Free tier is open, and not for the reason you would expect</title>
+<meta name="description" content="Three tiers, one per level of the product: Free is the Level 0 tier, Trial is the Level 1 tier, Enterprise is the Level 2 tier, and each includes everything in the tier below. Only Free is open. Level 2 is built and running on the admin pillar, but there is no sign-up, no login and no tenant separation, so it is not something you can buy. Prices are not set and nothing here is a commitment.">
 <link rel="canonical" href="https://neopiq.ai/pricing.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="Pricing &mdash; Free is open today, the other two tiers are not">
-<meta property="og:description" content="Three tiers, one per step of the product: Free is the Level 0 tier and is available today, Trial is the Level 1 tier and Enterprise is the Level 2 tier. Each tier includes everything in the tier below. Prices are not set yet and nothing here is a commitment.">
+<meta property="og:title" content="Pricing &mdash; only the Free tier is open, and not for the reason you would expect">
+<meta property="og:description" content="Three tiers, one per level of the product: Free is the Level 0 tier, Trial is the Level 1 tier, Enterprise is the Level 2 tier, and each includes everything in the tier below. Only Free is open. Level 2 is built and running on the admin pillar, but there is no sign-up, no login and no tenant separation, so it is not something you can buy. Prices are not set and nothing here is a commitment.">
 <meta property="og:url" content="https://neopiq.ai/pricing.html">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -24,17 +24,16 @@
       <span class="brand__mark" aria-hidden="true">N</span>
       <span class="brand__text">
         Neopiq
-        <span class="brand__sub">Digital employees for Dynamics&nbsp;365</span>
+        <span class="brand__sub">Digital employees for Azure and Dynamics&nbsp;365</span>
       </span>
     </a>
     <span class="site-header__spacer"></span>
     <nav class="site-nav" aria-label="Primary">
       <ul>
         <li><a href="index.html">Home</a></li>
+        <li><a href="product-chatadmin.html">ChatAdmin</a></li>
+        <li><a href="product-d365.html">D365 intelligence</a></li>
         <li><a href="tools/level0/">Free check</a></li>
-        <li><a href="product-supply-chain.html">Planning</a></li>
-        <li><a href="product-process-data.html">Master data</a></li>
-        <li><a href="product-azure-admin.html">Azure &amp; Power Platform</a></li>
         <li><a href="how-it-works.html">How it works</a></li>
         <li><a href="pricing.html" aria-current="page">Pricing</a></li>
         <li><a href="about.html">About</a></li>
@@ -55,12 +54,34 @@
       </nav>
       <h1>Pricing</h1>
       <p class="lead">
-        One tier for each step of the product. <strong>Free is the Level&nbsp;0 tier, Trial is the
+        One tier for each level of the product. <strong>Free is the Level&nbsp;0 tier, Trial is the
         Level&nbsp;1 tier, Enterprise is the Level&nbsp;2 tier.</strong> Each tier fully unlocks the
-        one step it is named for and includes everything in the tier below it. Only Level&nbsp;0
-        exists today, so <strong>only the Free tier is open</strong> &mdash; and the free part is
-        deliberately the part that has to earn everything after it.
+        one level it is named for and includes everything in the tier below it.
+        <strong>Only the Free tier is open</strong> &mdash; and the reason is not the obvious one.
       </p>
+
+      <div class="callout" style="margin-top:1.75rem">
+        <h2>Why only Free is open, when Level&nbsp;2 is already running</h2>
+        <p>
+          Until recently this page said only the Free tier was open because only Level&nbsp;0 was
+          built. That is no longer true and we are not going to leave it standing.
+          <strong>Level&nbsp;2 is built.</strong>
+          <a href="product-chatadmin.html">ChatAdmin</a> executes inside a real Azure subscription
+          today, behind an Approve / Reject gate on every change.
+        </p>
+        <p>
+          What does not exist is any way to hand it to you. ChatAdmin is designed to run inside
+          <em>your</em> subscription; so far it has only ever run inside ours, and there is no
+          sign-up, no login on the chat and no separation between tenants to change that.
+          <strong>Built is an engineering fact. Open is a commercial one.</strong> On this page the
+          two disagree, and showing the disagreement is more useful to you than tidying it away.
+        </p>
+        <p>
+          The practical consequence is unchanged: the only thing anyone can be given access to
+          today is the free local check, and it costs nothing.
+        </p>
+      </div>
+
       <div class="ph-block" style="margin-top:1.75rem">
         <span class="ph-block__label">Placeholder &mdash; no prices have been set</span>
         <p>
@@ -79,11 +100,12 @@
           <span class="level__tag">The Level 0 tier &middot; open today</span>
           <h2 class="tier__name">Free</h2>
           <p class="tier__price"><span class="ph">[PLACEHOLDER: price &mdash; expected to be 0, confirm]</span></p>
-          <p class="muted">For anyone who wants to find out whether the findings are worth acting on, before talking to a vendor.</p>
+          <p class="muted">For anyone who wants to find out whether the findings are worth acting on, before talking to a vendor. Pillar 2 only.</p>
           <ul class="tier__list">
-            <li><strong>The full local check, unlimited:</strong> every one of the 26 planning and master data checks, on as many extracts as you like</li>
+            <li><strong>The full local check, unlimited:</strong> every one of the 26 D365 planning and master data checks, on as many extracts as you like</li>
             <li><strong>Nothing transferred:</strong> it runs in your browser, so there is no account, no upload and nothing for IT to approve</li>
             <li><strong>Findings you can act on:</strong> named items, the numbers behind each claim, impact, recommended change and the owner</li>
+            <li><strong>No admin pillar equivalent:</strong> Level&nbsp;0 means the work runs locally and reads only, and administering a cloud has no such form. Pillar&nbsp;1 has no free tier because it cannot have one</li>
             <li><strong>Planned, once Level&nbsp;1 exists:</strong> a limited daily allowance of it &mdash; <span class="ph">[PLACEHOLDER: how many runs per day]</span></li>
           </ul>
           <p class="tier__cta">
@@ -96,42 +118,46 @@
         </article>
 
         <article class="tier tier--l1" id="trial">
-          <span class="level__tag">The Level 1 tier &middot; not open yet</span>
+          <span class="level__tag">The Level 1 tier &middot; not open &middot; not built</span>
           <h2 class="tier__name">Trial</h2>
           <p class="tier__price"><span class="ph">[PLACEHOLDER: price and trial length]</span></p>
-          <p class="muted">For teams that want the findings written up and prioritised, not just listed. Level&nbsp;1 is in development and this tier is not open.</p>
+          <p class="muted">For teams that want the findings written up and prioritised, not just listed. Level&nbsp;1 is the one level where nothing exists on either pillar, so this tier is both unbuilt and unopened.</p>
           <ul class="tier__list">
             <li><strong>Would unlock Level&nbsp;1 in full:</strong> unlimited explanation and reporting on top of the local check &mdash; results are sent, never your records</li>
             <li><strong>Includes everything in Free:</strong> the unlimited local check</li>
-            <li><strong>Planned, once Level&nbsp;2 exists:</strong> a preview of it</li>
+            <li><strong>Planned, once Level&nbsp;2 is open:</strong> a preview of it</li>
           </ul>
           <p class="tier__cta">
             <a class="btn btn--ghost" href="about.html#contact">Why there is nothing to sign up to yet</a>
           </p>
           <p class="small muted" style="margin-top:.75rem">
-            No waiting list, because no contact channel is open. That link explains what exists
-            instead of collecting an address we could not use.
+            There is no waiting list to join &mdash; that link explains what exists today instead of
+            collecting an address we could not yet act on. If you want to talk about it anyway,
+            <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> reaches a person.
           </p>
           <p class="small ph" style="margin-top:.75rem">[PLACEHOLDER: trial length, what a Level&nbsp;2 &ldquo;preview&rdquo; means in practice, and whether a trial converts automatically]</p>
         </article>
 
         <article class="tier tier--l2" id="enterprise">
-          <span class="level__tag">The Level 2 tier &middot; not open yet</span>
+          <span class="level__tag">The Level 2 tier &middot; partly built &middot; not open</span>
           <h2 class="tier__name">Enterprise</h2>
           <p class="tier__price"><span class="ph">[PLACEHOLDER: price and commercial model &mdash; per seat, per environment or per deployment]</span></p>
-          <p class="muted">For organisations that want the heavy work running inside their own Azure. Level&nbsp;2 is planned and this tier is not open.</p>
+          <p class="muted">For organisations that want work executed inside their own subscription. This is the tier where built and open come apart, so it is spelled out rather than summarised.</p>
           <ul class="tier__list">
-            <li><strong>Would unlock Level&nbsp;2 in full:</strong> optimisation, simulation and supervised repair at full data volume, inside your subscription and under your controls</li>
+            <li><strong>Pillar 1, ChatAdmin &mdash; built and running.</strong> Designed to administer Azure from inside <em>your</em> subscription, with an approval gate before every change. <strong>Not open:</strong> no sign-up, no login, not multi-tenant, and so far it has only ever run inside ours</li>
+            <li><strong>Pillar 2, the D365 heavy work &mdash; not built.</strong> Optimisation, simulation and supervised repair at full data volume, inside your subscription and under your controls, remains a roadmap position</li>
             <li><strong>Includes everything in Trial:</strong> the unlimited local check and unlimited explanation and reporting</li>
-            <li><strong>Compute stays on your Microsoft bill,</strong> not ours &mdash; which is also why your data would not have to move</li>
+            <li><strong>Compute would stay on your Microsoft bill,</strong> not ours &mdash; which is also why your data would not have to move</li>
           </ul>
           <p class="tier__cta">
-            <a class="btn btn--ghost" href="about.html#contact">Why we cannot take enquiries yet</a>
+            <a class="btn btn--ghost" href="product-chatadmin.html#limits">What is built, and what is not open</a>
           </p>
           <p class="small muted" style="margin-top:.75rem">
-            There is no enquiry route open. That link says so plainly rather than sending you to a
-            form that goes nowhere.
+            There is no enquiry route open and no waiting list.
+            <a href="about.html#contact">Why there is nothing to sign up to</a> says so plainly
+            rather than sending you to a form that goes nowhere.
           </p>
+          <p class="small ph" style="margin-top:.75rem">[PLACEHOLDER: whether the admin agent and the D365 pillar are sold as one Enterprise tier at all, or as two separate products. They sit at the same level but serve different buyers, and the tier structure assumes one ladder. This is an owner decision and it is not made.]</p>
           <p class="small ph" style="margin-top:.75rem">[PLACEHOLDER: what Enterprise would include beyond Level&nbsp;2 access &mdash; support terms, response times, onboarding, contract length. Undecided.]</p>
         </article>
 
@@ -145,10 +171,12 @@
         <h2>What each tier unlocks</h2>
         <p>
           This table is about <strong>access, not identity</strong>. Read the highlighted diagonal:
-          each tier is named for the one step it fully unlocks. Everything below the diagonal comes
+          each tier is named for the one level it fully unlocks. Everything below the diagonal comes
           included from the tier beneath; the single cell above it is a limited taste of the next
-          step. It describes the model as it will work once all three steps exist. <strong>Today
-          only Level&nbsp;0 is built, so only the Free tier is open.</strong>
+          level. It describes the model as it will work once every level is open. <strong>Today the
+          only level anyone can be given access to is Level&nbsp;0, so only the Free tier is
+          open</strong> &mdash; which is a statement about access, not about what has been built.
+          The second table separates those two things.
         </p>
       </div>
       <div class="table-scroll" style="margin-top:1.5rem">
@@ -188,6 +216,46 @@
         The internal architecture calls the third tier &ldquo;Paid&rdquo;; it is called Enterprise
         here. <span class="ph">[PLACEHOLDER: pick one name and use it everywhere.]</span>
       </p>
+
+      <h2 style="margin-top:2.5rem">Which pillar sits at which level, and what is actually built</h2>
+      <p>
+        The table above is the commercial ladder. This one is the engineering reality underneath
+        it, and it is the honest answer to &ldquo;so what have you actually got?&rdquo;. The two
+        pillars entered the ladder at opposite ends, which is why no single sentence covers both.
+      </p>
+      <div class="table-scroll" style="margin-top:1.5rem">
+        <table>
+          <caption>Build state by level and pillar. &ldquo;Open to you&rdquo; is the column that decides whether a tier can be sold; every row in it is currently No except one.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Level</th>
+              <th scope="col">Pillar 1 &mdash; ChatAdmin</th>
+              <th scope="col">Pillar 2 &mdash; D365 intelligence</th>
+              <th scope="col">Open to you?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Level 0 &mdash; local, read-only</th>
+              <td>Does not apply. Cloud administration has no local, read-only form</td>
+              <td><strong>Built and running:</strong> the free browser check, 26 checks over 11 extracts</td>
+              <td><strong>Yes</strong> &mdash; free, no account</td>
+            </tr>
+            <tr>
+              <th scope="row">Level 1 &mdash; results explained in our cloud</th>
+              <td>Not built</td>
+              <td>Not built &mdash; in development</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <th scope="row">Level 2 &mdash; execution inside a subscription</th>
+              <td><strong>Built and running</strong> behind an approval gate. Designed to execute inside the customer's own subscription; so far only ever inside ours. Power Platform administration is not started</td>
+              <td>Not built &mdash; planned</td>
+              <td>No &mdash; no sign-up, no login, not multi-tenant</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
@@ -203,10 +271,21 @@
 
       <h2>Why the expensive part runs on your Azure bill</h2>
       <p>
-        The heavy work at Level&nbsp;2 is planned to run inside your own subscription. That means
-        the compute is billed to you by Microsoft on the agreement you already have, at the price
-        you already negotiated &mdash; and it means your data never has to move to us for the heavy
-        work to happen. We orchestrate; you own the environment. It is not built yet.
+        Level&nbsp;2 work is intended to run inside your own subscription. That means the compute
+        is billed to you by Microsoft on the agreement you already have, at the price you already
+        negotiated &mdash; and it means your data never has to move to us for the heavy work to
+        happen. We orchestrate; you own the environment.
+      </p>
+      <p>
+        That is the model on both pillars, and for ChatAdmin it is the whole point: it is designed
+        to execute inside your subscription, on your identity and your Microsoft bill, rather than
+        reaching into your estate from a service of ours.
+      </p>
+      <p>
+        For D365 it is still a design with no deployment. For ChatAdmin the mechanism already runs
+        &mdash; it executes inside a subscription and acts on it &mdash; but that subscription is
+        ours, so today none of this is billed to anybody. What it would cost, and who pays for
+        what, is exactly the decision that has not been taken.
       </p>
 
       <h2>What you are not paying for</h2>
@@ -221,7 +300,8 @@
         <p>[PLACEHOLDER: currency and tax treatment.]</p>
         <p>[PLACEHOLDER: billing period, payment methods and invoicing.]</p>
         <p>[PLACEHOLDER: the unit of pricing &mdash; per user, per environment, per tenant or per deployment.]</p>
-        <p>[PLACEHOLDER: whether the product families are priced separately or as one subscription.]</p>
+        <p>[PLACEHOLDER: the unit of pricing for the admin agent specifically. It is the one thing that is built, and nothing about how it would be charged for has been decided &mdash; per subscription administered, per administrator, per approved change, or a flat subscription. Until this is answered the Enterprise tier cannot be described in commercial terms at all.]</p>
+        <p>[PLACEHOLDER: whether the two pillars are priced separately or as one subscription. They share a level ladder but not a buyer: the admin agent is bought by whoever runs Azure, the D365 check by whoever runs planning.]</p>
         <p>[PLACEHOLDER: refund, cancellation and data-deletion terms.]</p>
       </div>
     </div>
@@ -247,19 +327,24 @@
   <div class="wrap">
     <div class="site-footer__grid">
       <div>
-        <p><strong>Neopiq</strong> &mdash; digital employees for Dynamics&nbsp;365</p>
+        <p><strong>Neopiq</strong> &mdash; digital employees for Azure and Dynamics&nbsp;365</p>
         <p class="muted">
-          We find why enterprise systems behave wrongly, not only whether fields are filled in.
+          An admin agent that asks before it acts, and a diagnosis that finds why enterprise
+          systems behave wrongly.
         </p>
-        <p class="ph">[PLACEHOLDER: contact e-mail, postal address, company registration / legal entity details for Neopiq]</p>
+        <p class="small">
+          Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
+          UID CHE-345.914.300 &middot; not registered for VAT<br>
+          <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> &middot;
+          <a href="tel:0041782236716">0041 78 223 6716</a>
+        </p>
       </div>
       <div>
         <h2>What we do</h2>
         <ul>
-          <li><a href="tools/level0/">The free planning check &mdash; runs in your browser</a></li>
-          <li><a href="product-supply-chain.html">Planning settings vs reality</a></li>
-          <li><a href="product-process-data.html">Master data and process checks</a></li>
-          <li><a href="product-azure-admin.html">Azure &amp; Power Platform &mdash; in development</a></li>
+          <li><a href="product-chatadmin.html">ChatAdmin &mdash; administer Azure by conversation</a></li>
+          <li><a href="product-d365.html">D365 intelligence &mdash; planning logic and master data</a></li>
+          <li><a href="tools/level0/">The free D365 check &mdash; runs in your browser</a></li>
         </ul>
       </div>
       <div>
@@ -278,12 +363,14 @@
       </div>
     </div>
     <div class="site-footer__legal">
-      <p class="ph">[PLACEHOLDER: copyright line &mdash; needs the registered legal entity behind Neopiq]</p>
+      <p class="small">&copy; 2026 Neopiq GmbH</p>
       <p class="small">
-        Pre-launch site. Every yellow dashed marker is content the owner still has to supply. No
-        customers, results, certifications or performance figures are claimed anywhere on this site,
-        and only the free check exists today &mdash; everything described as in development or
-        planned is exactly that.
+        Pre-launch site. The company is registered and its details are real; the yellow dashed
+        markers that remain are commercial and product decisions the owner has still to make. No
+        customers, results, certifications or performance figures are claimed anywhere on this
+        site. Two things run today: the free D365 check in your browser, and ChatAdmin against our
+        own Azure subscription &mdash; which you cannot sign up for. Everything else is marked in
+        development or planned, and is exactly that.
       </p>
     </div>
   </div>

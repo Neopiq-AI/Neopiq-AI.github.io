@@ -3,256 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Azure &amp; Power Platform governance &mdash; in development at Neopiq</title>
-<meta name="description" content="The same method Neopiq uses on D365 planning data, pointed at Azure and Power Platform governance: flows without owners, policies nobody has revisited, and configuration that no longer matches how the environment is used. In development, not available today.">
-<link rel="canonical" href="https://neopiq.ai/product-azure-admin.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="Azure &amp; Power Platform governance &mdash; in development at Neopiq">
-<meta property="og:description" content="The same method Neopiq uses on D365 planning data, pointed at Azure and Power Platform governance: flows without owners, policies nobody has revisited, and configuration that no longer matches how the environment is used. In development, not available today.">
-<meta property="og:url" content="https://neopiq.ai/product-azure-admin.html">
-<meta name="twitter:card" content="summary">
+<meta http-equiv="refresh" content="0; url=product-chatadmin.html">
+<title>This page has moved &mdash; the Azure admin agent is now called ChatAdmin</title>
+<meta name="description" content="The Azure and Power Platform admin page is now the ChatAdmin product page.">
+<meta name="robots" content="noindex">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<header class="site-header">
-  <div class="wrap site-header__inner">
-    <a class="brand" href="index.html">
-      <span class="brand__mark" aria-hidden="true">N</span>
-      <span class="brand__text">
-        Neopiq
-        <span class="brand__sub">Digital employees for Dynamics&nbsp;365</span>
-      </span>
-    </a>
-    <span class="site-header__spacer"></span>
-    <nav class="site-nav" aria-label="Primary">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="tools/level0/">Free check</a></li>
-        <li><a href="product-supply-chain.html">Planning</a></li>
-        <li><a href="product-process-data.html">Master data</a></li>
-        <li><a href="product-azure-admin.html" aria-current="page">Azure &amp; Power Platform</a></li>
-        <li><a href="how-it-works.html">How it works</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
 <main id="main">
-
-  <section class="hero">
-    <div class="wrap">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li aria-current="page">Azure &amp; Power Platform</li>
-        </ol>
-      </nav>
-      <p class="eyebrow">In development &middot; nothing on this page is available yet</p>
-      <h1>The same method, pointed at Azure and Power Platform</h1>
-      <p class="lead">
-        A tenant drifts exactly the way a planning setup drifts. Owners leave, policies stop
-        matching how people actually work, and connections outlive the reason they were created.
-        We intend to apply the same evidence-first checks here that we already run against D365
-        planning data. <strong>None of it is built.</strong> This page exists so you can judge the
-        direction, not so you can buy it.
+  <section class="section">
+    <div class="wrap narrow">
+      <h1>This page has moved</h1>
+      <p class="lede">
+        The Azure admin agent now has a name: <strong>ChatAdmin</strong>. Everything that was on
+        this page, and rather more about how it is designed to run inside your own Azure
+        subscription, is on its page. You should be taken there automatically.
       </p>
       <div class="btn-row">
-        <a class="btn btn--ghost" href="product-supply-chain.html">See the method where it does exist</a>
+        <a class="btn btn--primary" href="product-chatadmin.html">Go to ChatAdmin</a>
+        <a class="btn btn--ghost" href="index.html">Go to the home page</a>
       </div>
     </div>
   </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section__intro">
-        <h2>Why we think it transfers</h2>
-        <p>
-          The failure patterns are the same objects with different names. That is the whole reason
-          this family is on the roadmap rather than a different one.
-        </p>
-      </div>
-
-      <div class="table-scroll" style="margin-top:1.75rem">
-        <table>
-          <caption>The same failure pattern, in two different systems. The left column is running today; the right column is the intended reuse and is not built.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Pattern</th>
-              <th scope="col">In D365 planning &mdash; running today</th>
-              <th scope="col">In Azure and Power Platform &mdash; intended</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Nobody is accountable</th>
-              <td>Active item with no planner, or a planner code pointing at somebody who has left</td>
-              <td>A flow or app with no owner, or an owner who has left the organisation</td>
-            </tr>
-            <tr>
-              <th scope="row">Configuration nobody revisited</th>
-              <td>A coverage group that was set at go-live and never reviewed</td>
-              <td>A data loss prevention policy or environment setting written for a way of working that has moved on</td>
-            </tr>
-            <tr>
-              <th scope="row">Reality gap</th>
-              <td>Configured lead time of 30 days against receipts averaging 70</td>
-              <td>An environment or licence provisioned for one pattern of use against how it is actually used</td>
-            </tr>
-            <tr>
-              <th scope="row">Orphan object</th>
-              <td>An item with no supplier</td>
-              <td>A flow with no owner, or one whose connection references something that no longer exists</td>
-            </tr>
-            <tr>
-              <th scope="row">Risky dependency</th>
-              <td>An item sourced from a single supplier whose confirmations do not hold</td>
-              <td>A business process depending on one personal connection or one unmanaged connector</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--alt">
-    <div class="wrap">
-      <div class="section__intro">
-        <h2>What exists today, honestly</h2>
-      </div>
-
-      <div class="grid grid--2" style="margin-top:1.75rem">
-        <article class="card">
-          <h3>For Azure and Power Platform: nothing yet</h3>
-          <p>
-            There is no environment scanner, no flow health check and no governance report. We have
-            not written them, so we are not going to describe them as though we had. The checks
-            listed above are patterns we intend to reuse, and the specific rules behind each one do
-            not exist.
-          </p>
-          <p>
-            The honest status of every step beyond the local check is on the
-            <a href="how-it-works.html#level-1">how it works</a> page.
-          </p>
-        </article>
-        <article class="level level--0">
-          <span class="level__tag">What you can judge us on today</span>
-          <h3>The D365 planning check, running</h3>
-          <p>
-            The method is not a promise &mdash; it is running against real planning data structures
-            right now, free, in your browser. If you want to know whether we would build something
-            useful for your tenant, look at what we built for planning: named objects, quoted
-            numbers, stated impact, an owner, and an honest confidence figure.
-          </p>
-          <p class="level__where">
-            It reads D365 planning extracts, not Azure or Power Platform data. It will not tell you
-            anything about your flows.
-          </p>
-          <p><a href="tools/level0/">Open the free D365 planning check</a></p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="section__intro">
-        <h2>Who this would be for, when it exists</h2>
-      </div>
-      <ul class="narrow" style="margin-top:1.25rem">
-        <li><strong>Azure administrators</strong> who want to know what has drifted in an environment without standing up another monitoring stack.</li>
-        <li><strong>Power Platform admins and makers</strong> who inherit flows and apps nobody can account for.</li>
-        <li><strong>IT decision-makers</strong> who need governance answers without another tool that wants tenant-wide read access on day one.</li>
-      </ul>
-
-      <div class="ph-block">
-        <span class="ph-block__label">Placeholder &mdash; owner input required</span>
-        <p>
-          [PLACEHOLDER: the actual scope of this family when work starts &mdash; which Azure
-          services and Power Platform environment types, which checks, and what data would be read.
-          The internal architecture names only &ldquo;flow health, environment checks&rdquo; with no
-          detail behind it, so nothing more specific is stated here.]
-        </p>
-        <p>
-          [PLACEHOLDER: how the data would be obtained without breaking the no-transfer promise
-          &mdash; a local export, a read-only admin connection, or something that runs inside the
-          customer's own tenant. This is the design question that decides whether the family is
-          worth building at all.]
-        </p>
-        <p>
-          [PLACEHOLDER: whether to publish a target date. There is none today, and a date on this
-          page would be the first thing on the site that is not verifiable.]
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section cta-band">
-    <div class="wrap center">
-      <h2>Judge the direction by the part that already works</h2>
-      <p class="lede" style="margin-inline:auto">
-        The planning check is free, runs in your browser and transmits nothing. It is the only
-        honest evidence we can offer that the same approach would be worth having in your tenant.
-      </p>
-      <div class="btn-row" style="justify-content:center">
-        <a class="btn btn--primary" href="tools/level0/">Run the free planning check</a>
-        <a class="btn btn--ghost" href="product-supply-chain.html">What it checks</a>
-      </div>
-    </div>
-  </section>
-
 </main>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="site-footer__grid">
-      <div>
-        <p><strong>Neopiq</strong> &mdash; digital employees for Dynamics&nbsp;365</p>
-        <p class="muted">
-          We find why enterprise systems behave wrongly, not only whether fields are filled in.
-        </p>
-        <p class="ph">[PLACEHOLDER: contact e-mail, postal address, company registration / legal entity details for Neopiq]</p>
-      </div>
-      <div>
-        <h2>What we do</h2>
-        <ul>
-          <li><a href="tools/level0/">The free planning check &mdash; runs in your browser</a></li>
-          <li><a href="product-supply-chain.html">Planning settings vs reality</a></li>
-          <li><a href="product-process-data.html">Master data and process checks</a></li>
-          <li><a href="product-azure-admin.html">Azure &amp; Power Platform &mdash; in development</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Company</h2>
-        <ul>
-          <li><a href="how-it-works.html">How it works</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="about.html">About Neopiq</a></li>
-        </ul>
-        <h2 style="margin-top:1.1rem">Legal</h2>
-        <ul>
-          <li><a href="imprint.html">Imprint</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="site-footer__legal">
-      <p class="ph">[PLACEHOLDER: copyright line &mdash; needs the registered legal entity behind Neopiq]</p>
-      <p class="small">
-        Pre-launch site. Every yellow dashed marker is content the owner still has to supply. No
-        customers, results, certifications or performance figures are claimed anywhere on this site,
-        and only the free check exists today &mdash; everything described as in development or
-        planned is exactly that.
-      </p>
-    </div>
-  </div>
-</footer>
 
 </body>
 </html>
