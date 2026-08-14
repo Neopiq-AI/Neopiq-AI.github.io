@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Neopiq">
+  <title>Neopiq</title>
+  <!--
+    PROVISIONAL MARK, not a designed brand identity. It is the same plain "N"
+    monogram the site header already renders in CSS (.brand__mark), drawn as a
+    path so it needs no font, on the same rounded tile (radius 7 of 32, matching
+    .brand__mark's 7px of 1.9rem).
+
+    Colours are the site's own design tokens, copied from assets/site.css:
+      light  tile = accent #17527d,  glyph = text-onaccent #ffffff
+      dark   tile = accent #6fb2e8,  glyph = text-onaccent #0e1218
+    Keep them in step with site.css. Replace the whole mark when real branding
+    exists (see CONTENT-TODO.md).
+  -->
+  <style>
+    .tile  { fill: #17527d; }
+    .glyph { fill: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .tile  { fill: #6fb2e8; }
+      .glyph { fill: #0e1218; }
+    }
+  </style>
+  <rect class="tile" width="32" height="32" rx="7" ry="7"/>
+  <path class="glyph" d="M8 24V8h4l8 12V8h4v16h-4l-8-12v12z"/>
+</svg>

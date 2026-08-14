@@ -1,0 +1,7 @@
+# https://neopiq.ai/robots.txt
+# Everything on this site is public and crawlable.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://neopiq.ai/sitemap.xml
