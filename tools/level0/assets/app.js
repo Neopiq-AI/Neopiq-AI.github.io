@@ -362,7 +362,7 @@
     var url = URL.createObjectURL(blob);
     var link = el('a');
     link.href = url;
-    link.download = 'level0-findings.json';
+    link.download = 'planning-data-auditor-findings.json';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -373,7 +373,7 @@
   /* ---------------------------------------------------------------- static content */
 
   function renderStaticContent() {
-    byId('tool-version').textContent = 'level0-web ' + L0.engine.TOOL_VERSION;
+    byId('tool-version').textContent = 'version ' + L0.engine.TOOL_VERSION;
     byId('confidence-model').textContent = L0.confidence.explainModel().join('\n');
 
     var notImplemented = byId('not-implemented');
@@ -390,7 +390,7 @@
     var table = el('table', 'rule-table');
     var thead = el('thead');
     var headRow = el('tr');
-    ['Rule', 'Level', 'Severity', 'Detector', 'Checks'].forEach(function (heading) {
+    ['Rule', 'Depth', 'Severity', 'Detector', 'Checks'].forEach(function (heading) {
       headRow.appendChild(el('th', null, heading));
     });
     thead.appendChild(headRow);

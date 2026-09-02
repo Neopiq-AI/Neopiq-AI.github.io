@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Level 0 Planning Logic Health Check</title>
-<meta name="description" content="Free local diagnostic for D365 Supply Chain planning master data. Your CSV never leaves your browser.">
+<title>Planning Data Auditor for Microsoft Dynamics 365 Supply Chain Management &mdash; Neopiq</title>
+<meta name="description" content="Planning Data Auditor, a free Neopiq tool for Microsoft Dynamics 365 Supply Chain Management: evidence-backed findings on planning master data, computed entirely in your browser. Nothing is uploaded.">
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -12,10 +12,17 @@
 
 <header class="site-header">
   <div class="wrap">
-    <p class="eyebrow">Digital Employees &middot; Level&nbsp;0 &middot; free</p>
-    <h1>Planning Logic Health Check</h1>
+    <nav class="top-nav" aria-label="Neopiq">
+      <a class="brand" href="https://neopiq.ai/">
+        <span class="brand__mark" aria-hidden="true">N</span>
+        <span class="brand__name">Neopiq</span>
+      </a>
+      <a class="top-nav__back" href="https://neopiq.ai/">Back to neopiq.ai</a>
+    </nav>
+    <h1>Planning Data Auditor</h1>
+    <p class="eyebrow">for Microsoft Dynamics 365 Supply Chain Management &middot; a free tool from Neopiq</p>
     <p class="lede">
-      Drop in a few CSV extracts from your ERP and get evidence-backed findings about the gap
+      Drop in a few CSV extracts from your Dynamics&nbsp;365 environment and get evidence-backed findings about the gap
       between what your planning system <em>assumes</em> and what actually <em>happened</em>&nbsp;&mdash;
       missing parameters, contradictory master data, and lead times that reality disagrees with.
     </p>
@@ -87,11 +94,11 @@
     <details class="disclosure" open>
       <summary>Why it runs entirely in your browser</summary>
       <p>
-        Level&nbsp;0 exists because of a constraint, not in spite of one: it runs in your own
-        environment, with no cloud cost and <strong>no data leaving the machine</strong>. That is what
-        lets a planner run it on an export from their own laptop without a procurement process, a
-        security review, a data-processing agreement or an internet connection. The moment a single
-        network call appears, all of that comes back and the adoption story dies.
+        The Planning Data Auditor exists because of a constraint, not in spite of one: it runs in
+        your own environment, with no cloud cost and <strong>no data leaving the machine</strong>.
+        That is what lets a planner run it on an export from their own laptop without a procurement
+        process, a security review, a data-processing agreement or an internet connection. The
+        moment a single network call appears, all of that comes back.
       </p>
       <p>
         So this page has, by construction: no <code>fetch</code>, no <code>XMLHttpRequest</code>, no
@@ -128,17 +135,17 @@
     <details class="disclosure">
       <summary>What is deliberately missing</summary>
       <p>
-        The strategy document names ten generic detection functions. Seven of them are honestly
-        computable from local flat files, and all seven are implemented here. The other three need a
-        knowledge layer &mdash; a business glossary, semantic models, consultant design documents
-        &mdash; which are documents rather than tables. Stubbing them would fake coverage, so they are
-        absent and named instead:
+        The engine's design describes ten generic detection functions. Seven of them are honestly
+        computable from local flat files, and all seven are implemented here. The other three need
+        knowledge that lives in documents rather than tables &mdash; a business glossary, semantic
+        models, consultant design documents. Stubbing them would fake coverage, so they are absent
+        and named instead:
       </p>
       <ul id="not-implemented" class="plain-list"></ul>
       <p>
-        Also out of scope at this tier: natural-language explanation and cross-customer pattern
-        learning (Level&nbsp;1), and any kind of write-back, parameter correction or simulation
-        (Level&nbsp;2, and only after a read-only-first rollout). Findings here are hypotheses for a
+        Also out of scope: natural-language explanation, cross-customer pattern learning, and any
+        kind of write-back, parameter correction or simulation &mdash; this tool reads extracts and
+        never writes anything back. Findings here are hypotheses for a
         human, not instructions for a machine. The engine knows the column names a rule mentions; it
         does not know what your coverage group <em>means</em>, so it cannot tell a legitimate exception
         from a defect.
@@ -155,8 +162,15 @@
 <footer class="site-footer">
   <div class="wrap">
     <p>
-      Level&nbsp;0 local diagnostic &mdash; <span id="tool-version"></span>.
+      Planning Data Auditor &mdash; a free tool from <a href="https://neopiq.ai/">Neopiq</a>,
+      <span id="tool-version"></span>.
       All computation happened in this tab. No data left this machine.
+    </p>
+    <p class="site-footer__legal">
+      &copy; 2026 Neopiq GmbH &middot;
+      <a href="https://neopiq.ai/imprint.html">Imprint</a> &middot;
+      <a href="https://neopiq.ai/privacy.html">Privacy</a> &middot;
+      <a href="https://neopiq.ai/terms.html">Terms</a>
     </p>
   </div>
 </footer>

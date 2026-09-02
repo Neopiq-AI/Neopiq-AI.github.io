@@ -936,14 +936,14 @@
   var NOT_IMPLEMENTED_DETECTORS = [
     ['detect_definition_conflict',
       'needs a business glossary / KPI definitions to know which two fields are meant to ' +
-      'express the same thing (Knowledge Layer, section 5.3 - Level 1+)'],
+      'express the same thing — knowledge a CSV extract does not carry'],
     ['detect_report_semantic_gap',
       'needs semantic model metadata (Power BI / Fabric datasets), which a CSV extract does ' +
-      'not contain and no local connector can reach (section 5.1/5.3 - Level 1+)'],
+      'not contain and no local connector can reach'],
     ['detect_design_assumption_risk',
-      'needs assumptions extracted from consultant design documents; a Level 0 assumption ' +
+      'needs assumptions extracted from consultant design documents; an assumption ' +
       'written by hand is already expressible as a rule threshold, so a separate detector ' +
-      'would add nothing until documents can be read (section 5.3 - Level 1+)']
+      'would add nothing until documents can be read']
   ];
 
   function expectKeys(spec, required, allowed, where) {

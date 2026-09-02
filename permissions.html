@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatAdmin permissions &mdash; every operation it can perform, and why</title>
+<meta name="description" content="ChatAdmin writes to Microsoft Azure, so this page enumerates its scope from the shipping code: each resource type, the operations performed, read or write, why it is needed - plus the approval gate, the two sign-in modes, and the honest state of its role assignment.">
+<link rel="canonical" href="https://neopiq.ai/permissions.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Neopiq">
+<meta property="og:title" content="ChatAdmin permissions &mdash; every operation it can perform, and why">
+<meta property="og:description" content="ChatAdmin writes to Microsoft Azure, so this page enumerates its scope from the shipping code: each resource type, the operations performed, read or write, why it is needed - plus the approval gate, the two sign-in modes, and the honest state of its role assignment.">
+<meta property="og:url" content="https://neopiq.ai/permissions.html">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">N</span>
+      <span class="brand__text">
+        Neopiq
+        <span class="brand__sub">Digital employees for Microsoft Azure and Microsoft Dynamics&nbsp;365</span>
+      </span>
+    </a>
+    <span class="site-header__spacer"></span>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product-chatadmin.html">ChatAdmin</a></li>
+        <li><a href="product-d365.html">Planning Data Auditor</a></li>
+        <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="docs.html">Docs</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">ChatAdmin permissions</li>
+        </ol>
+      </nav>
+      <h1>ChatAdmin writes to your cloud. Here is everything that means, enumerated.</h1>
+      <p class="lead">
+        Most tools that look at <strong>Microsoft Azure</strong> estates are read-only, and
+        their permission pages are short because there is little to declare.
+        <strong>ChatAdmin creates and changes real resources</strong>, so this page has to
+        work harder: for every capability, the resource type it touches, the operations it
+        performs, whether it reads or writes, and why the permission exists at all. It is
+        written from the code that ships, not from intentions.
+      </p>
+      <p class="lead">
+        It also states the two things a careful reviewer would find anyway: the automation
+        identity currently holds a broader role than this list requires, and the audit trail
+        does not yet record which human approved a change. Both are below, undressed.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="capabilities">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>The capability list</h2>
+        <p>
+          Every operation ChatAdmin can perform against Azure today. Reads run without
+          interruption; every write goes through the <a href="#approval-gate">approval
+          gate</a> first, no exceptions. Nothing on this page deletes anything &mdash; the
+          current implementation contains no delete operation of any kind.
+        </p>
+      </div>
+      <div class="table-scroll" style="margin-top:1.5rem">
+        <table>
+          <caption>ChatAdmin's Azure operations, from the shipping code. &ldquo;Write&rdquo; means create-or-update; no capability deletes.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Capability</th>
+              <th scope="col">Azure resource type</th>
+              <th scope="col">Operations performed</th>
+              <th scope="col">Read / write</th>
+              <th scope="col">Why it needs this</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">List resource groups</th>
+              <td>Resource groups<br><span class="mono small">Microsoft.Resources/resourceGroups</span></td>
+              <td>List all resource groups in the subscription</td>
+              <td>Read</td>
+              <td>A conversation about an estate has to start from what actually exists, not from memory.</td>
+            </tr>
+            <tr>
+              <th scope="row">List resources in a group</th>
+              <td>Resources within a resource group<br><span class="mono small">Microsoft.Resources (list by group)</span></td>
+              <td>List name and type of each resource in a named group</td>
+              <td>Read</td>
+              <td>&ldquo;What is inside rg-x?&rdquo; is the most common question before any change is proposed.</td>
+            </tr>
+            <tr>
+              <th scope="row">Resource group</th>
+              <td>Resource groups<br><span class="mono small">Microsoft.Resources/resourceGroups</span></td>
+              <td>Create or update a resource group (name, region)</td>
+              <td>Write</td>
+              <td>Every other resource below must live in a resource group; this is the container everything else depends on.</td>
+            </tr>
+            <tr>
+              <th scope="row">Storage account</th>
+              <td>Storage accounts<br><span class="mono small">Microsoft.Storage/storageAccounts</span></td>
+              <td>Create or update an account (name, SKU, kind, access tier). Does <strong>not</strong> read or write the data inside an account, and does <strong>not</strong> fetch access keys.</td>
+              <td>Write</td>
+              <td>Provisioning storage is a baseline task of building an environment; touching the data inside it is not, so that part is absent.</td>
+            </tr>
+            <tr>
+              <th scope="row">Key vault</th>
+              <td>Key vaults<br><span class="mono small">Microsoft.KeyVault/vaults</span></td>
+              <td>Create or update the vault resource itself, with RBAC authorization on by default and an empty access-policy list. Does <strong>not</strong> read, write, or list secrets, keys, or certificates inside any vault.</td>
+              <td>Write</td>
+              <td>Environments need somewhere for their secrets to live. ChatAdmin builds the vault and stops at its door.</td>
+            </tr>
+            <tr>
+              <th scope="row">Virtual network</th>
+              <td>Virtual networks and subnets<br><span class="mono small">Microsoft.Network/virtualNetworks</span></td>
+              <td>Create or update a virtual network with its address space and subnets. Caution it declares to the user: this is a whole-network update, so a subnet omitted from the request is removed by Azure &mdash; the tool documents this instead of hiding it.</td>
+              <td>Write</td>
+              <td>Compute cannot exist without a network to attach to.</td>
+            </tr>
+            <tr>
+              <th scope="row">Virtual machine</th>
+              <td>Virtual machines (Linux)<br><span class="mono small">Microsoft.Compute/virtualMachines</span></td>
+              <td>Create or update a Linux virtual machine (size, image, admin user, SSH key or password). Requires a pre-existing network interface and does <strong>not</strong> create network interfaces or public IP addresses. Credentials supplied for the machine are never logged, audited, or returned.</td>
+              <td>Write (billable)</td>
+              <td>Standing up compute is the point of an environment; creating its network entry points is deliberately left as a separate, visible step.</td>
+            </tr>
+            <tr>
+              <th scope="row">Log Analytics workspace</th>
+              <td>Log Analytics workspaces<br><span class="mono small">Microsoft.OperationalInsights/workspaces</span></td>
+              <td>Create or update a workspace (retention, pricing tier). Deliberately does <strong>not</strong> fetch the workspace's shared keys &mdash; that is secret material and the code refuses to retrieve it.</td>
+              <td>Write</td>
+              <td>Container environments need a log destination; the workspace ID it returns is a non-secret identifier.</td>
+            </tr>
+            <tr>
+              <th scope="row">Container Apps environment</th>
+              <td>Container Apps managed environments<br><span class="mono small">Microsoft.App/managedEnvironments</span></td>
+              <td>Create or update a managed environment, optionally wired to a Log Analytics workspace. A workspace key supplied by the user is masked on the approval card, excluded from the audit log, and never echoed back.</td>
+              <td>Write</td>
+              <td>A container app must run inside a managed environment; this is its host.</td>
+            </tr>
+            <tr>
+              <th scope="row">Container app</th>
+              <td>Container apps<br><span class="mono small">Microsoft.App/containerApps</span></td>
+              <td>Create or update a container app (image, port, ingress, CPU, memory, replica bounds) and return its public URL. Defaults to scale-to-zero so an idle app costs nothing.</td>
+              <td>Write (billable running compute)</td>
+              <td>Deploying a running service is the end-to-end deliverable the rest of the list builds toward.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="not-implemented">
+    <div class="wrap narrow">
+      <h2>Declared but not implemented, and refused outright</h2>
+      <p>
+        The codebase names further actions that have <strong>no live implementation</strong>:
+        deploying ARM or Bicep templates, validating template parameters, tag-compliance
+        checks, compliance reports, diagnostics, dependency analysis, and a
+        backend-environment orchestration. Invoked, they return a clearly marked
+        &ldquo;not implemented&rdquo; result and make no Azure call; they are also not
+        offered as tools in the conversation. One governance check &mdash; naming-convention
+        validation &mdash; is real but purely local: a pattern match that never contacts
+        Azure. When any of these becomes live, this page changes first.
+      </p>
+      <p>
+        Separately, four things are <strong>refused by guardrails before any Azure call is
+        attempted</strong>, regardless of how the request is phrased:
+      </p>
+      <ul>
+        <li>Calling the commercial marketplace API or touching marketplace data &mdash; out of this agent&rsquo;s authority entirely.</li>
+        <li>Creating or modifying identity credentials: app registrations, service principals, client secrets, certificates.</li>
+        <li>Outputting private key, certificate, or token contents, in any form.</li>
+        <li>Contacting any endpoint that is not an Azure or Microsoft Entra host.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="approval-gate">
+    <div class="wrap narrow">
+      <h2>The approval gate: the compensating control for a tool that writes</h2>
+      <p>
+        Before any write in the table above runs, ChatAdmin stops and shows a person an
+        <strong>Approve / Reject card</strong>: the action name, every parameter (with
+        passwords, SSH keys and workspace keys masked), and the target subscription. Then it
+        waits. <strong>If nobody answers within five minutes, the action is declined
+        automatically</strong> &mdash; the gate fails closed, never open, and in the browser
+        interface there is no auto-approve of any kind. Stated for completeness: the
+        terminal interface used by whoever operates the agent from its own console has an
+        explicit <span class="mono">--yes</span> flag that skips the gate &mdash; its own
+        help text marks it dangerous, and the browser flow has no equivalent. A declined or
+        timed-out action is final for that request; the agent is instructed not to retry
+        unless asked. Read-only listing does not pass through the gate, so looking around
+        never generates approval fatigue.
+      </p>
+      <h2 style="margin-top:2rem">The identity it runs as</h2>
+      <p>
+        ChatAdmin has <strong>two sign-in modes</strong>, selected by deployment
+        configuration. The default is a <strong>certificate-based service
+        principal</strong>: authentication uses a certificate whose private key is held on
+        the runtime host, in the machine&rsquo;s certificate store or a key file &mdash; no
+        passwords and no client secrets exist anywhere, but key material does exist on that
+        host and must be protected there. The second mode, built for deployments hosted
+        inside Azure, is <strong>managed identity</strong>: the platform issues the tokens
+        and no credential is stored in the container image, in configuration, or on disk.
+        In either mode, tokens are short-lived, cached only in memory, and never logged,
+        printed, or included in errors. Whatever the conversation asks for, the agent can
+        only ever do what Azure&rsquo;s role-based access control grants the identity in
+        use &mdash; which is exactly where the honest part comes next.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="honest-position">
+    <div class="wrap narrow">
+      <h2>The part we are not yet happy with, stated before you find it</h2>
+      <div class="stack" style="margin-top:1.5rem">
+        <div class="callout">
+          <h3>The identity currently holds Owner, and that is too broad</h3>
+          <p>
+            ChatAdmin&rsquo;s automation identity holds the <strong>Owner</strong> role on
+            the subscription it runs against. That is far more than the table above requires
+            &mdash; Owner can do things this agent will never be asked to do. The
+            least-privilege design intends a narrower role, and <strong>which role that
+            should be is an open, undecided question</strong>: the operation list above is
+            the input to that decision, and we would rather publish the list and the open
+            question than a tidy answer we have not actually implemented. Two mitigating
+            facts, for what they are worth: ChatAdmin has only ever run against
+            Neopiq&rsquo;s own subscription, and every write still passes the approval gate.
+          </p>
+        </div>
+        <div class="callout">
+          <h3>The audit trail does not record who approved</h3>
+          <p>
+            Every action is logged as structured JSON &mdash; timestamp, operation, target
+            resource, result, with secret material redacted before writing. What the log
+            does <strong>not</strong> contain is <strong>which human clicked Approve</strong>.
+            Today, with no sign-up, no login and a single operating team, the answer is
+            knowable outside the log; in any multi-user deployment it must be in the log,
+            and that is a known gap to close before one exists.
+          </p>
+        </div>
+      </div>
+      <p style="margin-top:1.5rem">
+        If you review tools like this for a living and want to argue with any of it &mdash;
+        the scope, the gate, the role question &mdash; that argument is welcome:
+        <a href="contact.html">write to us</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="wrap center">
+      <h2>The rest of the security story</h2>
+      <p class="lede" style="margin-inline:auto">
+        Permissions are one chapter. Architecture, data handling, vulnerability reporting and
+        the certifications we do not hold are on the security page.
+      </p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn--primary" href="security.html">Read the security page</a>
+        <a class="btn btn--ghost" href="docs.html">Product documentation</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div>
+        <p><strong>Neopiq</strong> &mdash; digital employees for Microsoft Azure and Microsoft Dynamics&nbsp;365</p>
+        <p class="muted">
+          An admin agent that asks before it acts, and a diagnosis that finds why enterprise
+          systems behave wrongly.
+        </p>
+        <p class="small">
+          Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
+          UID CHE-345.914.300 &middot; not registered for VAT<br>
+          <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> &middot;
+          <a href="tel:0041782236716">0041 78 223 6716</a>
+        </p>
+      </div>
+      <div>
+        <h2>What we do</h2>
+        <ul>
+          <li><a href="product-chatadmin.html">ChatAdmin &mdash; administer Azure by conversation</a></li>
+          <li><a href="product-d365.html">Planning Data Auditor &mdash; planning logic and master data</a></li>
+          <li><a href="tools/level0/">Run Planning Data Auditor free &mdash; in your browser</a></li>
+        </ul>
+        <h2 style="margin-top:1.1rem">Product resources</h2>
+        <ul>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="permissions.html">ChatAdmin permissions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="about.html">About Neopiq</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <h2 style="margin-top:1.1rem">Legal</h2>
+        <ul>
+          <li><a href="imprint.html">Imprint</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <p class="small">
+        Microsoft, Microsoft Azure, Microsoft Dynamics 365 and Microsoft Power Platform are
+        trademarks of the Microsoft group of companies. Neopiq GmbH is an independent software
+        vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
+      </p>
+      <p class="small">&copy; 2026 Neopiq GmbH</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

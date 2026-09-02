@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentation &mdash; how to run, read, and reason about both products</title>
+<meta name="description" content="Product documentation for the Planning Data Auditor and ChatAdmin: what the checks cover and the extracts they need, how to run the free check and read a finding, what ChatAdmin's approval gate looks like and what it can manage - and which documentation does not exist yet.">
+<link rel="canonical" href="https://neopiq.ai/docs.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Neopiq">
+<meta property="og:title" content="Documentation &mdash; how to run, read, and reason about both products">
+<meta property="og:description" content="Product documentation for the Planning Data Auditor and ChatAdmin: what the checks cover and the extracts they need, how to run the free check and read a finding, what ChatAdmin's approval gate looks like and what it can manage - and which documentation does not exist yet.">
+<meta property="og:url" content="https://neopiq.ai/docs.html">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">N</span>
+      <span class="brand__text">
+        Neopiq
+        <span class="brand__sub">Digital employees for Microsoft Azure and Microsoft Dynamics&nbsp;365</span>
+      </span>
+    </a>
+    <span class="site-header__spacer"></span>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product-chatadmin.html">ChatAdmin</a></li>
+        <li><a href="product-d365.html">Planning Data Auditor</a></li>
+        <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="docs.html" aria-current="page">Docs</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">Documentation</li>
+        </ol>
+      </nav>
+      <h1>Documentation: enough to use both products without asking us anything</h1>
+      <p class="lead">
+        Two products, two halves of this page. The <strong>Planning Data Auditor</strong>
+        for <strong>Microsoft Dynamics&nbsp;365 Supply Chain Management</strong> is the free
+        browser check of planning settings and master data &mdash; its half covers what it
+        checks, the extracts it needs, how to run it, and how to read a finding.
+        <strong>ChatAdmin</strong> administers <strong>Microsoft Azure</strong> by
+        conversation &mdash; its half covers what it can manage and exactly what the
+        approval gate does. Where documentation does not exist yet, this page says so
+        instead of linking to it.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="auditor">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>Planning Data Auditor</h2>
+        <p class="badge">Free &middot; runs in your browser &middot; nothing uploaded</p>
+        <p>
+          A rules-and-arithmetic check over extracts of your Dynamics&nbsp;365 planning and
+          master data. Deterministic: same input, same output, every time. No account, no
+          upload, no model guessing.
+        </p>
+      </div>
+
+      <div class="grid grid--2" style="margin-top:2rem">
+        <article class="card">
+          <h3>What it checks</h3>
+          <p>
+            26 checks over 11 extracts of planning and master data, asking three kinds of
+            question in increasing order of inference:
+          </p>
+          <ul>
+            <li><strong>Is it filled in?</strong> Active planning items missing lead times, suppliers, planners, sites, coverage groups.</li>
+            <li><strong>Do the records agree with each other?</strong> Item lead times contradicting vendor records, references to things that no longer exist, manufactured items without routes.</li>
+            <li><strong>Does the setting match reality?</strong> Configured lead time against actual receipts, safety stock against demand volatility, forecast against real order intake, service performance against its own past.</li>
+          </ul>
+          <p>
+            Seven kinds of comparison carry those questions: missing values, missing owners,
+            cross-table conflicts, outliers against peers, configuration against history,
+            service measures getting worse, and behaviour drifting from its own past.
+          </p>
+        </article>
+        <article class="card">
+          <h3>The extracts it needs</h3>
+          <p>
+            Eleven extracts, shaped like Dynamics&nbsp;365 planning and master-data tables,
+            produced by you as CSV files &mdash; the tool never connects to your system. The
+            authoritative list of extracts and required columns is <strong>inside the tool
+            itself</strong>, which is deliberate: the tool and its input specification cannot
+            drift apart. Load what you have; any check your extracts cannot answer is
+            reported as not-run, with the reason &mdash; never silently skipped.
+          </p>
+          <p>
+            Synthetic sample data ships with the tool, so you can see complete, worked
+            findings before preparing a single extract of your own.
+          </p>
+          <p class="card__more"><a href="tools/level0/">Open the tool and see the extract list</a></p>
+        </article>
+      </div>
+
+      <div class="grid grid--2" style="margin-top:1.5rem">
+        <article class="card">
+          <h3>How to run it</h3>
+          <ul>
+            <li>Open <a href="tools/level0/">the free check</a> in a current browser. Nothing to install, no account to create.</li>
+            <li>If you want proof of the privacy property first: open your browser&rsquo;s network tab, or disconnect from the network entirely once the page is loaded. The check runs the same either way.</li>
+            <li>Load your CSV extracts &mdash; or one click loads the synthetic sample data.</li>
+            <li>Run the checks and read the findings in the same tab. Nothing is stored between runs; closing the tab clears everything.</li>
+          </ul>
+        </article>
+        <article class="level level--0">
+          <span class="level__tag">How to read a finding</span>
+          <h3>One problem, one named object, evidence attached</h3>
+          <p>Every finding carries the same fields, in planning language:</p>
+          <ul>
+            <li><strong>What is wrong</strong>, in one sentence, and <strong>which objects</strong> &mdash; item, vendor, site &mdash; with <strong>who owns it</strong></li>
+            <li><strong>The evidence</strong>: configured value, observed value, sample size, threshold crossed</li>
+            <li><strong>What it costs you</strong>, <strong>the likely cause</strong>, and <strong>what to change</strong> &mdash; an action, not &ldquo;investigate&rdquo;</li>
+            <li><strong>Where it came from</strong>: the tables and files read</li>
+            <li><strong>How sure we are</strong> &mdash; a confidence figure that is stated judgement, not a measured probability, with the arithmetic shown</li>
+          </ul>
+          <p class="level__where">
+            Findings are hypotheses with evidence, built to be overruled in ten seconds by a
+            human who knows the business reason. Thresholds live in plain rule files so you
+            can argue with them. The deeper treatment is on
+            <a href="how-it-works.html">how it works</a>.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="chatadmin">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>ChatAdmin</h2>
+        <p class="badge">No self-service sign-up today &middot; access starts with a conversation</p>
+        <p>
+          ChatAdmin turns a conversation into enumerated operations against Azure &mdash;
+          and stops before every change until a person approves it.
+        </p>
+      </div>
+
+      <div class="grid grid--2" style="margin-top:2rem">
+        <article class="card">
+          <h3>What it can manage</h3>
+          <p>
+            Resource groups, storage accounts, key vaults, virtual networks, Linux virtual
+            machines, Log Analytics workspaces, and Container Apps environments and apps
+            &mdash; create-or-update only, with read-only listing of what exists. No
+            capability deletes anything today, and the things it refuses outright &mdash;
+            credential creation, secret disclosure, non-Azure endpoints &mdash; are refused
+            before any call is attempted.
+          </p>
+          <p class="card__more">
+            <a href="permissions.html">The full table: every resource type, every operation, and why</a>
+          </p>
+        </article>
+        <article class="level level--2">
+          <span class="level__tag">The approval gate, step by step</span>
+          <h3>What you see before anything changes</h3>
+          <ul>
+            <li>You ask for something in plain language; the agent proposes a specific operation.</li>
+            <li>If it would change Azure, a card appears: the <strong>action name</strong>, <strong>every parameter</strong> (passwords and keys masked), and the <strong>target subscription</strong>.</li>
+            <li>You click <strong>Approve</strong> or <strong>Reject</strong>. The agent waits &mdash; it cannot proceed on its own.</li>
+            <li><strong>Five minutes of silence declines the action automatically.</strong> A decline is final for that request; the agent does not retry unless asked.</li>
+            <li>Read-only questions &mdash; what resource groups exist, what is in one &mdash; run without a card.</li>
+          </ul>
+          <p class="level__where">
+            Every action lands in a structured audit trail: timestamp, operation, target
+            resource, result, secrets redacted. Its current limits are stated on the
+            <a href="permissions.html">permissions page</a>, including that it does not yet
+            record which human approved &mdash; and that the operator&rsquo;s own terminal
+            interface, unlike the browser flow described here, has an explicit auto-approve
+            flag.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gaps">
+    <div class="wrap narrow">
+      <h2>Documentation that does not exist yet</h2>
+      <p>
+        So this page cannot over-promise by omission: there is <strong>no downloadable
+        manual</strong> for either product, <strong>no administrator guide</strong> for
+        ChatAdmin beyond this page and the <a href="permissions.html">permissions page</a>,
+        and <strong>no API reference</strong> &mdash; because there is no public API. There
+        are no integration guides, because the Planning Data Auditor deliberately integrates
+        with nothing and ChatAdmin is not yet open for sign-up. A written explanation of
+        each individual check in the Planning Data Auditor exists only in the form the tool
+        itself shows: the finding, its evidence, and its thresholds.
+      </p>
+      <p>
+        When one of these gaps closes, the material will be linked from this page. Until
+        then, a question this page does not answer goes to
+        <a href="mailto:support@neopiq.ai">support@neopiq.ai</a> &mdash; hours and the
+        response target are on the <a href="support.html">support page</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="wrap center">
+      <h2>The fastest way to understand the tool is to run it</h2>
+      <p class="lede" style="margin-inline:auto">
+        The free check with its sample data is a better explanation than any page of prose,
+        and it costs you nothing to open.
+      </p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn--primary" href="tools/level0/">Run the free check</a>
+        <a class="btn btn--ghost" href="support.html">Get support</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div>
+        <p><strong>Neopiq</strong> &mdash; digital employees for Microsoft Azure and Microsoft Dynamics&nbsp;365</p>
+        <p class="muted">
+          An admin agent that asks before it acts, and a diagnosis that finds why enterprise
+          systems behave wrongly.
+        </p>
+        <p class="small">
+          Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
+          UID CHE-345.914.300 &middot; not registered for VAT<br>
+          <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> &middot;
+          <a href="tel:0041782236716">0041 78 223 6716</a>
+        </p>
+      </div>
+      <div>
+        <h2>What we do</h2>
+        <ul>
+          <li><a href="product-chatadmin.html">ChatAdmin &mdash; administer Azure by conversation</a></li>
+          <li><a href="product-d365.html">Planning Data Auditor &mdash; planning logic and master data</a></li>
+          <li><a href="tools/level0/">Run Planning Data Auditor free &mdash; in your browser</a></li>
+        </ul>
+        <h2 style="margin-top:1.1rem">Product resources</h2>
+        <ul>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="permissions.html">ChatAdmin permissions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="about.html">About Neopiq</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <h2 style="margin-top:1.1rem">Legal</h2>
+        <ul>
+          <li><a href="imprint.html">Imprint</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <p class="small">
+        Microsoft, Microsoft Azure, Microsoft Dynamics 365 and Microsoft Power Platform are
+        trademarks of the Microsoft group of companies. Neopiq GmbH is an independent software
+        vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
+      </p>
+      <p class="small">&copy; 2026 Neopiq GmbH</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

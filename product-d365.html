@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>D365 intelligence &mdash; find the planning settings and master data that stopped being true</title>
-<meta name="description" content="Neopiq compares your Dynamics 365 planning settings against what your receipts, orders and shipments actually did, and checks the master data underneath them three ways: filled in, self-consistent, and still true. 26 checks over 11 extracts, evidence on every finding, free and running in your browser.">
+<title>Planning Data Auditor &mdash; find the planning settings and master data that stopped being true</title>
+<meta name="description" content="Planning Data Auditor for Microsoft Dynamics 365 Supply Chain Management compares your planning settings against what your receipts, orders and shipments actually did, and checks the master data underneath them three ways: filled in, self-consistent, and still true. 26 checks over 11 extracts, evidence on every finding, free and running in your browser.">
 <link rel="canonical" href="https://neopiq.ai/product-d365.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="D365 intelligence &mdash; find the planning settings and master data that stopped being true">
-<meta property="og:description" content="Neopiq compares your Dynamics 365 planning settings against what your receipts, orders and shipments actually did, and checks the master data underneath them three ways: filled in, self-consistent, and still true. 26 checks over 11 extracts, evidence on every finding, free and running in your browser.">
+<meta property="og:title" content="Planning Data Auditor &mdash; find the planning settings and master data that stopped being true">
+<meta property="og:description" content="Planning Data Auditor for Microsoft Dynamics 365 Supply Chain Management compares your planning settings against what your receipts, orders and shipments actually did, and checks the master data underneath them three ways: filled in, self-consistent, and still true. 26 checks over 11 extracts, evidence on every finding, free and running in your browser.">
 <meta property="og:url" content="https://neopiq.ai/product-d365.html">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -24,7 +24,7 @@
       <span class="brand__mark" aria-hidden="true">N</span>
       <span class="brand__text">
         Neopiq
-        <span class="brand__sub">Digital employees for Azure and Dynamics&nbsp;365</span>
+        <span class="brand__sub">Digital employees for Microsoft Azure and Microsoft Dynamics&nbsp;365</span>
       </span>
     </a>
     <span class="site-header__spacer"></span>
@@ -32,10 +32,10 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="product-chatadmin.html">ChatAdmin</a></li>
-        <li><a href="product-d365.html" aria-current="page">D365 intelligence</a></li>
-        <li><a href="tools/level0/">Free check</a></li>
+        <li><a href="product-d365.html" aria-current="page">Planning Data Auditor</a></li>
         <li><a href="how-it-works.html">How it works</a></li>
         <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="docs.html">Docs</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
     </nav>
@@ -50,7 +50,7 @@
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li aria-current="page">D365 intelligence</li>
+            <li aria-current="page">Planning Data Auditor</li>
           </ol>
         </nav>
         <p class="eyebrow">Pillar 2 &middot; the free check is available today</p>
@@ -58,9 +58,10 @@
         <p class="lead">
           Lead times, safety stock, minimum order quantities and coverage groups were set once
           &mdash; before the supplier changed, before the volumes moved, before the product went
-          end-of-life. Master planning is not guessing; it is obeying. Neopiq finds the settings and
-          the master data that no longer match what actually happens, quotes the numbers that prove
-          it, and names the change to make.
+          end-of-life. Master planning is not guessing; it is obeying. Planning Data Auditor, for
+          Microsoft Dynamics 365 Supply Chain Management, finds the settings and the master
+          data that no longer match what actually happens, quotes the numbers that prove it, and
+          names the change to make.
         </p>
         <div class="btn-row">
           <a class="btn btn--primary" href="tools/level0/">Run the free check on your own extracts</a>
@@ -192,11 +193,11 @@
   <section class="section" id="checks">
     <div class="wrap">
       <div class="section__intro">
-        <h2>The twenty-six questions it asks about your D365 data</h2>
+        <h2>The twenty-six questions it asks about your Dynamics 365 data</h2>
         <p>
           Grouped by the part of the setup they interrogate. Every one of them ends in a named
-          item, the numbers behind the claim, and the change to make. These are the checks that
-          exist and run today.
+          item, the numbers behind the claim, and the change to make. All of them run in the free
+          check, today.
         </p>
       </div>
 
@@ -332,7 +333,7 @@
         <article class="card">
           <h3>What you need to run it</h3>
           <p>
-            CSV extracts from D365. The shipped rule library reads eleven of them: items, vendors,
+            CSV extracts from Dynamics 365. The shipped rule library reads eleven of them: items, vendors,
             purchase receipts, sales order lines, on-hand inventory, production orders, production
             routes, forecast lines, coverage groups, reduction keys and planners.
           </p>
@@ -437,7 +438,7 @@
       <ul class="narrow" style="margin-top:2rem">
         <li><strong>Supply chain and planning managers</strong> who want the exception list before the monthly review, not as its outcome.</li>
         <li><strong>Master planners and buyers</strong> who already suspect which parameters are wrong and need the evidence to get them changed.</li>
-        <li><strong>D365 functional consultants</strong> who need a fast, defensible read on a client's planning setup and master data in the first week of an engagement.</li>
+        <li><strong>Dynamics 365 functional consultants</strong> who need a fast, defensible read on a client's planning setup and master data in the first week of an engagement.</li>
         <li><strong>Data and process owners</strong> who want a repeatable check they can re-run every quarter, not a one-off spreadsheet audit.</li>
         <li><strong>Operations and IT leaders</strong> who will not ship item, vendor and order history to an external service to find out whether there is a problem.</li>
       </ul>
@@ -462,71 +463,17 @@
           seasonal models. A supplier who is always slower in the summer will look like drift.
         </li>
         <li>
-          <strong>The thresholds have never been tuned against a real customer tenant,</strong> and
-          the sample data that demonstrates the checks is synthetic.
-        </li>
-        <li>
-          <strong>Nothing is written back to D365.</strong> The output is a work list; every change
+          <strong>Nothing is written back to Dynamics 365.</strong> The output is a work list; every change
           is made by your people, in your system, on purpose.
         </li>
       </ul>
 
-      <h2 style="margin-top:2.5rem">Where this pillar is heading</h2>
-      <p>
-        Stated in the future tense on purpose: neither of the steps below is built, and nothing in
-        them is available to buy or try.
+      <p style="margin-top:2.5rem">
+        The free check is the whole of this pillar you can use today &mdash; nothing beyond it is
+        available to buy. Where deeper work would run, and what &mdash; if anything &mdash; would
+        ever leave your machine, is set out level by level on the
+        <a href="how-it-works.html">how it works</a> page.
       </p>
-      <div class="grid grid--2" style="margin-top:1.5rem">
-        <article class="level level--1">
-          <span class="level__tag">Level 1 &middot; in development</span>
-          <h3>Findings explained, written up, and read against your own definitions</h3>
-          <p>
-            The reading and the rule work would stay local. A cloud service would take the
-            <em>results</em> &mdash; summary numbers and risk signals, never your records &mdash;
-            and turn them into a prioritised written report. Alongside it, reading your own process
-            documents and KPI definitions so a deliberate exception can be told apart from a
-            defect.
-          </p>
-          <p class="level__where"><strong>Status:</strong> designed, not built.</p>
-        </article>
-        <article class="level level--2">
-          <span class="level__tag">Level 2 &middot; planned</span>
-          <h3>Optimisation, simulation, process mining and supervised repair</h3>
-          <p>
-            The heavy work at full data volume, intended to run inside your own Azure subscription
-            under your own controls. Read-only diagnosis comes first, always; nothing would write
-            to your system without a person approving it &mdash; the same approval discipline the
-            <a href="product-chatadmin.html">admin agent</a> already runs on.
-          </p>
-          <p class="level__where"><strong>Status:</strong> a direction, not a product. For D365 no part of it is built.</p>
-        </article>
-      </div>
-
-      <div class="ph-block">
-        <span class="ph-block__label">Placeholder &mdash; owner input required</span>
-        <p>
-          [PLACEHOLDER: supported scope in D365 terms &mdash; which Supply Chain Management
-          versions and modules, whether Planning Optimization or the built-in master planning
-          engine is assumed, and the recommended way to produce the eleven extracts (data entities,
-          export project, or a saved view).]
-        </p>
-        <p>
-          [PLACEHOLDER: scope beyond planning master data. Today's checks cover the
-          planning-critical objects &mdash; items, vendors, planners, coverage groups, reduction
-          keys, routes, forecast. Whether customer, finance or product-structure master data is in
-          scope, and in what order, is a product decision that has not been made.]
-        </p>
-        <p>
-          [PLACEHOLDER: what the Level&nbsp;1 and Level&nbsp;2 steps add for this pillar
-          specifically &mdash; demand pattern work, scenario simulation and optimisation are named
-          in the internal architecture with no detail behind them, and neither step is built.]
-        </p>
-        <p>
-          [PLACEHOLDER: screenshots or a short recording of the check running. None exist yet, so
-          this page shows no product imagery rather than a mock-up that could be mistaken for a
-          real screen.]
-        </p>
-      </div>
     </div>
   </section>
 
@@ -551,7 +498,7 @@
   <div class="wrap">
     <div class="site-footer__grid">
       <div>
-        <p><strong>Neopiq</strong> &mdash; digital employees for Azure and Dynamics&nbsp;365</p>
+        <p><strong>Neopiq</strong> &mdash; digital employees for Microsoft Azure and Microsoft Dynamics&nbsp;365</p>
         <p class="muted">
           An admin agent that asks before it acts, and a diagnosis that finds why enterprise
           systems behave wrongly.
@@ -567,8 +514,15 @@
         <h2>What we do</h2>
         <ul>
           <li><a href="product-chatadmin.html">ChatAdmin &mdash; administer Azure by conversation</a></li>
-          <li><a href="product-d365.html">D365 intelligence &mdash; planning logic and master data</a></li>
-          <li><a href="tools/level0/">The free D365 check &mdash; runs in your browser</a></li>
+          <li><a href="product-d365.html">Planning Data Auditor &mdash; planning logic and master data</a></li>
+          <li><a href="tools/level0/">Run Planning Data Auditor free &mdash; in your browser</a></li>
+        </ul>
+        <h2 style="margin-top:1.1rem">Product resources</h2>
+        <ul>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="permissions.html">ChatAdmin permissions</a></li>
         </ul>
       </div>
       <div>
@@ -577,6 +531,7 @@
           <li><a href="how-it-works.html">How it works</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="about.html">About Neopiq</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
         <h2 style="margin-top:1.1rem">Legal</h2>
         <ul>
@@ -587,15 +542,12 @@
       </div>
     </div>
     <div class="site-footer__legal">
-      <p class="small">&copy; 2026 Neopiq GmbH</p>
       <p class="small">
-        Pre-launch site. The company is registered and its details are real; the yellow dashed
-        markers that remain are commercial and product decisions the owner has still to make. No
-        customers, results, certifications or performance figures are claimed anywhere on this
-        site. Two things run today: the free D365 check in your browser, and ChatAdmin against our
-        own Azure subscription &mdash; which you cannot sign up for. Everything else is marked in
-        development or planned, and is exactly that.
+        Microsoft, Microsoft Azure, Microsoft Dynamics 365 and Microsoft Power Platform are
+        trademarks of the Microsoft group of companies. Neopiq GmbH is an independent software
+        vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
       </p>
+      <p class="small">&copy; 2026 Neopiq GmbH</p>
     </div>
   </div>
 </footer>

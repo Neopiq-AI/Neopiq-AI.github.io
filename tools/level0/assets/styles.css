@@ -119,8 +119,27 @@ a { color: var(--accent); }
 .site-header {
   background: var(--bg-raised);
   border-bottom: 1px solid var(--border);
-  padding: 2.5rem 0 2rem;
+  padding: 1.5rem 0 2rem;
 }
+
+/* Brand row: matches the marketing site's header vocabulary (brand mark + name),
+   rebuilt locally so this page stays free of external assets. */
+.top-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 0.75rem; flex-wrap: wrap; margin: 0 0 1.75rem;
+}
+.brand {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-weight: 700; color: var(--text); text-decoration: none;
+}
+.brand:hover .brand__name { text-decoration: underline; }
+.brand__mark {
+  width: 1.9rem; height: 1.9rem; flex: none; border-radius: 7px;
+  background: var(--accent); color: var(--accent-text);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 1.05rem;
+}
+.top-nav__back { font-size: 0.9rem; }
 .eyebrow {
   text-transform: uppercase; letter-spacing: 0.09em; font-size: 0.75rem;
   font-weight: 600; color: var(--text-muted); margin: 0 0 0.5rem;
@@ -325,6 +344,8 @@ a { color: var(--accent); }
   color: var(--text-muted);
   font-size: 0.88rem;
 }
+.site-footer__legal { margin: 0.5rem 0 0; }
+.site-footer a { color: var(--accent); }
 
 @media (max-width: 40rem) {
   .panel { padding: 1.1rem; }
