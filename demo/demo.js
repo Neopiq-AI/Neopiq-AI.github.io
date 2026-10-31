@@ -105,7 +105,7 @@
         { t: 'admin',
           text: 'What I cannot tell from here: whether Mary needs the role for something outside the directory audit log, such as a portal task I do not see. If you want the role removed, that is a card (remove_directory_role) — I never assign Global Administrator from chat, and I never remove the last one.'
         },
-        { t: 'result', state: 'read', executed: 'no change proposed — reads only', verified: '5 reads, 0 cards', audit: 'the question and the five reads are in the session transcript' }
+        { t: 'result', state: 'read', executed: 'no change proposed — reads only (simulated)', verified: '5 reads, 0 cards', audit: 'the question and the five reads are in the session transcript' }
       ]
     },
 

@@ -161,8 +161,8 @@
         </p>
         <p>
           Known limit, stated here rather than found by you: the key proves &ldquo;someone with the
-          key&rdquo;, not who. Recording the approver&rsquo;s identity on every decision is part of the
-          Microsoft sign-in work. <span class="status status--dev">in development</span>
+          key&rdquo;, not who. Recording which signed-in operator forwarded each decision is part of
+          the Microsoft sign-in work. <span class="status status--dev">in development</span>
         </p>
 
         <h2 id="tenant">How do I know which tenant is affected?</h2>
@@ -198,7 +198,9 @@
           in your environment: directory changes appear in the Entra audit log under the
           administrator the chat acts as, Azure changes in the activity log under the service&rsquo;s
           identity, Microsoft 365 changes under the application &ldquo;ChatAdmin Agent M&rdquo;. Ask
-          ChatAdmin &ldquo;who changed what in the last hour?&rdquo; and it reads those logs back.
+          ChatAdmin &ldquo;who changed what in the last hour?&rdquo; and it reads the Microsoft Entra
+          and Microsoft Azure logs back; the Microsoft 365 log is read in Microsoft&rsquo;s own admin
+          center, not through ChatAdmin.
         </p>
 
         <h2 id="remove">How can access be removed?</h2>
