@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Security &mdash; what we built, what we hold, and what we do not</title>
-<meta name="description" content="Neopiq's security posture, stated plainly: architecture and data flow for both products, access and authentication, data handling, how to report a vulnerability, and the honest position on certifications - we hold none.">
+<title>Security and trust — who Neopiq is, what ChatAdmin can read and change, how approval works</title>
+<meta name="description" content="The ChatAdmin trust centre, organised around the questions a customer asks: who Neopiq is, why Microsoft sign-in, which permissions, what it can read and change, when it executes, how approval works, which tenant is affected, what is stored, how activity is logged, how access is removed, and how to reach us about security.">
 <link rel="canonical" href="https://neopiq.ai/security.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="Security &mdash; what we built, what we hold, and what we do not">
-<meta property="og:description" content="Neopiq's security posture, stated plainly: architecture and data flow for both products, access and authentication, data handling, how to report a vulnerability, and the honest position on certifications - we hold none.">
+<meta property="og:title" content="Security and trust — who Neopiq is, what ChatAdmin can read and change, how approval works">
+<meta property="og:description" content="The ChatAdmin trust centre, organised around the questions a customer asks: who Neopiq is, why Microsoft sign-in, which permissions, what it can read and change, when it executes, how approval works, which tenant is affected, what is stored, how activity is logged, how access is removed, and how to reach us about security.">
 <meta property="og:url" content="https://neopiq.ai/security.html">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -24,19 +24,20 @@
       <span class="brand__mark" aria-hidden="true">N</span>
       <span class="brand__text">
         Neopiq
-        <span class="brand__sub">Digital employees for Microsoft Azure and Microsoft Dynamics&nbsp;365</span>
+        <span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span>
       </span>
     </a>
     <span class="site-header__spacer"></span>
     <nav class="site-nav" aria-label="Primary">
       <ul>
-        <li><a href="index.html">Home</a></li>
         <li><a href="product-chatadmin.html">ChatAdmin</a></li>
-        <li><a href="product-d365.html">Planning Data Auditor</a></li>
         <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="security.html" aria-current="page">Security &amp; trust</a></li>
+        <li><a href="solutions-businesses.html">For businesses</a></li>
+        <li><a href="solutions-msp.html">For MSPs</a></li>
+        <li><a href="ecosystem.html">Ecosystem</a></li>
         <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="docs.html">Docs</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a class="nav-cta" href="demo/">See it in action</a></li>
       </ul>
     </nav>
   </div>
@@ -49,213 +50,196 @@
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <ol>
           <li><a href="index.html">Home</a></li>
-          <li aria-current="page">Security</li>
+          <li aria-current="page">Security &amp; trust</li>
         </ol>
       </nav>
-      <h1>Security, described the way we would want to read it about someone else</h1>
+      <h1>Security and trust, organised around the questions you would ask</h1>
       <p class="lead">
-        Two products, two very different risk shapes. <strong>ChatAdmin</strong> makes real
-        changes to <strong>Microsoft Azure</strong>, so its security story is about control:
-        who approved what, under which identity, with which permissions. The
-        <strong>Planning Data Auditor</strong> for Microsoft Dynamics&nbsp;365 Supply Chain
-        Management reads commercially sensitive planning data, so its story is about
-        boundaries: the data never leaves your machine, and you can verify that yourself.
+        ChatAdmin makes real changes in Microsoft Azure, Microsoft Entra, Microsoft 365 and Microsoft
+        Power Platform, so this page is about control: who approves what, under which identity, with
+        which ceilings, and how you can check afterwards. Every answer states what is provable today
+        and labels what is being added. Neopiq holds no security certification and claims no
+        Microsoft endorsement; the last section says exactly what that means.
       </p>
-      <p class="lead">
-        One thing to know before anything else on this page: <strong>Neopiq holds no security
-        certifications</strong>. The section at the bottom says exactly what that means.
+      <p class="small muted">
+        Status labels on this page: <span class="status status--now">available now</span>
+        <span class="status status--dev">in development</span>
+        <span class="status status--planned">planned</span>
       </p>
     </div>
   </section>
 
-  <section class="section" id="architecture">
+  <section class="section">
     <div class="wrap">
-      <div class="section__intro">
-        <h2>Architecture and data flow</h2>
+      <div class="qa">
+
+        <h2 id="who">Who is Neopiq?</h2>
         <p>
-          Where each product runs, what moves, and what never does.
+          <strong>Neopiq GmbH</strong>, a Swiss company: c/o Ludwig Limbeck AG, Sinserstrasse 67,
+          6330 Cham, Switzerland, UID CHE-345.914.300, not registered for VAT. We build ChatAdmin and
+          nothing else is in our product story today. The full provider identification is in the
+          <a href="imprint.html">imprint</a>; the legal basis for how we handle data is in the
+          <a href="privacy.html">privacy notice</a>, which is governed by Swiss law (revFADP).
+          Neopiq is an independent software vendor and is not affiliated with, endorsed by, or
+          sponsored by Microsoft.
         </p>
-      </div>
-      <div class="grid grid--2" style="margin-top:2rem">
-        <article class="level level--0">
-          <span class="level__tag">Planning Data Auditor &middot; free, browser-only</span>
-          <h3>Client-side by construction &mdash; and checkable, not just claimed</h3>
-          <p>
-            The Planning Data Auditor is a web page that reads your Dynamics&nbsp;365 extract
-            files locally, applies its rule library, and renders findings in the same tab.
-            There is no upload, no account, no login, no cookie, no analytics, and no server
-            that receives anything. Nothing is stored between runs &mdash; closing the tab is
-            the delete button.
-          </p>
-          <p>
-            You do not have to take our word for any of that. Two tests anyone can run:
-            <strong>open your browser&rsquo;s network tab</strong> before loading your files
-            and watch no request carry your data anywhere, or <strong>pull the network
-            cable</strong> (or switch to flight mode) after the page has loaded and run the
-            whole check offline. It works, because there is nothing to send.
-          </p>
-          <p class="level__where">
-            <strong>What crosses the boundary:</strong> nothing. Your extracts, your
-            findings, and the fact that you ran the check all stay with you.
-          </p>
-        </article>
-        <article class="level level--2">
-          <span class="level__tag">ChatAdmin &middot; acts inside an Azure subscription</span>
-          <h3>The compute goes to the resources, not the other way around</h3>
-          <p>
-            ChatAdmin is built to run inside the Azure subscription it administers &mdash;
-            that is the deployed model its managed-identity mode exists for. A conversation
-            turns into specific, enumerated operations against Azure Resource Manager; in
-            the browser chat, every operation that would change anything is shown to a
-            person on an Approve / Reject card and does not run without approval. If nobody
-            answers within five minutes, it declines by itself. Read-only listing runs
-            without interruption.
-          </p>
-          <p>
-            Today ChatAdmin has no sign-up, no login and no multi-tenancy, and it has only
-            ever run against Neopiq&rsquo;s own subscription. No customer environment and no
-            customer data are behind it. The full list of what it can touch, operation by
-            operation, is on the <a href="permissions.html">permissions page</a> &mdash;
-            including the parts we are not yet happy with.
-          </p>
-          <p class="level__where">
-            <strong>What crosses the boundary:</strong> instructions in, results and an audit
-            trail out. It pulls nothing out of the subscription it works in.
-          </p>
-        </article>
-      </div>
-      <div class="callout" style="margin-top:1.75rem">
-        <h3>This website itself</h3>
+
+        <h2 id="signin">Why would I sign in through Microsoft? <span class="status status--dev">in development</span></h2>
         <p>
-          The site you are reading is static pages with no scripts, no login, no contact
-          form, and no account system &mdash; there is no customer database behind it to
-          breach. What little there is to say about data on this site is in the
-          <a href="privacy.html">privacy notice</a>.
+          There is no customer sign-in today: the product is reached by a link held by the people
+          who evaluate it, and every change needs an approver key. The first self-service stage we
+          are building is a sign-in with your Microsoft work account. Before you are sent to
+          Microsoft the page will say, in these words: this signs you in to ChatAdmin with your
+          Microsoft work account; ChatAdmin learns your name, sign-in name and your
+          organisation&rsquo;s tenant id; it does not get access to administer your Microsoft
+          environment; nothing is read or changed in your tenant at this step. Only identity scopes
+          are requested, no directory permission, no client secret exists, and no token is kept at
+          rest. <a href="try.html">The stages, as they stand</a>.
         </p>
-      </div>
-    </div>
-  </section>
 
-  <section class="section section--alt" id="access">
-    <div class="wrap narrow">
-      <h2>Access and authentication</h2>
-      <p>
-        <strong>ChatAdmin has two sign-in modes to Azure, and which one is in force depends
-        on how a deployment is configured.</strong> The default is a certificate-based
-        service principal: the agent authenticates with a certificate whose private key is
-        held on the runtime host &mdash; in the machine&rsquo;s certificate store or a key
-        file &mdash; so no passwords and no client secrets exist anywhere, but key material
-        does exist on that host and must be protected there. The second mode, built for
-        deployments hosted inside Azure, is <strong>managed identity</strong>: the platform
-        issues short-lived tokens and no credential exists in the container image, in
-        configuration, or on disk. In both modes tokens are cached only in memory, and the
-        code never logs, prints, or returns them. The agent is also guardrailed against ever
-        creating identity credentials &mdash; requests to create app registrations, service
-        principals, client secrets or certificates are refused before any Azure call is
-        attempted, as are requests to output private key, certificate or token material.
-      </p>
-      <p>
-        <strong>Human access is the honest gap to state:</strong> the chat front-end has no
-        user login of its own and is designed to sit behind an authenticating front door.
-        Because ChatAdmin currently runs only against Neopiq&rsquo;s own subscription, the
-        people who can reach it today are the people who operate it. Related, and stated
-        plainly on the <a href="permissions.html">permissions page</a>: the audit trail
-        records every action, but does not yet record which human approved it.
-      </p>
-      <p>
-        <strong>The Planning Data Auditor has no access to control.</strong> No account, no
-        credentials, no session on our side &mdash; there is nothing to authenticate to.
-      </p>
-    </div>
-  </section>
-
-  <section class="section" id="data">
-    <div class="wrap narrow">
-      <h2>Data handling and residency</h2>
-      <p>
-        <strong>Planning Data Auditor:</strong> your data stays on the machine you run it on,
-        in the country it is already in. We never receive it, so we cannot store it, share
-        it, lose it, or be compelled to produce it. There is no retention policy because
-        there is no retention.
-      </p>
-      <p>
-        <strong>ChatAdmin:</strong> the resources it creates live in whatever Azure region
-        the administrator names in the conversation, and every action is confirmed against a
-        named subscription before it runs. Its audit trail is structured JSON &mdash;
-        timestamp, operation, target resource, result &mdash; with a redaction pass that
-        strips anything that looks like secret material before a line is written. Passwords,
-        SSH keys and workspace keys supplied in a conversation are masked on the approval
-        card, excluded from the audit log, and never echoed back in results.
-      </p>
-      <p>
-        <strong>This company:</strong> Neopiq GmbH is a Swiss company; the e-mail you send us
-        is handled as the <a href="privacy.html">privacy notice</a> describes.
-      </p>
-    </div>
-  </section>
-
-  <section class="section section--alt" id="reporting">
-    <div class="wrap narrow">
-      <h2>Reporting a vulnerability</h2>
-      <p>
-        If you have found a security problem in this website, in the Planning Data Auditor,
-        or in ChatAdmin, we want it reported more than we want it polite. Write to
-        <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> with a subject line starting
-        <span class="mono">SECURITY</span> &mdash; there is deliberately no separate security
-        alias to guess at today, and marked mail to that address is read first. For anything
-        actively dangerous, call <a href="tel:0041782236716">0041 78 223 6716</a> as well.
-      </p>
-      <p>
-        Useful in a report: what you found, where, how to reproduce it, and what you believe
-        the impact is. We read security mail with the same first-response target as
-        <a href="support.html">support</a> &mdash; one business day, a target rather than a
-        contractual promise &mdash; and we will tell you what we did about it. We do not run
-        a bug bounty and will not pretend to; credit, if you want it, we will give plainly.
-      </p>
-    </div>
-  </section>
-
-  <section class="section" id="certifications">
-    <div class="wrap narrow">
-      <h2>Certifications and compliance posture</h2>
-      <div class="callout" style="margin-top:1.5rem">
-        <h3>We hold none, and we will not imply otherwise</h3>
+        <h2 id="permissions">What permissions does Neopiq request?</h2>
         <p>
-          Neopiq has <strong>no SOC&nbsp;2 report, no ISO&nbsp;27001 certification, and no
-          security certifications of any kind</strong>. You will not find trust badges on
-          this site, and we do not describe ourselves as &ldquo;compliant&rdquo; with
-          frameworks we have never been audited against. If your procurement process
-          requires a certification, we will not pass that gate today, and it is better that
-          both of us know it now.
+          <strong>From you, as a visitor: none.</strong> The demonstration runs on a fictional sample
+          tenant and connects to nothing of yours. <strong>When ChatAdmin is operated</strong> it
+          acts in each Microsoft area with an identity a Neopiq operator has set up in the
+          environment it administers, and the kind of identity differs by area:
         </p>
+        <ul>
+          <li><strong>Microsoft Entra</strong> &mdash; the delegated sign-in of a named administrator; ChatAdmin acts with that person&rsquo;s own directory rights and never more. The header of the chat names whom it acts as.</li>
+          <li><strong>Microsoft 365</strong> &mdash; its own application identity (&ldquo;ChatAdmin Agent M&rdquo;) with a certificate, no client secret, a fixed list of permissions and the Exchange Administrator role. It never holds a permission on mail, calendar, contact or chat content.</li>
+          <li><strong>Microsoft Azure</strong> &mdash; the managed identity of the hosted service, holding Contributor on the subscription it operates and a role-assignment permission restricted in Azure itself to an allowlist of roles.</li>
+          <li><strong>Microsoft Power Platform</strong> &mdash; the delegated sign-in of a Power Platform administrator, through Microsoft&rsquo;s own first-party sign-in application.</li>
+        </ul>
+        <p>
+          The <a href="permissions.html">permissions page</a> lists each area&rsquo;s reads, changes
+          and ceilings from the code that ships. When your own environment can be connected, every
+          permission will be explained before Microsoft&rsquo;s consent screen appears: what is
+          requested, which capability needs it, whether it reads or modifies, and whether an
+          administrator must consent. <span class="status status--planned">planned</span>
+        </p>
+
+        <h2 id="read">What can it read?</h2>
+        <p>
+          Directory objects and their relationships (users, groups, roles, apps, consent, licences,
+          the directory audit log); mailbox sizes, permissions and memberships (never a message);
+          Teams and SharePoint membership and sharing (never a file&rsquo;s content); Azure resources,
+          costs, logs and role assignments (never a secret out of a vault); Power Platform
+          environments, apps, flows, connectors and policies (never Dataverse business data or a
+          connection&rsquo;s credentials). The names and settings it reads are sent to the language
+          model so it can write its answer; anything that looks like a key or password is blanked
+          before it reaches the model or the screen.
+        </p>
+
+        <h2 id="change">What can it change?</h2>
+        <p>
+          Only what is listed per area on the <a href="permissions.html">permissions page</a>, only
+          behind a card. The ceilings are in code: no Global Administrator from chat; no Owner or
+          access-administrator role in Azure; no client secret or password, ever; no external mail
+          forwarding; no deletion of a mailbox, team, site or file; deletes that do exist restate the
+          exact name and refuse protected or locked objects; Conditional Access, authentication
+          methods, domains and tenant settings have no tool at all.
+        </p>
+
+        <h2 id="execute">When does it execute?</h2>
+        <p>
+          Only after a person clicks Approve on the card for that change. Reads run at once. There is
+          no schedule, no background job and no retry on its own: nothing runs between your turns,
+          and if you ask for &ldquo;every two minutes&rdquo; ChatAdmin says in one sentence that it
+          cannot. A declined or timed-out card is final for that request.
+        </p>
+
+        <h2 id="approval">How does approval work?</h2>
+        <p>
+          Every change raises an Approve / Reject card naming the area, the environment, every step
+          and parameter (secrets masked), the pre-checks it ran and a five-minute countdown. The
+          human answers it with that area&rsquo;s <strong>approver key</strong> &mdash; a shared
+          secret handed over on a different channel than the chat link, typed into the page, kept
+          only in that browser tab and sent only inside the one approval it belongs to. Anyone with
+          the link can read and ask; only a key holder can approve. The coordinating layer holds no
+          key and has no approve path; an automated check may only reject. <strong>Unanswered for
+          five minutes, a card declines itself.</strong> Nothing is ever auto-approved.
+        </p>
+        <p>
+          Known limit, stated here rather than found by you: the key proves &ldquo;someone with the
+          key&rdquo;, not who. Recording the approver&rsquo;s identity on every decision is part of the
+          Microsoft sign-in work. <span class="status status--dev">in development</span>
+        </p>
+
+        <h2 id="tenant">How do I know which tenant is affected?</h2>
+        <p>
+          Every card names the environment it is about &mdash; the tenant or subscription and the
+          identity ChatAdmin acts with there &mdash; and the chat header says the same at all times.
+          Today ChatAdmin is connected to one environment, so the answer is also structurally simple.
+          We are adding a check that binds each card to the environment it was raised in and
+          re-reads that environment at approval time: if it has changed, or no longer answers, the
+          approval is refused and nothing is forwarded. <span class="status status--dev">in development</span>
+          For operating many customer environments, see <a href="solutions-msp.html">the MSP page</a>.
+        </p>
+
+        <h2 id="stored">What information does Neopiq store?</h2>
+        <p>
+          <strong>Session transcripts</strong>: what a person typed, what ChatAdmin answered, every
+          tool call and its bounded result, every card and every decision &mdash; one record per
+          event, with secret-shaped values removed before anything is written. They are kept in
+          Neopiq&rsquo;s own Microsoft Azure storage, reachable only by role-based access, and in the
+          service&rsquo;s console log. <strong>No customer secret is stored</strong>: no approver key
+          appears in any transcript, no token is written to disk by the chat, and the administrator
+          sign-ins ChatAdmin uses live on Neopiq&rsquo;s operator machine and reach the service only
+          as mounted secrets. There is no automatic retention yet: transcripts stay until deleted or
+          until a retention rule is added. <span class="status status--planned">planned</span>
+          This website stores nothing: no scripts, no cookies, no form, no account &mdash; except
+          the demonstration page, whose one script keeps everything in the page and sends nothing.
+        </p>
+
+        <h2 id="logged">How is activity logged?</h2>
+        <p>
+          Three places, independently. The session transcript above. Each area&rsquo;s own audit
+          record of every decision and action, with secrets redacted. And Microsoft&rsquo;s own logs
+          in your environment: directory changes appear in the Entra audit log under the
+          administrator the chat acts as, Azure changes in the activity log under the service&rsquo;s
+          identity, Microsoft 365 changes under the application &ldquo;ChatAdmin Agent M&rdquo;. Ask
+          ChatAdmin &ldquo;who changed what in the last hour?&rdquo; and it reads those logs back.
+        </p>
+
+        <h2 id="remove">How can access be removed?</h2>
+        <p>
+          Today, by telling Neopiq: the operator revokes the administrator sign-in, disables the
+          application identity, or takes the service down &mdash; each ends that area&rsquo;s access
+          within minutes. For an operated evaluation in your own Microsoft Azure subscription, you
+          create the app registration yourself, upload only Neopiq&rsquo;s public certificate, and
+          assign the role; deleting that registration or its role assignment removes the access
+          without asking us. <span class="status status--dev">built, not yet run with a customer</span>
+          Self-service disconnect and revoke guidance will come with the sign-in stages.
+          <span class="status status--planned">planned</span>
+        </p>
+
+        <h2 id="contact">How do I contact Neopiq about security or privacy?</h2>
+        <p>
+          Write to <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> with a subject line
+          starting <span class="mono">SECURITY</span>; for anything actively dangerous, call
+          <a href="tel:0041782236716">0041 78 223 6716</a> as well. Useful in a report: what you
+          found, where, how to reproduce it, and the impact you believe it has. We read security mail
+          with the same first-response target as <a href="support.html">support</a> &mdash; one
+          business day, a target rather than a contractual promise &mdash; and we will tell you what
+          we did about it. There is no bug bounty and we will not pretend to run one.
+        </p>
+
+        <h2 id="certifications">Certifications, Marketplace status, endorsements</h2>
+        <div class="callout">
+          <p>
+            Neopiq holds <strong>no SOC&nbsp;2 report, no ISO&nbsp;27001 certification and no security
+            certification of any kind</strong>. ChatAdmin is <strong>not listed on Microsoft
+            Marketplace</strong> (a listing is planned) and Neopiq has <strong>no verified-publisher
+            status</strong> to show. We do not describe ourselves as compliant with frameworks we
+            have not been audited against, and nothing on this site implies a Microsoft endorsement.
+            If your procurement process requires a certification, we will not pass that gate today,
+            and it is better that both of us know it now. What we do instead is make the claims on
+            this page checkable: the ceilings are enumerated from the shipping code, the approval
+            gate fails closed, and when something is not built yet the site says so.
+          </p>
+        </div>
+
       </div>
-      <p style="margin-top:1.5rem">
-        What we do instead, until certifications are worth their cost at our size, is make
-        the claims themselves checkable:
-      </p>
-      <ul class="narrow">
-        <li>
-          The Planning Data Auditor is built so its central security property &mdash; nothing
-          leaves your machine &mdash; can be verified by you, in minutes, without trusting us.
-        </li>
-        <li>
-          ChatAdmin&rsquo;s scope is enumerated operation by operation on the
-          <a href="permissions.html">permissions page</a>, from the code that ships &mdash;
-          including the current over-broad role and the unrecorded-approver gap, because a
-          scope document that hides its weak points is marketing.
-        </li>
-        <li>
-          In the browser interface, every mutating action ChatAdmin takes passes a human
-          approval gate that fails closed: silence is a no. The one exception is stated on
-          the <a href="permissions.html">permissions page</a>: the operator&rsquo;s own
-          terminal interface has an explicit auto-approve flag, which the browser flow does
-          not have.
-        </li>
-        <li>
-          When something is not built yet, this site says &ldquo;not yet&rdquo; instead of
-          writing it in the present tense.
-        </li>
-      </ul>
     </div>
   </section>
 
@@ -263,12 +247,12 @@
     <div class="wrap center">
       <h2>The permissions page is the real test of this one</h2>
       <p class="lede" style="margin-inline:auto">
-        Anyone can write a reassuring security page. The page that lists every operation an
-        agent can perform against your cloud, and why, is harder to fake.
+        Anyone can write a reassuring trust page. The page that lists every operation per Microsoft
+        area, and the identity behind it, is harder to fake.
       </p>
       <div class="btn-row" style="justify-content:center">
-        <a class="btn btn--primary" href="permissions.html">Read the permissions page</a>
-        <a class="btn btn--ghost" href="tools/level0/">Verify the free check yourself</a>
+        <a class="btn btn--primary" href="permissions.html">What it can read and change</a>
+        <a class="btn btn--ghost" href="demo/">See ChatAdmin in Action</a>
       </div>
     </div>
   </section>
@@ -279,10 +263,10 @@
   <div class="wrap">
     <div class="site-footer__grid">
       <div>
-        <p><strong>Neopiq</strong> &mdash; digital employees for Microsoft Azure and Microsoft Dynamics&nbsp;365</p>
+        <p><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
         <p class="muted">
-          An admin agent that asks before it acts, and a diagnosis that finds why enterprise
-          systems behave wrongly.
+          Tell it what you need. It inspects your Microsoft environment, proposes the change, waits
+          for your approval, executes and verifies. Nothing changes without a person saying yes.
         </p>
         <p class="small">
           Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
@@ -292,25 +276,28 @@
         </p>
       </div>
       <div>
-        <h2>What we do</h2>
+        <h2>Product</h2>
         <ul>
-          <li><a href="product-chatadmin.html">ChatAdmin &mdash; administer Azure by conversation</a></li>
-          <li><a href="product-d365.html">Planning Data Auditor &mdash; planning logic and master data</a></li>
-          <li><a href="tools/level0/">Run Planning Data Auditor free &mdash; in your browser</a></li>
+          <li><a href="product-chatadmin.html">ChatAdmin</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="security.html">Security &amp; trust</a></li>
+          <li><a href="permissions.html">What it can read and change</a></li>
+          <li><a href="demo/">See ChatAdmin in Action</a></li>
+          <li><a href="try.html">Try with Microsoft</a></li>
         </ul>
-        <h2 style="margin-top:1.1rem">Product resources</h2>
+        <h2 style="margin-top:1.1rem">Solutions</h2>
         <ul>
-          <li><a href="docs.html">Docs</a></li>
-          <li><a href="support.html">Support</a></li>
-          <li><a href="security.html">Security</a></li>
-          <li><a href="permissions.html">ChatAdmin permissions</a></li>
+          <li><a href="solutions-businesses.html">For businesses</a></li>
+          <li><a href="solutions-msp.html">For MSPs and IT service providers</a></li>
+          <li><a href="ecosystem.html">Ecosystem and partners</a></li>
         </ul>
       </div>
       <div>
         <h2>Company</h2>
         <ul>
-          <li><a href="how-it-works.html">How it works</a></li>
           <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="support.html">Support</a></li>
           <li><a href="about.html">About Neopiq</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -324,9 +311,9 @@
     </div>
     <div class="site-footer__legal">
       <p class="small">
-        Microsoft, Microsoft Azure, Microsoft Dynamics 365 and Microsoft Power Platform are
-        trademarks of the Microsoft group of companies. Neopiq GmbH is an independent software
-        vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
+        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Dynamics 365 and
+        Microsoft Power Platform are trademarks of the Microsoft group of companies. Neopiq GmbH is
+        an independent software vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
       </p>
       <p class="small">&copy; 2026 Neopiq GmbH</p>
     </div>

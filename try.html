@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Try with Microsoft — the stages of access to ChatAdmin, and where they stand today</title>
+<meta name="description" content="How access to ChatAdmin is staged: the sample-environment demonstration you can use now, the Microsoft sign-in that is coming, and the exploration and execution stages in your own environment that follow. No sign-in button exists yet; this page says so and offers the contact route.">
+<link rel="canonical" href="https://neopiq.ai/try.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Neopiq">
+<meta property="og:title" content="Try with Microsoft — the stages of access to ChatAdmin, and where they stand today">
+<meta property="og:description" content="How access to ChatAdmin is staged: the sample-environment demonstration you can use now, the Microsoft sign-in that is coming, and the exploration and execution stages in your own environment that follow. No sign-in button exists yet; this page says so and offers the contact route.">
+<meta property="og:url" content="https://neopiq.ai/try.html">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">N</span>
+      <span class="brand__text">
+        Neopiq
+        <span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span>
+      </span>
+    </a>
+    <span class="site-header__spacer"></span>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="product-chatadmin.html">ChatAdmin</a></li>
+        <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="security.html">Security &amp; trust</a></li>
+        <li><a href="solutions-businesses.html">For businesses</a></li>
+        <li><a href="solutions-msp.html">For MSPs</a></li>
+        <li><a href="ecosystem.html">Ecosystem</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a class="nav-cta" href="demo/">See it in action</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">Try with Microsoft</li>
+        </ol>
+      </nav>
+      <p class="eyebrow">Entry point &middot; the stages of access</p>
+      <h1>Try with Microsoft: what the stages are, and which one you can use today</h1>
+      <p class="lead">
+        Signing in to ChatAdmin and allowing ChatAdmin to administer your Microsoft Azure, Microsoft
+        Entra, Microsoft 365 or Microsoft Power Platform environment are different trust decisions,
+        and we keep them separate. There is no sign-in button on this page yet: self-service sign-in
+        with your Microsoft work account is coming, and this page says so plainly rather than
+        offering a button that leads nowhere.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>The stages</h2>
+      </div>
+      <ol class="stages stages--zero narrow" style="margin-top:1.25rem">
+        <li>
+          <h3>Demonstration on a sample environment <span class="status status--now">available now</span></h3>
+          <p>Three scripted scenarios over the fictional tenant &ldquo;Contoso Example&rdquo;, in the real interaction pattern: intent, what ChatAdmin inspected, the proposed change, a card you click, simulated execution, a verified-looking result with an audit line. Not connected to your Microsoft environment; nothing can change anything.</p>
+          <p><a class="btn btn--primary btn--small" href="demo/">See ChatAdmin in Action</a></p>
+        </li>
+        <li>
+          <h3>Sign in with your Microsoft work account <span class="status status--dev">coming</span></h3>
+          <p><strong>What will happen:</strong> you are sent to Microsoft&rsquo;s sign-in and come back signed in to ChatAdmin. <strong>What ChatAdmin learns:</strong> your name, your sign-in name and your organisation&rsquo;s tenant id. <strong>Is administration access requested?</strong> No. Only identity scopes are requested; no permission on your directory, your mail or your resources. <strong>What does not happen yet:</strong> nothing is read or changed in your tenant; signing in does not connect your environment and does not replace the approval key. The explanation will be shown before the redirect, in these words.</p>
+        </li>
+        <li>
+          <h3>Explore with your Microsoft environment <span class="status status--planned">planned</span></h3>
+          <p>When you choose to work with your real environment, ChatAdmin asks for the specific read permissions a capability needs and explains each one: what it requests, why it is required, which feature uses it, whether you or an administrator must consent, and what ChatAdmin still cannot do. If you cannot grant it yourself, you get a clean path to ask your administrator, not an error. Read permissions are not described as harmless merely because they cannot modify data.</p>
+        </li>
+        <li>
+          <h3>Enable controlled execution <span class="status status--planned">planned</span></h3>
+          <p>Execution permissions are requested when you are ready to use the matching capability, explained the same way, and connected to a capability you can name. The flow: you ask for a change, ChatAdmin explains what needs to change, says why extra authorisation is needed, obtains it, returns to the pending operation, presents the approval, executes, verifies, reports.</p>
+        </li>
+        <li>
+          <h3>Expand organisational and integration capability <span class="status status--planned">planned</span></h3>
+          <p>Background operation, broader application permissions and platform integrations are a higher trust level and stay out of first use.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="today">
+    <div class="wrap narrow">
+      <h2>What you can do today</h2>
+      <ul>
+        <li><strong>See it.</strong> <a href="demo/">The demonstration</a> needs no account.</li>
+        <li><strong>Evaluate it in an operated environment.</strong> ChatAdmin runs in a Neopiq-operated environment, connected by a Neopiq operator to one Microsoft tenant; evaluators use it through a link and the approver keys. <a href="contact.html">Talk to us</a> and we will say which stage is available for your case.</li>
+        <li><strong>Be told when sign-in opens.</strong> Say so at <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a>.</li>
+      </ul>
+      <p class="small muted">
+        Microsoft Marketplace: <span class="status status--planned">planned</span> &mdash; the
+        Marketplace route and this page will lead to the same activation path once it exists.
+      </p>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="wrap center">
+      <h2>Progressive trust, not a sudden permission request</h2>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn--primary" href="demo/">See ChatAdmin in Action</a>
+        <a class="btn btn--ghost" href="contact.html">Talk to us</a>
+        <a class="btn btn--ghost" href="security.html">Security &amp; trust</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div>
+        <p><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
+        <p class="muted">
+          Tell it what you need. It inspects your Microsoft environment, proposes the change, waits
+          for your approval, executes and verifies. Nothing changes without a person saying yes.
+        </p>
+        <p class="small">
+          Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
+          UID CHE-345.914.300 &middot; not registered for VAT<br>
+          <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> &middot;
+          <a href="tel:0041782236716">0041 78 223 6716</a>
+        </p>
+      </div>
+      <div>
+        <h2>Product</h2>
+        <ul>
+          <li><a href="product-chatadmin.html">ChatAdmin</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="security.html">Security &amp; trust</a></li>
+          <li><a href="permissions.html">What it can read and change</a></li>
+          <li><a href="demo/">See ChatAdmin in Action</a></li>
+          <li><a href="try.html">Try with Microsoft</a></li>
+        </ul>
+        <h2 style="margin-top:1.1rem">Solutions</h2>
+        <ul>
+          <li><a href="solutions-businesses.html">For businesses</a></li>
+          <li><a href="solutions-msp.html">For MSPs and IT service providers</a></li>
+          <li><a href="ecosystem.html">Ecosystem and partners</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="about.html">About Neopiq</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <h2 style="margin-top:1.1rem">Legal</h2>
+        <ul>
+          <li><a href="imprint.html">Imprint</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <p class="small">
+        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Dynamics 365 and
+        Microsoft Power Platform are trademarks of the Microsoft group of companies. Neopiq GmbH is
+        an independent software vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
+      </p>
+      <p class="small">&copy; 2026 Neopiq GmbH</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChatAdmin for MSPs and IT service providers — many Microsoft environments, one conversation</title>
+<meta name="description" content="How Neopiq is designing ChatAdmin for professional multi-customer operation: one technician identity, many Microsoft environments, a visible active tenant, approvals bound to the environment they were raised in, and an audit trail per customer. In development; nothing here is claimed as available today.">
+<link rel="canonical" href="https://neopiq.ai/solutions-msp.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Neopiq">
+<meta property="og:title" content="ChatAdmin for MSPs and IT service providers — many Microsoft environments, one conversation">
+<meta property="og:description" content="How Neopiq is designing ChatAdmin for professional multi-customer operation: one technician identity, many Microsoft environments, a visible active tenant, approvals bound to the environment they were raised in, and an audit trail per customer. In development; nothing here is claimed as available today.">
+<meta property="og:url" content="https://neopiq.ai/solutions-msp.html">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">N</span>
+      <span class="brand__text">
+        Neopiq
+        <span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span>
+      </span>
+    </a>
+    <span class="site-header__spacer"></span>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="product-chatadmin.html">ChatAdmin</a></li>
+        <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="security.html">Security &amp; trust</a></li>
+        <li><a href="solutions-businesses.html">For businesses</a></li>
+        <li><a href="solutions-msp.html" aria-current="page">For MSPs</a></li>
+        <li><a href="ecosystem.html">Ecosystem</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a class="nav-cta" href="demo/">See it in action</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li aria-current="page">For MSPs and IT service providers</li>
+        </ol>
+      </nav>
+      <p class="eyebrow">Solutions &middot; MSPs and IT service providers &middot; <span class="status status--dev">in development</span></p>
+      <h1>Operate across customers quickly without losing control of which environment you are changing</h1>
+      <p class="lead">
+        The MSP proposition is not &ldquo;the business version for more customers&rdquo;. We are
+        designing ChatAdmin for professional multi-customer operation of Microsoft Azure, Microsoft
+        Entra, Microsoft 365 and Microsoft Power Platform: one technician identity, many
+        environments, the active customer always visible, every approval bound to the environment it
+        was raised in. This page says which of that exists today. Nothing on it is claimed as
+        available unless labelled so.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="contact.html">Partner evaluation</a>
+        <a class="btn btn--ghost" href="demo/">See ChatAdmin in Action</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="design">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>The design, and what exists of it</h2>
+        <p>
+          One engine, not a separate product. The ChatAdmin that administers one tenant is the one
+          that will administer tens or hundreds; what scales is tenant discovery, switching, access
+          control and history &mdash; not the reasoning.
+        </p>
+      </div>
+      <div class="grid grid--2" style="margin-top:2rem">
+        <article class="card tagged tagged--dev">
+          <h3>One identity, many environments <span class="status status--dev">in development</span></h3>
+          <p>A technician signs in once with a Microsoft work identity and operates the environments they are authorised for. The sign-in stage is being built now; the per-environment authorisation that follows it is designed. Today the product is connected to one environment by its operator.</p>
+        </article>
+        <article class="card tagged tagged--dev">
+          <h3>Tenant-bound execution <span class="status status--dev">in development</span></h3>
+          <p>Every card is bound to the environment it was raised in &mdash; tenant id, scope, identity &mdash; and that environment is re-read at approval time. A changed context refuses the approval; an action prepared for customer A can never become executable against customer B because the technician switched the view. Being added to the product now.</p>
+        </article>
+        <article class="card tagged tagged--now">
+          <h3>Explicit active context <span class="status status--now">available now, one environment</span></h3>
+          <p>Every card and the chat header name the environment and the identity ChatAdmin acts with. With one connected environment that is simple; the same line becomes the active-customer indicator when there are many.</p>
+        </article>
+        <article class="card tagged tagged--now">
+          <h3>Technician control, approvals, audit <span class="status status--now">available now</span></h3>
+          <p>Reads run at once; every change is a card answered with that area&rsquo;s key; five minutes of silence declines it; every message, card and decision is in a session transcript; Microsoft&rsquo;s own logs show the same changes under ChatAdmin&rsquo;s identity.</p>
+        </article>
+        <article class="card tagged tagged--planned">
+          <h3>Customer search, recent tenants, switching <span class="status status--planned">planned</span></h3>
+          <p>Enough native control plane to operate safely: customer and tenant search, the active-customer indicator, recent and favourite tenants, rapid switching, connected environments with their permission state, per-customer history and approvals.</p>
+        </article>
+        <article class="card tagged tagged--planned">
+          <h3>What we will not build</h3>
+          <p>Not a PSA, not an RMM, not a billing system, not a general ITSM. Those are your existing tools and our integration surfaces. ChatAdmin&rsquo;s job is Microsoft operational intelligence and governed execution.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="context">
+    <div class="wrap narrow">
+      <h2>Tenant context as part of the security boundary</h2>
+      <p>
+        Cross-tenant execution is the critical safety concern of multi-customer operation. The
+        design makes the environment identity part of every executable plan, not a label on the
+        screen. Conceptually, the technician sees this at all times and on every card:
+      </p>
+      <div class="context-strip" aria-label="Concept: the active context strip">
+        <div><span>Active customer</span>Contoso Example</div>
+        <div><span>Microsoft environment</span>Contoso tenant &middot; acting as the connected identity</div>
+        <div><span>Mode</span>Execution &middot; every change needs this customer&rsquo;s approval</div>
+      </div>
+      <p class="small muted"><span class="status status--concept">concept</span> The multi-customer strip above is a design illustration. What exists today is the single-environment line on every card and in the header; the binding of cards to their environment is in development.</p>
+      <p>
+        Where customer names, domains or identities are ambiguous, ambiguity is resolved before
+        execution, never after. Switching is optimised for speed without weakening certainty: a
+        switch changes what you look at, never what an already-raised card will do.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="integration">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>Working from your existing environment</h2>
+        <p>
+          Technicians should not have to abandon their operating environment to use ChatAdmin. The
+          long-term operating concept: your platform provides the customer and request context,
+          ChatAdmin provides Microsoft-domain reasoning, controlled execution and verification, and
+          the result goes back to the system the request came from. Integration depth grows in
+          levels; every level below is labelled.
+        </p>
+      </div>
+      <div class="table-scroll" style="margin-top:1.5rem">
+        <table>
+          <caption>MSP platform integration levels and their status today.</caption>
+          <thead><tr><th scope="col">Level</th><th scope="col">What it means</th><th scope="col">Status</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Contextual launch</th><td>Your PSA, RMM or ticketing tool opens ChatAdmin with the customer and the request. ChatAdmin resolves the external customer to the right Microsoft environment itself and shows that context before anything runs.</td><td><span class="status status--planned">planned</span></td></tr>
+            <tr><th scope="row">Embedded experience</th><td>Compact ChatAdmin interactions, status or recommendations inside your platform; review and approval open the full interface.</td><td><span class="status status--planned">planned</span></td></tr>
+            <tr><th scope="row">Headless invocation</th><td>An authorised platform submits structured intent; ChatAdmin validates identity, resolves the tenant, inspects, reasons, prepares, applies the approval policy, executes, verifies and returns structured results with audit evidence. The external platform&rsquo;s customer mapping is never sufficient authorisation on its own.</td><td><span class="status status--planned">planned</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>No specific PSA, RMM, ITSM or distributor integration exists today. <a href="ecosystem.html">The ecosystem page</a> labels each one.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="today">
+    <div class="wrap narrow">
+      <h2>What an MSP can do today</h2>
+      <ul>
+        <li><span class="status status--now">available now</span> Evaluate the engine on a single environment that a Neopiq operator connects, with your technicians using the link and the approver keys. <a href="contact.html">Partner evaluation</a>.</li>
+        <li><span class="status status--now">available now</span> <a href="demo/">The demonstration</a> &mdash; the interaction your technicians would use, on a sample tenant.</li>
+        <li><span class="status status--dev">in development</span> Microsoft sign-in and tenant-bound approvals &mdash; the foundation of multi-customer operation.</li>
+        <li><span class="status status--planned">planned</span> The multi-customer workspace, contextual launch from your platform, distribution through Microsoft Marketplace and channel partners.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="wrap center">
+      <h2>Tell us how your technicians work today</h2>
+      <p class="lede" style="margin-inline:auto">
+        The integration levels above are designed from the outside in. A conversation with an MSP
+        that runs tens of tenants is worth more to us than a feature list.
+      </p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn--primary" href="contact.html">Partner evaluation</a>
+        <a class="btn btn--ghost" href="ecosystem.html">Ecosystem and channel</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div>
+        <p><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
+        <p class="muted">
+          Tell it what you need. It inspects your Microsoft environment, proposes the change, waits
+          for your approval, executes and verifies. Nothing changes without a person saying yes.
+        </p>
+        <p class="small">
+          Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
+          UID CHE-345.914.300 &middot; not registered for VAT<br>
+          <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> &middot;
+          <a href="tel:0041782236716">0041 78 223 6716</a>
+        </p>
+      </div>
+      <div>
+        <h2>Product</h2>
+        <ul>
+          <li><a href="product-chatadmin.html">ChatAdmin</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="security.html">Security &amp; trust</a></li>
+          <li><a href="permissions.html">What it can read and change</a></li>
+          <li><a href="demo/">See ChatAdmin in Action</a></li>
+          <li><a href="try.html">Try with Microsoft</a></li>
+        </ul>
+        <h2 style="margin-top:1.1rem">Solutions</h2>
+        <ul>
+          <li><a href="solutions-businesses.html">For businesses</a></li>
+          <li><a href="solutions-msp.html">For MSPs and IT service providers</a></li>
+          <li><a href="ecosystem.html">Ecosystem and partners</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="about.html">About Neopiq</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <h2 style="margin-top:1.1rem">Legal</h2>
+        <ul>
+          <li><a href="imprint.html">Imprint</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__legal">
+      <p class="small">
+        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Dynamics 365 and
+        Microsoft Power Platform are trademarks of the Microsoft group of companies. Neopiq GmbH is
+        an independent software vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
+      </p>
+      <p class="small">&copy; 2026 Neopiq GmbH</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

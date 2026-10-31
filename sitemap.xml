@@ -7,8 +7,10 @@
   tracked for this tree yet, and inventing them would be worse than omitting
   them (all three elements are optional).
 
-  Listed in the site's own order of importance: the two pillars first, admin
-  first within them, then the free check that is the zero-friction entry point.
+  Listed in the site's own order of importance: ChatAdmin and its entry points
+  first, then the solutions and ecosystem pages, then the company and legal pages.
+  product-d365.html and /tools/level0/ (the free Planning Data Auditor) are kept
+  indexable but are out of the primary journey (2026-10-31).
 
   404.html is deliberately absent. It is served as the not-found body and
   carries <meta name="robots" content="noindex">, so listing it here would
@@ -27,13 +29,19 @@
 
   <url><loc>https://neopiq.ai/</loc></url>
   <url><loc>https://neopiq.ai/product-chatadmin.html</loc></url>
-  <url><loc>https://neopiq.ai/product-d365.html</loc></url>
-
-  <url><loc>https://neopiq.ai/tools/level0/</loc></url>
-
+  <url><loc>https://neopiq.ai/demo/</loc></url>
+  <url><loc>https://neopiq.ai/try.html</loc></url>
   <url><loc>https://neopiq.ai/how-it-works.html</loc></url>
+
+  <url><loc>https://neopiq.ai/solutions-businesses.html</loc></url>
+  <url><loc>https://neopiq.ai/solutions-msp.html</loc></url>
+  <url><loc>https://neopiq.ai/ecosystem.html</loc></url>
+
   <url><loc>https://neopiq.ai/pricing.html</loc></url>
   <url><loc>https://neopiq.ai/about.html</loc></url>
+
+  <url><loc>https://neopiq.ai/product-d365.html</loc></url>
+  <url><loc>https://neopiq.ai/tools/level0/</loc></url>
 
   <url><loc>https://neopiq.ai/docs.html</loc></url>
   <url><loc>https://neopiq.ai/support.html</loc></url>

@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About Neopiq &mdash; why we start with the boring, checkable part</title>
-<meta name="description" content="Neopiq builds digital employees for Microsoft Azure and Microsoft Dynamics 365 Supply Chain Management. We find why enterprise systems behave wrongly, not only whether fields are missing. Read-only by construction, with evidence on every finding.">
+<title>About Neopiq — the company behind ChatAdmin</title>
+<meta name="description" content="Neopiq GmbH, Cham, Switzerland, builds ChatAdmin: Microsoft administration by conversation, with a person approving every change. Who we are, what we hold ourselves to, and what is true about the product today.">
 <link rel="canonical" href="https://neopiq.ai/about.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="About Neopiq &mdash; why we start with the boring, checkable part">
-<meta property="og:description" content="Neopiq builds digital employees for Microsoft Azure and Microsoft Dynamics 365 Supply Chain Management. We find why enterprise systems behave wrongly, not only whether fields are missing. Read-only by construction, with evidence on every finding.">
+<meta property="og:title" content="About Neopiq — the company behind ChatAdmin">
+<meta property="og:description" content="Neopiq GmbH, Cham, Switzerland, builds ChatAdmin: Microsoft administration by conversation, with a person approving every change. Who we are, what we hold ourselves to, and what is true about the product today.">
 <meta property="og:url" content="https://neopiq.ai/about.html">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -24,19 +24,20 @@
       <span class="brand__mark" aria-hidden="true">N</span>
       <span class="brand__text">
         Neopiq
-        <span class="brand__sub">Digital employees for Microsoft Azure and Microsoft Dynamics&nbsp;365</span>
+        <span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span>
       </span>
     </a>
     <span class="site-header__spacer"></span>
     <nav class="site-nav" aria-label="Primary">
       <ul>
-        <li><a href="index.html">Home</a></li>
         <li><a href="product-chatadmin.html">ChatAdmin</a></li>
-        <li><a href="product-d365.html">Planning Data Auditor</a></li>
         <li><a href="how-it-works.html">How it works</a></li>
+        <li><a href="security.html">Security &amp; trust</a></li>
+        <li><a href="solutions-businesses.html">For businesses</a></li>
+        <li><a href="solutions-msp.html">For MSPs</a></li>
+        <li><a href="ecosystem.html">Ecosystem</a></li>
         <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="docs.html">Docs</a></li>
-        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a class="nav-cta" href="demo/">See it in action</a></li>
       </ul>
     </nav>
   </div>
@@ -52,19 +53,12 @@
           <li aria-current="page">About Neopiq</li>
         </ol>
       </nav>
-      <h1>We build digital employees, and we are specific about where each one stops</h1>
+      <h1>We build ChatAdmin, and we are specific about where it stops</h1>
       <p class="lead">
-        Two of them. <strong>ChatAdmin</strong> administers Microsoft Azure through a conversation
-        and stops dead before every change until a person approves it. <strong>Planning Data
-        Auditor</strong> for Microsoft Dynamics&nbsp;365 Supply Chain Management reads your
-        planning data and stops at the diagnosis, because it never writes anything back at all.
-      </p>
-      <p class="lead">
-        The second one exists because most tools that look at ERP data can tell you a cell is
-        empty, and very few can tell you that a lead time of 30 days has been contradicted by your
-        own receipts for two years, that there is no safety stock behind it, and that this is why
-        the same customer keeps getting a late delivery. The first exists because the objection to
-        an agent with cloud credentials is never capability &mdash; it is control.
+        Neopiq GmbH is a Swiss company. ChatAdmin administers Microsoft Azure, Microsoft Entra,
+        Microsoft 365 and Microsoft Power Platform through a conversation, and stops before every
+        change until a person approves it. It exists because the objection to a tool with
+        administrative access is never capability &mdash; it is control.
       </p>
     </div>
   </section>
@@ -73,97 +67,58 @@
     <div class="wrap narrow">
       <h2>The problem we set out to fix</h2>
       <p>
-        ERP systems are configured once, by people who were right at the time. Then the supplier
-        changes, the volumes move, a product is discontinued, a plant is added &mdash; and the
-        settings stay exactly as they were. The system keeps obeying them perfectly. The results get
-        steadily worse, and the blame lands on planners, on suppliers, on the ERP itself, on
-        anything except the parameter that quietly stopped being true.
+        Most organisations that run on Microsoft do not have a specialist for each admin centre.
+        The joiner, the leaver, the shared mailbox and the &ldquo;who has access to this&rdquo;
+        question all wait for the one person who knows where each setting lives, and the tools
+        that promise to help are either read-only dashboards or chatbots that explain the
+        documentation and leave the work to you.
       </p>
-      <p>
-        Meanwhile the tool that could find it arrives late, because getting it approved takes longer
-        than running it. A security review, a procurement step, an integration project &mdash; and
-        by then the shortage has already shipped, or not shipped, which is worse.
-      </p>
-
       <h2>What we do about it</h2>
       <p>
-        On the Planning Data Auditor side we put the cheapest, safest form of the analysis first. Rules and
-        arithmetic, running on your own machine, over an export you already know how to produce.
-        Nothing moves, so there is nothing to approve, so the first useful answer arrives on day
-        one instead of in quarter three. Only when that has proved useful does anything heavier
-        make sense.
-      </p>
-      <p>
-        On the admin side that order is impossible &mdash; administering a cloud means acting
-        inside it, and there is no read-only version of creating a resource group. So the first
-        thing built there was not a capability but a brake: an Approve / Reject gate that every
+        The first thing built was not a capability but a brake: an Approve / Reject gate that every
         change has to pass, that nothing can skip, and that declines by itself if nobody answers
-        within five minutes. The capabilities were added behind it afterwards. It is also why
-        ChatAdmin is designed to execute inside your own subscription rather than reaching into it
-        from ours &mdash; if a machine is going to act on your cloud, it should do so on your side
-        of the line, under your identity.
+        within five minutes. The capabilities were added behind it afterwards, area by area, each
+        with ceilings enforced in code rather than in a prompt. Then the result: after every change
+        the object is read back, and ChatAdmin reports that state, never its intention.
       </p>
 
       <h2>What we hold ourselves to</h2>
-
       <div class="stack" style="margin-top:1.5rem">
         <div class="callout">
-          <h3>Evidence, or it does not get printed</h3>
-          <p>
-            Every finding names its objects, quotes the numbers it compared, states the business
-            impact and the likely cause, recommends a specific change, and points at an owner. No
-            unexplained recommendations, ever. If we cannot show the working, we do not make the
-            claim.
-          </p>
-        </div>
-        <div class="callout">
-          <h3>Your data stays yours</h3>
-          <p>
-            The free check moves nothing at all. The steps we are building are designed so that what
-            crosses the boundary is results, never your records &mdash; and so that the heavy work
-            eventually runs inside your own environment, on your own controls, rather than in ours.
-            The admin agent already works that way: it acts inside a subscription rather than
-            pulling anything out of one.
-          </p>
-        </div>
-        <div class="callout">
           <h3>A person decides what changes</h3>
-          <p>
-            Nothing writes back to your ERP, today or in any planned step &mdash; the Planning Data Auditor pillar
-            produces a work list and stops there. The admin agent does change things, in Azure, and
-            every one of those changes is shown to a person first and does not happen unless it is
-            approved. Silence counts as no.
-          </p>
+          <p>Reads run freely. Every change is shown to a person first and does not happen unless it is approved. Silence counts as no. Nothing is approved by software.</p>
         </div>
         <div class="callout">
-          <h3>We would rather be checkable than impressive</h3>
-          <p>
-            Thresholds are written in plain rule files so you can argue with them. Confidence is
-            reported as judgement rather than dressed up as probability. Checks that could not run
-            are listed instead of quietly skipped.
-          </p>
+          <h3>Verified, or not claimed</h3>
+          <p>Success is reported from what was read back, not from a request having been sent. A partial result says which steps ran. If we cannot show the working, we do not make the claim.</p>
+        </div>
+        <div class="callout">
+          <h3>Present tense only for what exists</h3>
+          <p>Every forward-looking statement on this site carries a label: in development, or planned. The trust page says what certifications we hold (none) and what Marketplace status we have (none yet).</p>
+        </div>
+        <div class="callout">
+          <h3>Microsoft-native, independent</h3>
+          <p>ChatAdmin acts inside Microsoft&rsquo;s own identity and administration surfaces. Neopiq is an independent software vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.</p>
         </div>
       </div>
-
-      <p style="margin-top:1.5rem">
-        <a href="how-it-works.html">How that turns into a working check</a>
-      </p>
     </div>
   </section>
 
   <section class="section section--alt">
     <div class="wrap narrow">
-      <h2>What you can use today</h2>
+      <h2>What is true about the product today</h2>
       <p>
-        <strong>Planning Data Auditor is free and open to anyone.</strong> 26 checks over
-        Dynamics&nbsp;365 planning and master data, running in your browser over extracts you
-        produce yourself. No account, nothing uploaded.
+        ChatAdmin runs in a Neopiq-operated environment on Microsoft Azure, connected by a Neopiq
+        operator to one Microsoft tenant. It is not yet open for self-service; Microsoft sign-in for
+        customers is in development, and a Microsoft Marketplace listing is planned. There are no
+        customer references, statistics or testimonials on this site because there are none yet, and
+        a plausible-looking fabrication would be a defect, not a placeholder.
       </p>
-      <p>
-        <strong><a href="product-chatadmin.html">ChatAdmin</a> is not yet open for sign-up.</strong>
-        It creates and manages real Azure resources behind an approval gate, and it is designed to
-        execute inside <em>your</em> subscription &mdash; your tenant, your identity, your audit
-        trail. If you want to be early when it opens, <a href="#contact">write to us</a>.
+      <h2>Other work</h2>
+      <p class="small muted">
+        Neopiq also publishes a free, browser-only <a href="product-d365.html">Planning Data
+        Auditor</a> for Microsoft Dynamics&nbsp;365 Supply Chain Management. It is not part of the
+        ChatAdmin story and is kept reachable for the people who use it.
       </p>
     </div>
   </section>
@@ -174,38 +129,18 @@
       <p>
         Write to <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> or call
         <a href="tel:0041782236716">0041 78 223 6716</a>. A person reads both. The full company
-        details are in the <a href="imprint.html">imprint</a>.
-      </p>
-      <p>
-        There is deliberately <strong>no contact form</strong> on this site &mdash; a form would mean
-        collecting your details through a page that otherwise collects nothing at all. An e-mail
-        reaches us just as well and leaves you in control of what you send.
-      </p>
-      <p>
-        You are also welcome not to contact us. The <a href="tools/level0/">free check</a> runs in
-        your browser, needs no account, no sign-up and no conversation, and we never see the file.
-        <a href="product-chatadmin.html">ChatAdmin</a> is not yet open for sign-up &mdash; if you
-        want it pointed at your estate, say so by e-mail and we will tell you where it stands.
-      </p>
-      <p>
-        These are the conversations worth having: you have run the free check and want the findings
-        challenged or interpreted; you are heading into a go-live, a migration or an inventory
-        programme and want the parameters reviewed first; you run Azure and want to argue with how
-        the approval gate is designed before it is ever pointed at your subscription; or you want
-        to be told when ChatAdmin opens to customers.
+        details are in the <a href="imprint.html">imprint</a>; the routes by purpose are on the
+        <a href="contact.html">contact page</a>. There is deliberately no contact form on this
+        site.
       </p>
     </div>
   </section>
 
   <section class="section cta-band">
     <div class="wrap center">
-      <h2>The best introduction is the one that costs you nothing</h2>
-      <p class="lede" style="margin-inline:auto">
-        Run the check on your own export. If it finds nothing worth acting on, you owe us nothing
-        and you have learned something reassuring about your planning setup.
-      </p>
+      <h2>The best introduction costs you nothing</h2>
       <div class="btn-row" style="justify-content:center">
-        <a class="btn btn--primary" href="tools/level0/">Run the free check</a>
+        <a class="btn btn--primary" href="demo/">See ChatAdmin in Action</a>
         <a class="btn btn--ghost" href="how-it-works.html">How it works</a>
       </div>
     </div>
@@ -217,10 +152,10 @@
   <div class="wrap">
     <div class="site-footer__grid">
       <div>
-        <p><strong>Neopiq</strong> &mdash; digital employees for Microsoft Azure and Microsoft Dynamics&nbsp;365</p>
+        <p><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
         <p class="muted">
-          An admin agent that asks before it acts, and a diagnosis that finds why enterprise
-          systems behave wrongly.
+          Tell it what you need. It inspects your Microsoft environment, proposes the change, waits
+          for your approval, executes and verifies. Nothing changes without a person saying yes.
         </p>
         <p class="small">
           Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
@@ -230,25 +165,28 @@
         </p>
       </div>
       <div>
-        <h2>What we do</h2>
+        <h2>Product</h2>
         <ul>
-          <li><a href="product-chatadmin.html">ChatAdmin &mdash; administer Azure by conversation</a></li>
-          <li><a href="product-d365.html">Planning Data Auditor &mdash; planning logic and master data</a></li>
-          <li><a href="tools/level0/">Run Planning Data Auditor free &mdash; in your browser</a></li>
+          <li><a href="product-chatadmin.html">ChatAdmin</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="security.html">Security &amp; trust</a></li>
+          <li><a href="permissions.html">What it can read and change</a></li>
+          <li><a href="demo/">See ChatAdmin in Action</a></li>
+          <li><a href="try.html">Try with Microsoft</a></li>
         </ul>
-        <h2 style="margin-top:1.1rem">Product resources</h2>
+        <h2 style="margin-top:1.1rem">Solutions</h2>
         <ul>
-          <li><a href="docs.html">Docs</a></li>
-          <li><a href="support.html">Support</a></li>
-          <li><a href="security.html">Security</a></li>
-          <li><a href="permissions.html">ChatAdmin permissions</a></li>
+          <li><a href="solutions-businesses.html">For businesses</a></li>
+          <li><a href="solutions-msp.html">For MSPs and IT service providers</a></li>
+          <li><a href="ecosystem.html">Ecosystem and partners</a></li>
         </ul>
       </div>
       <div>
         <h2>Company</h2>
         <ul>
-          <li><a href="how-it-works.html">How it works</a></li>
           <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="support.html">Support</a></li>
           <li><a href="about.html">About Neopiq</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -262,9 +200,9 @@
     </div>
     <div class="site-footer__legal">
       <p class="small">
-        Microsoft, Microsoft Azure, Microsoft Dynamics 365 and Microsoft Power Platform are
-        trademarks of the Microsoft group of companies. Neopiq GmbH is an independent software
-        vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
+        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Dynamics 365 and
+        Microsoft Power Platform are trademarks of the Microsoft group of companies. Neopiq GmbH is
+        an independent software vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
       </p>
       <p class="small">&copy; 2026 Neopiq GmbH</p>
     </div>

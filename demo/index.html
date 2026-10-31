@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>See ChatAdmin in Action — a sample-environment demonstration, no sign-in</title>
+<meta name="description" content="Play three scripted ChatAdmin conversations over the fictional sample tenant Contoso Example: a joiner, an admin-roles question and a leaver. The real interaction pattern with cards you click. Not connected to your Microsoft environment; every result is simulated; nothing here can change anything.">
+<link rel="canonical" href="https://neopiq.ai/demo/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Neopiq">
+<meta property="og:title" content="See ChatAdmin in Action — a sample-environment demonstration, no sign-in">
+<meta property="og:description" content="Play three scripted ChatAdmin conversations over the fictional sample tenant Contoso Example: a joiner, an admin-roles question and a leaver. The real interaction pattern with cards you click. Not connected to your Microsoft environment; every result is simulated; nothing here can change anything.">
+<meta property="og:url" content="https://neopiq.ai/demo/">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="../index.html">
+      <span class="brand__mark" aria-hidden="true">N</span>
+      <span class="brand__text">
+        Neopiq
+        <span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span>
+      </span>
+    </a>
+    <span class="site-header__spacer"></span>
+    <nav class="demo-nav" aria-label="Demonstration">
+      <ul class="site-nav" style="list-style:none;display:flex;gap:.35rem;margin:0;padding:0">
+        <li><a href="../product-chatadmin.html">ChatAdmin</a></li>
+        <li><a href="../try.html">Try with Microsoft</a></li>
+        <li><a href="../index.html">Back to neopiq.ai</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="band-sample" role="note">
+  <div class="wrap">
+    <p><strong>Sample environment &ldquo;Contoso Example&rdquo;</strong> &mdash; a fictional tenant. Not connected to your Microsoft environment. Nothing here can change anything, anywhere. Every result says &ldquo;simulated&rdquo;.</p>
+  </div>
+</div>
+
+<main id="main">
+
+  <section class="section" style="padding-block:1.75rem">
+    <div class="wrap">
+      <h1>See ChatAdmin in Action</h1>
+      <p class="lede">
+        Three scripted conversations in the real interaction pattern: your intent, what ChatAdmin
+        inspected, the proposed change, an Approve / Reject card you click, simulated execution,
+        and a verified-looking result with an audit line. ChatAdmin administers Microsoft Azure,
+        Microsoft Entra, Microsoft 365 and Microsoft Power Platform; these three scenarios use
+        Microsoft Entra and Microsoft 365, where joiners and leavers live.
+      </p>
+
+      <div class="demo-layout">
+        <aside class="demo-side">
+          <div class="card">
+            <h2 style="font-size:1.05rem">Pick a scenario</h2>
+            <ul class="demo-scenarios">
+              <li><button type="button" id="joiner" data-scenario="joiner" aria-pressed="false">Sarah starts in Finance on Monday. Prepare what she needs.<small>A joiner &middot; two cards &middot; Microsoft Entra, Microsoft 365</small></button></li>
+              <li><button type="button" id="roles" data-scenario="roles" aria-pressed="false">Who has admin roles, and does anyone have one they don&rsquo;t need?<small>Reads only &middot; no card &middot; Microsoft Entra</small></button></li>
+              <li><button type="button" id="leaver" data-scenario="leaver" aria-pressed="false">Tom is leaving on Friday.<small>A leaver &middot; two cards &middot; Microsoft 365, Microsoft Entra</small></button></li>
+            </ul>
+            <form class="demo-form" id="demo-form" autocomplete="off">
+              <label for="demo-input">Or type a request</label>
+              <div class="row">
+                <input type="text" id="demo-input" name="q" maxlength="200" placeholder="e.g. onboard a new colleague">
+                <button type="submit" class="btn btn--ghost btn--small">Ask</button>
+              </div>
+              <p class="small muted" style="margin-top:.5rem">Your text stays in this page. It picks the nearest scripted scenario; the real product understands your own words.</p>
+            </form>
+            <div class="demo-controls">
+              <button type="button" class="btn btn--ghost btn--small" id="demo-reset">Start over</button>
+            </div>
+          </div>
+        </aside>
+
+        <div class="demo-main">
+          <p class="sr-only" id="demo-status" aria-live="polite"></p>
+          <div class="thread demo-thread" id="demo-thread" aria-live="polite" aria-label="The conversation">
+            <noscript>
+              <p class="demo-empty">
+                This demonstration needs JavaScript to play the scenarios in the page (it loads one
+                small script from this site and nothing else, sends nothing anywhere and stores
+                nothing). Without it, the same joiner scenario is written out as a static exchange on
+                the <a href="../index.html#experience">home page</a>.
+              </p>
+            </noscript>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="real">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>What the real product does differently</h2>
+      </div>
+      <div class="grid grid--3" style="margin-top:1.75rem">
+        <article class="card">
+          <h3>Real cards need an approver key</h3>
+          <p>In the product, Approve asks for that Microsoft area&rsquo;s approver key, handed over on a different channel than the link and typed by the human into the page. Here the buttons simply work. A real card also declines itself after five minutes of silence; here it waits.</p>
+        </article>
+        <article class="card">
+          <h3>Real execution re-reads Microsoft</h3>
+          <p>After every approved step the product reads the object back from Microsoft Graph, Azure Resource Manager or the Exchange Online administration endpoint and shows that state under &ldquo;Verified after change&rdquo;. Here the verified lines are scripted, and every result says simulated.</p>
+        </article>
+        <article class="card">
+          <h3>Real answers come from your environment</h3>
+          <p>The product reads the real users, groups, seats, teams and resources of the environment it is connected to, and understands your own words. Here three conversations are scripted over a fictional tenant, and free text only picks the nearest one.</p>
+        </article>
+      </div>
+      <p style="margin-top:1.5rem">
+        The pattern is the same: reads without approval, every change on a card, execution only after
+        your click, verification before the report, an audit line for everything.
+        <a href="../how-it-works.html">How it works</a> &middot;
+        <a href="../security.html">Security &amp; trust</a> &middot;
+        <a href="../try.html">Try with Microsoft</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="small">
+      <strong>Neopiq GmbH</strong> &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland &middot;
+      <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> &middot;
+      <a href="../imprint.html">Imprint</a> &middot; <a href="../privacy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a>
+    </p>
+    <div class="site-footer__legal">
+      <p class="small">
+        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Dynamics 365 and
+        Microsoft Power Platform are trademarks of the Microsoft group of companies. Neopiq GmbH is
+        an independent software vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
+      </p>
+      <p class="small">&copy; 2026 Neopiq GmbH</p>
+    </div>
+  </div>
+</footer>
+
+<script src="demo.js" defer></script>
+</body>
+</html>

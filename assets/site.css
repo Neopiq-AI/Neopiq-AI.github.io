@@ -1,7 +1,13 @@
 /* ============================================================
-   Digital Employees - marketing site stylesheet
+   Neopiq - marketing site stylesheet
    Plain CSS. No build step, no imports, no remote assets.
    Colour palette is a PLACEHOLDER brand palette (see CONTENT-TODO.md).
+
+   2026-10-31 (the GTM round): the --l0 / --l1 / --l2 tokens are the three
+   STATUS colours of the ChatAdmin site - green = available now, amber = in
+   development, purple = planned (.status--now / --dev / --planned). The
+   older .level--N / .tier--lN classes keep the same colours and survive only
+   for product-d365.html, which is out of the primary journey but still served.
    ============================================================ */
 
 /* ---------- Design tokens: light (default) ---------- */
@@ -563,6 +569,322 @@ tbody th { background: var(--bg-alt); font-weight: 650; }
   color: var(--text-muted);
 }
 .site-footer__legal p { margin-bottom: .5rem; }
+
+
+
+/* ============================================================
+   2026-10-31 additions - the ChatAdmin site
+   ============================================================ */
+
+/* ---------- Nav call-to-action ---------- */
+.site-nav a.nav-cta {
+  background: var(--accent);
+  color: var(--text-onaccent);
+  font-weight: 650;
+}
+.site-nav a.nav-cta:hover { background: var(--accent-hover); color: var(--text-onaccent); }
+
+/* ---------- Status labels: AVAILABLE NOW / IN DEVELOPMENT / PLANNED ---------- */
+.status {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: .22rem .65rem;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.status--now     { background: var(--l0-soft); color: var(--l0); }
+.status--dev     { background: var(--l1-soft); color: var(--l1); }
+.status--planned { background: var(--l2-soft); color: var(--l2); }
+.status--concept { background: var(--bg-sunken); color: var(--text-muted); }
+
+/* a card or row carrying a status tag on its top border */
+.tagged { border-top: 5px solid var(--border-strong); }
+.tagged--now     { border-top-color: var(--l0); }
+.tagged--dev     { border-top-color: var(--l1); }
+.tagged--planned { border-top-color: var(--l2); }
+
+/* ---------- The loop: understand -> ... -> explain ---------- */
+.loop {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  display: grid;
+  gap: .5rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 46rem) { .loop { grid-template-columns: repeat(4, 1fr); } }
+.loop li {
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .75rem .9rem;
+  font-size: .95rem;
+}
+.loop li strong {
+  display: block;
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  margin-bottom: .2rem;
+}
+.loop li.loop--human { border: 2px solid var(--l0); background: var(--l0-soft); }
+
+/* ---------- The stages (progressive trust) ---------- */
+.stages { list-style: none; padding: 0; margin: 1.5rem 0 0; counter-reset: stage; }
+.stages li {
+  counter-increment: stage;
+  position: relative;
+  padding: 1rem 1.1rem 1rem 3.4rem;
+  margin-bottom: .75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.stages li::before {
+  content: counter(stage);
+  position: absolute; left: 1rem; top: 1rem;
+  width: 1.7rem; height: 1.7rem;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  display: grid; place-items: center;
+  font-family: var(--mono); font-weight: 700; font-size: .85rem;
+}
+.stages li h3 { margin-bottom: .3rem; display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+.stages li > :last-child { margin-bottom: 0; }
+.stages--zero { counter-reset: stage -1; }
+
+/* ---------- The conversation (static exchange on pages, live thread on demo/) ---------- */
+.thread {
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+  margin: 1.5rem 0 0;
+}
+.msg {
+  max-width: 44rem;
+  border-radius: var(--radius-lg);
+  padding: .85rem 1.1rem;
+  border: 1px solid var(--border);
+}
+.msg > :last-child { margin-bottom: 0; }
+.msg--user {
+  align-self: flex-end;
+  background: var(--accent-soft);
+  border-color: var(--border);
+}
+.msg--admin {
+  align-self: stretch;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.msg__who {
+  display: block;
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: .35rem;
+}
+.msg--system {
+  align-self: center;
+  background: transparent;
+  border: 0;
+  color: var(--text-muted);
+  font-size: .9rem;
+  text-align: center;
+  padding: .2rem 0;
+}
+
+/* tool chips: what ChatAdmin inspected */
+.chips { list-style: none; padding: 0; margin: .5rem 0 .75rem; display: flex; flex-wrap: wrap; gap: .4rem; }
+.chips li { margin: 0; }
+.chip {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: .78rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: .2rem .6rem;
+  background: var(--bg-alt);
+  color: var(--text);
+}
+.chip--read   { border-style: dashed; }
+.chip--change { border-color: var(--l2); }
+.chip__area { color: var(--text-muted); }
+
+/* the Approve / Reject card - the shape the products use */
+.card-approval {
+  border: 2px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  padding: 1rem 1.1rem;
+  box-shadow: var(--shadow);
+  max-width: 44rem;
+}
+.card-approval > :last-child { margin-bottom: 0; }
+.card-approval__head {
+  display: flex; flex-wrap: wrap; gap: .4rem .75rem; align-items: center;
+  margin-bottom: .5rem;
+}
+.card-approval__head h3, .card-approval__head h4 { margin: 0; font-size: 1.05rem; }
+.card-approval__facts {
+  font-family: var(--mono);
+  font-size: .78rem;
+  color: var(--text-muted);
+  margin-bottom: .6rem;
+}
+.card-approval__env {
+  font-size: .9rem;
+  color: var(--text);
+  background: var(--bg-alt);
+  border-left: 4px solid var(--accent);
+  padding: .4rem .7rem;
+  border-radius: 4px;
+  margin-bottom: .75rem;
+}
+.card-approval ol.plan { padding-left: 1.4rem; margin-bottom: .75rem; }
+.card-approval ol.plan li { margin-bottom: .45rem; font-size: .93rem; }
+.card-approval ol.plan code { font-size: .85em; }
+.card-approval__preview {
+  font-size: .88rem;
+  color: var(--text-muted);
+  border-top: 1px dashed var(--border);
+  padding-top: .6rem;
+  margin-bottom: .75rem;
+}
+.card-approval__actions { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+.card-approval__actions .small { color: var(--text-muted); }
+.card-approval.is-decided .card-approval__actions .btn { display: none; }
+.card-approval.is-approved { border-color: var(--l0); }
+.card-approval.is-rejected { border-color: var(--focus); }
+.verdict { font-weight: 650; margin: 0; }
+.verdict--approved { color: var(--l0); }
+.verdict--rejected { color: var(--focus); }
+
+/* result block: executed / verified / audit */
+.result {
+  border-left: 5px solid var(--l0);
+  background: var(--l0-soft);
+  border-radius: var(--radius);
+  padding: .8rem 1rem;
+  max-width: 44rem;
+  font-size: .93rem;
+}
+.result > :last-child { margin-bottom: 0; }
+.result--partial { border-left-color: var(--l1); background: var(--l1-soft); }
+.result--failed  { border-left-color: var(--focus); background: var(--bg-alt); }
+.result dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: .25rem .75rem; }
+.result dt { font-family: var(--mono); font-size: .78rem; color: var(--text-muted); padding-top: .15rem; }
+.result dd { margin: 0; }
+.audit {
+  font-family: var(--mono);
+  font-size: .78rem;
+  color: var(--text-muted);
+  background: var(--bg-sunken);
+  border-radius: 4px;
+  padding: .4rem .6rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ---------- The demo page (demo/) ---------- */
+.band-sample {
+  background: var(--l1-soft);
+  border-bottom: 2px solid var(--l1);
+  color: var(--text);
+  font-size: .95rem;
+  padding: .6rem 0;
+}
+.band-sample p { margin: 0; }
+.band-sample strong { color: var(--l1); }
+.demo-layout {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+@media (min-width: 62rem) {
+  .demo-layout { grid-template-columns: 19rem 1fr; }
+  .demo-side { position: sticky; top: 1rem; }
+}
+.demo-side .card { padding: 1.1rem 1.2rem; }
+.demo-scenarios { list-style: none; padding: 0; margin: .75rem 0 0; display: grid; gap: .5rem; }
+.demo-scenarios li { margin: 0; }
+.demo-scenarios button {
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  font-size: .95rem;
+  padding: .65rem .85rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+.demo-scenarios button:hover { background: var(--bg-alt); }
+.demo-scenarios button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--accent-text); font-weight: 650; }
+.demo-scenarios small { display: block; color: var(--text-muted); font-weight: 400; }
+.demo-form { margin-top: 1rem; }
+.demo-form label { display: block; font-weight: 600; margin-bottom: .35rem; }
+.demo-form .row { display: flex; gap: .5rem; }
+.demo-form input[type="text"] {
+  flex: 1 1 auto;
+  min-width: 0;
+  font: inherit;
+  padding: .6rem .75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  background: var(--bg);
+  color: var(--text);
+}
+.demo-form button { flex: none; }
+.demo-main { min-width: 0; }
+.demo-thread { min-height: 12rem; }
+.demo-empty { color: var(--text-muted); }
+.demo-controls { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
+.btn--small { padding: .45rem .9rem; font-size: .9rem; }
+button.btn { font: inherit; font-weight: 600; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ---------- Question-and-answer pages (trust centre) ---------- */
+.qa { max-width: 48rem; }
+.qa h2 { margin-top: 2rem; }
+.qa h2:first-child { margin-top: 0; }
+.qa .status { margin-left: .3rem; }
+
+/* ---------- Tenant context (concept) ---------- */
+.context-strip {
+  display: grid;
+  gap: .5rem;
+  grid-template-columns: 1fr;
+  margin: 1rem 0;
+  font-family: var(--mono);
+  font-size: .85rem;
+}
+@media (min-width: 40rem) { .context-strip { grid-template-columns: repeat(3, 1fr); } }
+.context-strip div {
+  background: var(--bg-sunken);
+  border-radius: var(--radius);
+  padding: .55rem .75rem;
+}
+.context-strip span { display: block; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); }
+
+td .status { white-space: nowrap; }
 
 /* ---------- Print / reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {

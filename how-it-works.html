@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How it works &mdash; Neopiq finds the setting behind the problem, and shows its evidence</title>
-<meta name="description" content="What a Neopiq finding contains, how the checks decide something is wrong, where your data is while the work happens, and what each data-boundary level means for the extracts you load and the systems you run.">
+<title>How ChatAdmin works — understand, inspect, propose, approve, execute, verify, explain</title>
+<meta name="description" content="How a ChatAdmin request becomes a verified change in Microsoft Azure, Microsoft Entra, Microsoft 365 or Microsoft Power Platform: the eight steps, what a card contains, what a result looks like, the four stages of access, and the technology behind one coherent ChatAdmin.">
 <link rel="canonical" href="https://neopiq.ai/how-it-works.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="How it works &mdash; Neopiq finds the setting behind the problem, and shows its evidence">
-<meta property="og:description" content="What a Neopiq finding contains, how the checks decide something is wrong, where your data is while the work happens, and what each data-boundary level means for the extracts you load and the systems you run.">
+<meta property="og:title" content="How ChatAdmin works — understand, inspect, propose, approve, execute, verify, explain">
+<meta property="og:description" content="How a ChatAdmin request becomes a verified change in Microsoft Azure, Microsoft Entra, Microsoft 365 or Microsoft Power Platform: the eight steps, what a card contains, what a result looks like, the four stages of access, and the technology behind one coherent ChatAdmin.">
 <meta property="og:url" content="https://neopiq.ai/how-it-works.html">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -24,19 +24,20 @@
       <span class="brand__mark" aria-hidden="true">N</span>
       <span class="brand__text">
         Neopiq
-        <span class="brand__sub">Digital employees for Microsoft Azure and Microsoft Dynamics&nbsp;365</span>
+        <span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span>
       </span>
     </a>
     <span class="site-header__spacer"></span>
     <nav class="site-nav" aria-label="Primary">
       <ul>
-        <li><a href="index.html">Home</a></li>
         <li><a href="product-chatadmin.html">ChatAdmin</a></li>
-        <li><a href="product-d365.html">Planning Data Auditor</a></li>
         <li><a href="how-it-works.html" aria-current="page">How it works</a></li>
+        <li><a href="security.html">Security &amp; trust</a></li>
+        <li><a href="solutions-businesses.html">For businesses</a></li>
+        <li><a href="solutions-msp.html">For MSPs</a></li>
+        <li><a href="ecosystem.html">Ecosystem</a></li>
         <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="docs.html">Docs</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a class="nav-cta" href="demo/">See it in action</a></li>
       </ul>
     </nav>
   </div>
@@ -52,440 +53,215 @@
           <li aria-current="page">How it works</li>
         </ol>
       </nav>
-      <h1>How it works, and why you can run it before you trust us</h1>
+      <h1>How a sentence becomes a verified change &mdash; and why a person sits in the middle of it</h1>
       <p class="lead">
-        Neopiq has two pillars, and they answer the same question from opposite ends. On
-        <strong>ChatAdmin</strong> an agent can change your cloud, so the control is a human
-        approval before every single change. On <strong>Planning Data Auditor</strong> for
-        Microsoft Dynamics&nbsp;365 Supply Chain Management nothing is ever changed and nothing is
-        ever transmitted, so the control is that there is nothing to approve.
-      </p>
-      <p class="lead">
-        This page goes deep on the second one &mdash; what a finding is, how it decides something
-        is wrong, and where your data is while it works &mdash; and then puts both pillars on one
-        map of who holds the data and who carries the risk. The admin agent's own mechanics are on
-        <a href="product-chatadmin.html#approval">its own page</a>.
+        ChatAdmin administers Microsoft Azure, Microsoft Entra, Microsoft 365 and Microsoft Power
+        Platform. This page follows one request through the eight steps every request takes, shows
+        what the Approve / Reject card and the result actually contain, sets out the stages of
+        access, and ends with the technology behind one coherent ChatAdmin.
       </p>
     </div>
   </section>
 
-  <section class="section" id="finding">
+  <section class="section" id="loop">
     <div class="wrap">
       <div class="section__intro">
-        <h2>What you get back: a finding, not an opinion</h2>
-        <p class="badge">Pillar 2 &mdash; Planning Data Auditor</p>
+        <h2>The eight steps</h2>
         <p>
-          A finding is one problem, on one named object, with the evidence attached and an owner to
-          send it to. Nothing is ever reported without the reasoning that produced it &mdash; if we
-          cannot show the working, it does not go in the report.
+          The same loop for a one-line question and for a joiner that touches two Microsoft areas.
+          Confidence is never authorisation: step five is a human, every time.
         </p>
       </div>
+      <ol class="loop" aria-label="The ChatAdmin loop">
+        <li><strong>1 Understand</strong> what you asked for, in your words; one question back if a decision cannot be read from the environment</li>
+        <li><strong>2 Inspect</strong> the real state &mdash; users, groups, seats, teams, resources &mdash; with reads that need no approval</li>
+        <li><strong>3 Reason</strong> about which areas are involved and what the environment already implies (a usage location, the only licence with a free seat)</li>
+        <li><strong>4 Propose</strong> one card per area, with every step and parameter, after the pre-checks that catch a wasted approval</li>
+        <li class="loop--human"><strong>5 Approve</strong> you read the card and click Approve or Reject, with that area&rsquo;s key; silence for five minutes is a no</li>
+        <li><strong>6 Execute</strong> exactly the steps on the card, in order, stopping at the first error</li>
+        <li><strong>7 Verify</strong> by reading each object back from Microsoft and showing that state</li>
+        <li><strong>8 Explain</strong> what was done, what was not, and what needs a person in the portal</li>
+      </ol>
+    </div>
+  </section>
 
+  <section class="section section--alt" id="card">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>What a card contains</h2>
+        <p>
+          Approval objects emphasise the outcome, then show the exact steps. You approve a specific
+          change to a specific environment &mdash; never a summary of one.
+        </p>
+      </div>
       <div class="grid grid--2" style="margin-top:2rem">
-        <article class="card">
-          <h3>Every finding tells you</h3>
-          <ul>
-            <li><strong>What is wrong</strong> &mdash; in one sentence, in planning language</li>
-            <li><strong>Which objects</strong> &mdash; the item, the vendor, the site</li>
-            <li><strong>The evidence</strong> &mdash; configured value, observed value, sample size, threshold crossed</li>
-            <li><strong>What it costs you</strong> &mdash; the business consequence, stated plainly</li>
-            <li><strong>The likely cause</strong> &mdash; why a setting usually ends up like this</li>
-            <li><strong>What to change</strong> &mdash; the action, not a suggestion to &ldquo;investigate&rdquo;</li>
-            <li><strong>Who owns it</strong> &mdash; the planner or buyer on record</li>
-            <li><strong>Where it came from</strong> &mdash; the Dynamics&nbsp;365 tables and the files that were read</li>
-            <li><strong>How sure we are</strong> &mdash; and why, with the arithmetic shown</li>
-          </ul>
-        </article>
-
-        <article class="level level--0">
-          <span class="level__tag">Worked example &middot; sample data</span>
-          <h3>&ldquo;Configured lead time is materially shorter than actual receipt behaviour, and there is no safety stock to absorb the difference&rdquo;</h3>
-          <ul>
-            <li>Objects: item <span class="mono">ITM-X123</span>, vendor <span class="mono">VEN-045</span>. Owner: <span class="mono">PLN-02</span>.</li>
-            <li>Configured lead time 30 days; observed 69.88 days across 8 receipts; ratio 2.33 against a 1.40 threshold; safety stock 0.</li>
-            <li>Impact: master planning proposes supply too late by design, and nothing stands between the gap and the customer. Expect recurring shortages, expediting cost and service failures that look like supplier problems.</li>
-            <li>Action: move the item lead time towards observed receipt behaviour and add a temporary buffer until supplier performance is stable.</li>
-            <li>Confidence 0.83 &mdash; and the finding shows how that number was built.</li>
-          </ul>
-          <p class="level__where">
-            From the synthetic sample data shipped with the free check, not from a customer. One
-            click in the tool reproduces it exactly.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--alt">
-    <div class="wrap">
-      <div class="section__intro">
-        <h2>How it decides something is wrong</h2>
-        <p>
-          Three kinds of question, in increasing order of how much thinking stands between the data
-          and the claim. The first two are facts. The third is where the money is.
-        </p>
-      </div>
-
-      <div class="grid grid--3" style="margin-top:2rem">
-        <article class="card">
-          <h3>1. Is it filled in?</h3>
-          <p>
-            An active planning item with no lead time, no supplier, no planner, no site, no item
-            group, no coverage group. Directly observed, so there is nothing to argue with &mdash;
-            only to fix.
-          </p>
-        </article>
-        <article class="card">
-          <h3>2. Do the records agree with each other?</h3>
-          <p>
-            An item lead time that contradicts the vendor record. A coverage group or reduction key
-            that points at something which no longer exists. A manufactured item with no route, a
-            purchased item carrying one. An obsolete item still being forecast, and still holding
-            stock.
-          </p>
-        </article>
-        <article class="card">
-          <h3>3. Does the setting match reality?</h3>
-          <p>
-            Configured lead time against actual receipts. Safety stock against demand volatility and
-            your service target. MOQ against real consumption. Forecast against real order intake.
-            On-time delivery this half-year against last. This is the layer that explains the
-            shortages nobody can account for.
-          </p>
-        </article>
-      </div>
-
-      <div class="callout" style="margin-top:1.75rem">
-        <h3>Where we are honest with you, because you will find out anyway</h3>
-        <ul>
-          <li>
-            <strong>Findings are hypotheses, not verdicts.</strong> A rule does not know that your
-            coverage group means something unusual on purpose. It shows its evidence so a human can
-            overrule it in ten seconds.
-          </li>
-          <li>
-            <strong>Thresholds are starting points, not truths.</strong> &ldquo;At least 40% longer
-            than configured, and at least 10 days&rdquo; is a defensible default, not a fact about
-            your business. The thresholds sit in plain rule files precisely so you can argue with
-            them and change them.
-          </li>
-          <li>
-            <strong>The confidence number is judgement, not a measured probability.</strong> 0.83
-            does not mean 83% of such findings turn out to be real. It is a consistent, explainable
-            ordering of how much inference stands behind a claim.
-          </li>
-          <li>
-            <strong>A check we cannot run is reported, not hidden.</strong> If your export is
-            missing the columns a rule needs, it says so. &ldquo;Your extract cannot answer three of
-            these questions&rdquo; is itself useful.
-          </li>
-          <li>
-            <strong>Nothing is written back to Dynamics&nbsp;365.</strong> This pillar is read-only by
-            construction &mdash; it produces a work list, never a change. The
-            <a href="product-chatadmin.html">admin agent</a> on the other pillar <em>does</em>
-            make changes, to Microsoft Azure, and only ever one you have approved first. Neither of
-            them touches your ERP.
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="privacy">
-    <div class="wrap">
-      <div class="section__intro">
-        <h2>Where your data is while the work happens</h2>
-        <p>
-          Your item master and your vendor lead times are commercially sensitive. That is exactly
-          why the first useful answer must not require anybody to sign anything.
-        </p>
-      </div>
-
-      <div class="grid grid--2" style="margin-top:2rem">
-        <article class="level level--0">
-          <span class="level__tag">The free check, today</span>
-          <h3>It never leaves the machine you run it on</h3>
-          <p>
-            The check is a web page that reads your CSV files locally. There is no upload, no
-            account, no login, no cookie, no analytics, no error reporting and no server to send
-            anything to. Nothing is stored between runs &mdash; closing the tab is the delete
-            button.
-          </p>
-          <p>
-            You do not have to believe any of that. Open your browser's network tab while it runs
-            and watch nothing happen, or disconnect from the network before you start. The tool is
-            built so it has no way to reach out even if it wanted to.
-          </p>
-          <p class="level__where">
-            <strong>What IT has to approve:</strong> nothing. There is no data transfer to review.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Why we built the free thing this way</h3>
-          <p>
-            A tool that reads business data normally has to clear a security review, a procurement
-            step and an integration project before it is allowed to say anything at all. By then the
-            question has moved on and the shortage has already happened.
-          </p>
-          <p>
-            So we inverted the order. The cheapest, safest form of the analysis comes first, because
-            nothing moves and there is nothing to approve. Only if that proves useful does anything
-            heavier make sense &mdash; and every step after it is designed to keep as much of that
-            property as possible.
-          </p>
-          <p class="card__more"><a href="tools/level0/">Run it and check the network tab</a></p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--alt">
-    <div class="wrap">
-      <div class="section__intro">
-        <h2>The three levels are about where your data is</h2>
-        <p>
-          Level&nbsp;0, 1 and 2 classify <strong>who holds the data and who carries the risk</strong>
-          while the work happens. They are not a release timeline.
-        </p>
-        <p>
-          The two pillars sit at opposite ends of the ladder. <strong>Planning Data Auditor starts at
-          Level&nbsp;0</strong> &mdash; the cheapest, safest place, where nothing moves and nothing
-          is written. <strong>ChatAdmin belongs at Level&nbsp;2</strong>, because administering
-          a cloud means executing inside a subscription; there is no local, read-only version of
-          creating a resource group.
-        </p>
-      </div>
-
-      <div class="stack" style="margin-top:1.75rem">
-
-        <article class="level level--0" id="level-0">
-          <span class="level__tag">Level 0 &middot; Pillar 2 &middot; free, and open to anyone today</span>
-          <h3>The local check &mdash; rules and arithmetic, on your machine</h3>
-          <p>
-            Runs in the browser, on the machine you open it on. Reads your extracts, applies the
-            rule library, produces findings with evidence. Rules and arithmetic only: no model, no
-            guessing, no network. Same input, same output, every time.
-          </p>
-          <p><strong>Why it exists:</strong> to be useful to you before you owe us anything.</p>
-          <h4>What it covers today</h4>
-          <ul>
-            <li>26 checks across the three layers above, over 11 Dynamics&nbsp;365-shaped extracts</li>
-            <li>7 kinds of comparison: missing values, missing owners, cross-table conflicts, outliers against peers, configuration against history, service KPIs getting worse, and behaviour drifting from its own past</li>
-            <li>Findings written for a planner, with impact, cause, action, owner and sources</li>
-          </ul>
-          <p class="level__where">
-            <strong>Your data:</strong> stays where it is. Nothing is transmitted.
-          </p>
-          <p><a href="tools/level0/">Open the free check</a></p>
-        </article>
-
-        <article class="level level--1" id="level-1">
-          <span class="level__tag">Level 1 &middot; hybrid &mdash; results move, records never do</span>
-          <h3>Explanation and reporting &mdash; the local check, written up</h3>
-          <p>
-            At this level the reading, the aggregation and the rule work would stay local, exactly
-            as they are at Level&nbsp;0. A cloud service would take the <em>results</em> &mdash;
-            summary numbers and risk signals &mdash; and turn them into a written report, a
-            prioritised story of what is going wrong and why, and a pattern library that improves as
-            more organisations use it.
-          </p>
-          <p>
-            <strong>Nothing at this level is available to buy or to try today.</strong> The
-            boundary below is the commitment it would run under.
-          </p>
-
-          <div class="boundary">
-            <div class="boundary__zone boundary__zone--local">
-              <h4>Would stay with you</h4>
-              <p class="small muted">Everything that identifies your business.</p>
-              <ul>
-                <li>The extracts themselves</li>
-                <li>Item, customer, vendor and site identities</li>
-                <li>Quantities, prices and order history</li>
-                <li>All the reading and the rule work</li>
-              </ul>
-            </div>
-            <div class="boundary__zone boundary__zone--cloud">
-              <h4>Would be sent</h4>
-              <p class="small muted">Results, not records.</p>
-              <ul class="yesno yesno--in">
-                <li>Summary numbers</li>
-                <li>Risk signals and scores</li>
-                <li>Which patterns fired, and how strongly</li>
-              </ul>
-              <p class="small" style="margin-top:.75rem"><strong>Never:</strong> your business records.</p>
-            </div>
+        <div class="card-approval" aria-label="Anatomy of an approval card">
+          <div class="card-approval__head">
+            <h3>Microsoft Entra (Agent E) proposes a plan &mdash; 3 steps, one approval</h3>
           </div>
-
-          <p class="level__where">
-            <strong>What IT would have to approve:</strong> one outbound service that receives
-            results and no records.
-          </p>
-        </article>
-
-        <article class="level level--2" id="level-2">
-          <span class="level__tag">Level 2 &middot; the work runs inside a subscription</span>
-          <h3>Execution &mdash; where the compute comes to the data</h3>
-          <p>
-            Level&nbsp;2 means the work happens inside <strong>your</strong> Azure subscription
-            rather than in a browser or in our cloud. Nothing has to be exported for it, because
-            nothing moves: the compute goes to where your data and your resources already are, and
-            it runs under your identity and your controls. It is the most capable position on the
-            ladder and the one that demands the most trust, which is why it needs an approval gate
-            rather than a promise. Both pillars are designed to land here the same way.
-          </p>
-          <p>
-            <strong>Both pillars land at this level, in different ways.</strong>
-          </p>
+          <p class="card-approval__env">Environment: <strong>Contoso Example</strong> &middot; Microsoft Entra tenant &middot; operated by Neopiq</p>
+          <p class="card-approval__facts">LIVE &middot; auto-declines in 5 min &middot; approver key required</p>
+          <ol class="plan">
+            <li><code>create_user</code> &mdash; display name, sign-in name, usage location; password generated, never shown</li>
+            <li><code>add_group_members</code> &mdash; the group, the member</li>
+            <li><code>assign_license</code> &mdash; the licence, with a free seat</li>
+          </ol>
+          <p class="card-approval__preview">Pre-checks: sign-in name free &middot; group exists &middot; seat free. A failing pre-check refuses the step before the card; a check that cannot run never blocks a card.</p>
+          <div class="card-approval__actions">
+            <span class="btn btn--primary btn--small" aria-hidden="true">Approve</span>
+            <span class="btn btn--ghost btn--small" aria-hidden="true">Reject</span>
+            <span class="small">needs the Microsoft Entra key</span>
+          </div>
+        </div>
+        <article class="card">
+          <h3>Line by line</h3>
           <ul>
-            <li>
-              <strong><a href="product-chatadmin.html">ChatAdmin</a>.</strong> The agent executes
-              inside an Azure subscription behind an Approve / Reject gate that auto-declines if
-              nobody answers &mdash; the Level&nbsp;2 model exactly: the work runs where the
-              resources are, under the subscription's identity, with its audit trail. There is no
-              sign-up today, so you cannot yet point it at a subscription of your own; its
-              <a href="product-chatadmin.html#limits">full list of limits</a> is on its own page.
-            </li>
-            <li>
-              <strong>Dynamics&nbsp;365 heavy work.</strong> Optimisation, simulation, process mining and
-              supervised repair at full data volume are intended to run inside your own
-              subscription, under your own identity and access controls, with the compute billed to
-              you by Microsoft on your existing agreement. None of it is available today, and any
-              change to your ERP would come after the read-only diagnosis, never instead of it.
-            </li>
+            <li><strong>The area and the action</strong>, in words: which Microsoft area is about to change, a single change or a plan of up to twelve steps behind one approval.</li>
+            <li><strong>The environment</strong>: the tenant or subscription the card is about and the identity ChatAdmin acts with there. Binding each card to that environment at approval time, so a changed context refuses the approval, is being added.</li>
+            <li><strong>The facts line</strong>: live or simulated, the five-minute countdown, the key that is needed.</li>
+            <li><strong>Every step with its parameters.</strong> Secrets are masked. A delete restates the exact name it will delete.</li>
+            <li><strong>The preview</strong>: what the matching read found &mdash; what a role allows, what a delete would remove, the pre-checks that already passed.</li>
+            <li><strong>Approve / Reject</strong>, answered with that area&rsquo;s approver key, typed by you into the page. Nothing else can answer a card.</li>
           </ul>
-          <p class="level__where">
-            <strong>Your data:</strong> would not move at all &mdash; the compute would come to the
-            data.
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="result">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>What a result looks like</h2>
+        <p>
+          Never &ldquo;done&rdquo; because a request was submitted. After each change the object is
+          read back, and the three outcomes look different on purpose.
+        </p>
+      </div>
+      <div class="grid grid--3" style="margin-top:2rem">
+        <div class="result">
+          <dl>
+            <dt>executed</dt><dd>3 of 3 steps ran</dd>
+            <dt>verified</dt><dd>the account read back: enabled, in the group, licence assigned</dd>
+            <dt>audit</dt><dd>card shown, approved, every step recorded</dd>
+          </dl>
+        </div>
+        <div class="result result--partial">
+          <dl>
+            <dt>partial</dt><dd>2 of 3 steps ran; step 3 failed: no free seat</dd>
+            <dt>verified</dt><dd>the account and the membership exist; the licence does not</dd>
+            <dt>next</dt><dd>buy a seat, then ask again &mdash; nothing is retried on its own</dd>
+          </dl>
+        </div>
+        <div class="result result--failed">
+          <dl>
+            <dt>declined</dt><dd>nothing ran</dd>
+            <dt>why</dt><dd>rejected by you, or unanswered for five minutes</dd>
+            <dt>audit</dt><dd>the card and the decision are still recorded</dd>
+          </dl>
+        </div>
+      </div>
+      <p style="margin-top:1.5rem" class="narrow">
+        A plan is not a transaction: steps that ran before a failure stay applied, and the result
+        says exactly which ones. Where a change cannot be verified by a read, ChatAdmin says
+        &ldquo;submitted, not re-verified&rdquo; rather than inventing a state.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="stages">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>The stages of access</h2>
+        <p>
+          Signing in and allowing ChatAdmin to administer your environment are different trust
+          decisions, and they stay separate. Each stage is labelled with what exists today.
+        </p>
+      </div>
+      <ol class="stages stages--zero narrow" style="margin-top:1.25rem">
+        <li>
+          <h3>Demonstration <span class="status status--now">available now</span></h3>
+          <p>A sample environment, clearly marked, not connected to anything of yours. The real interaction pattern: intent, inspection, proposal, your approval, simulated execution, a verified-looking result. <a href="demo/">See ChatAdmin in Action</a>.</p>
+        </li>
+        <li>
+          <h3>Microsoft sign-in <span class="status status--dev">in development</span></h3>
+          <p>You sign in to ChatAdmin with your Microsoft work account. ChatAdmin learns your name, your sign-in name and your organisation&rsquo;s tenant id. It gets no access to administer your environment; nothing is read or changed in your tenant at this step.</p>
+        </li>
+        <li>
+          <h3>Environment exploration <span class="status status--planned">planned</span></h3>
+          <p>When you choose to work with your real environment, ChatAdmin asks for the specific read permissions a capability needs and explains each one: what it requests, why, which feature uses it, whether an administrator must consent, and what ChatAdmin still cannot do.</p>
+        </li>
+        <li>
+          <h3>Execution <span class="status status--planned">planned</span></h3>
+          <p>Execution permissions are requested when you are ready to use the matching capability, not earlier, and are explained the same way. Today, execution happens in the environment a Neopiq operator has connected, with every change behind that area&rsquo;s card.</p>
+        </li>
+      </ol>
+      <p><a href="try.html">Try with Microsoft</a> says where each stage stands.</p>
+    </div>
+  </section>
+
+  <section class="section" id="technology">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>The technology behind one ChatAdmin</h2>
+        <p>
+          You talk to one product. Underneath, four Microsoft-area specialists do the work and a
+          coordinator keeps the conversation whole. This is architecture, not something you have to
+          operate.
+        </p>
+      </div>
+      <div class="grid grid--2" style="margin-top:2rem">
+        <article class="card">
+          <h3>Four specialists, one per Microsoft area</h3>
+          <p>
+            Azure, Microsoft Entra, Microsoft 365 and Power Platform are each served by a separate
+            agent: its own identity in that area, its own tool set (reads and changes), its own
+            guardrails enforced before any Microsoft call, its own approval card and key, its own
+            redacted session transcript. A specialist never reaches outside its area &mdash; the
+            Entra agent calls nothing but Microsoft Graph; the Azure agent cannot create credentials.
           </p>
         </article>
-
+        <article class="card">
+          <h3>A coordinator that cannot approve</h3>
+          <p>
+            The layer you talk to plans with the tools the specialists actually publish, asks them in
+            turn inside your request, carries facts between them (the new account&rsquo;s id from
+            Entra to Azure, a licence hand-off from Microsoft 365 to Entra), and answers as one
+            voice. It holds no key, has no approve tool, runs nothing between your turns, and its
+            relays are bounded in code. Every change is still the specialist&rsquo;s own card,
+            answered by you.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Where the language model sits</h3>
+          <p>
+            The model understands the request and chooses among the built-in actions; it fills in
+            parameters you then see on the card. It does not decide what is allowed: the ceilings,
+            the pre-checks, the approval gate, the redaction and the audit are code around the model,
+            and a refusal by rule cannot be argued away in a prompt.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Where it runs today</h3>
+          <p>
+            In a Neopiq-operated environment on Microsoft Azure, scaled to zero when idle, connected
+            by a Neopiq operator to one Microsoft tenant. The identities it uses per area, what is
+            stored and where, and how access is removed are on the
+            <a href="security.html">trust page</a>.
+          </p>
+        </article>
       </div>
-
-      <div class="callout" id="levels-to-tiers" style="margin-top:1.75rem">
-        <h3>Levels are the data boundary. Tiers are how you buy it. Pillars are what it is pointed at.</h3>
-        <p>
-          Three words, three different jobs, and they are not synonyms.
-          <strong>Levels</strong> say where the work runs and what crosses the boundary.
-          <strong>Pillars</strong> say which system it is pointed at &mdash; Azure administration,
-          or Dynamics&nbsp;365. <strong>Tiers</strong> are the commercial packaging, and they still
-          map one-to-one onto the levels: the <a href="pricing.html#free">Free tier</a> unlocks
-          Level&nbsp;0, the <a href="pricing.html#trial">Trial tier</a> unlocks Level&nbsp;1, and
-          the <a href="pricing.html#enterprise">Enterprise tier</a> unlocks Level&nbsp;2. Each tier
-          includes everything in the tier below it.
-        </p>
-        <p>
-          Today, only the Free tier is open: <strong>the free local check is the one thing anyone
-          can be given access to</strong>. The <a href="pricing.html">pricing page</a> sets that
-          out tier by tier and pillar by pillar.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="security">
-    <div class="wrap">
-      <div class="section__intro">
-        <h2>The table to take into your IT review</h2>
-        <p>
-          Where the work runs, what crosses the boundary, and who carries the risk &mdash; level by
-          level, pillar by pillar.
-        </p>
-      </div>
-      <div class="table-scroll" style="margin-top:1.5rem">
-        <table>
-          <caption>Data movement and risk, by level and pillar. Rows that are not open today state design intent, and say so.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Level and pillar</th>
-              <th scope="col">Open to you?</th>
-              <th scope="col">What leaves your environment</th>
-              <th scope="col">Where the work runs</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Level 0 &mdash; Planning Data Auditor, the local check (Pillar 2)</th>
-              <td>Yes, free</td>
-              <td>Nothing</td>
-              <td>Your browser, on your machine</td>
-            </tr>
-            <tr>
-              <th scope="row">Level 1 &mdash; explanation and reporting (Pillar 2)</th>
-              <td>Not yet</td>
-              <td>Intended: summary numbers and risk signals only &mdash; never your records</td>
-              <td>Reading and rules would stay local; the write-up would happen in our cloud service</td>
-            </tr>
-            <tr>
-              <th scope="row">Level 2 &mdash; ChatAdmin (Pillar 1)</th>
-              <td>Not yet &mdash; no sign-up today</td>
-              <td>Intended: nothing &mdash; it acts inside the subscription it runs in</td>
-              <td>Intended: inside your own Azure subscription, behind an approval gate on every change</td>
-            </tr>
-            <tr>
-              <th scope="row">Level 2 &mdash; Dynamics&nbsp;365 optimisation and repair (Pillar 2)</th>
-              <td>Not yet</td>
-              <td>Intended: nothing &mdash; the compute comes to the data</td>
-              <td>Intended: inside your own Azure subscription, on your Microsoft bill</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--alt" id="federated-learning">
-    <div class="wrap">
-      <div class="section__intro">
-        <h2>Getting better without pooling anybody's data</h2>
-        <p>
-          The learning model, in one line: the checks should get sharper because many
-          organisations use them, without any organisation's records being part of what makes that
-          happen. It belongs to Level&nbsp;1, and like the rest of that level it is not available
-          yet.
-        </p>
-      </div>
-
-      <div class="boundary" style="margin-top:1.5rem">
-        <div class="boundary__zone boundary__zone--local">
-          <h3>What we would learn from</h3>
-          <ul class="yesno yesno--in">
-            <li>Which checks fire, and how often</li>
-            <li>Summary numbers and risk signals</li>
-            <li>Which findings people act on, and which they dismiss</li>
-          </ul>
-        </div>
-        <div class="boundary__zone boundary__zone--cloud">
-          <h3>What we would never collect</h3>
-          <ul class="yesno yesno--out">
-            <li>Your business records</li>
-            <li>Sensitive fields</li>
-            <li>Anything that identifies your items, customers or suppliers</li>
-          </ul>
-        </div>
-      </div>
-
-      <h3>What that would buy you</h3>
-      <ul class="narrow">
-        <li>Thresholds tuned on evidence instead of on judgement</li>
-        <li>Fewer findings you have to dismiss</li>
-        <li>New checks for failure patterns somebody else hit first</li>
-      </ul>
-
     </div>
   </section>
 
   <section class="section cta-band">
     <div class="wrap center">
-      <h2>The only part you can put your hands on today is the free part</h2>
+      <h2>Read the card, click Approve, read the result</h2>
       <p class="lede" style="margin-inline:auto">
-        The free check is the one thing on this page you can verify yourself, in your own browser,
-        on your own data, without taking our word for anything. Start there.
+        The demonstration is the shortest explanation of this page.
       </p>
       <div class="btn-row" style="justify-content:center">
-        <a class="btn btn--primary" href="tools/level0/">Run the free check</a>
-        <a class="btn btn--ghost" href="product-chatadmin.html">The other pillar: ChatAdmin</a>
+        <a class="btn btn--primary" href="demo/">See ChatAdmin in Action</a>
+        <a class="btn btn--ghost" href="security.html">Security &amp; trust</a>
       </div>
     </div>
   </section>
@@ -496,10 +272,10 @@
   <div class="wrap">
     <div class="site-footer__grid">
       <div>
-        <p><strong>Neopiq</strong> &mdash; digital employees for Microsoft Azure and Microsoft Dynamics&nbsp;365</p>
+        <p><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
         <p class="muted">
-          An admin agent that asks before it acts, and a diagnosis that finds why enterprise
-          systems behave wrongly.
+          Tell it what you need. It inspects your Microsoft environment, proposes the change, waits
+          for your approval, executes and verifies. Nothing changes without a person saying yes.
         </p>
         <p class="small">
           Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
@@ -509,25 +285,28 @@
         </p>
       </div>
       <div>
-        <h2>What we do</h2>
+        <h2>Product</h2>
         <ul>
-          <li><a href="product-chatadmin.html">ChatAdmin &mdash; administer Azure by conversation</a></li>
-          <li><a href="product-d365.html">Planning Data Auditor &mdash; planning logic and master data</a></li>
-          <li><a href="tools/level0/">Run Planning Data Auditor free &mdash; in your browser</a></li>
+          <li><a href="product-chatadmin.html">ChatAdmin</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="security.html">Security &amp; trust</a></li>
+          <li><a href="permissions.html">What it can read and change</a></li>
+          <li><a href="demo/">See ChatAdmin in Action</a></li>
+          <li><a href="try.html">Try with Microsoft</a></li>
         </ul>
-        <h2 style="margin-top:1.1rem">Product resources</h2>
+        <h2 style="margin-top:1.1rem">Solutions</h2>
         <ul>
-          <li><a href="docs.html">Docs</a></li>
-          <li><a href="support.html">Support</a></li>
-          <li><a href="security.html">Security</a></li>
-          <li><a href="permissions.html">ChatAdmin permissions</a></li>
+          <li><a href="solutions-businesses.html">For businesses</a></li>
+          <li><a href="solutions-msp.html">For MSPs and IT service providers</a></li>
+          <li><a href="ecosystem.html">Ecosystem and partners</a></li>
         </ul>
       </div>
       <div>
         <h2>Company</h2>
         <ul>
-          <li><a href="how-it-works.html">How it works</a></li>
           <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="support.html">Support</a></li>
           <li><a href="about.html">About Neopiq</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -541,9 +320,9 @@
     </div>
     <div class="site-footer__legal">
       <p class="small">
-        Microsoft, Microsoft Azure, Microsoft Dynamics 365 and Microsoft Power Platform are
-        trademarks of the Microsoft group of companies. Neopiq GmbH is an independent software
-        vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
+        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Dynamics 365 and
+        Microsoft Power Platform are trademarks of the Microsoft group of companies. Neopiq GmbH is
+        an independent software vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
       </p>
       <p class="small">&copy; 2026 Neopiq GmbH</p>
     </div>
