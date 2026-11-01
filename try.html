@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Try with Microsoft — the stages of access to ChatAdmin, and where they stand today</title>
-<meta name="description" content="How access to ChatAdmin is staged: the sample-environment demonstration you can use now, the Microsoft sign-in that is coming, and the exploration and execution stages in your own environment that follow. No sign-in button exists yet; this page says so and offers the contact route.">
+<meta name="description" content="How access to ChatAdmin is staged: the sample-environment demonstration you can use now, the Microsoft sign-in that is live on ChatAdmin, and connecting your own organisation, which is in development. This page has no sign-in button; it says why and offers the contact route.">
 <link rel="canonical" href="https://neopiq.ai/try.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
 <meta property="og:title" content="Try with Microsoft — the stages of access to ChatAdmin, and where they stand today">
-<meta property="og:description" content="How access to ChatAdmin is staged: the sample-environment demonstration you can use now, the Microsoft sign-in that is coming, and the exploration and execution stages in your own environment that follow. No sign-in button exists yet; this page says so and offers the contact route.">
+<meta property="og:description" content="How access to ChatAdmin is staged: the sample-environment demonstration you can use now, the Microsoft sign-in that is live on ChatAdmin, and connecting your own organisation, which is in development. This page has no sign-in button; it says why and offers the contact route.">
 <meta property="og:url" content="https://neopiq.ai/try.html">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -58,9 +58,10 @@
       <p class="lead">
         Signing in to ChatAdmin and allowing ChatAdmin to administer your Microsoft Azure, Microsoft
         Entra, Microsoft 365 or Microsoft Power Platform environment are different trust decisions,
-        and we keep them separate. There is no sign-in button on this page yet: self-service sign-in
-        with your Microsoft work account is coming, and this page says so plainly rather than
-        offering a button that leads nowhere.
+        and we keep them separate. Sign-in with a Microsoft work account is live on ChatAdmin, and
+        today it admits Neopiq&rsquo;s own organisation, where evaluations run. Connecting your own
+        organisation is in development. There is no sign-in button on this page, because a button
+        that ends in a refusal is worse than a sentence that says so.
       </p>
     </div>
   </section>
@@ -77,20 +78,16 @@
           <p><a class="btn btn--primary btn--small" href="demo/">See ChatAdmin in Action</a></p>
         </li>
         <li>
-          <h3>Sign in with your Microsoft work account <span class="status status--dev">coming</span></h3>
-          <p><strong>What will happen:</strong> you are sent to Microsoft&rsquo;s sign-in and come back signed in to ChatAdmin. <strong>What ChatAdmin learns:</strong> your name, your sign-in name and your organisation&rsquo;s tenant id. <strong>Is administration access requested?</strong> No. Only identity scopes are requested; no permission on your directory, your mail or your resources. <strong>What does not happen yet:</strong> nothing is read or changed in your tenant; signing in does not connect your environment and does not replace the approval key. The explanation will be shown before the redirect, in these words.</p>
+          <h3>Sign in with your Microsoft work account <span class="status status--now">available now</span></h3>
+          <p><strong>What happens:</strong> you are sent to Microsoft&rsquo;s sign-in and come back signed in to ChatAdmin; the sign-in is required. <strong>What ChatAdmin learns:</strong> your name, your sign-in name and your organisation&rsquo;s tenant id, shown on every card and recorded with every decision. <strong>Is administration access requested?</strong> No. Only identity scopes are requested; no permission on your directory, your mail or your resources; the sign-in application holds no secret and no token is kept. <strong>What does not happen:</strong> nothing is read or changed in your tenant; signing in does not connect your environment. The explanation is shown before the redirect, in these words. <strong>Who can sign in today:</strong> Neopiq&rsquo;s own organisation, where evaluations run; other organisations are admitted when the next stage ships.</p>
         </li>
         <li>
-          <h3>Explore with your Microsoft environment <span class="status status--planned">planned</span></h3>
-          <p>When you choose to work with your real environment, ChatAdmin asks for the specific read permissions a capability needs and explains each one: what it requests, why it is required, which feature uses it, whether you or an administrator must consent, and what ChatAdmin still cannot do. If you cannot grant it yourself, you get a clean path to ask your administrator, not an error. Read permissions are not described as harmless merely because they cannot modify data.</p>
+          <h3>Connect your organisation <span class="status status--dev">in development</span></h3>
+          <p>A verified administrator of your Microsoft tenant connects your organisation &mdash; nothing is installed in your tenant, no Azure subscription is needed, and Microsoft 365 with Microsoft Entra is enough to start; Azure and Power Platform are added when you use them. That administrator starts as Standard + ChatAdmin administrator (or chooses Observe or Custom) and starts working; nothing has to be configured first. ChatAdmin then asks for the specific permissions a capability needs when you first use it and explains each one before Microsoft&rsquo;s consent screen: what it requests, why, which feature uses it, reading or changing, whether you or an administrator must consent &mdash; with a clean path to ask your administrator, not an error. It acts with your own Microsoft rights and never more; every change is approved by your own sign-in, bound to that one transaction; no Neopiq key exists in your organisation. <a href="how-it-works.html#organisation">The model in full</a>.</p>
         </li>
         <li>
-          <h3>Enable controlled execution <span class="status status--planned">planned</span></h3>
-          <p>Execution permissions are requested when you are ready to use the matching capability, explained the same way, and connected to a capability you can name. The flow: you ask for a change, ChatAdmin explains what needs to change, says why extra authorisation is needed, obtains it, returns to the pending operation, presents the approval, executes, verifies, reports.</p>
-        </li>
-        <li>
-          <h3>Expand organisational and integration capability <span class="status status--planned">planned</span></h3>
-          <p>Background operation, broader application permissions and platform integrations are a higher trust level and stay out of first use.</p>
+          <h3>Grow without migrating <span class="status status--planned">planned</span></h3>
+          <p>A second person brings Users &amp; Access and Activity pages for your administrator; several managed tenants bring a visible tenant switcher with per-tenant access; a second Neopiq product brings an app switcher. Background operation and platform integrations are a higher trust level and stay out of first use. The ChatAdmin workspace will live at app.neopiq.ai; there is nothing to open there today.</p>
         </li>
       </ol>
     </div>
@@ -101,8 +98,8 @@
       <h2>What you can do today</h2>
       <ul>
         <li><strong>See it.</strong> <a href="demo/">The demonstration</a> needs no account.</li>
-        <li><strong>Evaluate it in an operated environment.</strong> ChatAdmin runs in a Neopiq-operated environment, connected by a Neopiq operator to one Microsoft tenant; evaluators use it through a link and the approver keys. <a href="contact.html">Talk to us</a> and we will say which stage is available for your case.</li>
-        <li><strong>Be told when sign-in opens.</strong> Say so at <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a>.</li>
+        <li><strong>Evaluate it in an operated environment.</strong> ChatAdmin runs in a Neopiq-operated environment, connected by a Neopiq operator to one Microsoft tenant; evaluators use it signed in with Microsoft, with the approver keys. <a href="contact.html">Talk to us</a> and we will say which stage is available for your case.</li>
+        <li><strong>Be told when your organisation can connect.</strong> Say so at <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a>.</li>
       </ul>
       <p class="small muted">
         Microsoft Marketplace: <span class="status status--planned">planned</span> &mdash; the

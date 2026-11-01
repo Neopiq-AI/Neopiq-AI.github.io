@@ -57,9 +57,10 @@
       </p>
       <p class="lead narrow">
         <strong>Where it stands today:</strong> ChatAdmin runs in a Neopiq-operated environment,
-        connected by a Neopiq operator to one Microsoft tenant. It is not yet open for self-service;
-        Microsoft sign-in for customers is coming, and a Microsoft Marketplace listing is planned.
-        You can see the real interaction on a sample environment right now, without signing in.
+        connected by a Neopiq operator to one Microsoft tenant. Sign-in with a Microsoft work
+        account is live and today admits Neopiq&rsquo;s own organisation; connecting your own
+        organisation is in development, and a Microsoft Marketplace listing is planned. You can see
+        the real interaction on a sample environment right now, without signing in.
       </p>
       <div class="btn-row">
         <a class="btn btn--primary" href="demo/">See ChatAdmin in Action</a>
@@ -211,12 +212,12 @@
           <p class="card__more"><a href="how-it-works.html#card">What a card contains</a></p>
         </article>
         <article class="card">
-          <h3>The environment is named on the card</h3>
+          <h3>The environment is named on the card, and the card is bound to it</h3>
           <p>
-            Today every card names the tenant or subscription it is about and the identity
-            ChatAdmin acts with. We are adding a check that binds each card to the environment it was
-            raised in, so a change of context can never make an approved plan run somewhere else.
-            <span class="status status--dev">in development</span>
+            Every card names the tenant or subscription it is about and the identity ChatAdmin acts
+            with, and is bound to that environment when it is raised: at approval time the
+            environment is read again, and a change of context refuses the approval, so an approved
+            plan can never run somewhere else. Who approved is recorded with the signed-in person.
           </p>
           <p class="card__more"><a href="security.html#tenant">Which tenant is affected</a></p>
         </article>
@@ -305,9 +306,9 @@
           <h3>For MSPs and IT service providers</h3>
           <p>
             We are designing ChatAdmin for professional multi-customer operation: one technician
-            identity, many Microsoft environments, the active customer always visible, every approval
-            bound to the environment it was raised in. In development &mdash; the page says exactly
-            what exists.
+            identity, many Microsoft environments, access scoped per managed tenant, the active
+            customer always visible, every approval bound to the environment it was raised in. The
+            same product, growing with the customer &mdash; the page says exactly what exists.
           </p>
           <p class="card__more"><a href="solutions-msp.html">ChatAdmin for MSPs</a></p>
         </article>
@@ -324,7 +325,8 @@
       <ul class="narrow" style="margin-top:1.25rem">
         <li><span class="status status--now">available now</span> ChatAdmin, operated by Neopiq, for the four Microsoft areas &mdash; an evaluation starts with <a href="contact.html">a conversation</a>.</li>
         <li><span class="status status--now">available now</span> <a href="demo/">See ChatAdmin in Action</a> &mdash; the sample-environment demonstration, no sign-in.</li>
-        <li><span class="status status--dev">in development</span> Sign in with your Microsoft work account &mdash; the first self-service stage. <a href="try.html">What it will and will not do</a>.</li>
+        <li><span class="status status--now">available now</span> Sign in with your Microsoft work account &mdash; live on ChatAdmin, for Neopiq&rsquo;s own organisation today. <a href="try.html">What it does and does not do</a>.</li>
+        <li><span class="status status--dev">in development</span> Connect your own organisation &mdash; nothing installed in your tenant, ChatAdmin acting with your own Microsoft rights, every change approved by your own sign-in, no Neopiq keys. <a href="how-it-works.html#organisation">The model</a>.</li>
         <li><span class="status status--planned">planned</span> Get it from Microsoft Marketplace.</li>
         <li><span class="status status--planned">planned</span> ServiceNow, Pax8 and ALSO routes. <a href="ecosystem.html">The ecosystem page</a> labels every item.</li>
       </ul>

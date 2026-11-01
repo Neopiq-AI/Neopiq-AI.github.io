@@ -53,7 +53,7 @@
           <li aria-current="page">ChatAdmin</li>
         </ol>
       </nav>
-      <p class="eyebrow">Product &middot; running today &middot; operated by Neopiq &middot; self-service coming</p>
+      <p class="eyebrow">Product &middot; running today &middot; operated by Neopiq &middot; Microsoft sign-in live &middot; your own organisation in development</p>
       <h1>ChatAdmin administers Microsoft Azure, Microsoft Entra, Microsoft 365 and Microsoft Power Platform by conversation &mdash; and changes nothing until you say yes</h1>
       <p class="lead">
         You describe the outcome. ChatAdmin works out which Microsoft areas are involved, reads the
@@ -64,8 +64,9 @@
       </p>
       <p class="lead">
         <strong>Availability:</strong> ChatAdmin runs in a Neopiq-operated environment, connected by a
-        Neopiq operator to one Microsoft tenant. It is not yet open for self-service sign-up;
-        <a href="try.html">here is what is coming, stage by stage</a>. To evaluate it,
+        Neopiq operator to one Microsoft tenant. Sign-in with a Microsoft work account is live and
+        today admits Neopiq&rsquo;s own organisation; connecting your own organisation is in
+        development &mdash; <a href="try.html">here is where each stage stands</a>. To evaluate it,
         <a href="contact.html">talk to us</a>.
       </p>
       <div class="btn-row">
@@ -136,7 +137,7 @@
         </li>
         <li>
           <h3>The card</h3>
-          <p class="muted">The Microsoft area, the environment it is about, every step with its parameters (secrets masked), the pre-checks it already ran, and a five-minute countdown. <strong>Approve</strong> or <strong>Reject</strong>, answered with that area&rsquo;s approver key.</p>
+          <p class="muted">The Microsoft area, the environment it is about, every step with its parameters (secrets masked), the pre-checks it already ran, and a five-minute countdown. <strong>Approve</strong> or <strong>Reject</strong>, answered by you &mdash; today with that area&rsquo;s approver key in the Neopiq-operated environment; in your own organisation with your own Microsoft sign-in and no key <span class="status status--dev">in development</span>.</p>
         </li>
         <li>
           <h3>Execution and the verified result</h3>
@@ -166,8 +167,8 @@
           <p>Every create, update, delete and access change waits for a card. Unanswered for five minutes counts as rejected. There is no auto-approve, no &ldquo;trusted action&rdquo; list, no confidence threshold that lets the model decide it is probably fine.</p>
         </article>
         <article class="card">
-          <h3>Only a key holder can approve</h3>
-          <p>The link lets a person read and ask. Approving needs that area&rsquo;s approver key, handed over on a separate channel and typed into the page by the human. The coordinating layer holds no key and cannot approve anything.</p>
+          <h3>Only a person can approve, and it is recorded who</h3>
+          <p>A signed-in person can read and ask. Approving in the Neopiq-operated environment needs that area&rsquo;s approver key, handed over on a separate channel and typed into the page by the human, and the decision is recorded with the signed-in person. In your own organisation there is no Neopiq key: your own Microsoft sign-in is the approval, bound to the one transaction on the card, and nothing can exceed your own Microsoft rights <span class="status status--dev">in development</span>. The coordinating layer holds no key and cannot approve anything.</p>
         </article>
         <article class="card">
           <h3>Secrets stay secret</h3>
@@ -249,12 +250,12 @@
           <p>Three scripted scenarios over a fictional sample tenant, in the real interaction pattern, with cards you click. No sign-in, nothing of yours connected, nothing can change anything. <a href="demo/">Open the demonstration</a>.</p>
         </li>
         <li>
-          <h3>Sign in with Microsoft <span class="status status--dev">in development</span></h3>
-          <p>Signing in with your Microsoft work account will identify you to ChatAdmin &mdash; name, sign-in name, your organisation&rsquo;s tenant id &mdash; and nothing more. It will not grant any access to administer your environment. <a href="try.html">Try with Microsoft</a> explains the stages.</p>
+          <h3>Sign in with Microsoft <span class="status status--now">available now</span></h3>
+          <p>Signing in with your Microsoft work account identifies you to ChatAdmin &mdash; name, sign-in name, your organisation&rsquo;s tenant id &mdash; and nothing more; it grants no access to administer any environment. The sign-in is live and required; today it admits Neopiq&rsquo;s own organisation, where evaluations run. <a href="try.html">Try with Microsoft</a> explains the stages.</p>
         </li>
         <li>
-          <h3>Explore and execute in your own environment <span class="status status--planned">planned</span></h3>
-          <p>Specific, explained permissions for reading first, and execution permissions only when you are ready to use them. Today, an evaluation is operated by Neopiq in an environment a Neopiq operator connects &mdash; <a href="contact.html">talk to us</a>.</p>
+          <h3>Connect your organisation <span class="status status--dev">in development</span></h3>
+          <p>A verified administrator of your tenant connects your organisation; nothing is installed in it, no Azure subscription is needed, Microsoft 365 and Microsoft Entra are enough to start. ChatAdmin then acts with each person&rsquo;s own Microsoft rights, asks for specific, explained permissions when a capability first needs them, and every change is approved by your own sign-in &mdash; no Neopiq keys. Observe, Standard or Custom per person; a ChatAdmin administrator for your organisation; confirmation that grows with risk. <a href="how-it-works.html#organisation">The model in full</a>. Today, an evaluation is operated by Neopiq in an environment a Neopiq operator connects &mdash; <a href="contact.html">talk to us</a>.</p>
         </li>
       </ol>
     </div>
@@ -273,7 +274,7 @@
         </article>
         <article class="card">
           <h3>An MSP with many</h3>
-          <p>The same engine with tenant context as part of the security boundary: the active customer always visible, every card bound to the environment it was raised in. In development; the MSP page says exactly what exists.</p>
+          <p>The same engine with tenant context as part of the security boundary: every card bound to the environment it was raised in (available now), access scoped per managed tenant (in development), a visible tenant switcher (planned). The MSP page says exactly what exists.</p>
           <p class="card__more"><a href="solutions-msp.html">For MSPs and IT service providers</a></p>
         </article>
       </div>

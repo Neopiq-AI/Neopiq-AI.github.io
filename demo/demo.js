@@ -310,7 +310,7 @@
     env.appendChild(document.createTextNode('Environment: '));
     env.appendChild(el('strong', null, step.env));
     c.appendChild(env);
-    c.appendChild(el('p', 'card-approval__facts', 'SIMULATED · auto-declines in 5 min in the real product · approver key required in the real product (not in this sample)'));
+    c.appendChild(el('p', 'card-approval__facts', 'SIMULATED · auto-declines in 5 min in the real product · approved by a signed-in person in the real product (not in this sample)'));
     var ol = el('ol', 'plan');
     step.steps.forEach(function (s) {
       var li = el('li');

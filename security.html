@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Security and trust — who Neopiq is, what ChatAdmin can read and change, how approval works</title>
-<meta name="description" content="The ChatAdmin trust centre, organised around the questions a customer asks: who Neopiq is, why Microsoft sign-in, which permissions, what it can read and change, when it executes, how approval works, which tenant is affected, what is stored, how activity is logged, how access is removed, and how to reach us about security.">
+<meta name="description" content="The ChatAdmin trust centre, organised around the questions a customer asks: who Neopiq is, why Microsoft sign-in, how your own organisation connects and who is in control, which permissions, what it can read and change, when it executes, how approval works, which tenant is affected, what is stored, how activity is logged, how access is removed, and how to reach us about security.">
 <link rel="canonical" href="https://neopiq.ai/security.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
 <meta property="og:title" content="Security and trust — who Neopiq is, what ChatAdmin can read and change, how approval works">
-<meta property="og:description" content="The ChatAdmin trust centre, organised around the questions a customer asks: who Neopiq is, why Microsoft sign-in, which permissions, what it can read and change, when it executes, how approval works, which tenant is affected, what is stored, how activity is logged, how access is removed, and how to reach us about security.">
+<meta property="og:description" content="The ChatAdmin trust centre, organised around the questions a customer asks: who Neopiq is, why Microsoft sign-in, how your own organisation connects and who is in control, which permissions, what it can read and change, when it executes, how approval works, which tenant is affected, what is stored, how activity is logged, how access is removed, and how to reach us about security.">
 <meta property="og:url" content="https://neopiq.ai/security.html">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -84,17 +84,50 @@
           sponsored by Microsoft.
         </p>
 
-        <h2 id="signin">Why would I sign in through Microsoft? <span class="status status--dev">in development</span></h2>
+        <h2 id="signin">Why would I sign in through Microsoft? <span class="status status--now">available now</span></h2>
         <p>
-          There is no customer sign-in today: the product is reached by a link held by the people
-          who evaluate it, and every change needs an approver key. The first self-service stage we
-          are building is a sign-in with your Microsoft work account. Before you are sent to
-          Microsoft the page will say, in these words: this signs you in to ChatAdmin with your
-          Microsoft work account; ChatAdmin learns your name, sign-in name and your
-          organisation&rsquo;s tenant id; it does not get access to administer your Microsoft
-          environment; nothing is read or changed in your tenant at this step. Only identity scopes
-          are requested, no directory permission, no client secret exists, and no token is kept at
-          rest. <a href="try.html">The stages, as they stand</a>.
+          Because the person who asks and approves must be known. ChatAdmin requires a sign-in with
+          a Microsoft work account; the signed-in person is named on every card and recorded with
+          every decision. Before you are sent to Microsoft the page says, in these words: this signs
+          you in to ChatAdmin with your Microsoft work account; ChatAdmin learns your name, sign-in
+          name and your organisation&rsquo;s tenant id; it does not get access to administer your
+          Microsoft environment; nothing is read or changed in your tenant at this step. Only
+          identity scopes are requested, no directory permission, the sign-in application holds no
+          secret of any kind, and no token is kept at rest &mdash; the sign-in token is verified once
+          and discarded. Today the sign-in admits Neopiq&rsquo;s own organisation, where evaluations
+          run; connecting your own organisation is the next question.
+          <a href="try.html">The stages, as they stand</a>.
+        </p>
+
+        <h2 id="organisation">How will my own organisation connect, and who is in control? <span class="status status--dev">in development</span></h2>
+        <p>
+          Nothing is installed in your tenant and no Azure subscription is needed: a verified
+          administrator of your Microsoft tenant connects your organisation to ChatAdmin, which Neopiq
+          hosts. Microsoft 365 and Microsoft Entra are the base; Microsoft Azure and Microsoft Power
+          Platform are added when you use them. From then on the browser proves each person to
+          ChatAdmin, ChatAdmin obtains access to Microsoft for that request through Microsoft&rsquo;s
+          supported delegated mechanism, acting with that person&rsquo;s own rights, and
+          <strong>Microsoft remains the ceiling</strong>: ChatAdmin can expose, make read-only, narrow
+          or add confirmation to what Microsoft allows a person, never widen it.
+        </p>
+        <p>
+          <strong>There are no Neopiq keys in your organisation.</strong> You approve each change
+          yourself, signed in with Microsoft, and the approval is bound to that one transaction
+          (tenant, approver, operation, targets, parameters, risk level, expiry); a changed operation
+          needs a new approval. Each person has one mode per organisation &mdash; <strong>Observe</strong>
+          (read only, nothing executed), <strong>Standard</strong> (everything their Microsoft identity
+          may already do, with confirmation scaled to risk) or <strong>Custom</strong> (a restriction
+          below Standard that you set, such as Exchange read only or privileged roles blocked through
+          ChatAdmin) &mdash; and, independently, may or may not be a <strong>ChatAdmin
+          administrator</strong>, who manages people, modes and restrictions by conversation and on the
+          Users &amp; Access and Activity pages; neither adds Microsoft rights. The first administrator
+          is a verified Microsoft administrator of your tenant, never simply the first person to sign
+          in. Riskier operations get more friction &mdash; a typed confirmation of the target&rsquo;s
+          name, a fresh sign-in for tenant-wide and control-plane changes &mdash; not a smaller product.
+          Disable someone in Microsoft and their ChatAdmin access is suspended automatically; nobody is
+          promoted automatically; if no usable administrator remains, an eligible current
+          administrator of your tenant recovers administration themselves, verified by Microsoft and
+          audited. <a href="how-it-works.html#organisation">The model in full</a>.
         </p>
 
         <h2 id="permissions">What permissions does Neopiq request?</h2>
@@ -112,10 +145,12 @@
         </ul>
         <p>
           The <a href="permissions.html">permissions page</a> lists each area&rsquo;s reads, changes
-          and ceilings from the code that ships. When your own environment can be connected, every
-          permission will be explained before Microsoft&rsquo;s consent screen appears: what is
-          requested, which capability needs it, whether it reads or modifies, and whether an
-          administrator must consent. <span class="status status--planned">planned</span>
+          and ceilings from the code that ships. In your own organisation, every permission is
+          explained before Microsoft&rsquo;s consent screen appears &mdash; what is requested, which
+          capability needs it, whether it reads or modifies, whether an administrator must consent
+          &mdash; and is requested only when the capability that needs it is first used; if you cannot
+          consent yourself, you get a link to ask your administrator, not an error. ChatAdmin acts with
+          your own Microsoft rights and never more. <span class="status status--dev">in development</span>
         </p>
 
         <h2 id="read">What can it read?</h2>
@@ -151,29 +186,36 @@
         <h2 id="approval">How does approval work?</h2>
         <p>
           Every change raises an Approve / Reject card naming the area, the environment, every step
-          and parameter (secrets masked), the pre-checks it ran and a five-minute countdown. The
-          human answers it with that area&rsquo;s <strong>approver key</strong> &mdash; a shared
-          secret handed over on a different channel than the chat link, typed into the page, kept
-          only in that browser tab and sent only inside the one approval it belongs to. Anyone with
-          the link can read and ask; only a key holder can approve. The coordinating layer holds no
-          key and has no approve path; an automated check may only reject. <strong>Unanswered for
-          five minutes, a card declines itself.</strong> Nothing is ever auto-approved.
+          and parameter (secrets masked), the pre-checks it ran and a five-minute countdown. In the
+          Neopiq-operated environment the human answers it with that area&rsquo;s <strong>approver
+          key</strong> &mdash; a shared secret handed over on a different channel than the chat link,
+          typed into the page, kept only in that browser tab and sent only inside the one approval it
+          belongs to &mdash; and the decision is recorded with the signed-in person who gave it. A
+          signed-in person can read and ask; only a key holder can approve. The coordinating layer
+          holds no key and has no approve path; an automated check may only reject. <strong>Unanswered
+          for five minutes, a card declines itself.</strong> Nothing is ever auto-approved.
         </p>
         <p>
-          Known limit, stated here rather than found by you: the key proves &ldquo;someone with the
-          key&rdquo;, not who. Recording which signed-in operator forwarded each decision is part of
-          the Microsoft sign-in work. <span class="status status--dev">in development</span>
+          In your own organisation there is no key at all: your own Microsoft sign-in is the
+          approval, bound to this one transaction &mdash; your tenant, you, the operation, the targets,
+          the material parameters, the risk level and an expiry &mdash; so that nothing approved earlier
+          can run as something else, and execution can never exceed your own Microsoft rights.
+          <span class="status status--dev">in development</span> What we never do, in either case:
+          no software approves a change, no standing key is issued to a customer organisation, and
+          no customer token is kept at rest.
         </p>
 
         <h2 id="tenant">How do I know which tenant is affected?</h2>
         <p>
           Every card names the environment it is about &mdash; the tenant or subscription and the
           identity ChatAdmin acts with there &mdash; and the chat header says the same at all times.
-          Today ChatAdmin is connected to one environment, so the answer is also structurally simple.
-          We are adding a check that binds each card to the environment it was raised in and
-          re-reads that environment at approval time: if it has changed, or no longer answers, the
-          approval is refused and nothing is forwarded. <span class="status status--dev">in development</span>
-          For operating many customer environments, see <a href="solutions-msp.html">the MSP page</a>.
+          Each card is bound to the environment it was raised in, and that environment is read again
+          at approval time: if it has changed, or no longer answers, the approval is refused and
+          nothing is forwarded. Today ChatAdmin is connected to one environment, so the answer is
+          also structurally simple. In your own organisation, isolation comes from the signed-in
+          tenant context checked on the server, never from a customer-specific web address.
+          <span class="status status--dev">in development</span> For operating many customer
+          environments, see <a href="solutions-msp.html">the MSP page</a>.
         </p>
 
         <h2 id="stored">What information does Neopiq store?</h2>
@@ -182,11 +224,15 @@
           tool call and its bounded result, every card and every decision &mdash; one record per
           event, with secret-shaped values removed before anything is written. They are kept in
           Neopiq&rsquo;s own Microsoft Azure storage, reachable only by role-based access, and in the
-          service&rsquo;s console log. <strong>No customer secret is stored</strong>: no approver key
-          appears in any transcript, no token is written to disk by the chat, and the administrator
-          sign-ins ChatAdmin uses live on Neopiq&rsquo;s operator machine and reach the service only
-          as mounted secrets. There is no automatic retention yet: transcripts stay until deleted or
-          until a retention rule is added. <span class="status status--planned">planned</span>
+          service&rsquo;s console log. <strong>Of the signed-in person</strong>: name, sign-in name and
+          tenant id, on the cards and in the transcript &mdash; never the sign-in token. <strong>No
+          customer secret is stored</strong>: no approver key appears in any transcript, no token is
+          written to disk by the chat, and the administrator sign-ins ChatAdmin uses in its operated
+          environment live on Neopiq&rsquo;s operator machine and reach the service only as mounted
+          secrets. There is no automatic retention yet: transcripts stay until deleted. A retention
+          rule that deletes transcripts and event logs older than <strong>90 days</strong>, and
+          deletes everything of one organisation when it leaves, is being added.
+          <span class="status status--dev">in development</span>
           This website stores nothing: no scripts, no cookies, no form, no account &mdash; except
           the demonstration page, whose one script keeps everything in the page and sends nothing.
         </p>
@@ -211,8 +257,12 @@
           create the app registration yourself, upload only Neopiq&rsquo;s public certificate, and
           assign the role; deleting that registration or its role assignment removes the access
           without asking us. <span class="status status--dev">built, not yet run with a customer</span>
-          Self-service disconnect and revoke guidance will come with the sign-in stages.
-          <span class="status status--planned">planned</span>
+          In your own organisation, access follows your Microsoft identities without telling us:
+          disable or delete a person in Microsoft and their ChatAdmin access is suspended
+          automatically; a ChatAdmin administrator sets anyone to Observe or removes them by
+          conversation; revoking the consent your administrator granted ends ChatAdmin&rsquo;s access
+          to your tenant; and when an organisation leaves, everything stored about it is deleted.
+          <span class="status status--dev">in development</span>
         </p>
 
         <h2 id="contact">How do I contact Neopiq about security or privacy?</h2>

@@ -61,7 +61,33 @@
         Microsoft 365 and Microsoft Power Platform, so this page works harder: for each area, the
         identity it acts with, what it reads without a card, what it changes behind one, and what it
         never does. Reads run at once; every change waits for a person; an unanswered card declines
-        itself after five minutes.
+        itself after five minutes. The identities below are those of the Neopiq-operated environment
+        today; <a href="#yourorg">in your own organisation</a> the identity is you.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="yourorg">
+    <div class="wrap narrow">
+      <h2>In your own organisation: your rights, narrowed, never widened <span class="status status--dev">in development</span></h2>
+      <p>
+        When your organisation is connected, the identity in every area is <strong>you</strong>: ChatAdmin
+        obtains access to Microsoft for each request through Microsoft&rsquo;s supported delegated
+        mechanism and acts with the signed-in person&rsquo;s own Microsoft rights. Microsoft decides
+        what those rights allow; the tables on this page are the product&rsquo;s own ceilings on top of
+        that, and neither a Neopiq subscription nor a ChatAdmin setting adds a right Microsoft has
+        not given. Your organisation can narrow further, per person: <strong>Observe</strong> (reads
+        only &mdash; every change card is refused with the reason), <strong>Standard</strong> (the
+        person&rsquo;s full Microsoft authority within the areas you have enabled) or
+        <strong>Custom</strong> (areas set to allowed, read only or blocked through ChatAdmin, without
+        touching Microsoft roles). Every operation carries a risk class that is the same in all four
+        areas &mdash; normal, approval required, high, extreme &mdash; and the confirmation grows with
+        it: the exact transaction on a card; a typed confirmation of the target&rsquo;s name for
+        deletions, removals of access and role or credential changes; a fresh sign-in for tenant-wide
+        changes and for changes to ChatAdmin&rsquo;s own control plane. No Neopiq key is issued to a
+        customer organisation; your own sign-in is the approval, bound to the one transaction on the
+        card. Microsoft 365 and Microsoft Entra are the base; Microsoft Azure and Microsoft Power
+        Platform are added when you use them. <a href="how-it-works.html#organisation">The model in full</a>.
       </p>
     </div>
   </section>
@@ -152,16 +178,19 @@
       <p>
         Before any change in the tables above runs, ChatAdmin shows a card: the area, the
         environment, the action and every parameter with secrets masked, the pre-checks it ran, and
-        a five-minute countdown. Then it waits. The human answers with that area&rsquo;s approver
-        key; the coordinating layer holds no key and cannot answer a card. <strong>If nobody
-        answers within five minutes, the change is declined</strong> &mdash; the gate fails closed,
-        never open, and there is no auto-approve of any kind in the product. A plan card covers up to
-        twelve steps with one decision; the steps run in order and stop at the first error. Read-only
-        questions do not pass through the gate, so looking around never generates approval fatigue.
+        a five-minute countdown. Then it waits. In the Neopiq-operated environment the human answers
+        with that area&rsquo;s approver key, and the decision is recorded with the signed-in person
+        who gave it; in your own organisation your own Microsoft sign-in is the approval and no key
+        exists <span class="status status--dev">in development</span>. The coordinating layer holds no
+        key and cannot answer a card. <strong>If nobody answers within five minutes, the change is
+        declined</strong> &mdash; the gate fails closed, never open, and there is no auto-approve of
+        any kind in the product. A plan card covers up to twelve steps with one decision; the steps
+        run in order and stop at the first error. Read-only questions do not pass through the gate,
+        so looking around never generates approval fatigue.
       </p>
       <h2 style="margin-top:2rem">Stated before you find it</h2>
       <ul>
-        <li><strong>The approver key proves possession, not identity.</strong> Who clicked Approve is knowable today only outside the log; recording which signed-in operator forwarded each decision comes with the Microsoft sign-in. <span class="status status--dev">in development</span></li>
+        <li><strong>The approver key proves possession, not identity.</strong> It is the mechanism of the Neopiq-operated environment, where the signed-in person who forwarded each decision is now recorded alongside it. It is not the customer mechanism: in your own organisation there is no key, and the signed-in person&rsquo;s own approval is bound to the transaction. <span class="status status--dev">in development</span></li>
         <li><strong>The Azure identity holds Contributor</strong> on the subscription it operates, which is broader than the table requires; a narrower role per deployment (Reader for a read-only evaluation) is a deploy-time switch.</li>
         <li><strong>Some Power Platform changes have not yet run live.</strong> They are built and tested against a simulated tenant; the product says so in its answer, and this page labels them.</li>
         <li><strong>Nothing here is an uptime, support or availability commitment.</strong> ChatAdmin runs in a Neopiq-operated environment for evaluation today.</li>

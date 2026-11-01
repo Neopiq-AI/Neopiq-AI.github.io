@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How ChatAdmin works — understand, inspect, propose, approve, execute, verify, explain</title>
-<meta name="description" content="How a ChatAdmin request becomes a verified change in Microsoft Azure, Microsoft Entra, Microsoft 365 or Microsoft Power Platform: the eight steps, what a card contains, what a result looks like, the four stages of access, and the technology behind one coherent ChatAdmin.">
+<meta name="description" content="How a ChatAdmin request becomes a verified change in Microsoft Azure, Microsoft Entra, Microsoft 365 or Microsoft Power Platform: the eight steps, what a card contains, what a result looks like, the stages of access, the customer organisation model in development, and the technology behind one coherent ChatAdmin.">
 <link rel="canonical" href="https://neopiq.ai/how-it-works.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
 <meta property="og:title" content="How ChatAdmin works — understand, inspect, propose, approve, execute, verify, explain">
-<meta property="og:description" content="How a ChatAdmin request becomes a verified change in Microsoft Azure, Microsoft Entra, Microsoft 365 or Microsoft Power Platform: the eight steps, what a card contains, what a result looks like, the four stages of access, and the technology behind one coherent ChatAdmin.">
+<meta property="og:description" content="How a ChatAdmin request becomes a verified change in Microsoft Azure, Microsoft Entra, Microsoft 365 or Microsoft Power Platform: the eight steps, what a card contains, what a result looks like, the stages of access, the customer organisation model in development, and the technology behind one coherent ChatAdmin.">
 <meta property="og:url" content="https://neopiq.ai/how-it-works.html">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -58,7 +58,8 @@
         ChatAdmin administers Microsoft Azure, Microsoft Entra, Microsoft 365 and Microsoft Power
         Platform. This page follows one request through the eight steps every request takes, shows
         what the Approve / Reject card and the result actually contain, sets out the stages of
-        access, and ends with the technology behind one coherent ChatAdmin.
+        access and the organisation model we are building, and ends with the technology behind one
+        coherent ChatAdmin.
       </p>
     </div>
   </section>
@@ -77,7 +78,7 @@
         <li><strong>2 Inspect</strong> the real state &mdash; users, groups, seats, teams, resources &mdash; with reads that need no approval</li>
         <li><strong>3 Reason</strong> about which areas are involved and what the environment already implies (a usage location, the only licence with a free seat)</li>
         <li><strong>4 Propose</strong> one card per area, with every step and parameter, after the pre-checks that catch a wasted approval</li>
-        <li class="loop--human"><strong>5 Approve</strong> you read the card and click Approve or Reject, with that area&rsquo;s key; silence for five minutes is a no</li>
+        <li class="loop--human"><strong>5 Approve</strong> you read the card and click Approve or Reject &mdash; in the Neopiq-operated environment with that area&rsquo;s key; in your own organisation with your own Microsoft sign-in, no key (in development); silence for five minutes is a no</li>
         <li><strong>6 Execute</strong> exactly the steps on the card, in order, stopping at the first error</li>
         <li><strong>7 Verify</strong> by reading each object back from Microsoft and showing that state</li>
         <li><strong>8 Explain</strong> what was done, what was not, and what needs a person in the portal</li>
@@ -117,11 +118,11 @@
           <h3>Line by line</h3>
           <ul>
             <li><strong>The area and the action</strong>, in words: which Microsoft area is about to change, a single change or a plan of up to twelve steps behind one approval.</li>
-            <li><strong>The environment</strong>: the tenant or subscription the card is about and the identity ChatAdmin acts with there. Binding each card to that environment at approval time, so a changed context refuses the approval, is being added.</li>
-            <li><strong>The facts line</strong>: live or simulated, the five-minute countdown, the key that is needed.</li>
+            <li><strong>The environment</strong>: the tenant or subscription the card is about and the identity ChatAdmin acts with there. The card is bound to that environment when it is raised, and the environment is read again when you approve: if it has changed, or no longer answers, the approval is refused and nothing is forwarded.</li>
+            <li><strong>The facts line</strong>: live or simulated, the five-minute countdown, what answers the card (today: that area&rsquo;s key).</li>
             <li><strong>Every step with its parameters.</strong> Secrets are masked. A delete restates the exact name it will delete.</li>
             <li><strong>The preview</strong>: what the matching read found &mdash; what a role allows, what a delete would remove, the pre-checks that already passed.</li>
-            <li><strong>Approve / Reject</strong>, answered with that area&rsquo;s approver key, typed by you into the page. Nothing else can answer a card.</li>
+            <li><strong>Approve / Reject</strong>, answered by a person and recorded with the signed-in operator who answered. In the Neopiq-operated environment that means typing that area&rsquo;s approver key into the page. In your own organisation there will be no key: your own Microsoft sign-in is the approval, bound to this one transaction. <span class="status status--dev">in development</span> Nothing else can answer a card.</li>
           </ul>
         </article>
       </div>
@@ -183,23 +184,76 @@
           <p>A sample environment, clearly marked, not connected to anything of yours. The real interaction pattern: intent, inspection, proposal, your approval, simulated execution, a verified-looking result. <a href="demo/">See ChatAdmin in Action</a>.</p>
         </li>
         <li>
-          <h3>Microsoft sign-in <span class="status status--dev">in development</span></h3>
-          <p>You sign in to ChatAdmin with your Microsoft work account. ChatAdmin learns your name, your sign-in name and your organisation&rsquo;s tenant id. It gets no access to administer your environment; nothing is read or changed in your tenant at this step.</p>
+          <h3>Microsoft sign-in <span class="status status--now">available now</span></h3>
+          <p>You sign in to ChatAdmin with your Microsoft work account. ChatAdmin learns your name, your sign-in name and your organisation&rsquo;s tenant id, and nothing more: signing in gives no access to administer any environment. The sign-in is live on ChatAdmin and is required; today it admits Neopiq&rsquo;s own organisation, which is where evaluations run.</p>
         </li>
         <li>
-          <h3>Environment exploration <span class="status status--planned">planned</span></h3>
-          <p>When you choose to work with your real environment, ChatAdmin asks for the specific read permissions a capability needs and explains each one: what it requests, why, which feature uses it, whether an administrator must consent, and what ChatAdmin still cannot do.</p>
+          <h3>Connect your organisation <span class="status status--dev">in development</span></h3>
+          <p>A verified administrator of your Microsoft tenant connects your organisation to ChatAdmin &mdash; nothing is installed in your tenant. From then on ChatAdmin acts with each signed-in person&rsquo;s own Microsoft rights, asks for the specific permissions a capability needs and explains each one before Microsoft&rsquo;s consent screen (what, why, which feature, reading or changing, whether an administrator must consent), and every change is approved by that person&rsquo;s own sign-in. There are no Neopiq keys. <a href="#organisation">The model, in full</a>.</p>
         </li>
         <li>
-          <h3>Execution <span class="status status--planned">planned</span></h3>
-          <p>Execution permissions are requested when you are ready to use the matching capability, not earlier, and are explained the same way. Today, execution happens in the environment a Neopiq operator has connected, with every change behind that area&rsquo;s card.</p>
+          <h3>Grow without migrating <span class="status status--planned">planned</span></h3>
+          <p>The same ChatAdmin exposes more only when it becomes useful: a second user brings Users &amp; Access and Activity pages for the administrator; several managed tenants bring a visible tenant switcher. No separate edition for larger organisations or MSPs.</p>
         </li>
       </ol>
       <p><a href="try.html">Try with Microsoft</a> says where each stage stands.</p>
     </div>
   </section>
 
-  <section class="section" id="technology">
+  <section class="section" id="organisation">
+    <div class="wrap">
+      <div class="section__intro">
+        <h2>Your own organisation on ChatAdmin <span class="status status--dev">in development</span></h2>
+        <p>
+          This is the customer model we are building now, in the words of the design we build to.
+          None of it is live yet: today ChatAdmin administers the one environment a Neopiq operator
+          has connected. Each point below is a rule of the design, not a feature you can use today.
+        </p>
+      </div>
+      <div class="grid grid--2" style="margin-top:2rem">
+        <article class="card tagged tagged--dev">
+          <h3>Connect, do not install</h3>
+          <p>ChatAdmin is hosted by Neopiq. Nothing is installed in your tenant or in an Azure subscription; you connect and authorise your Microsoft environment to ChatAdmin, and no Azure subscription is required. Microsoft 365 and Microsoft Entra are the base; Microsoft Azure and Microsoft Power Platform are additional surfaces you add when you use them, never prerequisites. You never need to know or install the specialists behind ChatAdmin.</p>
+        </article>
+        <article class="card tagged tagged--dev">
+          <h3>Your sign-in is your approval &mdash; no Neopiq keys</h3>
+          <p>In your organisation there is no approver key. You approve each change yourself, signed in with Microsoft, and each approval is bound to one transaction: your tenant, you, the operation, the targets, the material parameters, the risk level, an expiry. If any of that changes, the approval is void and ChatAdmin asks again. &ldquo;You approved something earlier in this conversation&rdquo; never carries over to a different change. Software never generates an approval.</p>
+        </article>
+        <article class="card tagged tagged--dev">
+          <h3>Microsoft is the ceiling</h3>
+          <p>The browser proves you to ChatAdmin; ChatAdmin obtains access to Microsoft for that request through Microsoft&rsquo;s supported delegated mechanism, acting with your own rights &mdash; and Microsoft, not ChatAdmin, decides what those rights allow. ChatAdmin settings can expose that authority, make it read-only, narrow it or add confirmation; they can never widen it. A Neopiq subscription, an administrator flag or a custom setting adds no Microsoft rights to anyone.</p>
+        </article>
+        <article class="card tagged tagged--dev">
+          <h3>Observe, Standard, Custom</h3>
+          <p>Each person has one operational mode per organisation. <strong>Observe</strong> is read only: ChatAdmin reads, analyses, diagnoses, explains, recommends and prepares plans, and executes nothing. <strong>Standard</strong> is everything your Microsoft identity may already do, with confirmation scaled to risk rather than capability removed. <strong>Custom</strong> is a restriction below Standard that your organisation sets &mdash; users, groups and licences allowed, Exchange read only, privileged roles blocked through ChatAdmin, for example &mdash; without touching your Microsoft roles.</p>
+        </article>
+        <article class="card tagged tagged--dev">
+          <h3>Confirmation scaled to risk</h3>
+          <p>Every operation carries a risk class, the same across all four Microsoft areas. <strong>Normal</strong> (reads and reversible preparations): only the necessary confirmation. <strong>Approval required</strong> (any change): the exact transaction on a card and your explicit approval. <strong>High</strong> (deletions, removals of access, role, permission or credential changes): the impact stated and a typed confirmation of the target&rsquo;s name. <strong>Extreme</strong> (tenant-wide or security-boundary changes, and every change to ChatAdmin&rsquo;s own control plane): the strongest safeguards, including a fresh sign-in. Greater risk means more friction, not a smaller product.</p>
+        </article>
+        <article class="card tagged tagged--dev">
+          <h3>The ChatAdmin administrator</h3>
+          <p>Independent of the mode: who may administer your ChatAdmin organisation &mdash; its people, their modes, Custom restrictions, settings, other administrators. It adds no Microsoft rights. The first administrator is not whoever signs in first; it is a Microsoft identity that passes the administrative verification of your tenant, and it starts as Standard + ChatAdmin administrator (or chooses Observe or Custom) and simply starts working &mdash; no permission matrix to configure first. Access is managed by conversation: &ldquo;give Bob Standard access&rdquo; raises a card with Observe / Standard / Custom and the administrator checkbox; Users &amp; Access and Activity pages give the overview on the same data.</p>
+        </article>
+        <article class="card tagged tagged--dev">
+          <h3>When people leave</h3>
+          <p>Disable or delete someone in Microsoft and their ChatAdmin access is suspended automatically; an administrator flag confers nothing while suspended; the history keeps their name on what they approved; nobody is promoted automatically. If no usable administrator remains, an eligible current administrator of your tenant recovers the organisation&rsquo;s administration themselves &mdash; verified by Microsoft, audited, the roster shown afterwards &mdash; not by asking Neopiq.</p>
+        </article>
+        <article class="card tagged tagged--dev">
+          <h3>What we never do</h3>
+          <p>No software approves a change; an automated check may only reject one. No standing Neopiq key in your organisation. No customer token at rest: the access ChatAdmin obtains for a request lives for that request and is never stored. Nothing installed in your tenant. Nothing beyond your own Microsoft rights. No separate SME, enterprise or MSP edition &mdash; one product that shows more only when it becomes useful.</p>
+        </article>
+      </div>
+      <p class="small muted" style="margin-top:1.25rem">
+        What this looks like for a small organisation: sign in with Microsoft, connect the
+        organisation, be verified as its administrator, start working. The deeper controls exist
+        underneath and appear when a second person, a second tenant or a second product makes them
+        useful.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="technology">
     <div class="wrap">
       <div class="section__intro">
         <h2>The technology behind one ChatAdmin</h2>
@@ -215,8 +269,8 @@
           <p>
             Azure, Microsoft Entra, Microsoft 365 and Power Platform are each served by a separate
             agent: its own identity in that area, its own tool set (reads and changes), its own
-            guardrails enforced before any Microsoft call, its own approval card and key, its own
-            redacted session transcript. A specialist never reaches outside its area &mdash; the
+            guardrails enforced before any Microsoft call, its own approval card (and, in the
+            Neopiq-operated environment, its own key), its own redacted session transcript. A specialist never reaches outside its area &mdash; the
             Entra agent calls nothing but Microsoft Graph; the Azure agent cannot create credentials.
           </p>
         </article>
