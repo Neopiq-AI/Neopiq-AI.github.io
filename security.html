@@ -106,7 +106,8 @@
           hosts. Microsoft 365 and Microsoft Entra are the base; Microsoft Azure and Microsoft Power
           Platform are added when you use them. From then on the browser proves each person to
           ChatAdmin, ChatAdmin obtains access to Microsoft for that request through Microsoft&rsquo;s
-          supported delegated mechanism, acting with that person&rsquo;s own rights, and
+          supported delegated mechanisms (validated per Microsoft surface), acting with that
+          person&rsquo;s own rights, and
           <strong>Microsoft remains the ceiling</strong>: ChatAdmin can expose, make read-only, narrow
           or add confirmation to what Microsoft allows a person, never widen it.
         </p>
@@ -116,7 +117,7 @@
           (tenant, approver, operation, targets, parameters, risk level, expiry); a changed operation
           needs a new approval. Each person has one mode per organisation &mdash; <strong>Observe</strong>
           (read only, nothing executed), <strong>Standard</strong> (everything their Microsoft identity
-          may already do, with confirmation scaled to risk) or <strong>Custom</strong> (a restriction
+          may already do within the areas your organisation has enabled, with confirmation scaled to risk) or <strong>Custom</strong> (a restriction
           below Standard that you set, such as Exchange read only or privileged roles blocked through
           ChatAdmin) &mdash; and, independently, may or may not be a <strong>ChatAdmin
           administrator</strong>, who manages people, modes and restrictions by conversation and on the
@@ -212,10 +213,10 @@
           Each card is bound to the environment it was raised in, and that environment is read again
           at approval time: if it has changed, or no longer answers, the approval is refused and
           nothing is forwarded. Today ChatAdmin is connected to one environment, so the answer is
-          also structurally simple. In your own organisation, isolation comes from the signed-in
-          tenant context checked on the server, never from a customer-specific web address.
-          <span class="status status--dev">in development</span> For operating many customer
-          environments, see <a href="solutions-msp.html">the MSP page</a>.
+          also structurally simple. In your own organisation, isolation will come from the signed-in
+          tenant context checked on the server, never from a customer-specific web address (in
+          development). For operating many customer environments, see
+          <a href="solutions-msp.html">the MSP page</a>.
         </p>
 
         <h2 id="stored">What information does Neopiq store?</h2>
@@ -260,8 +261,11 @@
           In your own organisation, access follows your Microsoft identities without telling us:
           disable or delete a person in Microsoft and their ChatAdmin access is suspended
           automatically; a ChatAdmin administrator sets anyone to Observe or removes them by
-          conversation; revoking the consent your administrator granted ends ChatAdmin&rsquo;s access
-          to your tenant; and when an organisation leaves, everything stored about it is deleted.
+          conversation; revoking the consent your administrator granted ends ChatAdmin&rsquo;s delegated
+          access to Microsoft Graph in your tenant, and every other access ChatAdmin may obtain is
+          likewise a permission your tenant grants to a ChatAdmin application in Microsoft Entra and can
+          withdraw there, without asking us; and when an organisation leaves, everything stored about it
+          is deleted.
           <span class="status status--dev">in development</span>
         </p>
 

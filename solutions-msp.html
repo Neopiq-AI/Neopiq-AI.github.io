@@ -83,11 +83,11 @@
       <div class="grid grid--2" style="margin-top:2rem">
         <article class="card tagged tagged--dev">
           <h3>One identity, many environments <span class="status status--dev">in development</span></h3>
-          <p>A technician signs in once with a Microsoft work identity (the sign-in is live) and operates the environments they are authorised for, with ChatAdmin acting under the technician&rsquo;s own Microsoft rights in each. Access is scoped per managed tenant: the same technician can be Standard in customer A, Observe in customer B, Custom in C and have no access to D. The organisation model and per-tenant access are being built now; today the product is connected to one environment by its operator.</p>
+          <p>A technician signs in once with a Microsoft work identity (the sign-in is live, for Neopiq&rsquo;s own organisation today) and operates the environments they are authorised for, with ChatAdmin acting under the technician&rsquo;s own Microsoft rights in each. Access is scoped per managed tenant: the same technician can be Standard in customer A, Observe in customer B, Custom in C and have no access to D. The organisation model and per-tenant access are being built now; today the product is connected to one environment by its operator.</p>
         </article>
         <article class="card tagged tagged--now">
           <h3>Tenant-bound execution <span class="status status--now">available now</span></h3>
-          <p>Every card is bound to the environment it was raised in &mdash; tenant id, scope, identity &mdash; and that environment is re-read at approval time. A changed context refuses the approval; an action prepared for customer A can never become executable against customer B because the technician switched the view. Binding each approval to the exact transaction on the card (operation, targets, parameters) is being added. <span class="status status--dev">in development</span></p>
+          <p>Every card is bound to the environment it was raised in &mdash; tenant id, scope, identity &mdash; and that environment is re-read at approval time. A changed context refuses the approval; a card raised for one environment can never be approved against another. Binding each approval to the exact transaction on the card (operation, targets, parameters) is being added. <span class="status status--dev">in development</span></p>
         </article>
         <article class="card tagged tagged--now">
           <h3>Explicit active context <span class="status status--now">available now, one environment</span></h3>
@@ -127,8 +127,8 @@
         Where customer names, domains or identities are ambiguous, ambiguity is resolved before
         execution, never after. Switching is optimised for speed without weakening certainty: a
         switch changes what you look at, never what an already-raised card will do. Tenant isolation
-        comes from the signed-in tenant context checked on the server, never from a
-        customer-specific web address.
+        will come from the signed-in tenant context checked on the server, never from a
+        customer-specific web address. <span class="status status--dev">in development</span>
       </p>
     </div>
   </section>
@@ -141,13 +141,13 @@
         are. One organisation, tenant, user and policy model sits underneath, and the interface shows
         more only when it becomes useful: a single person with one tenant sees a minimal ChatAdmin and
         no selector; a second person brings Users &amp; Access and Activity pages for the
-        organisation&rsquo;s ChatAdmin administrator; several managed tenants bring a visible tenant
+        organisation&rsquo;s ChatAdmin administrator (in development); several managed tenants bring a visible tenant
         switcher, a tenant inventory and cross-tenant reporting, with the target tenant unambiguous
         on every card and no approval surviving a switch; a second Neopiq product brings an app
         switcher. An MSP&rsquo;s daily work stays chat-first; the pages are for access review,
-        inventory, reporting and audit. The organisation model that makes this possible is
-        <a href="how-it-works.html#organisation">in development</a>; the switcher and the cross-tenant
-        pages are planned on top of it.
+        inventory, reporting and audit. The organisation model that makes this possible is in
+        development (<a href="how-it-works.html#organisation">the model in full</a>); the switcher and
+        the cross-tenant pages are planned on top of it.
       </p>
     </div>
   </section>
@@ -183,9 +183,9 @@
     <div class="wrap narrow">
       <h2>What an MSP can do today</h2>
       <ul>
-        <li><span class="status status--now">available now</span> Evaluate the engine on a single environment that a Neopiq operator connects, with your technicians signed in with Microsoft and using the approver keys. <a href="contact.html">Partner evaluation</a>.</li>
+        <li><span class="status status--now">available now</span> Evaluate the engine on a single environment that a Neopiq operator connects; an evaluation runs signed in with Microsoft and with the approver keys, with your technicians taking part as agreed in the partner evaluation &mdash; today the sign-in admits Neopiq&rsquo;s own organisation. <a href="contact.html">Partner evaluation</a>.</li>
         <li><span class="status status--now">available now</span> <a href="demo/">The demonstration</a> &mdash; the interaction your technicians would use, on a sample tenant.</li>
-        <li><span class="status status--now">available now</span> Microsoft sign-in and tenant-bound approvals &mdash; the foundation of multi-customer operation.</li>
+        <li><span class="status status--now">available now</span> Microsoft sign-in (for Neopiq&rsquo;s own organisation today) and tenant-bound approvals &mdash; the foundation of multi-customer operation.</li>
         <li><span class="status status--dev">in development</span> The customer organisation model: connecting a tenant, access scoped per tenant (Observe / Standard / Custom), the technician&rsquo;s own sign-in as the approval, no keys.</li>
         <li><span class="status status--planned">planned</span> The tenant switcher and cross-tenant pages, contextual launch from your platform, distribution through Microsoft Marketplace and channel partners.</li>
       </ul>
