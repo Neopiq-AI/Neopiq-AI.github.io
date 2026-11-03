@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Neopiq ChatAdmin — run Microsoft IT through a conversation</title>
-<meta name="description" content="ChatAdmin administers Microsoft Azure, Microsoft Entra, Microsoft 365 and Microsoft Power Platform by conversation. Tell it what you need; it inspects your environment, proposes the change, waits for your approval, executes and verifies. See it in action on a sample environment, no sign-in needed.">
+<meta name="description" content="ChatAdmin runs Microsoft Entra, Microsoft 365, Microsoft Azure and Microsoft Power Platform administration through a conversation, and a person approves every change. Open ChatAdmin, or try the demo on a sample environment.">
 <link rel="canonical" href="https://neopiq.ai/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
 <meta property="og:title" content="Neopiq ChatAdmin — run Microsoft IT through a conversation">
-<meta property="og:description" content="ChatAdmin administers Microsoft Azure, Microsoft Entra, Microsoft 365 and Microsoft Power Platform by conversation. Tell it what you need; it inspects your environment, proposes the change, waits for your approval, executes and verifies. See it in action on a sample environment, no sign-in needed.">
+<meta property="og:description" content="ChatAdmin runs Microsoft Entra, Microsoft 365, Microsoft Azure and Microsoft Power Platform administration through a conversation, and a person approves every change. Open ChatAdmin, or try the demo on a sample environment.">
 <meta property="og:url" content="https://neopiq.ai/">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -18,350 +18,287 @@
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
+<!-- @include:header -->
 <header class="site-header">
   <div class="wrap site-header__inner">
     <a class="brand" href="index.html">
       <span class="brand__mark" aria-hidden="true">N</span>
-      <span class="brand__text">
-        Neopiq
-        <span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span>
-      </span>
+      <span class="brand__text">Neopiq<span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span></span>
     </a>
-    <span class="site-header__spacer"></span>
     <nav class="site-nav" aria-label="Primary">
-      <ul>
-        <li><a href="product-chatadmin.html">ChatAdmin</a></li>
-        <li><a href="how-it-works.html">How it works</a></li>
-        <li><a href="security.html">Security &amp; trust</a></li>
-        <li><a href="solutions-businesses.html">For businesses</a></li>
-        <li><a href="solutions-msp.html">For MSPs</a></li>
-        <li><a href="ecosystem.html">Ecosystem</a></li>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle__box">
+      <label for="nav-toggle" class="nav-toggle"><span class="nav-toggle__icon" aria-hidden="true"></span><span class="nav-toggle__text">Menu</span></label>
+      <ul class="nav-list">
+        <li><a href="demo/">Demo</a></li>
         <li><a href="pricing.html">Pricing</a></li>
-        <li><a class="nav-cta" href="demo/">See it in action</a></li>
+        <li><a href="security.html">Security</a></li>
+        <li><a href="try.html">Get started</a></li>
+        <li class="nav-list__action"><a class="btn btn--ghost btn--small" href="demo/" title="Seven requests on a sample environment, no sign-in">Try the demo</a></li>
       </ul>
+      <a class="btn btn--primary btn--small site-nav__open" href="app.html" title="The live product: sign in with your Microsoft work account">Open ChatAdmin</a>
     </nav>
   </div>
 </header>
+<!-- @end -->
 
 <main id="main">
 
-  <!-- FIRST: what Neopiq does -->
-  <section class="hero">
+  <!-- 1. SEE: one headline, one sentence, the four areas, the two actions -->
+  <section class="hero hero--home">
     <div class="wrap">
-      <p class="eyebrow">ChatAdmin &middot; Microsoft Azure &middot; Microsoft Entra &middot; Microsoft 365 &middot; Microsoft Power Platform</p>
       <h1>Run Microsoft IT through a conversation.</h1>
-      <p class="lead narrow">
-        Tell ChatAdmin what you need. It understands your Microsoft environment, prepares the
-        change, gets your approval and executes the work &mdash; then reads the result back
-        before it tells you it is done.
-      </p>
-      <p class="lead narrow">
-        <strong>Where it stands today:</strong> ChatAdmin runs in a Neopiq-operated environment,
-        connected by a Neopiq operator to one Microsoft tenant. Sign-in with a Microsoft work
-        account is live and today admits Neopiq&rsquo;s own organisation; connecting your own
-        organisation is in development, and a Microsoft Marketplace listing is planned. You can see
-        the real interaction on a sample environment right now, without signing in.
-      </p>
-      <div class="btn-row">
-        <a class="btn btn--primary" href="demo/">See ChatAdmin in Action</a>
-        <a class="btn btn--ghost" href="try.html">Try with Microsoft</a>
+      <p class="lead">Say what you need. ChatAdmin inspects your Microsoft environment, proposes the change, and acts only after you approve it.</p>
+      <!-- @data:areas -->
+<ul class="areas" aria-label="The Microsoft areas ChatAdmin operates">
+  <li class="areas__item areas__item--base">Microsoft 365</li>
+  <li class="areas__item areas__item--base">Microsoft Entra</li>
+  <li class="areas__item">Microsoft Azure</li>
+  <li class="areas__item">Microsoft Power Platform</li>
+</ul>
+<!-- @end -->
+      <div class="cta-row">
+        <a class="btn btn--primary btn--large" href="app.html">Open ChatAdmin</a>
+        <a class="btn btn--ghost btn--large" href="demo/">Try the demo</a>
       </div>
+      <p class="small muted mt-4">Sign in with your Microsoft work account. Neopiq&rsquo;s own organisation gets the full product; anyone else sees the demo and can <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20pilot%20request">request a pilot</a>.</p>
     </div>
   </section>
 
-  <!-- SECOND: show the experience -->
+  <!-- 2. TRY: the demo in place -->
   <section class="section" id="experience">
     <div class="wrap">
-      <div class="section__intro">
-        <h2>What using ChatAdmin feels like</h2>
-        <p>
-          One request in plain words. ChatAdmin inspects the environment, decides what it can decide
-          from what it found, and puts the change on a card. Nothing runs until you click Approve.
-          The exchange below is a static copy of the joiner scenario the product really runs, over a
-          fictional sample tenant called Contoso Example; the result says &ldquo;simulated&rdquo; because
-          nothing here touched Microsoft. <a href="demo/">Click through it yourself</a>.
-        </p>
-      </div>
-
-      <div class="thread" aria-label="Example conversation with ChatAdmin">
-        <div class="msg msg--user">
-          <span class="msg__who">You</span>
-          <p>Sarah starts in Finance on Monday. Prepare what she needs.</p>
+      <!-- @region:demo -->
+      <h2 class="eyebrow">See a request run &mdash; pick any request</h2>
+      <div class="demo-frame demo-frame--compact" data-demo="home">
+        <div class="demo-frame__bar">
+          <p class="demo-frame__title">ChatAdmin</p>
+          <p class="demo-frame__env">Sample environment Contoso Example &middot; every result simulated</p>
         </div>
-
-        <div class="msg msg--admin">
-          <span class="msg__who">ChatAdmin</span>
-          <p>I checked Microsoft Entra and Microsoft 365 in the Contoso Example environment.</p>
-          <ul class="chips" aria-label="What ChatAdmin inspected">
-            <li><span class="chip chip--read"><span class="chip__area">Entra ·</span> list_users</span></li>
-            <li><span class="chip chip--read"><span class="chip__area">Entra ·</span> describe_group</span></li>
-            <li><span class="chip chip--read"><span class="chip__area">Entra ·</span> list_subscribed_skus</span></li>
-            <li><span class="chip chip--read"><span class="chip__area">Microsoft 365 ·</span> list_teams</span></li>
-            <li><span class="chip chip--read"><span class="chip__area">Microsoft 365 ·</span> audit_mailbox_permissions</span></li>
+        <nav class="demo-picks" aria-label="Requests to play">
+          <ul>
+            <li><a href="demo/#joiner" data-scenario="joiner" aria-current="true">Sarah joins Finance</a></li>
+            <li><a href="demo/#roles" data-scenario="roles">Who has administrator access?</a></li>
+            <li><a href="demo/#mailbox" data-scenario="mailbox">Create a shared mailbox</a></li>
+            <li><a href="demo/#leaver" data-scenario="leaver">Offboard Peter safely</a></li>
+            <li><a href="demo/#licences" data-scenario="licences">Review our licences</a></li>
+            <li><a href="demo/#azure" data-scenario="azure">Why did Azure change?</a></li>
+            <li><a href="demo/#powerplatform" data-scenario="powerplatform">Create a sandbox environment</a></li>
           </ul>
-          <p>
-            No account exists for Sarah yet; the sign-in name <code>sarah.meier@contoso.example</code>
-            is free. The security group <strong>Finance</strong> has four members, the team
-            <strong>Finance</strong> is owned by Mary Jones, and the shared mailbox
-            <strong>Finance@contoso.example</strong> is used by the same people. One Business Basic seat
-            is free &mdash; the only licence with a free seat, so that is the one I propose. Usage
-            location Switzerland, like the other Finance accounts.
-          </p>
-          <p>Two cards, because two Microsoft areas change: the account first, then the mailbox and the team.</p>
-        </div>
+        </nav>
+        <div class="demo-frame__body">
+          <p class="demo-frame__status" aria-live="polite"></p>
+          <div class="thread" aria-label="A ChatAdmin conversation: the joiner request" aria-live="polite">
 
-        <div class="card-approval is-decided is-approved" aria-label="Approval card, approved">
-          <div class="card-approval__head">
-            <h3>Microsoft Entra (Agent E) proposes a plan &mdash; 3 steps, one approval</h3>
-            <span class="status status--dev">simulated</span>
-          </div>
-          <p class="card-approval__env">Environment: <strong>Contoso Example</strong> &middot; Microsoft Entra tenant &middot; operated by Neopiq</p>
-          <p class="card-approval__facts">SIMULATED &middot; auto-declines in 5 min &middot; approved by a signed-in person (today with that area&rsquo;s key)</p>
-          <ol class="plan">
-            <li><code>create_user</code> &mdash; display name Sarah Meier, sign-in name sarah.meier@contoso.example, usage location CH. The initial password is generated on the server and never shown.</li>
-            <li><code>add_group_members</code> &mdash; group Finance, member sarah.meier@contoso.example</li>
-            <li><code>assign_license</code> &mdash; Business Basic (1 seat free of 3)</li>
-          </ol>
-          <p class="card-approval__preview">Pre-checks before this card: sign-in name not taken &middot; group exists &middot; the licence is owned and a seat is free.</p>
-          <div class="card-approval__actions">
-            <p class="verdict verdict--approved">&#10003; Approved &mdash; running 3 steps (simulated)</p>
-          </div>
-        </div>
+            <div class="msg msg--user">
+              <span class="phase">Request</span>
+              <p>Sarah joins Finance on Monday. Prepare what she needs.</p>
+            </div>
 
-        <div class="card-approval is-decided is-approved" aria-label="Second approval card, approved">
-          <div class="card-approval__head">
-            <h3>Microsoft 365 (Agent M) proposes a plan &mdash; 3 steps, one approval</h3>
-            <span class="status status--dev">simulated</span>
-          </div>
-          <p class="card-approval__env">Environment: <strong>Contoso Example</strong> &middot; Microsoft 365 tenant &middot; acting as the service principal ChatAdmin Agent M</p>
-          <p class="card-approval__facts">SIMULATED &middot; auto-declines in 5 min &middot; approved by a signed-in person (today with that area&rsquo;s key)</p>
-          <ol class="plan">
-            <li><code>ensure_mailbox</code> &mdash; sarah.meier@contoso.example (a read step: the mailbox appears a few minutes after the licence)</li>
-            <li><code>add_team_member</code> &mdash; team Finance, member sarah.meier@contoso.example</li>
-            <li><code>grant_mailbox_permission</code> &mdash; Finance@contoso.example, Full Access for sarah.meier@contoso.example</li>
-          </ol>
-          <div class="card-approval__actions">
-            <p class="verdict verdict--approved">&#10003; Approved &mdash; running 3 steps (simulated)</p>
-          </div>
-        </div>
+            <div class="msg msg--admin">
+              <span class="phase">Inspection</span>
+              <ul class="inspect">
+                <li>Identity environment checked &mdash; no account for Sarah yet; sarah.meier@contoso.example is free</li>
+                <li>Finance group identified &mdash; a security group with 4 members, usage location Switzerland</li>
+                <li>Licence availability checked &mdash; one Business Basic seat free</li>
+                <li>Finance team identified &mdash; private, owner Mary Jones, the same 4 members</li>
+                <li>Relevant mailbox identified &mdash; Invoices@contoso.example, shared, used by the same four people</li>
+              </ul>
+              <p>Sarah needs what the four Finance people have. Business Basic is the only licence with a free seat. Two Microsoft areas change, so two cards: the account first, then the mailbox and the team.</p>
+            </div>
 
-        <div class="result" aria-label="Result">
-          <dl>
-            <dt>executed</dt><dd>6 of 6 steps ran (simulated &mdash; nothing changed in Microsoft)</dd>
-            <dt>verified</dt><dd>account read back: enabled, Finance member, Business Basic assigned &middot; team membership read back &middot; mailbox rights read back: Full Access</dd>
-            <dt>audit</dt><dd>2 cards shown, 2 approved; every step recorded in the session transcript</dd>
-          </dl>
-        </div>
+            <div class="proposal">
+              <p class="proposal__count">6 changes ready <small>2 cards &middot; Microsoft Entra, then Microsoft 365</small></p>
+              <p class="proposal__action"><a class="btn btn--primary" href="demo/#joiner" data-scenario="joiner">Review &amp; approve</a></p>
+            </div>
 
-        <div class="msg msg--admin">
-          <span class="msg__who">ChatAdmin</span>
-          <p>
-            Sarah&rsquo;s account exists in Microsoft Entra, she is in the Finance group and team, has
-            the Business Basic licence and Full Access to the Finance mailbox. What I could not do: give
-            her a first password &mdash; issue a Temporary Access Pass or reset it in the portal.
-          </p>
+            <div class="card-approval is-decided is-approved" role="group" aria-label="Approval card 1 of 2: Microsoft Entra, approved">
+              <div class="card-approval__head">
+                <h3>Microsoft Entra &mdash; 3 steps, one approval</h3>
+                <span class="tag tag--sim">simulated</span>
+              </div>
+              <p class="card-approval__env">Environment: <strong>Contoso Example &middot; Microsoft Entra tenant &middot; operated by Neopiq</strong></p>
+              <p class="card-approval__facts">Approved by a signed-in person &middot; declines after five minutes of silence &middot; bound to Contoso Example</p>
+              <ol class="plan">
+                <li>Create the account Sarah Meier, sarah.meier@contoso.example, usage location Switzerland &mdash; the first password is generated on the server and never shown</li>
+                <li>Add her to the Finance group</li>
+                <li>Assign the free Business Basic seat</li>
+              </ol>
+              <p class="card-approval__preview">Checked before this card: the sign-in name is not taken &middot; the group exists &middot; the licence is owned and a seat is free.</p>
+              <div class="card-approval__actions">
+                <p class="verdict verdict--approved">&#10003; Approved &mdash; running 3 steps</p>
+              </div>
+            </div>
+
+            <div class="msg msg--admin">
+              <span class="phase">Execute &middot; verify</span>
+              <ul class="run">
+                <li>Account created &mdash; read back: enabled</li>
+                <li>Finance group &mdash; read back: 5 members</li>
+                <li>Business Basic &mdash; read back: assigned to Sarah, 0 seats free</li>
+              </ul>
+            </div>
+
+            <p class="msg msg--system">Second card &mdash; Microsoft 365 &middot; 3 steps &middot; approved</p>
+
+            <div class="msg msg--admin">
+              <span class="phase">Execute &middot; verify</span>
+              <ul class="run">
+                <li>Mailbox &mdash; read back: exists for sarah.meier@contoso.example</li>
+                <li>Finance team &mdash; read back: member</li>
+                <li>Invoices mailbox &mdash; read back: Full Access for 5 people</li>
+              </ul>
+              <p class="small muted">Verified after change: the state read back, not the intention.</p>
+              <div class="result" aria-label="Result">
+                <dl>
+                  <dt>executed</dt><dd>6 of 6 steps</dd>
+                  <dt>verified</dt><dd>every object read back from the sample tenant, not assumed</dd>
+                  <dt>audit</dt><dd>2 cards shown, 2 approved; everything in the session transcript</dd>
+                </dl>
+              </div>
+            </div>
+
+            <div class="msg msg--admin">
+              <span class="phase">Explain</span>
+              <p>Sarah&rsquo;s account exists, she is in the Finance group and team, has the Business Basic licence and Full Access to the Invoices mailbox. What I could not do: give her a first password &mdash; issue a Temporary Access Pass or reset it in the portal.</p>
+              <details class="tech">
+                <summary>Show technical details</summary>
+                <div class="tech__body">
+                  <p><span class="tech__k">Specialists</span> Microsoft Entra (Agent E), Microsoft 365 (Agent M), coordinated by ChatAdmin&rsquo;s coordinator, which holds no key and cannot approve.</p>
+                  <p><span class="tech__k">Reads</span></p>
+                  <ul class="chips" aria-label="The read operations ChatAdmin ran">
+                    <li><span class="chip chip--read"><span class="chip__area">Entra &middot;</span> list_users</span></li>
+                    <li><span class="chip chip--read"><span class="chip__area">Entra &middot;</span> describe_group</span></li>
+                    <li><span class="chip chip--read"><span class="chip__area">Entra &middot;</span> list_subscribed_skus</span></li>
+                    <li><span class="chip chip--read"><span class="chip__area">Microsoft 365 &middot;</span> list_teams</span></li>
+                    <li><span class="chip chip--read"><span class="chip__area">Microsoft 365 &middot;</span> audit_mailbox_permissions</span></li>
+                  </ul>
+                  <p><span class="tech__k">Changes</span></p>
+                  <ul class="chips" aria-label="The operations on the two cards">
+                    <li><span class="chip chip--change"><span class="chip__area">Entra &middot;</span> create_user</span></li>
+                    <li><span class="chip chip--change"><span class="chip__area">Entra &middot;</span> add_group_members</span></li>
+                    <li><span class="chip chip--change"><span class="chip__area">Entra &middot;</span> assign_license</span></li>
+                    <li><span class="chip chip--change"><span class="chip__area">Microsoft 365 &middot;</span> ensure_mailbox</span></li>
+                    <li><span class="chip chip--change"><span class="chip__area">Microsoft 365 &middot;</span> add_team_member</span></li>
+                    <li><span class="chip chip--change"><span class="chip__area">Microsoft 365 &middot;</span> grant_mailbox_permission</span></li>
+                  </ul>
+                  <p><span class="tech__k">Identifiers</span> user id 6f1c&hellip; &middot; group Finance 53be&hellip; &middot; Business Basic: 1 seat free of 3 before, 0 after</p>
+                  <pre class="audit">{"event":"card_resolved","environment":"Contoso Example","cards":2,"decisions":["approved","approved"],"approved_by":"signed-in person","simulated":true}</pre>
+                </div>
+              </details>
+            </div>
+
+          </div>
         </div>
+        <div class="demo-frame__foot">
+          <div class="convert" role="group" aria-label="Next step">
+            <p class="convert__q">Want this on your own Microsoft environment?</p>
+            <p class="convert__action"><a class="btn btn--primary" href="app.html">Open ChatAdmin</a> <a class="btn btn--ghost" href="try.html">Get started</a> <a class="btn btn--ghost btn--small" href="demo/">Open the full demo</a></p>
+          </div>
+        </div>
+        <noscript><p class="small muted" style="margin:.6rem 1rem 0">A static rendering of one request. Playing the others in place needs JavaScript (two small scripts from this site; no network, no storage); the request links above open the full demo page instead.</p></noscript>
       </div>
+      <script src="assets/js/demo-core.js" defer></script>
+      <script src="assets/js/demo-home.js" defer></script>
+      <!-- @end -->
     </div>
   </section>
 
-  <!-- THIRD: from understanding to action -->
-  <section class="section section--alt" id="loop">
+  <!-- 3. TRUST: how it stays safe -->
+  <section class="section section--alt" id="safe">
     <div class="wrap">
-      <div class="section__intro">
-        <h2>From understanding to action, not to a recommendation</h2>
-        <p>
-          ChatAdmin is not an adviser that tells you which portal blade to open. It executes the
-          change you approved and tells you what it read back afterwards. Every request runs through
-          the same eight steps; the green one is yours.
-        </p>
-      </div>
-      <ol class="loop" aria-label="The ChatAdmin loop">
-        <li><strong>1 Understand</strong> your intent, in your words</li>
-        <li><strong>2 Inspect</strong> the real state of the environment</li>
-        <li><strong>3 Reason</strong> across the Microsoft areas involved</li>
-        <li><strong>4 Propose</strong> the change on a card</li>
-        <li class="loop--human"><strong>5 Approve</strong> you click Approve or Reject</li>
-        <li><strong>6 Execute</strong> exactly the steps on the card</li>
-        <li><strong>7 Verify</strong> by reading the result back</li>
-        <li><strong>8 Explain</strong> what happened, and what did not</li>
-      </ol>
+      <h2>How it stays safe</h2>
+      <ul class="bullets bullets--large">
+        <li>ChatAdmin proposes; a person approves. Every change waits on an Approve / Reject card, and nothing is approved by software.</li>
+        <li>An unanswered card declines itself after five minutes. Every result is read back from Microsoft before it is reported.</li>
+        <li>Signing in reads and changes nothing in your tenant: your identity only, no administrative access.</li>
+        <li>In your own organisation it will act with your own Microsoft rights, never more, with no Neopiq key or secret kept there. <span class="status status--dev">in development</span></li>
+      </ul>
+      <p><a href="security.html">Security</a></p>
     </div>
   </section>
 
-  <!-- FOURTH: human control, tenant safety, trust -->
-  <section class="section" id="control">
-    <div class="wrap">
-      <div class="section__intro">
-        <h2>Human control, tenant safety, trust</h2>
-        <p>
-          The objection to a tool with administrative access is never capability. It is control:
-          what does it do when nobody is watching, which environment is it about to change, and can I
-          prove it afterwards.
-        </p>
-      </div>
-      <div class="grid grid--3" style="margin-top:2rem">
-        <article class="card">
-          <h3>Every change waits for a person</h3>
-          <p>
-            Reads run without interruption. Every change stops at an Approve / Reject card showing
-            the exact steps and parameters. An unanswered card declines itself after five minutes.
-            Nothing is ever approved by software &mdash; not by a confidence score, not by a trusted
-            list.
-          </p>
-          <p class="card__more"><a href="how-it-works.html#card">What a card contains</a></p>
-        </article>
-        <article class="card">
-          <h3>The environment is named on the card, and the card is bound to it</h3>
-          <p>
-            Every card names the tenant or subscription it is about and the identity ChatAdmin acts
-            with, and is bound to that environment when it is raised: at approval time the
-            environment is read again, and a change of context refuses the approval, so an approved
-            plan can never run somewhere else. Who approved is recorded with the signed-in person.
-          </p>
-          <p class="card__more"><a href="security.html#tenant">Which tenant is affected</a></p>
-        </article>
-        <article class="card">
-          <h3>Verified, then audited</h3>
-          <p>
-            After execution ChatAdmin re-reads the object and reports that state, not its intent.
-            A plan that stops at an error says which steps ran and which did not. Every message,
-            card and decision lands in a session transcript with secrets removed.
-          </p>
-          <p class="card__more"><a href="security.html#logged">How activity is logged</a></p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- FIFTH: concrete supported scenarios -->
-  <section class="section section--alt" id="scenarios">
-    <div class="wrap">
-      <div class="section__intro">
-        <h2>What it operates today</h2>
-        <p>
-          Four Microsoft areas, one conversation. Each line below is a request the product runs
-          today, operated by Neopiq, in the tenant it is connected to. Anything not on this page is
-          not claimed.
-        </p>
-      </div>
-      <div class="table-scroll" style="margin-top:1.5rem">
-        <table>
-          <caption>Currently supported administration, by Microsoft area. Reads need no approval; changes always do.</caption>
-          <thead>
-            <tr>
-              <th scope="col">Area</th>
-              <th scope="col">Ask, for example</th>
-              <th scope="col">Card?</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Microsoft Entra</th>
-              <td>Who holds Global Administrator? Which app registrations have expired credentials? Create a user, add them to a group, assign a licence. Register an app and grant admin consent.</td>
-              <td>Reads no; changes yes</td>
-            </tr>
-            <tr>
-              <th scope="row">Microsoft 365</th>
-              <td>Mary&rsquo;s mailbox is full. Create the shared mailbox Sales Europe. Why can&rsquo;t Bob open the Marketing site? Add Peter to the Procurement team. Lena left &mdash; hand her files to her manager. If I remove Mary&rsquo;s E5, what breaks?</td>
-              <td>Reads no; changes yes</td>
-            </tr>
-            <tr>
-              <th scope="row">Microsoft Azure</th>
-              <td>What is idle or publicly exposed? What did we spend this month, by resource group? Who has access to rg-x? Grant Reader on it. Set up a dev environment: a group, a storage account, a log workspace.</td>
-              <td>Reads no; changes yes (one plan card for several steps)</td>
-            </tr>
-            <tr>
-              <th scope="row">Microsoft Power Platform</th>
-              <td>Which environments exist, and does each have a data-loss-prevention policy? Which apps are in the default environment? Alice left &mdash; what does she own? Create a sandbox environment.</td>
-              <td>Reads no; changes yes</td>
-            </tr>
-            <tr>
-              <th scope="row">Across areas</th>
-              <td>Sarah starts in Finance on Monday. Tom is leaving on Friday. ChatAdmin splits the work between the areas and raises one card per area.</td>
-              <td>Yes, one per area</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p><a href="product-chatadmin.html#areas">The full picture, area by area</a> &middot; <a href="permissions.html">what it can read and change</a></p>
-    </div>
-  </section>
-
-  <!-- SIXTH: businesses and MSPs -->
+  <!-- 4. Self-identification before plan names -->
   <section class="section" id="who">
     <div class="wrap">
-      <div class="grid grid--2">
-        <article class="card">
-          <h3>For businesses</h3>
-          <p>
-            Companies that run on Microsoft without a specialist on call. The joiner, the leaver,
-            the shared mailbox, the &ldquo;who has access to this&rdquo; question &mdash; handled by
-            conversation, approved by you, verified afterwards. ChatAdmin does not replace IT
-            expertise; it removes the need to know which portal a routine task lives in.
-          </p>
-          <p class="card__more"><a href="solutions-businesses.html">ChatAdmin for businesses</a></p>
-        </article>
-        <article class="card">
-          <h3>For MSPs and IT service providers</h3>
-          <p>
-            We are designing ChatAdmin for professional multi-customer operation: one technician
-            identity, many Microsoft environments, access scoped per managed tenant, the active
-            customer always visible, every approval bound to the environment it was raised in. The
-            same product, growing with the customer &mdash; the page says exactly what exists.
-          </p>
-          <p class="card__more"><a href="solutions-msp.html">ChatAdmin for MSPs</a></p>
-        </article>
-      </div>
+      <h2>Which describes you?</h2>
+      <!-- @data:identify plain -->
+<ul class="identify" aria-label="Which of these describes you?">
+  <li class="identify__row">
+    <a class="identify__item identify__item--standard" href="pricing.html#plan-standard">
+      <span class="identify__statement">&ldquo;I manage our Microsoft environment.&rdquo;</span>
+      <span class="identify__go" aria-hidden="true">&rarr;</span>
+    </a>
+  </li>
+  <li class="identify__row">
+    <a class="identify__item identify__item--enterprise" href="pricing.html#plan-enterprise">
+      <span class="identify__statement">&ldquo;Our team manages Microsoft together.&rdquo;</span>
+      <span class="identify__go" aria-hidden="true">&rarr;</span>
+    </a>
+  </li>
+  <li class="identify__row">
+    <a class="identify__item identify__item--msp" href="pricing.html#plan-msp">
+      <span class="identify__statement">&ldquo;I manage Microsoft environments for customers.&rdquo;</span>
+      <span class="identify__go" aria-hidden="true">&rarr;</span>
+    </a>
+  </li>
+</ul>
+<!-- @end -->
+      <p class="mt-4"><a href="pricing.html">Plans</a></p>
     </div>
   </section>
 
-  <!-- SEVENTH: ecosystem and availability where real -->
-  <section class="section section--alt" id="availability">
+  <!-- 5. Honest status, one list -->
+  <section class="section section--alt" id="status">
     <div class="wrap">
-      <div class="section__intro">
-        <h2>Where you can get it, honestly labelled</h2>
-      </div>
-      <ul class="narrow" style="margin-top:1.25rem">
-        <li><span class="status status--now">available now</span> ChatAdmin, operated by Neopiq, for the four Microsoft areas &mdash; an evaluation starts with <a href="contact.html">a conversation</a>.</li>
-        <li><span class="status status--now">available now</span> <a href="demo/">See ChatAdmin in Action</a> &mdash; the sample-environment demonstration, no sign-in.</li>
-        <li><span class="status status--now">available now</span> Sign in with your Microsoft work account &mdash; live on ChatAdmin, for Neopiq&rsquo;s own organisation today. <a href="try.html">What it does and does not do</a>.</li>
-        <li><span class="status status--dev">in development</span> Connect your own organisation &mdash; nothing installed in your tenant, ChatAdmin acting with your own Microsoft rights, every change approved by your own sign-in, no Neopiq keys. <a href="how-it-works.html#organisation">The model</a>.</li>
-        <li><span class="status status--planned">planned</span> Get it from Microsoft Marketplace.</li>
-        <li><span class="status status--planned">planned</span> ServiceNow, Pax8 and ALSO routes. <a href="ecosystem.html">The ecosystem page</a> labels every item.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- EIGHTH: the calls to action -->
-  <section class="section cta-band" id="start">
-    <div class="wrap center">
-      <h2>Start where it costs you nothing</h2>
-      <p class="lede" style="margin-inline:auto">
-        The demonstration needs no account and touches nothing of yours. When you want ChatAdmin
-        in your own Microsoft environment, talk to us &mdash; and we will tell you plainly which
-        stage is available.
-      </p>
-      <div class="btn-row" style="justify-content:center">
-        <a class="btn btn--primary" href="demo/">See ChatAdmin in Action</a>
-        <a class="btn btn--ghost" href="try.html">Try with Microsoft</a>
-        <a class="btn btn--ghost" href="contact.html">Talk to us / partner evaluation</a>
-      </div>
-      <p class="small muted" style="margin-top:1rem">Get it from Microsoft Marketplace: <span class="status status--planned">planned</span></p>
+      <h2>What works today</h2>
+      <!-- @data:status-list home compact -->
+<ul class="status-list status-list--compact" data-list="home">
+  <li class="status-list__item status-list__item--now">
+    <span class="status status--now">available now</span>
+    <span class="status-list__body"><a class="status-list__label" href="demo/">The demo on a sample environment</a></span>
+  </li>
+  <li class="status-list__item status-list__item--now">
+    <span class="status status--now">available now</span>
+    <span class="status-list__body"><a class="status-list__label" href="app.html">ChatAdmin, with Microsoft sign-in</a></span>
+  </li>
+  <li class="status-list__item status-list__item--now">
+    <span class="status status--now">available now</span>
+    <span class="status-list__body"><a class="status-list__label" href="security.html#approval">Every change on an Approve / Reject card</a></span>
+  </li>
+  <li class="status-list__item status-list__item--dev">
+    <span class="status status--dev">in development</span>
+    <span class="status-list__body"><a class="status-list__label" href="try.html#connect">Connecting your own organisation</a></span>
+  </li>
+  <li class="status-list__item status-list__item--dev">
+    <span class="status status--dev">in development</span>
+    <span class="status-list__body"><a class="status-list__label" href="pricing.html#plan-enterprise">Users &amp; Access and Activity for teams</a></span>
+  </li>
+  <li class="status-list__item status-list__item--planned">
+    <span class="status status--planned">planned</span>
+    <span class="status-list__body"><a class="status-list__label" href="pricing.html#plan-msp">Multi-tenant operation for MSPs</a></span>
+  </li>
+  <li class="status-list__item status-list__item--planned">
+    <span class="status status--planned">planned</span>
+    <span class="status-list__body"><a class="status-list__label" href="pricing.html">Buying a plan online</a></span>
+  </li>
+  <li class="status-list__item status-list__item--planned">
+    <span class="status status--planned">planned</span>
+    <span class="status-list__body"><span class="status-list__label">Connectors: ServiceNow, Azure DevOps, Okta, Jira, Vault</span></span>
+  </li>
+</ul>
+<!-- @end -->
     </div>
   </section>
 
 </main>
 
+<!-- @include:footer -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="site-footer__grid">
-      <div>
-        <p><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
-        <p class="muted">
-          Tell it what you need. It inspects your Microsoft environment, proposes the change, waits
-          for your approval, executes and verifies. Nothing changes without a person saying yes.
-        </p>
+      <div class="site-footer__about">
+        <p class="site-footer__brand"><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
+        <p class="muted">Tell it what you need. It inspects your Microsoft environment, proposes the change, waits for your approval, executes and verifies. Nothing changes without a person saying yes.</p>
         <p class="small">
           Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
           UID CHE-345.914.300 &middot; not registered for VAT<br>
@@ -369,33 +306,19 @@
           <a href="tel:0041782236716">0041 78 223 6716</a>
         </p>
       </div>
-      <div>
-        <h2>Product</h2>
+      <div class="site-footer__col">
+        <h2>ChatAdmin</h2>
         <ul>
-          <li><a href="product-chatadmin.html">ChatAdmin</a></li>
-          <li><a href="how-it-works.html">How it works</a></li>
-          <li><a href="security.html">Security &amp; trust</a></li>
-          <li><a href="permissions.html">What it can read and change</a></li>
-          <li><a href="demo/">See ChatAdmin in Action</a></li>
-          <li><a href="try.html">Try with Microsoft</a></li>
-        </ul>
-        <h2 style="margin-top:1.1rem">Solutions</h2>
-        <ul>
-          <li><a href="solutions-businesses.html">For businesses</a></li>
-          <li><a href="solutions-msp.html">For MSPs and IT service providers</a></li>
-          <li><a href="ecosystem.html">Ecosystem and partners</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Company</h2>
-        <ul>
+          <li><a href="app.html">Open ChatAdmin</a></li>
+          <li><a href="demo/">Demo</a></li>
           <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="docs.html">Docs</a></li>
-          <li><a href="support.html">Support</a></li>
-          <li><a href="about.html">About Neopiq</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="try.html">Get started</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <h2 style="margin-top:1.1rem">Legal</h2>
+      </div>
+      <div class="site-footer__col">
+        <h2>Legal</h2>
         <ul>
           <li><a href="imprint.html">Imprint</a></li>
           <li><a href="privacy.html">Privacy</a></li>
@@ -413,6 +336,7 @@
     </div>
   </div>
 </footer>
+<!-- @end -->
 
 </body>
 </html>

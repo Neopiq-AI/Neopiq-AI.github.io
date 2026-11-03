@@ -3,280 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ChatAdmin permissions — what it can read and change in each Microsoft area</title>
-<meta name="description" content="What ChatAdmin can read and change in Microsoft Azure, Microsoft Entra, Microsoft 365 and Microsoft Power Platform, the identity it uses in each area, the rules enforced in code outside the model, and what it never does.">
-<link rel="canonical" href="https://neopiq.ai/permissions.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="ChatAdmin permissions — what it can read and change in each Microsoft area">
-<meta property="og:description" content="What ChatAdmin can read and change in Microsoft Azure, Microsoft Entra, Microsoft 365 and Microsoft Power Platform, the identity it uses in each area, the rules enforced in code outside the model, and what it never does.">
-<meta property="og:url" content="https://neopiq.ai/permissions.html">
-<meta name="twitter:card" content="summary">
+<meta http-equiv="refresh" content="0; url=security.html">
+<title>This page has moved &mdash; Microsoft capabilities</title>
+<meta name="description" content="What ChatAdmin can read, change and never does is now on the Security page.">
+<meta name="robots" content="noindex">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<header class="site-header">
-  <div class="wrap site-header__inner">
-    <a class="brand" href="index.html">
-      <span class="brand__mark" aria-hidden="true">N</span>
-      <span class="brand__text">
-        Neopiq
-        <span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span>
-      </span>
-    </a>
-    <span class="site-header__spacer"></span>
-    <nav class="site-nav" aria-label="Primary">
-      <ul>
-        <li><a href="product-chatadmin.html">ChatAdmin</a></li>
-        <li><a href="how-it-works.html">How it works</a></li>
-        <li><a href="security.html" aria-current="page">Security &amp; trust</a></li>
-        <li><a href="solutions-businesses.html">For businesses</a></li>
-        <li><a href="solutions-msp.html">For MSPs</a></li>
-        <li><a href="ecosystem.html">Ecosystem</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a class="nav-cta" href="demo/">See it in action</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
 <main id="main">
-
-  <section class="hero">
-    <div class="wrap">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="security.html">Security &amp; trust</a></li>
-          <li aria-current="page">Permissions</li>
-        </ol>
-      </nav>
-      <h1>What ChatAdmin can read and change, area by area, from the code that ships</h1>
-      <p class="lead">
-        Most tools that look at a Microsoft estate are read-only and their permission pages are
-        short. ChatAdmin creates and changes real objects in Microsoft Azure, Microsoft Entra,
-        Microsoft 365 and Microsoft Power Platform, so this page works harder: for each area, the
-        identity it acts with, what it reads without a card, what it changes behind one, and what it
-        never does. Reads run at once; every change waits for a person; an unanswered card declines
-        itself after five minutes. The identities below are those of the Neopiq-operated environment
-        today; <a href="#yourorg">in your own organisation</a> the identity is you.
-      </p>
-    </div>
-  </section>
-
-  <section class="section section--alt" id="yourorg">
+  <section class="section">
     <div class="wrap narrow">
-      <h2>In your own organisation: your rights, narrowed, never widened <span class="status status--dev">in development</span></h2>
-      <p>
-        When your organisation is connected, the identity is <strong>you</strong>: ChatAdmin obtains
-        access to Microsoft for each request through Microsoft&rsquo;s supported delegated mechanisms
-        and acts with the signed-in person&rsquo;s own Microsoft rights &mdash; Microsoft 365 and
-        Microsoft Entra first; Microsoft Azure and Microsoft Power Platform follow the same rule, and
-        if one of Microsoft&rsquo;s interfaces requires a different supported mechanism this page will
-        say so for that area. Microsoft decides
-        what those rights allow; the tables on this page are the product&rsquo;s own ceilings on top of
-        that, and neither a Neopiq subscription nor a ChatAdmin setting adds a right Microsoft has
-        not given. Your organisation can narrow further, per person: <strong>Observe</strong> (reads
-        only &mdash; every change card is refused with the reason), <strong>Standard</strong> (the
-        person&rsquo;s full Microsoft authority within the areas you have enabled) or
-        <strong>Custom</strong> (areas set to allowed, read only or blocked through ChatAdmin, without
-        touching Microsoft roles). Every operation carries a risk class that is the same in all four
-        areas &mdash; normal, approval required, high, extreme &mdash; and the confirmation grows with
-        it: the exact transaction on a card; a typed confirmation of the target&rsquo;s name for
-        deletions, removals of access and role or credential changes; a fresh sign-in for tenant-wide
-        changes and for changes to ChatAdmin&rsquo;s own control plane. No Neopiq key is issued to a
-        customer organisation; your own sign-in is the approval, bound to the one transaction on the
-        card. Microsoft 365 and Microsoft Entra are the base; Microsoft Azure and Microsoft Power
-        Platform are added when you use them. <a href="how-it-works.html#organisation">The model in full</a>.
+      <h1>This page has moved</h1>
+      <p class="lede">
+        What ChatAdmin can read, change and never does is now on the Security page. You should be taken there automatically.
       </p>
-    </div>
-  </section>
-
-  <section class="section" id="entra">
-    <div class="wrap">
-      <h2>Microsoft Entra</h2>
-      <p class="narrow"><strong>Identity:</strong> the delegated sign-in of a named Neopiq administrator; ChatAdmin acts with that person&rsquo;s directory roles and never more, and the chat header names whom it acts as. Everything goes through Microsoft Graph and nothing else.</p>
-      <div class="table-scroll" style="margin-top:1rem">
-        <table>
-          <caption>Microsoft Entra: 16 reads, 24 changes, and one plan card for several changes.</caption>
-          <thead><tr><th scope="col">Reads (no card)</th><th scope="col">Changes (card)</th><th scope="col">Never</th></tr></thead>
-          <tbody>
-            <tr>
-              <td>Who the agent acts as and its roles; users and one user in depth (profile, licences, groups, roles, last sign-in); groups and one group (owners, members, whether it has a team); app registrations and one registration&rsquo;s consent state, credentials without values; enterprise apps; active directory roles and their members; the permissions an API exposes; consent grants; licences owned and used; the directory audit log; external-collaboration settings</td>
-              <td>Create, update, disable and delete users (soft delete, exact sign-in name required); sign a user out everywhere; assign and remove licences (pre-checked: owned, a seat free); create and delete groups, add and remove members (pre-checked: duplicate name, already a member); assign and remove directory roles from an allowlist; create, update and delete app registrations; add and remove API permissions; grant and revoke admin consent; upload a public certificate; remove a credential; create a service principal; enable or disable sign-in to an enterprise app; invite one guest</td>
-              <td>Create a client secret or app password (a pasted private key is refused); assign Global Administrator, Privileged Role Administrator, Privileged Authentication Administrator or the Partner support roles; remove the last Global Administrator; lock out the administrator it acts as without an explicit confirmation; delete, disable or strip Microsoft&rsquo;s own apps, apps named <code>agent-*</code> or <code>ChatAdmin*</code>, or the app it signed in with; touch Conditional Access, authentication methods, domains or cross-tenant settings; call anything but Microsoft Graph</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="security.html">Go to Security</a>
+        <a class="btn btn--ghost" href="index.html">Go to the home page</a>
       </div>
     </div>
   </section>
-
-  <section class="section section--alt" id="m365">
-    <div class="wrap">
-      <h2>Microsoft 365</h2>
-      <p class="narrow"><strong>Identity:</strong> its own application identity, &ldquo;ChatAdmin Agent M&rdquo;, with a certificate and no client secret, a fixed list of Microsoft Graph application permissions and the Exchange Administrator role. It holds no permission on mail, calendar, contact, chat or channel-message content, so no approval, however worded, can read anyone&rsquo;s mail. It reaches Microsoft Graph and the Exchange Online administration endpoint and nothing else.</p>
-      <div class="table-scroll" style="margin-top:1rem">
-        <table>
-          <caption>Microsoft 365: 23 reads, 19 changes, and one plan card for several changes.</caption>
-          <thead><tr><th scope="col">Reads (no card)</th><th scope="col">Changes (card)</th><th scope="col">Never</th></tr></thead>
-          <tbody>
-            <tr>
-              <td>Find a mailbox; how full it is, why, the largest folders, the remedies; who may open, send as or send on behalf of a mailbox; whether a person has a working mailbox yet; who holds an address; distribution lists and their members; teams, their owners, members, guests and orphaned teams; guests and where they are; who can open a site and why someone cannot; what is shared outside; a leaver&rsquo;s OneDrive; what breaks if a licence goes; licences and service plans; the Teams app catalogue and why a person cannot see an app; the folders of a site; who can open a folder</td>
-              <td>Create a shared mailbox with its members and owners; grant and revoke Full Access, Send As, Send on Behalf; enable the online archive; add and remove list members; add and remove team members and owners; create a team; convert a mailbox to shared; forward mail to an internal recipient; set an auto-reply; remove a secondary address; hand a leaver&rsquo;s OneDrive to a colleague; create a folder on a site and grant or revoke read or write on it; publish a submitted Teams app and install it; change the usage-report concealment setting</td>
-              <td>Read, search or export a message, calendar, contact, chat or file (Purview eDiscovery is named as the right tool); delete a mailbox, team, group, site, drive or file; forward mail outside the tenant; grant anything to a guest or an external address; change a licence (that is Microsoft Entra&rsquo;s card); touch the administrator&rsquo;s mailbox or OneDrive, the break-glass account, <code>agent-*</code> or <code>ChatAdmin*</code> mailboxes; more than 25 people per card</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="azure">
-    <div class="wrap">
-      <h2>Microsoft Azure</h2>
-      <p class="narrow"><strong>Identity:</strong> the managed identity of the hosted service &mdash; no certificate, secret or key file in the image. It holds Contributor on the subscription it operates and a role-assignment permission that Azure itself restricts to the allowlisted roles below. The identity, its verified roles and the subscription are reported by the service and shown in the chat header.</p>
-      <div class="table-scroll" style="margin-top:1rem">
-        <table>
-          <caption>Microsoft Azure: 22 reads, 15 changes, and one plan card for up to twelve steps.</caption>
-          <thead><tr><th scope="col">Reads (no card)</th><th scope="col">Changes (card)</th><th scope="col">Never</th></tr></thead>
-          <tbody>
-            <tr>
-              <td>Resource groups and resources; an inventory summary and free-form Resource Graph queries; untagged, idle and publicly exposed resources with evidence; costs by group, service or resource; the activity log; logs and metrics; any resource by id with secrets redacted; template validation and what-if; deployments; what a delete would remove; tag compliance and naming; the agent&rsquo;s own identity and roles; role assignments and definitions</td>
-              <td>Create or update resource groups, storage accounts, virtual networks and subnets, key vaults, Log Analytics workspaces, Container Apps environments and apps, Linux virtual machines; deploy a template in incremental mode; create or update any resource by id (denylisted types refused); delete one resource or a whole group with the exact name; merge, replace or delete tags; grant and revoke roles from a 14-role allowlist</td>
-              <td>Read a secret, key or certificate out of a vault, or a storage or workspace key; grant Owner, User Access Administrator or a role-assignment role; revoke its own access; deploy in complete mode; delete a protected group or a locked resource; create app registrations, service principals, secrets or certificates; output key or token material; reach the Marketplace API or any host outside Azure and Microsoft Entra</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--alt" id="powerplatform">
-    <div class="wrap">
-      <h2>Microsoft Power Platform</h2>
-      <p class="narrow"><strong>Identity:</strong> the delegated sign-in of a Neopiq Power Platform administrator, made through Microsoft&rsquo;s own first-party sign-in application. Live writes are armed only together with an approver key; without one every change answers with the exact request it would have sent and changes nothing.</p>
-      <div class="table-scroll" style="margin-top:1rem">
-        <table>
-          <caption>Microsoft Power Platform: 10 reads and 10 changes, no deletes.</caption>
-          <thead><tr><th scope="col">Reads (no card)</th><th scope="col">Changes (card)</th><th scope="col">Never</th></tr></thead>
-          <tbody>
-            <tr>
-              <td>Environments, one environment in depth (including whether its security group still exists), who has access to an environment, apps, flows, connectors, data-loss-prevention policies with the environments they cover and leave uncovered, enterprise policies, everything a departed user owns across environments</td>
-              <td>Create a sandbox environment <span class="status status--now">live</span>; create and change data-loss-prevention policies, add a user to an environment with a role, provision Dataverse, rename an environment or set its security group, environment settings, backups, reassign an app&rsquo;s owner, stop or start a flow <span class="status status--dev">built, first live run pending</span></td>
-              <td>Delete, restore, reset or copy an environment; change tenant isolation or tenant settings; read or write Dataverse business data; touch connections or their credentials; change the default environment&rsquo;s settings; disclose a secret</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="gate">
-    <div class="wrap narrow">
-      <h2>The approval gate, the same in every area</h2>
-      <p>
-        Before any change in the tables above runs, ChatAdmin shows a card: the area, the
-        environment, the action and every parameter with secrets masked, the pre-checks it ran, and
-        a five-minute countdown. Then it waits. In the Neopiq-operated environment the human answers
-        with that area&rsquo;s approver key, and the decision is recorded with the signed-in person
-        who gave it; in your own organisation your own Microsoft sign-in is the approval and no key
-        exists <span class="status status--dev">in development</span>. The coordinating layer holds no
-        key and cannot answer a card. <strong>If nobody answers within five minutes, the change is
-        declined</strong> &mdash; the gate fails closed, never open, and there is no auto-approve of
-        any kind in the product. A plan card covers up to twelve steps with one decision; the steps
-        run in order and stop at the first error. Read-only questions do not pass through the gate,
-        so looking around never generates approval fatigue.
-      </p>
-      <h2 style="margin-top:2rem">Stated before you find it</h2>
-      <ul>
-        <li><strong>The approver key proves possession, not identity.</strong> It is the mechanism of the Neopiq-operated environment, where the signed-in person who forwarded each decision is now recorded alongside it. It is not the customer mechanism: in your own organisation there is no key, and the signed-in person&rsquo;s own approval is bound to the transaction. <span class="status status--dev">in development</span></li>
-        <li><strong>The Azure identity holds Contributor</strong> on the subscription it operates, which is broader than the table requires; a narrower role per deployment (Reader for a read-only evaluation) is a deploy-time switch.</li>
-        <li><strong>Some Power Platform changes have not yet run live.</strong> They are built and tested against a simulated tenant; the product says so in its answer, and this page labels them.</li>
-        <li><strong>Nothing here is an uptime, support or availability commitment.</strong> ChatAdmin runs in a Neopiq-operated environment for evaluation today.</li>
-      </ul>
-      <p style="margin-top:1.5rem">
-        If you review tools like this for a living and want to argue with any of it,
-        <a href="contact.html">write to us</a>.
-      </p>
-    </div>
-  </section>
-
-  <section class="section cta-band">
-    <div class="wrap center">
-      <h2>The rest of the trust story</h2>
-      <div class="btn-row" style="justify-content:center">
-        <a class="btn btn--primary" href="security.html">Security &amp; trust</a>
-        <a class="btn btn--ghost" href="demo/">See ChatAdmin in Action</a>
-      </div>
-    </div>
-  </section>
-
 </main>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="site-footer__grid">
-      <div>
-        <p><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
-        <p class="muted">
-          Tell it what you need. It inspects your Microsoft environment, proposes the change, waits
-          for your approval, executes and verifies. Nothing changes without a person saying yes.
-        </p>
-        <p class="small">
-          Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
-          UID CHE-345.914.300 &middot; not registered for VAT<br>
-          <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> &middot;
-          <a href="tel:0041782236716">0041 78 223 6716</a>
-        </p>
-      </div>
-      <div>
-        <h2>Product</h2>
-        <ul>
-          <li><a href="product-chatadmin.html">ChatAdmin</a></li>
-          <li><a href="how-it-works.html">How it works</a></li>
-          <li><a href="security.html">Security &amp; trust</a></li>
-          <li><a href="permissions.html">What it can read and change</a></li>
-          <li><a href="demo/">See ChatAdmin in Action</a></li>
-          <li><a href="try.html">Try with Microsoft</a></li>
-        </ul>
-        <h2 style="margin-top:1.1rem">Solutions</h2>
-        <ul>
-          <li><a href="solutions-businesses.html">For businesses</a></li>
-          <li><a href="solutions-msp.html">For MSPs and IT service providers</a></li>
-          <li><a href="ecosystem.html">Ecosystem and partners</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Company</h2>
-        <ul>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="docs.html">Docs</a></li>
-          <li><a href="support.html">Support</a></li>
-          <li><a href="about.html">About Neopiq</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <h2 style="margin-top:1.1rem">Legal</h2>
-        <ul>
-          <li><a href="imprint.html">Imprint</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="site-footer__legal">
-      <p class="small">
-        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Dynamics 365 and
-        Microsoft Power Platform are trademarks of the Microsoft group of companies. Neopiq GmbH is
-        an independent software vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
-      </p>
-      <p class="small">&copy; 2026 Neopiq GmbH</p>
-    </div>
-  </div>
-</footer>
 
 </body>
 </html>

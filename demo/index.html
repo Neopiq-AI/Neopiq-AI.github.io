@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>See ChatAdmin in Action — a sample-environment demonstration, no sign-in</title>
-<meta name="description" content="Play three scripted ChatAdmin conversations over the fictional sample tenant Contoso Example: a joiner, an admin-roles question and a leaver. The real interaction pattern with cards you click. Not connected to your Microsoft environment; every result is simulated; nothing here can change anything.">
+<title>Try ChatAdmin — seven requests on a sample environment, no sign-in</title>
+<meta name="description" content="Play seven scripted ChatAdmin requests over the fictional sample tenant Contoso Example: a joiner, administrator access, a shared mailbox, a leaver, a licence review, an Azure change investigation and a Power Platform environment. The real operating model: inspection, a proposal, an Approve / Reject card you click, execution, verification, an explanation. Not connected to your Microsoft environment; every result is simulated.">
 <link rel="canonical" href="https://neopiq.ai/demo/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="See ChatAdmin in Action — a sample-environment demonstration, no sign-in">
-<meta property="og:description" content="Play three scripted ChatAdmin conversations over the fictional sample tenant Contoso Example: a joiner, an admin-roles question and a leaver. The real interaction pattern with cards you click. Not connected to your Microsoft environment; every result is simulated; nothing here can change anything.">
+<meta property="og:title" content="Try ChatAdmin — seven requests on a sample environment, no sign-in">
+<meta property="og:description" content="Play seven scripted ChatAdmin requests over the fictional sample tenant Contoso Example: a joiner, administrator access, a shared mailbox, a leaver, a licence review, an Azure change investigation and a Power Platform environment. The real operating model: inspection, a proposal, an Approve / Reject card you click, execution, verification, an explanation. Not connected to your Microsoft environment; every result is simulated.">
 <meta property="og:url" content="https://neopiq.ai/demo/">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="../assets/site.css">
@@ -18,29 +18,32 @@
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
+<!-- @include:header -->
 <header class="site-header">
   <div class="wrap site-header__inner">
     <a class="brand" href="../index.html">
       <span class="brand__mark" aria-hidden="true">N</span>
-      <span class="brand__text">
-        Neopiq
-        <span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span>
-      </span>
+      <span class="brand__text">Neopiq<span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span></span>
     </a>
-    <span class="site-header__spacer"></span>
-    <nav class="demo-nav" aria-label="Demonstration">
-      <ul class="site-nav" style="list-style:none;display:flex;gap:.35rem;margin:0;padding:0">
-        <li><a href="../product-chatadmin.html">ChatAdmin</a></li>
-        <li><a href="../try.html">Try with Microsoft</a></li>
-        <li><a href="../index.html">Back to neopiq.ai</a></li>
+    <nav class="site-nav" aria-label="Primary">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle__box">
+      <label for="nav-toggle" class="nav-toggle"><span class="nav-toggle__icon" aria-hidden="true"></span><span class="nav-toggle__text">Menu</span></label>
+      <ul class="nav-list">
+        <li><a href="../demo/" aria-current="page">Demo</a></li>
+        <li><a href="../pricing.html">Pricing</a></li>
+        <li><a href="../security.html">Security</a></li>
+        <li><a href="../try.html">Get started</a></li>
+        <li class="nav-list__action"><a class="btn btn--ghost btn--small" href="../demo/" title="Seven requests on a sample environment, no sign-in" aria-current="page">Try the demo</a></li>
       </ul>
+      <a class="btn btn--primary btn--small site-nav__open" href="../app.html" title="The live product: sign in with your Microsoft work account">Open ChatAdmin</a>
     </nav>
   </div>
 </header>
+<!-- @end -->
 
 <div class="band-sample" role="note">
   <div class="wrap">
-    <p><strong>Sample environment &ldquo;Contoso Example&rdquo;</strong> &mdash; a fictional tenant. Not connected to your Microsoft environment. Nothing here can change anything, anywhere. Every result says &ldquo;simulated&rdquo;.</p>
+    <p><strong>Sample environment Contoso Example</strong> &mdash; a fictional tenant; every result is simulated and nothing here reaches Microsoft.</p>
   </div>
 </div>
 
@@ -48,31 +51,29 @@
 
   <section class="section" style="padding-block:1.75rem">
     <div class="wrap">
-      <h1>See ChatAdmin in Action</h1>
-      <p class="lede">
-        Three scripted conversations in the real interaction pattern: your intent, what ChatAdmin
-        inspected, the proposed change, an Approve / Reject card you click, simulated execution,
-        and a verified-looking result with an audit line. ChatAdmin administers Microsoft Azure,
-        Microsoft Entra, Microsoft 365 and Microsoft Power Platform; these three scenarios use
-        Microsoft Entra and Microsoft 365, where joiners and leavers live.
-      </p>
+      <h1>Try ChatAdmin</h1>
+      <p class="lede">Seven requests across Microsoft Entra, Microsoft 365, Microsoft Azure and Microsoft Power Platform, run the way the product runs them. Pick one, or type your own.</p>
 
       <div class="demo-layout">
         <aside class="demo-side">
           <div class="card">
-            <h2 style="font-size:1.05rem">Pick a scenario</h2>
+            <h2 style="font-size:1.05rem">Pick a request</h2>
             <ul class="demo-scenarios">
-              <li><button type="button" id="joiner" data-scenario="joiner" aria-pressed="false">Sarah starts in Finance on Monday. Prepare what she needs.<small>A joiner &middot; two cards &middot; Microsoft Entra, Microsoft 365</small></button></li>
-              <li><button type="button" id="roles" data-scenario="roles" aria-pressed="false">Who has admin roles, and does anyone have one they don&rsquo;t need?<small>Reads only &middot; no card &middot; Microsoft Entra</small></button></li>
-              <li><button type="button" id="leaver" data-scenario="leaver" aria-pressed="false">Tom is leaving on Friday.<small>A leaver &middot; two cards &middot; Microsoft 365, Microsoft Entra</small></button></li>
+              <li><button type="button" id="joiner" data-scenario="joiner" aria-pressed="false">Sarah joins Finance on Monday. Prepare what she needs.<small>A joiner &middot; 6 changes on 2 cards &middot; Microsoft Entra, Microsoft 365</small></button></li>
+              <li><button type="button" id="roles" data-scenario="roles" aria-pressed="false">Who has administrator access?<small>Reads only &middot; no card &middot; Microsoft Entra</small></button></li>
+              <li><button type="button" id="mailbox" data-scenario="mailbox" aria-pressed="false">Create a shared mailbox for Finance.<small>1 change on 1 card &middot; Microsoft 365</small></button></li>
+              <li><button type="button" id="leaver" data-scenario="leaver" aria-pressed="false">Offboard Peter safely.<small>A leaver &middot; 8 changes on 2 cards &middot; Microsoft 365, Microsoft Entra</small></button></li>
+              <li><button type="button" id="licences" data-scenario="licences" aria-pressed="false">Review our available Microsoft licences.<small>Reads only &middot; no card &middot; Microsoft Entra, Microsoft 365</small></button></li>
+              <li><button type="button" id="azure" data-scenario="azure" aria-pressed="false">Why did our Azure resources change?<small>Reads only &middot; no card &middot; Microsoft Azure</small></button></li>
+              <li><button type="button" id="powerplatform" data-scenario="powerplatform" aria-pressed="false">Create a sandbox environment for Finance.<small>1 change on 1 card &middot; Microsoft Power Platform</small></button></li>
             </ul>
-            <form class="demo-form" id="demo-form" autocomplete="off">
+            <form class="demo-form" id="demo-form" autocomplete="off" hidden>
               <label for="demo-input">Or type a request</label>
               <div class="row">
                 <input type="text" id="demo-input" name="q" maxlength="200" placeholder="e.g. onboard a new colleague">
                 <button type="submit" class="btn btn--ghost btn--small">Ask</button>
               </div>
-              <p class="small muted" style="margin-top:.5rem">Your text stays in this page. It picks the nearest scripted scenario; the real product understands your own words.</p>
+              <p class="small muted" style="margin-top:.5rem">Type a request; the nearest of the seven plays.</p>
             </form>
             <div class="demo-controls">
               <button type="button" class="btn btn--ghost btn--small" id="demo-reset">Start over</button>
@@ -85,56 +86,77 @@
           <div class="thread demo-thread" id="demo-thread" aria-live="polite" aria-label="The conversation">
             <noscript>
               <p class="demo-empty">
-                This demonstration needs JavaScript to play the scenarios in the page (it loads one
-                small script from this site and nothing else, sends nothing anywhere and stores
-                nothing). Without it, the same joiner scenario is written out as a static exchange on
-                the <a href="../index.html#experience">home page</a>.
+                Playing a request needs JavaScript: this page loads two small scripts from this site and
+                nothing else, sends nothing anywhere and stores nothing. Without it, the joiner request is
+                written out as a static exchange on the <a href="../index.html#experience">home page</a>,
+                with the same inspection, card, verification and explanation.
               </p>
             </noscript>
           </div>
+          <template id="demo-convert">
+            <div class="convert" role="group" aria-label="Next step">
+              <p class="convert__q">Want this on your own Microsoft environment?</p>
+              <p class="convert__action"><a class="btn btn--primary" href="../app.html">Open ChatAdmin</a> <a class="btn btn--ghost" href="../try.html">Get started</a></p>
+              <p class="convert__note">You sign in with your Microsoft work account; signing in reads and changes nothing in your tenant. Neopiq&rsquo;s own organisation gets the full product; anyone else sees this demo and can <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20pilot%20request">request a pilot</a>.</p>
+            </div>
+          </template>
+          <p class="demo-note">Agent names, API operations and identifiers live under &ldquo;Show technical details&rdquo; at the end of each request &mdash; closed by default, never needed to follow along.</p>
         </div>
       </div>
     </div>
   </section>
 
   <section class="section section--alt" id="real">
-    <div class="wrap">
-      <div class="section__intro">
-        <h2>What the real product does differently</h2>
+    <div class="wrap narrow">
+      <h2>What the real product does differently</h2>
+      <ul class="bullets">
+        <li>A real card is approved by a signed-in person and declines itself after five minutes of silence. Here it waits.</li>
+        <li>Real execution reads every changed object back from Microsoft. Here the read-back is scripted.</li>
+        <li>Real answers come from your environment and your own words. Here free text picks the nearest of seven scripted requests.</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn btn--primary" href="../app.html">Open ChatAdmin</a>
+        <a class="btn btn--ghost" href="../try.html">Get started</a>
       </div>
-      <div class="grid grid--3" style="margin-top:1.75rem">
-        <article class="card">
-          <h3>Real cards are approved by a signed-in person</h3>
-          <p>In the product you are signed in with Microsoft, and the decision is recorded with your name. In the Neopiq-operated environment Approve also asks for that Microsoft area&rsquo;s approver key, handed over on a different channel and typed by the human into the page; in your own organisation your own sign-in is the approval and no key exists (in development). Here the buttons simply work. A real card also declines itself after five minutes of silence; here it waits.</p>
-        </article>
-        <article class="card">
-          <h3>Real execution re-reads Microsoft</h3>
-          <p>After every approved step the product reads the object back from Microsoft Graph, Azure Resource Manager or the Exchange Online administration endpoint and shows that state under &ldquo;Verified after change&rdquo;. Here the verified lines are scripted, and every result says simulated.</p>
-        </article>
-        <article class="card">
-          <h3>Real answers come from your environment</h3>
-          <p>The product reads the real users, groups, seats, teams and resources of the environment it is connected to, and understands your own words. Here three conversations are scripted over a fictional tenant, and free text only picks the nearest one.</p>
-        </article>
-      </div>
-      <p style="margin-top:1.5rem">
-        The pattern is the same: reads without approval, every change on a card, execution only after
-        your click, verification before the report, an audit line for everything.
-        <a href="../how-it-works.html">How it works</a> &middot;
-        <a href="../security.html">Security &amp; trust</a> &middot;
-        <a href="../try.html">Try with Microsoft</a>
-      </p>
     </div>
   </section>
 
 </main>
 
+<!-- @include:footer -->
 <footer class="site-footer">
   <div class="wrap">
-    <p class="small">
-      <strong>Neopiq GmbH</strong> &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland &middot;
-      <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> &middot;
-      <a href="../imprint.html">Imprint</a> &middot; <a href="../privacy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a>
-    </p>
+    <div class="site-footer__grid">
+      <div class="site-footer__about">
+        <p class="site-footer__brand"><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
+        <p class="muted">Tell it what you need. It inspects your Microsoft environment, proposes the change, waits for your approval, executes and verifies. Nothing changes without a person saying yes.</p>
+        <p class="small">
+          Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
+          UID CHE-345.914.300 &middot; not registered for VAT<br>
+          <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> &middot;
+          <a href="tel:0041782236716">0041 78 223 6716</a>
+        </p>
+      </div>
+      <div class="site-footer__col">
+        <h2>ChatAdmin</h2>
+        <ul>
+          <li><a href="../app.html">Open ChatAdmin</a></li>
+          <li><a href="../demo/">Demo</a></li>
+          <li><a href="../pricing.html">Pricing</a></li>
+          <li><a href="../security.html">Security</a></li>
+          <li><a href="../try.html">Get started</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="../imprint.html">Imprint</a></li>
+          <li><a href="../privacy.html">Privacy</a></li>
+          <li><a href="../terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
     <div class="site-footer__legal">
       <p class="small">
         Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Dynamics 365 and
@@ -145,7 +167,9 @@
     </div>
   </div>
 </footer>
+<!-- @end -->
 
+<script src="../assets/js/demo-core.js" defer></script>
 <script src="demo.js" defer></script>
 </body>
 </html>

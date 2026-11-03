@@ -3,233 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Documentation — what ChatAdmin operates, what a card contains, what a result looks like</title>
-<meta name="description" content="Product documentation for ChatAdmin: the four Microsoft areas and what can be asked in each, the Approve / Reject card, plan cards, the verified result, the session transcript, and the documentation that does not exist yet.">
-<link rel="canonical" href="https://neopiq.ai/docs.html">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="Documentation — what ChatAdmin operates, what a card contains, what a result looks like">
-<meta property="og:description" content="Product documentation for ChatAdmin: the four Microsoft areas and what can be asked in each, the Approve / Reject card, plan cards, the verified result, the session transcript, and the documentation that does not exist yet.">
-<meta property="og:url" content="https://neopiq.ai/docs.html">
-<meta name="twitter:card" content="summary">
+<meta http-equiv="refresh" content="0; url=try.html">
+<title>This page has moved &mdash; Docs</title>
+<meta name="description" content="How to start with ChatAdmin is now on the Get started page.">
+<meta name="robots" content="noindex">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<header class="site-header">
-  <div class="wrap site-header__inner">
-    <a class="brand" href="index.html">
-      <span class="brand__mark" aria-hidden="true">N</span>
-      <span class="brand__text">
-        Neopiq
-        <span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span>
-      </span>
-    </a>
-    <span class="site-header__spacer"></span>
-    <nav class="site-nav" aria-label="Primary">
-      <ul>
-        <li><a href="product-chatadmin.html">ChatAdmin</a></li>
-        <li><a href="how-it-works.html">How it works</a></li>
-        <li><a href="security.html">Security &amp; trust</a></li>
-        <li><a href="solutions-businesses.html">For businesses</a></li>
-        <li><a href="solutions-msp.html">For MSPs</a></li>
-        <li><a href="ecosystem.html">Ecosystem</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a class="nav-cta" href="demo/">See it in action</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
 <main id="main">
-
-  <section class="hero">
-    <div class="wrap">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li aria-current="page">Documentation</li>
-        </ol>
-      </nav>
-      <h1>Documentation: enough to use ChatAdmin without asking us anything</h1>
-      <p class="lead">
-        ChatAdmin administers Microsoft Azure, Microsoft Entra, Microsoft 365 and Microsoft Power
-        Platform by conversation. This page covers what you can ask in each area, what a card
-        contains, what a result looks like, what is recorded, and the documentation that does not
-        exist yet &mdash; stated here instead of linked to.
-      </p>
-    </div>
-  </section>
-
-  <section class="section" id="using">
-    <div class="wrap">
-      <div class="section__intro">
-        <h2>Using the chat</h2>
-      </div>
-      <div class="grid grid--2" style="margin-top:2rem">
-        <article class="card">
-          <h3>The header</h3>
-          <p>Names the environment ChatAdmin is connected to and the identity it acts with in each area, whether each area is live or simulated, and whether the language model is ready. Read it before you type.</p>
-        </article>
-        <article class="card">
-          <h3>Asking</h3>
-          <p>Plain words, your own names. Reads answer in seconds and need no approval. If a detail materially affects the operation and cannot be read from the environment, ChatAdmin asks one question instead of guessing; otherwise it proposes the obvious choice and says so on the card.</p>
-        </article>
-        <article class="card">
-          <h3>Signing in, and the approver key</h3>
-          <p>You sign in with your Microsoft work account first; your name is on every card and recorded with every decision. In the Neopiq-operated environment, the first time you click Approve on an area&rsquo;s card the page asks for that area&rsquo;s key, sent to you on a different channel than the link. It stays in that browser tab only. Never type it into the chat box. In your own organisation there will be no key: your sign-in is the approval (in development).</p>
-        </article>
-        <article class="card">
-          <h3>Sessions</h3>
-          <p>Your conversation lives in the tab while you use it and is cleared when you start over or after a few hours idle. Each tab is its own session. The transcript is kept separately, with secrets removed.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--alt" id="ask">
-    <div class="wrap">
-      <div class="section__intro">
-        <h2>What you can ask, by area</h2>
-        <p>Replace the names with names from your own environment. The right-hand column says whether a card appears.</p>
-      </div>
-      <div class="table-scroll" style="margin-top:1.5rem">
-        <table>
-          <caption>Example requests per Microsoft area. Reads run without a card; every change raises one.</caption>
-          <thead><tr><th scope="col">Area</th><th scope="col">Say</th><th scope="col">Card?</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">Microsoft Entra</th><td>Who are you acting as, and what may you do? Which admin roles are active, and who holds Global Administrator? Describe user U. Which app registrations have expired credentials? Which licences do we own, and how many seats are free? Who changed what in the last 24 hours?</td><td>No</td></tr>
-            <tr><th scope="row">Microsoft Entra</th><td>Create user N with sign-in name u@domain, add them to group G and assign the Business Basic licence &mdash; one plan. Register app X and grant admin consent. Disable U. Delete user U.</td><td>Yes (a delete restates the exact name)</td></tr>
-            <tr><th scope="row">Microsoft 365</th><td>Mary&rsquo;s mailbox is full. Who has access to the shared mailbox Finance? Who is in the team Procurement? Why can&rsquo;t Bob open the Marketing site? What is shared outside the organisation? If I remove Mary&rsquo;s E5, what breaks?</td><td>No</td></tr>
-            <tr><th scope="row">Microsoft 365</th><td>Create the shared mailbox Sales Europe; Mary and John use it, Peter owns it. Give John Send As on Finance. Add Peter to the Procurement team. Lena left &mdash; give Peter access to her OneDrive.</td><td>Yes</td></tr>
-            <tr><th scope="row">Microsoft Azure</th><td>What is in resource group X? What looks idle? Is anything publicly exposed? What did we spend this month, by resource group? Who has access to X? What would deleting X remove?</td><td>No</td></tr>
-            <tr><th scope="row">Microsoft Azure</th><td>Create resource group X in switzerlandnorth. Grant Reader on X to object id &hellip;. Set up a dev environment: a group, a storage account and a log workspace. Delete the storage account Y.</td><td>Yes (several steps: one plan card)</td></tr>
-            <tr><th scope="row">Microsoft Power Platform</th><td>Which environments exist, and does each have a data-loss-prevention policy? Which apps are in the default environment? Alice left &mdash; what does she own?</td><td>No</td></tr>
-            <tr><th scope="row">Microsoft Power Platform</th><td>Create a sandbox environment for the integration team. Create a data-loss-prevention policy for it.</td><td>Yes</td></tr>
-            <tr><th scope="row">Across areas</th><td>Sarah starts in Finance on Monday. Tom is leaving on Friday. Prepare Lisa for Finance starting Monday.</td><td>Yes, one card per area that changes</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="cards">
-    <div class="wrap">
-      <div class="grid grid--2">
-        <article class="card">
-          <h3>Cards and plan cards</h3>
-          <ul>
-            <li>A card shows the area, the environment, the action and every parameter (secrets masked), a preview when one exists, and a five-minute countdown.</li>
-            <li>A plan card lists up to twelve steps behind one approval; one Approve runs them in order with no further cards, stopping at the first error.</li>
-            <li>Approve runs the change; the result is read back and shown as &ldquo;Verified after change&rdquo;. Reject stops it; ChatAdmin does not retry unless asked. No click within five minutes counts as a rejection.</li>
-            <li>A delete must restate the exact name in the card. Check that it matches.</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Results and the record</h3>
-          <ul>
-            <li>Success, partial success and failure look different: a partial result names the steps that ran and the one that failed, and what to do next.</li>
-            <li>Where a change cannot be re-read, the result says &ldquo;submitted, not re-verified&rdquo;.</li>
-            <li>Every message, tool call, card and decision is recorded in a session transcript with secret-shaped values removed; Microsoft&rsquo;s own audit logs show the same changes under ChatAdmin&rsquo;s identity.</li>
-            <li>When something goes wrong &mdash; a refusal by rule, a missing permission, a throttled call &mdash; the answer names the reason in plain words; none of them can cause a change by itself.</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--alt" id="gaps">
+  <section class="section">
     <div class="wrap narrow">
-      <h2>Documentation that does not exist yet</h2>
-      <p>
-        So this page cannot over-promise by omission: there is <strong>no downloadable
-        manual</strong>, <strong>no public API reference</strong> (there is no public API), and
-        <strong>no integration guide</strong>, because no integration exists yet. There is no
-        self-service onboarding guide, because connecting your own organisation is still in development. The operator
-        documentation for connecting an environment exists and is shared with evaluators.
+      <h1>This page has moved</h1>
+      <p class="lede">
+        How to start with ChatAdmin is now on the Get started page. You should be taken there automatically.
       </p>
-      <p>
-        When one of these gaps closes, the material will be linked from this page. Until then, a
-        question this page does not answer goes to <a href="mailto:support@neopiq.ai">support@neopiq.ai</a>
-        &mdash; hours and the response target are on the <a href="support.html">support page</a>.
-      </p>
-    </div>
-  </section>
-
-  <section class="section cta-band">
-    <div class="wrap center">
-      <h2>The fastest way to understand it is to click through it</h2>
-      <div class="btn-row" style="justify-content:center">
-        <a class="btn btn--primary" href="demo/">See ChatAdmin in Action</a>
-        <a class="btn btn--ghost" href="support.html">Get support</a>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="try.html">Go to Get started</a>
+        <a class="btn btn--ghost" href="index.html">Go to the home page</a>
       </div>
     </div>
   </section>
-
 </main>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="site-footer__grid">
-      <div>
-        <p><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
-        <p class="muted">
-          Tell it what you need. It inspects your Microsoft environment, proposes the change, waits
-          for your approval, executes and verifies. Nothing changes without a person saying yes.
-        </p>
-        <p class="small">
-          Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
-          UID CHE-345.914.300 &middot; not registered for VAT<br>
-          <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a> &middot;
-          <a href="tel:0041782236716">0041 78 223 6716</a>
-        </p>
-      </div>
-      <div>
-        <h2>Product</h2>
-        <ul>
-          <li><a href="product-chatadmin.html">ChatAdmin</a></li>
-          <li><a href="how-it-works.html">How it works</a></li>
-          <li><a href="security.html">Security &amp; trust</a></li>
-          <li><a href="permissions.html">What it can read and change</a></li>
-          <li><a href="demo/">See ChatAdmin in Action</a></li>
-          <li><a href="try.html">Try with Microsoft</a></li>
-        </ul>
-        <h2 style="margin-top:1.1rem">Solutions</h2>
-        <ul>
-          <li><a href="solutions-businesses.html">For businesses</a></li>
-          <li><a href="solutions-msp.html">For MSPs and IT service providers</a></li>
-          <li><a href="ecosystem.html">Ecosystem and partners</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Company</h2>
-        <ul>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="docs.html">Docs</a></li>
-          <li><a href="support.html">Support</a></li>
-          <li><a href="about.html">About Neopiq</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <h2 style="margin-top:1.1rem">Legal</h2>
-        <ul>
-          <li><a href="imprint.html">Imprint</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="site-footer__legal">
-      <p class="small">
-        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Dynamics 365 and
-        Microsoft Power Platform are trademarks of the Microsoft group of companies. Neopiq GmbH is
-        an independent software vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
-      </p>
-      <p class="small">&copy; 2026 Neopiq GmbH</p>
-    </div>
-  </div>
-</footer>
 
 </body>
 </html>

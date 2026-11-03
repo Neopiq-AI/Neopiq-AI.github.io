@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Try with Microsoft — the stages of access to ChatAdmin, and where they stand today</title>
-<meta name="description" content="How access to ChatAdmin is staged: the sample-environment demonstration you can use now, the Microsoft sign-in that is live on ChatAdmin, and connecting your own organisation, which is in development. This page has no sign-in button; it says why and offers the contact route.">
+<title>Get started with ChatAdmin</title>
+<meta name="description" content="Three steps: see the demo, open ChatAdmin and sign in with your Microsoft work account, then connect your own organisation (in development). Or request a pilot.">
 <link rel="canonical" href="https://neopiq.ai/try.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="Try with Microsoft — the stages of access to ChatAdmin, and where they stand today">
-<meta property="og:description" content="How access to ChatAdmin is staged: the sample-environment demonstration you can use now, the Microsoft sign-in that is live on ChatAdmin, and connecting your own organisation, which is in development. This page has no sign-in button; it says why and offers the contact route.">
+<meta property="og:title" content="Get started with ChatAdmin">
+<meta property="og:description" content="Three steps: see the demo, open ChatAdmin and sign in with your Microsoft work account, then connect your own organisation (in development). Or request a pilot.">
 <meta property="og:url" content="https://neopiq.ai/try.html">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -18,118 +18,82 @@
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
+<!-- @include:header -->
 <header class="site-header">
   <div class="wrap site-header__inner">
     <a class="brand" href="index.html">
       <span class="brand__mark" aria-hidden="true">N</span>
-      <span class="brand__text">
-        Neopiq
-        <span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span>
-      </span>
+      <span class="brand__text">Neopiq<span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span></span>
     </a>
-    <span class="site-header__spacer"></span>
     <nav class="site-nav" aria-label="Primary">
-      <ul>
-        <li><a href="product-chatadmin.html">ChatAdmin</a></li>
-        <li><a href="how-it-works.html">How it works</a></li>
-        <li><a href="security.html">Security &amp; trust</a></li>
-        <li><a href="solutions-businesses.html">For businesses</a></li>
-        <li><a href="solutions-msp.html">For MSPs</a></li>
-        <li><a href="ecosystem.html">Ecosystem</a></li>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle__box">
+      <label for="nav-toggle" class="nav-toggle"><span class="nav-toggle__icon" aria-hidden="true"></span><span class="nav-toggle__text">Menu</span></label>
+      <ul class="nav-list">
+        <li><a href="demo/">Demo</a></li>
         <li><a href="pricing.html">Pricing</a></li>
-        <li><a class="nav-cta" href="demo/">See it in action</a></li>
+        <li><a href="security.html">Security</a></li>
+        <li><a href="try.html" aria-current="page">Get started</a></li>
+        <li class="nav-list__action"><a class="btn btn--ghost btn--small" href="demo/" title="Seven requests on a sample environment, no sign-in">Try the demo</a></li>
       </ul>
+      <a class="btn btn--primary btn--small site-nav__open" href="app.html" title="The live product: sign in with your Microsoft work account">Open ChatAdmin</a>
     </nav>
   </div>
 </header>
+<!-- @end -->
 
 <main id="main">
-
   <section class="hero">
     <div class="wrap">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li aria-current="page">Try with Microsoft</li>
-        </ol>
-      </nav>
-      <p class="eyebrow">Entry point &middot; the stages of access</p>
-      <h1>Try with Microsoft: what the stages are, and which one you can use today</h1>
-      <p class="lead">
-        Signing in to ChatAdmin and allowing ChatAdmin to administer your Microsoft Azure, Microsoft
-        Entra, Microsoft 365 or Microsoft Power Platform environment are different trust decisions,
-        and we keep them separate. Sign-in with a Microsoft work account is live on ChatAdmin, and
-        today it admits Neopiq&rsquo;s own organisation, where evaluations run. Connecting your own
-        organisation is in development. There is no sign-in button on this page, because a button
-        that ends in a refusal is worse than a sentence that says so.
-      </p>
+      <h1>Get started</h1>
+      <p class="lead">Three steps. The first two work today.</p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="steps">
     <div class="wrap">
-      <div class="section__intro">
-        <h2>The stages</h2>
-      </div>
-      <ol class="stages stages--zero narrow" style="margin-top:1.25rem">
-        <li>
-          <h3>Demonstration on a sample environment <span class="status status--now">available now</span></h3>
-          <p>Three scripted scenarios over the fictional tenant &ldquo;Contoso Example&rdquo;, in the real interaction pattern: intent, what ChatAdmin inspected, the proposed change, a card you click, simulated execution, a verified-looking result with an audit line. Not connected to your Microsoft environment; nothing can change anything.</p>
-          <p><a class="btn btn--primary btn--small" href="demo/">See ChatAdmin in Action</a></p>
+      <h2 class="sr-only">The steps</h2>
+      <ol class="journey journey--3" aria-label="Getting started, each step with its status">
+        <li class="journey__step journey__step--now" id="demo">
+          <span class="journey__name">See the demo</span>
+          <span class="status status--now">available now</span>
+          <p class="journey__note">Seven requests on a sample environment. No sign-in; nothing of yours is touched.</p>
+          <a class="btn btn--ghost btn--small" href="demo/">Try the demo</a>
         </li>
-        <li>
-          <h3>Sign in with your Microsoft work account <span class="status status--now">available now</span></h3>
-          <p><strong>What happens:</strong> you are sent to Microsoft&rsquo;s sign-in and come back signed in to ChatAdmin; the sign-in is required. <strong>What ChatAdmin learns:</strong> your name, your sign-in name and your organisation&rsquo;s tenant id, shown on every card and recorded with every decision. <strong>Is administration access requested?</strong> No. Only identity scopes are requested; no permission on your directory, your mail or your resources; the sign-in application holds no secret and no token is kept. <strong>What does not happen:</strong> nothing is read or changed in your tenant; signing in does not connect your environment. The explanation is shown before the redirect, in these words. <strong>Who can sign in today:</strong> Neopiq&rsquo;s own organisation, where evaluations run; other organisations are admitted when the next stage ships.</p>
+        <li class="journey__step journey__step--now" id="signin">
+          <span class="journey__name">Open ChatAdmin and sign in</span>
+          <span class="status status--now">available now</span>
+          <p class="journey__note">Use your Microsoft work account. Signing in identifies you; it reads and changes nothing in your tenant.</p>
+          <p class="journey__note">Neopiq&rsquo;s own organisation gets the full product; anyone else sees the demonstration and can <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20pilot%20request">request a pilot</a>.</p>
+          <p class="journey__note">The first visit after a quiet spell can take up to a minute.</p>
+          <a class="btn btn--primary btn--small" href="app.html">Open ChatAdmin</a>
         </li>
-        <li>
-          <h3>Connect your organisation <span class="status status--dev">in development</span></h3>
-          <p>A verified administrator of your Microsoft tenant connects your organisation &mdash; nothing is installed in your tenant, no Azure subscription is needed, and Microsoft 365 with Microsoft Entra is enough to start; Azure and Power Platform are added when you use them. That administrator starts as Standard + ChatAdmin administrator (or chooses Observe or Custom) and starts working; nothing has to be configured first. ChatAdmin then asks for the specific permissions a capability needs when you first use it and explains each one before Microsoft&rsquo;s consent screen: what it requests, why, which feature uses it, reading or changing, whether you or an administrator must consent &mdash; with a clean path to ask your administrator, not an error. It acts with your own Microsoft rights and never more; every change is approved by your own sign-in, bound to that one transaction; no Neopiq key exists in your organisation. <a href="how-it-works.html#organisation">The model in full</a>.</p>
-        </li>
-        <li>
-          <h3>Grow without migrating <span class="status status--planned">planned</span></h3>
-          <p>A second person brings Users &amp; Access and Activity pages for your administrator (in development); several managed tenants bring a visible tenant switcher with per-tenant access, and a second Neopiq product an app switcher (planned). Background operation and platform integrations are a higher trust level and stay out of first use. The ChatAdmin workspace will live at app.neopiq.ai; there is nothing to open there today.</p>
+        <li class="journey__step journey__step--dev" id="connect">
+          <span class="journey__name">Connect your organisation</span>
+          <span class="status status--dev">in development</span>
+          <p class="journey__note">A verified administrator of your tenant connects it; nothing is installed. ChatAdmin then acts with your own Microsoft rights, and you approve every change with your own sign-in.</p>
         </li>
       </ol>
     </div>
   </section>
 
-  <section class="section section--alt" id="today">
-    <div class="wrap narrow">
-      <h2>What you can do today</h2>
-      <ul>
-        <li><strong>See it.</strong> <a href="demo/">The demonstration</a> needs no account.</li>
-        <li><strong>Evaluate it in an operated environment.</strong> ChatAdmin runs in a Neopiq-operated environment, connected by a Neopiq operator to one Microsoft tenant; an evaluation runs signed in with Microsoft and with the approver keys &mdash; today the sign-in admits Neopiq&rsquo;s own organisation, so how you take part is agreed in the conversation that starts the evaluation. <a href="contact.html">Talk to us</a> and we will say which stage is available for your case.</li>
-        <li><strong>Be told when your organisation can connect.</strong> Say so at <a href="mailto:contact@neopiq.ai">contact@neopiq.ai</a>.</li>
-      </ul>
-      <p class="small muted">
-        Microsoft Marketplace: <span class="status status--planned">planned</span> &mdash; the
-        Marketplace route and this page will lead to the same activation path once it exists.
-      </p>
-    </div>
-  </section>
-
-  <section class="section cta-band">
-    <div class="wrap center">
-      <h2>Progressive trust, not a sudden permission request</h2>
-      <div class="btn-row" style="justify-content:center">
-        <a class="btn btn--primary" href="demo/">See ChatAdmin in Action</a>
-        <a class="btn btn--ghost" href="contact.html">Talk to us</a>
-        <a class="btn btn--ghost" href="security.html">Security &amp; trust</a>
+  <section class="section section--alt" id="pilot">
+    <div class="wrap">
+      <h2>A pilot for your organisation</h2>
+      <p>Write to us with your organisation&rsquo;s name.</p>
+      <div class="cta-row">
+        <a class="btn btn--secondary" href="mailto:contact@neopiq.ai?subject=ChatAdmin%20pilot%20request">Request a pilot</a>
       </div>
     </div>
   </section>
-
 </main>
 
+<!-- @include:footer -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="site-footer__grid">
-      <div>
-        <p><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
-        <p class="muted">
-          Tell it what you need. It inspects your Microsoft environment, proposes the change, waits
-          for your approval, executes and verifies. Nothing changes without a person saying yes.
-        </p>
+      <div class="site-footer__about">
+        <p class="site-footer__brand"><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
+        <p class="muted">Tell it what you need. It inspects your Microsoft environment, proposes the change, waits for your approval, executes and verifies. Nothing changes without a person saying yes.</p>
         <p class="small">
           Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
           UID CHE-345.914.300 &middot; not registered for VAT<br>
@@ -137,33 +101,19 @@
           <a href="tel:0041782236716">0041 78 223 6716</a>
         </p>
       </div>
-      <div>
-        <h2>Product</h2>
+      <div class="site-footer__col">
+        <h2>ChatAdmin</h2>
         <ul>
-          <li><a href="product-chatadmin.html">ChatAdmin</a></li>
-          <li><a href="how-it-works.html">How it works</a></li>
-          <li><a href="security.html">Security &amp; trust</a></li>
-          <li><a href="permissions.html">What it can read and change</a></li>
-          <li><a href="demo/">See ChatAdmin in Action</a></li>
-          <li><a href="try.html">Try with Microsoft</a></li>
-        </ul>
-        <h2 style="margin-top:1.1rem">Solutions</h2>
-        <ul>
-          <li><a href="solutions-businesses.html">For businesses</a></li>
-          <li><a href="solutions-msp.html">For MSPs and IT service providers</a></li>
-          <li><a href="ecosystem.html">Ecosystem and partners</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Company</h2>
-        <ul>
+          <li><a href="app.html">Open ChatAdmin</a></li>
+          <li><a href="demo/">Demo</a></li>
           <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="docs.html">Docs</a></li>
-          <li><a href="support.html">Support</a></li>
-          <li><a href="about.html">About Neopiq</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="try.html">Get started</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <h2 style="margin-top:1.1rem">Legal</h2>
+      </div>
+      <div class="site-footer__col">
+        <h2>Legal</h2>
         <ul>
           <li><a href="imprint.html">Imprint</a></li>
           <li><a href="privacy.html">Privacy</a></li>
@@ -181,6 +131,7 @@
     </div>
   </div>
 </footer>
+<!-- @end -->
 
 </body>
 </html>

@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pricing — ChatAdmin pricing is on request; Microsoft Marketplace listing is planned</title>
-<meta name="description" content="ChatAdmin is priced on request. Access today starts with a conversation with Neopiq; connecting your own organisation is in development and a Microsoft Marketplace listing is planned. Neopiq GmbH is not registered for VAT, so no VAT is charged.">
+<title>Pricing — Standard, Enterprise and MSP plans for ChatAdmin</title>
+<meta name="description" content="Three ChatAdmin plans by the shape of your organisation: Standard, Enterprise and MSP. No fixed public price: contact us. A plan is not Microsoft authority.">
 <link rel="canonical" href="https://neopiq.ai/pricing.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="Pricing — ChatAdmin pricing is on request; Microsoft Marketplace listing is planned">
-<meta property="og:description" content="ChatAdmin is priced on request. Access today starts with a conversation with Neopiq; connecting your own organisation is in development and a Microsoft Marketplace listing is planned. Neopiq GmbH is not registered for VAT, so no VAT is charged.">
+<meta property="og:title" content="Pricing — Standard, Enterprise and MSP plans for ChatAdmin">
+<meta property="og:description" content="Three ChatAdmin plans by the shape of your organisation: Standard, Enterprise and MSP. No fixed public price: contact us. A plan is not Microsoft authority.">
 <meta property="og:url" content="https://neopiq.ai/pricing.html">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -18,122 +18,90 @@
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
+<!-- @include:header -->
 <header class="site-header">
   <div class="wrap site-header__inner">
     <a class="brand" href="index.html">
       <span class="brand__mark" aria-hidden="true">N</span>
-      <span class="brand__text">
-        Neopiq
-        <span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span>
-      </span>
+      <span class="brand__text">Neopiq<span class="brand__sub">ChatAdmin &mdash; Microsoft administration by conversation</span></span>
     </a>
-    <span class="site-header__spacer"></span>
     <nav class="site-nav" aria-label="Primary">
-      <ul>
-        <li><a href="product-chatadmin.html">ChatAdmin</a></li>
-        <li><a href="how-it-works.html">How it works</a></li>
-        <li><a href="security.html">Security &amp; trust</a></li>
-        <li><a href="solutions-businesses.html">For businesses</a></li>
-        <li><a href="solutions-msp.html">For MSPs</a></li>
-        <li><a href="ecosystem.html">Ecosystem</a></li>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle__box">
+      <label for="nav-toggle" class="nav-toggle"><span class="nav-toggle__icon" aria-hidden="true"></span><span class="nav-toggle__text">Menu</span></label>
+      <ul class="nav-list">
+        <li><a href="demo/">Demo</a></li>
         <li><a href="pricing.html" aria-current="page">Pricing</a></li>
-        <li><a class="nav-cta" href="demo/">See it in action</a></li>
+        <li><a href="security.html">Security</a></li>
+        <li><a href="try.html">Get started</a></li>
+        <li class="nav-list__action"><a class="btn btn--ghost btn--small" href="demo/" title="Seven requests on a sample environment, no sign-in">Try the demo</a></li>
       </ul>
+      <a class="btn btn--primary btn--small site-nav__open" href="app.html" title="The live product: sign in with your Microsoft work account">Open ChatAdmin</a>
     </nav>
   </div>
 </header>
+<!-- @end -->
 
 <main id="main">
-
   <section class="hero">
     <div class="wrap">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li aria-current="page">Pricing</li>
-        </ol>
-      </nav>
       <h1>Pricing</h1>
-      <p class="lead">
-        ChatAdmin administers Microsoft Azure, Microsoft Entra, Microsoft 365 and Microsoft Power
-        Platform by conversation. <strong>Pricing is on request.</strong> Access today starts with a
-        conversation, not a checkout: Microsoft sign-in is live for Neopiq&rsquo;s own organisation,
-        connecting your own organisation is in development and a Microsoft Marketplace listing is
-        planned. We would rather say that plainly than publish a price list for a route that does
-        not exist yet.
-      </p>
+      <p class="lead">Which describes you? Every plan is the same ChatAdmin; the plan follows the shape of your organisation.</p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="plans">
     <div class="wrap">
-      <div class="grid grid--2">
-        <article class="tier tagged tagged--now" id="evaluation">
-          <span class="status status--now">available now</span>
-          <h2 class="tier__name" style="margin-top:.6rem">ChatAdmin, operated evaluation</h2>
-          <p class="tier__price">Pricing on request</p>
-          <p class="muted">For organisations and service providers who want to use the product on a real environment before anything self-service exists.</p>
-          <ul class="tier__list">
-            <li>ChatAdmin for the four Microsoft areas, in a Neopiq-operated environment connected by a Neopiq operator</li>
-            <li>Every change behind an Approve / Reject card with your approver keys; reads without interruption; verified results; session transcripts</li>
-            <li>A straight answer about what it can and cannot do &mdash; <a href="permissions.html">the limits are published</a></li>
-          </ul>
-          <p class="tier__cta"><a class="btn btn--primary" href="contact.html">Start the conversation</a></p>
-        </article>
-        <article class="tier tagged tagged--planned" id="selfservice">
-          <span class="status status--planned">planned</span>
-          <h2 class="tier__name" style="margin-top:.6rem">Self-service and Microsoft Marketplace</h2>
-          <p class="tier__price">Not yet available</p>
-          <p class="muted">The route a visitor from this site or from Microsoft Marketplace will take once it exists: sign in with Microsoft, connect your organisation, work with your own rights.</p>
-          <ul class="tier__list">
-            <li>Sign in with your Microsoft work account <span class="status status--now">available now</span> (Neopiq&rsquo;s own organisation today)</li>
-            <li>Connect your own organisation; your own sign-in approves, no keys <span class="status status--dev">in development</span></li>
-            <li>Get it from Microsoft Marketplace <span class="status status--planned">planned</span></li>
-          </ul>
-          <p class="tier__cta"><a class="btn btn--ghost" href="try.html">What the stages are</a></p>
-        </article>
+      <h2 class="sr-only">The plans</h2>
+      <!-- @data:pricing-cards -->
+<div class="plan-cards plan-cards--3">
+  <article class="plan-card plan-card--standard" id="plan-standard">
+    <p class="plan-card__statement">&ldquo;I manage our Microsoft environment.&rdquo;</p>
+    <h3 class="plan-card__name">Standard</h3>
+    <p class="plan-card__line">For one administrator or a very small admin team.</p>
+    <p class="plan-card__line">Microsoft 365 and Microsoft Entra; Microsoft Azure and Microsoft Power Platform where your environment has them.</p>
+    <p class="plan-card__price"><a class="btn btn--secondary btn--small" href="mailto:contact@neopiq.ai?subject=ChatAdmin%20Standard%20plan">Contact us</a></p>
+  </article>
+  <article class="plan-card plan-card--enterprise" id="plan-enterprise">
+    <p class="plan-card__statement">&ldquo;Our team manages Microsoft together.&rdquo;</p>
+    <h3 class="plan-card__name">Enterprise</h3>
+    <p class="plan-card__line">For a team: three or more people using ChatAdmin.</p>
+    <p class="plan-card__line">The same Microsoft areas, plus the organisational layer:</p>
+    <ul class="plan-card__org">
+      <li>Users &amp; Access <span class="status status--dev">in development</span></li>
+      <li>Activity log <span class="status status--dev">in development</span></li>
+      <li>Reports <span class="status status--planned">planned</span></li>
+    </ul>
+    <p class="plan-card__price"><a class="btn btn--secondary btn--small" href="mailto:contact@neopiq.ai?subject=ChatAdmin%20Enterprise%20plan">Contact us</a></p>
+  </article>
+  <article class="plan-card plan-card--msp" id="plan-msp">
+    <p class="plan-card__statement">&ldquo;I manage Microsoft environments for customers.&rdquo;</p>
+    <h3 class="plan-card__name">MSP</h3>
+    <p class="plan-card__line">For managed service providers. Today ChatAdmin runs one environment at a time.</p>
+    <ul class="plan-card__org">
+      <li>Multi-tenant workspace with a visible active tenant <span class="status status--planned">planned</span></li>
+      <li>Tenant switching with wrong-tenant protection <span class="status status--planned">planned</span></li>
+    </ul>
+    <p class="plan-card__price"><a class="btn btn--secondary btn--small" href="mailto:contact@neopiq.ai?subject=ChatAdmin%20MSP%20plan">Contact us</a></p>
+  </article>
+</div>
+<p class="plan-cards__note">There is no fixed public price, and no plan can be bought yet: no checkout, no sign-up. Neopiq GmbH is not registered for VAT.</p>
+<p class="plan-cards__note"><strong>A plan is not Microsoft authority: it decides what ChatAdmin can do for your organisation and never adds Microsoft rights to anyone.</strong></p>
+<!-- @end -->
+      <div class="cta-row">
+        <a class="btn btn--primary" href="app.html">Open ChatAdmin</a>
+        <a class="btn btn--ghost" href="demo/">Try the demo</a>
       </div>
     </div>
   </section>
-
-  <section class="section section--alt">
-    <div class="wrap narrow">
-      <h2>What is free</h2>
-      <p>
-        <a href="demo/">See ChatAdmin in Action</a> &mdash; the demonstration on a sample
-        environment &mdash; needs no account and costs nothing. It is the fastest way to decide
-        whether the conversation is worth having.
-      </p>
-      <h2>VAT</h2>
-      <p>
-        <strong>Neopiq GmbH is not registered for VAT, so no VAT is charged.</strong> There is no
-        VAT number to quote. Any price we quote is the whole amount &mdash; nothing is added to it
-        and nothing is included in it.
-      </p>
-    </div>
-  </section>
-
-  <section class="section cta-band">
-    <div class="wrap center">
-      <h2>See it first, then let us talk about money</h2>
-      <div class="btn-row" style="justify-content:center">
-        <a class="btn btn--primary" href="demo/">See ChatAdmin in Action</a>
-        <a class="btn btn--ghost" href="contact.html">Talk to us</a>
-      </div>
-    </div>
-  </section>
-
 </main>
 
+<!-- @include:footer -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="site-footer__grid">
-      <div>
-        <p><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
-        <p class="muted">
-          Tell it what you need. It inspects your Microsoft environment, proposes the change, waits
-          for your approval, executes and verifies. Nothing changes without a person saying yes.
-        </p>
+      <div class="site-footer__about">
+        <p class="site-footer__brand"><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
+        <p class="muted">Tell it what you need. It inspects your Microsoft environment, proposes the change, waits for your approval, executes and verifies. Nothing changes without a person saying yes.</p>
         <p class="small">
           Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
           UID CHE-345.914.300 &middot; not registered for VAT<br>
@@ -141,33 +109,19 @@
           <a href="tel:0041782236716">0041 78 223 6716</a>
         </p>
       </div>
-      <div>
-        <h2>Product</h2>
+      <div class="site-footer__col">
+        <h2>ChatAdmin</h2>
         <ul>
-          <li><a href="product-chatadmin.html">ChatAdmin</a></li>
-          <li><a href="how-it-works.html">How it works</a></li>
-          <li><a href="security.html">Security &amp; trust</a></li>
-          <li><a href="permissions.html">What it can read and change</a></li>
-          <li><a href="demo/">See ChatAdmin in Action</a></li>
-          <li><a href="try.html">Try with Microsoft</a></li>
-        </ul>
-        <h2 style="margin-top:1.1rem">Solutions</h2>
-        <ul>
-          <li><a href="solutions-businesses.html">For businesses</a></li>
-          <li><a href="solutions-msp.html">For MSPs and IT service providers</a></li>
-          <li><a href="ecosystem.html">Ecosystem and partners</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Company</h2>
-        <ul>
+          <li><a href="app.html">Open ChatAdmin</a></li>
+          <li><a href="demo/">Demo</a></li>
           <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="docs.html">Docs</a></li>
-          <li><a href="support.html">Support</a></li>
-          <li><a href="about.html">About Neopiq</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="try.html">Get started</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <h2 style="margin-top:1.1rem">Legal</h2>
+      </div>
+      <div class="site-footer__col">
+        <h2>Legal</h2>
         <ul>
           <li><a href="imprint.html">Imprint</a></li>
           <li><a href="privacy.html">Privacy</a></li>
@@ -185,6 +139,7 @@
     </div>
   </div>
 </footer>
+<!-- @end -->
 
 </body>
 </html>
