@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Get started with ChatAdmin</title>
-<meta name="description" content="Three steps: see the demo, open ChatAdmin and sign in with your Microsoft work account, then connect your own organisation (in development). Or request a pilot.">
+<meta name="description" content="Five steps: sign in with Microsoft, choose a plan, check out, an administrator connects and consents, start. Each step with its status today. Or request a pilot.">
 <link rel="canonical" href="https://neopiq.ai/try.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
 <meta property="og:title" content="Get started with ChatAdmin">
-<meta property="og:description" content="Three steps: see the demo, open ChatAdmin and sign in with your Microsoft work account, then connect your own organisation (in development). Or request a pilot.">
+<meta property="og:description" content="Five steps: sign in with Microsoft, choose a plan, check out, an administrator connects and consents, start. Each step with its status today. Or request a pilot.">
 <meta property="og:url" content="https://neopiq.ai/try.html">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -45,34 +45,48 @@
   <section class="hero">
     <div class="wrap">
       <h1>Get started</h1>
-      <p class="lead">Three steps. The first two work today.</p>
+      <p class="lead">Five steps from your Microsoft sign-in to your first verified change. The first works today; the rest are being built, and a pilot can start now.</p>
     </div>
   </section>
 
   <section class="section" id="steps">
     <div class="wrap">
       <h2 class="sr-only">The steps</h2>
-      <ol class="journey journey--3" aria-label="Getting started, each step with its status">
-        <li class="journey__step journey__step--now" id="demo">
-          <span class="journey__name">See the demo</span>
-          <span class="status status--now">available now</span>
-          <p class="journey__note">Seven requests on a sample environment. No sign-in; nothing of yours is touched.</p>
-          <a class="btn btn--ghost btn--small" href="demo/">Try the demo</a>
-        </li>
+      <ol class="journey journey--5" aria-label="Getting started, each step with its status">
         <li class="journey__step journey__step--now" id="signin">
-          <span class="journey__name">Open ChatAdmin and sign in</span>
+          <span class="journey__name">Sign in with Microsoft</span>
           <span class="status status--now">available now</span>
-          <p class="journey__note">Use your Microsoft work account. Signing in identifies you; it reads and changes nothing in your tenant.</p>
+          <p class="journey__note">Open ChatAdmin and use your Microsoft work account. Signing in identifies you; it reads and changes nothing in your tenant.</p>
           <p class="journey__note">Neopiq&rsquo;s own organisation gets the full product; anyone else sees the demonstration and can <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20pilot%20request">request a pilot</a>.</p>
           <p class="journey__note">The first visit after a quiet spell can take up to a minute.</p>
           <a class="btn btn--primary btn--small" href="app.html">Open ChatAdmin</a>
         </li>
-        <li class="journey__step journey__step--dev" id="connect">
-          <span class="journey__name">Connect your organisation</span>
+        <li class="journey__step journey__step--dev" id="plan">
+          <span class="journey__name">Choose a plan</span>
           <span class="status status--dev">in development</span>
-          <p class="journey__note">A verified administrator of your tenant connects it; nothing is installed. ChatAdmin then acts with your own Microsoft rights, and you approve every change with your own sign-in.</p>
+          <p class="journey__note">Essential or the Standard plan, by what you manage; Enterprise and MSP by contract.</p>
+          <!-- @data:pricing-line --><p class="pricing-line">Essential <strong>CHF 49 / month</strong> &middot; Standard <strong>CHF 99 / month</strong> <span class="pricing-line__rec">Recommended</span> &middot; Enterprise and MSP: <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20plan">contact us</a></p><!-- @end -->
+          <p class="journey__note">In ChatAdmin the choice arrives together with the checkout. Until then a plan is agreed by e-mail.</p>
+          <a class="btn btn--ghost btn--small" href="pricing.html">Plans and prices</a>
+        </li>
+        <li class="journey__step journey__step--dev" id="checkout">
+          <span class="journey__name">Check out</span>
+          <span class="status status--dev">in development</span>
+          <p class="journey__note">A monthly subscription paid by card, for Essential or the Standard plan. It opens with the Paddle launch; no checkout exists today.</p>
+        </li>
+        <li class="journey__step journey__step--dev" id="connect">
+          <span class="journey__name">An administrator connects and consents</span>
+          <span class="status status--dev">in development</span>
+          <p class="journey__note">A verified administrator of your tenant connects your organisation and accepts Microsoft&rsquo;s consent for the permissions your plan needs. Nothing is installed.</p>
+          <p class="journey__note">ChatAdmin then acts with your own Microsoft rights, never more, and your own sign-in approves every change.</p>
+        </li>
+        <li class="journey__step journey__step--dev" id="start">
+          <span class="journey__name">Start</span>
+          <span class="status status--dev">in development</span>
+          <p class="journey__note">Ask, inspect, approve, execute, verify, in your own tenant. Today this runs for Neopiq&rsquo;s own organisation; your organisation follows the step before.</p>
         </li>
       </ol>
+      <p class="small muted mt-4">Not ready to sign in? <a href="demo/">Try the demo</a>: seven requests on a sample environment, nothing of yours touched.</p>
     </div>
   </section>
 

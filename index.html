@@ -224,14 +224,20 @@
       <!-- @data:identify plain -->
 <ul class="identify" aria-label="Which of these describes you?">
   <li class="identify__row">
+    <a class="identify__item identify__item--essential" href="pricing.html#plan-essential">
+      <span class="identify__statement">&ldquo;I manage Microsoft 365 and Microsoft Entra.&rdquo;</span>
+      <span class="identify__go" aria-hidden="true">&rarr;</span>
+    </a>
+  </li>
+  <li class="identify__row">
     <a class="identify__item identify__item--standard" href="pricing.html#plan-standard">
-      <span class="identify__statement">&ldquo;I manage our Microsoft environment.&rdquo;</span>
+      <span class="identify__statement">&ldquo;I manage Microsoft 365, Microsoft Entra, Microsoft Azure and Microsoft Power Platform.&rdquo;</span>
       <span class="identify__go" aria-hidden="true">&rarr;</span>
     </a>
   </li>
   <li class="identify__row">
     <a class="identify__item identify__item--enterprise" href="pricing.html#plan-enterprise">
-      <span class="identify__statement">&ldquo;Our team manages Microsoft together.&rdquo;</span>
+      <span class="identify__statement">&ldquo;We need endpoint administration, security operations or organisational governance.&rdquo;</span>
       <span class="identify__go" aria-hidden="true">&rarr;</span>
     </a>
   </li>
@@ -243,7 +249,8 @@
   </li>
 </ul>
 <!-- @end -->
-      <p class="mt-4"><a href="pricing.html">Plans</a></p>
+      <!-- @data:pricing-line --><p class="pricing-line">Essential <strong>CHF 49 / month</strong> &middot; Standard <strong>CHF 99 / month</strong> <span class="pricing-line__rec">Recommended</span> &middot; Enterprise and MSP: <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20plan">contact us</a></p><!-- @end -->
+      <p class="mt-4"><a href="pricing.html">Plans and prices</a></p>
     </div>
   </section>
 
@@ -271,15 +278,15 @@
   </li>
   <li class="status-list__item status-list__item--dev">
     <span class="status status--dev">in development</span>
-    <span class="status-list__body"><a class="status-list__label" href="pricing.html#plan-enterprise">Users &amp; Access and Activity for teams</a></span>
+    <span class="status-list__body"><a class="status-list__label" href="pricing.html#plan-enterprise">Organisational governance for teams</a></span>
   </li>
-  <li class="status-list__item status-list__item--planned">
-    <span class="status status--planned">planned</span>
+  <li class="status-list__item status-list__item--dev">
+    <span class="status status--dev">in development</span>
     <span class="status-list__body"><a class="status-list__label" href="pricing.html#plan-msp">Multi-tenant operation for MSPs</a></span>
   </li>
-  <li class="status-list__item status-list__item--planned">
-    <span class="status status--planned">planned</span>
-    <span class="status-list__body"><a class="status-list__label" href="pricing.html">Buying a plan online</a></span>
+  <li class="status-list__item status-list__item--dev">
+    <span class="status status--dev">in development</span>
+    <span class="status-list__body"><a class="status-list__label" href="try.html#checkout">Buying a plan online</a></span>
   </li>
   <li class="status-list__item status-list__item--planned">
     <span class="status status--planned">planned</span>
@@ -287,6 +294,19 @@
   </li>
 </ul>
 <!-- @end -->
+    </div>
+  </section>
+
+  <!-- 6. START: the two public prices, Recommended: Standard, the two actions -->
+  <section class="section cta-band" id="start">
+    <div class="wrap center">
+      <h2>Start with ChatAdmin</h2>
+      <!-- @data:pricing-line --><p class="pricing-line">Essential <strong>CHF 49 / month</strong> &middot; Standard <strong>CHF 99 / month</strong> <span class="pricing-line__rec">Recommended</span> &middot; Enterprise and MSP: <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20plan">contact us</a></p><!-- @end -->
+      <div class="cta-row">
+        <a class="btn btn--primary btn--large" href="app.html">Open ChatAdmin</a>
+        <a class="btn btn--ghost btn--large" href="try.html">Get started</a>
+        <a class="btn btn--ghost" href="pricing.html">Plans and prices</a>
+      </div>
     </div>
   </section>
 

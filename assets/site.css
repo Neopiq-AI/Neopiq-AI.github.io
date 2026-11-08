@@ -782,3 +782,43 @@ button.btn { font: inherit; font-weight: 600; }
 .journey__step .journey__note + .btn, .journey__step p + .btn { margin-top: var(--s-2); }
 .journey__step .status { align-self: flex-start; }
 .hero--home + #experience { padding-top: var(--s-4); }
+
+/* ==== CUST round (2026-11-08): the four plans with public prices (Essential, Standard recommended, Enterprise and MSP on request),
+   the three-question decision path, the one-line price summary and the five Get started steps. Every colour is an existing
+   token pair check-contrast.py already verifies; nothing above this block is edited. ==== */
+@media (min-width: 64rem) { .plan-cards--4 { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 40rem) and (max-width: 63.99rem) { .plan-cards--4 { grid-template-columns: repeat(2, 1fr); } }
+.plan-card--recommended { border-top-color: var(--accent); box-shadow: var(--shadow); }
+.plan-card__badge { display: inline-block; align-self: flex-start; margin: 0 0 var(--s-2); padding: .15rem .7rem; border-radius: var(--radius-pill); background: var(--accent); color: var(--text-onaccent); font-size: var(--fs-xs); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.plan-card__scope { font-weight: 650; color: var(--accent-text); font-size: var(--fs-sm); margin-bottom: var(--s-3); }
+.plan-card .plan-card__price { margin-top: 0; padding-top: 0; margin-bottom: .2rem; }
+.plan-card__amount small { font-size: var(--fs-sm); font-weight: 500; color: var(--text-muted); }
+.plan-card__amount--open { font-weight: 600; }
+.plan-card .plan-card__users { margin-bottom: var(--s-3); color: var(--text-muted); }
+.plan-card__action { margin: auto 0 0; padding-top: var(--s-3); }
+/* the decision path: three numbered questions, each answer a link to its plan card */
+.path { list-style: none; padding: 0; margin: 0; counter-reset: path; display: grid; gap: var(--s-3); grid-template-columns: 1fr; }
+@media (min-width: 52rem) { .path { grid-template-columns: repeat(3, 1fr); } }
+.path__q { counter-increment: path; position: relative; margin: 0; padding: var(--s-4) var(--s-4) var(--s-4) 2.9rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+.path__q::before { content: counter(path); position: absolute; left: .9rem; top: 1rem; width: 1.5rem; height: 1.5rem; border-radius: 50%; display: grid; place-items: center; font-family: var(--mono); font-size: .78rem; font-weight: 700; background: var(--accent-soft); color: var(--accent-text); }
+.path__question { font-weight: 650; margin-bottom: var(--s-3); }
+.path__answers { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s-2); }
+.path__answers li { margin: 0; }
+.path__answer { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .5rem; padding: .55rem .75rem; border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; color: var(--text); background: var(--bg); }
+.path__answer:hover { border-color: var(--accent); color: var(--text); }
+.path__plan { font-weight: 650; color: var(--accent-text); }
+.path__arrow { color: var(--accent-text); }
+/* the pricing line: "Essential CHF n / month · Standard CHF n / month Recommended · Enterprise and MSP: contact us" */
+.pricing-line { color: var(--text-muted); margin: var(--s-3) 0 0; }
+.pricing-line strong { color: var(--text); white-space: nowrap; }
+.pricing-line__rec { display: inline-block; padding: .05rem .5rem; border-radius: var(--radius-pill); background: var(--accent-soft); color: var(--accent-text); font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; vertical-align: middle; }
+.cta-band .cta-row { justify-content: center; }
+.cta-band .pricing-line { max-width: none; }
+/* the five Get started steps */
+@media (min-width: 72rem) {
+  .journey--5 { grid-template-columns: repeat(5, 1fr); gap: var(--s-3); }
+  .journey--5 .journey__step { padding: var(--s-4) var(--s-4) var(--s-4) 2.9rem; }
+  .journey--5 .journey__step::before { left: .9rem; top: 1rem; }
+}
+.journey__step .pricing-line { font-size: var(--fs-sm); margin: 0; }
+.plan-claims__note { font-size: var(--fs-sm); }
