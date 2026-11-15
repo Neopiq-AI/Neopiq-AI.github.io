@@ -48,6 +48,7 @@
     <div class="wrap">
       <h1>Run Microsoft IT through a conversation.</h1>
       <p class="lead">Say what you need. ChatAdmin inspects your Microsoft environment, proposes the change, and acts only after you approve it.</p>
+      <p class="muted">Today it reads and checks your tenant; changes open soon.</p>
       <!-- @data:areas -->
 <ul class="areas" aria-label="The Microsoft areas ChatAdmin operates">
   <li class="areas__item areas__item--base">Microsoft 365</li>
@@ -60,11 +61,47 @@
         <a class="btn btn--primary btn--large" href="app.html">Open ChatAdmin</a>
         <a class="btn btn--ghost btn--large" href="demo/">Try the demo</a>
       </div>
-      <p class="small muted mt-4">Sign in with your Microsoft work account. Neopiq&rsquo;s own organisation gets the full product; anyone else sees the demo and can <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20pilot%20request">request a pilot</a>.</p>
+      <p class="small muted mt-4">Sign in with your Microsoft work account. An organisation with a ChatAdmin plan uses it in its own tenant; without a plan you see the plans, and an MSP can request a free trial.</p>
     </div>
   </section>
 
   <!-- 2. TRY: the demo in place -->
+  <section class="section section--alt" id="who">
+    <div class="wrap">
+      <h2>Which describes you?</h2>
+      <!-- @data:identify plain -->
+<ul class="identify" aria-label="Which of these describes you?">
+  <li class="identify__row">
+    <a class="identify__item identify__item--msp" href="pricing.html#plan-msp">
+      <span class="identify__statement">&ldquo;I manage Microsoft environments for customers.&rdquo;</span>
+      <span class="identify__go" aria-hidden="true">&rarr;</span>
+    </a>
+  </li>
+  <li class="identify__row">
+    <a class="identify__item identify__item--standard" href="pricing.html#plan-standard">
+      <span class="identify__statement">&ldquo;I manage Microsoft 365, Microsoft Entra, Microsoft Azure and Microsoft Power Platform.&rdquo;</span>
+      <span class="identify__go" aria-hidden="true">&rarr;</span>
+    </a>
+  </li>
+  <li class="identify__row">
+    <a class="identify__item identify__item--essential" href="pricing.html#plan-essential">
+      <span class="identify__statement">&ldquo;I manage Microsoft 365 and Microsoft Entra.&rdquo;</span>
+      <span class="identify__go" aria-hidden="true">&rarr;</span>
+    </a>
+  </li>
+  <li class="identify__row">
+    <a class="identify__item identify__item--enterprise" href="pricing.html#plan-enterprise">
+      <span class="identify__statement">&ldquo;We need endpoint administration, security operations or organisational governance.&rdquo;</span>
+      <span class="identify__go" aria-hidden="true">&rarr;</span>
+    </a>
+  </li>
+</ul>
+<!-- @end -->
+      <!-- @data:pricing-line --><p class="pricing-line">MSP <strong>CHF 299 / month</strong> (5 managed customers included) &middot; Standard <strong>CHF 99 / month</strong> <span class="pricing-line__rec">Recommended</span> &middot; Essential <strong>CHF 49 / month</strong> &middot; Larger organisations: <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20plan">contact us</a></p><!-- @end -->
+      <p class="mt-4"><a href="pricing.html">Plans and prices</a></p>
+    </div>
+  </section>
+
   <section class="section" id="experience">
     <div class="wrap">
       <!-- @region:demo -->
@@ -211,51 +248,16 @@
         <li>ChatAdmin proposes; a person approves. Every change waits on an Approve / Reject card, and nothing is approved by software.</li>
         <li>An unanswered card declines itself after five minutes. Every result is read back from Microsoft before it is reported.</li>
         <li>Signing in reads and changes nothing in your tenant: your identity only, no administrative access.</li>
-        <li>In your own organisation it will act with your own Microsoft rights, never more, with no Neopiq key or secret kept there. <span class="status status--dev">in development</span></li>
+        <li>In your own organisation ChatAdmin reads with your own Microsoft rights, never more, with no Neopiq key or secret kept there. <span class="status status--now">available now</span> Changes are not open for customers yet: ChatAdmin gives the steps in the Microsoft admin center instead.</li>
       </ul>
       <p><a href="security.html">Security</a></p>
     </div>
   </section>
 
   <!-- 4. Self-identification before plan names -->
-  <section class="section" id="who">
-    <div class="wrap">
-      <h2>Which describes you?</h2>
-      <!-- @data:identify plain -->
-<ul class="identify" aria-label="Which of these describes you?">
-  <li class="identify__row">
-    <a class="identify__item identify__item--essential" href="pricing.html#plan-essential">
-      <span class="identify__statement">&ldquo;I manage Microsoft 365 and Microsoft Entra.&rdquo;</span>
-      <span class="identify__go" aria-hidden="true">&rarr;</span>
-    </a>
-  </li>
-  <li class="identify__row">
-    <a class="identify__item identify__item--standard" href="pricing.html#plan-standard">
-      <span class="identify__statement">&ldquo;I manage Microsoft 365, Microsoft Entra, Microsoft Azure and Microsoft Power Platform.&rdquo;</span>
-      <span class="identify__go" aria-hidden="true">&rarr;</span>
-    </a>
-  </li>
-  <li class="identify__row">
-    <a class="identify__item identify__item--enterprise" href="pricing.html#plan-enterprise">
-      <span class="identify__statement">&ldquo;We need endpoint administration, security operations or organisational governance.&rdquo;</span>
-      <span class="identify__go" aria-hidden="true">&rarr;</span>
-    </a>
-  </li>
-  <li class="identify__row">
-    <a class="identify__item identify__item--msp" href="pricing.html#plan-msp">
-      <span class="identify__statement">&ldquo;I manage Microsoft environments for customers.&rdquo;</span>
-      <span class="identify__go" aria-hidden="true">&rarr;</span>
-    </a>
-  </li>
-</ul>
-<!-- @end -->
-      <!-- @data:pricing-line --><p class="pricing-line">Essential <strong>CHF 49 / month</strong> &middot; Standard <strong>CHF 99 / month</strong> <span class="pricing-line__rec">Recommended</span> &middot; Enterprise and MSP: <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20plan">contact us</a></p><!-- @end -->
-      <p class="mt-4"><a href="pricing.html">Plans and prices</a></p>
-    </div>
-  </section>
 
   <!-- 5. Honest status, one list -->
-  <section class="section section--alt" id="status">
+  <section class="section" id="status">
     <div class="wrap">
       <h2>What works today</h2>
       <!-- @data:status-list home compact -->
@@ -272,25 +274,21 @@
     <span class="status status--now">available now</span>
     <span class="status-list__body"><a class="status-list__label" href="security.html#approval">Every change on an Approve / Reject card</a></span>
   </li>
-  <li class="status-list__item status-list__item--dev">
-    <span class="status status--dev">in development</span>
+  <li class="status-list__item status-list__item--now">
+    <span class="status status--now">available now</span>
     <span class="status-list__body"><a class="status-list__label" href="try.html#connect">Connecting your own organisation</a></span>
   </li>
-  <li class="status-list__item status-list__item--dev">
-    <span class="status status--dev">in development</span>
-    <span class="status-list__body"><a class="status-list__label" href="pricing.html#plan-enterprise">Organisational governance for teams</a></span>
+  <li class="status-list__item status-list__item--now">
+    <span class="status status--now">available now</span>
+    <span class="status-list__body"><a class="status-list__label" href="try.html">Users &amp; Access and Activity for your organisation</a></span>
   </li>
-  <li class="status-list__item status-list__item--dev">
-    <span class="status status--dev">in development</span>
+  <li class="status-list__item status-list__item--now">
+    <span class="status status--now">available now</span>
     <span class="status-list__body"><a class="status-list__label" href="pricing.html#plan-msp">Multi-tenant operation for MSPs</a></span>
   </li>
   <li class="status-list__item status-list__item--dev">
     <span class="status status--dev">in development</span>
     <span class="status-list__body"><a class="status-list__label" href="try.html#checkout">Buying a plan online</a></span>
-  </li>
-  <li class="status-list__item status-list__item--planned">
-    <span class="status status--planned">planned</span>
-    <span class="status-list__body"><span class="status-list__label">Connectors: ServiceNow, Azure DevOps, Okta, Jira, Vault</span></span>
   </li>
 </ul>
 <!-- @end -->
@@ -301,7 +299,7 @@
   <section class="section cta-band" id="start">
     <div class="wrap center">
       <h2>Start with ChatAdmin</h2>
-      <!-- @data:pricing-line --><p class="pricing-line">Essential <strong>CHF 49 / month</strong> &middot; Standard <strong>CHF 99 / month</strong> <span class="pricing-line__rec">Recommended</span> &middot; Enterprise and MSP: <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20plan">contact us</a></p><!-- @end -->
+      <!-- @data:pricing-line --><p class="pricing-line">MSP <strong>CHF 299 / month</strong> (5 managed customers included) &middot; Standard <strong>CHF 99 / month</strong> <span class="pricing-line__rec">Recommended</span> &middot; Essential <strong>CHF 49 / month</strong> &middot; Larger organisations: <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20plan">contact us</a></p><!-- @end -->
       <div class="cta-row">
         <a class="btn btn--primary btn--large" href="app.html">Open ChatAdmin</a>
         <a class="btn btn--ghost btn--large" href="try.html">Get started</a>

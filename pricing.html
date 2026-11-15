@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pricing — Essential, Standard, Enterprise and MSP plans for ChatAdmin</title>
-<meta name="description" content="Four ChatAdmin plans by what you manage and how you operate: Essential, Standard (recommended), Enterprise and MSP. Public monthly prices for Essential and Standard; Enterprise and MSP on request. No deployment project, no per-employee licensing. A plan is not Microsoft authority.">
+<title>Pricing — MSP, Standard and Essential plans for ChatAdmin</title>
+<meta name="description" content="ChatAdmin plans by what you manage and how you operate: MSP for service providers, Standard (recommended) and Essential, each with a public monthly price; larger organisations on request. No deployment project, no per-employee licensing. A plan is not Microsoft authority.">
 <link rel="canonical" href="https://neopiq.ai/pricing.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="Pricing — Essential, Standard, Enterprise and MSP plans for ChatAdmin">
-<meta property="og:description" content="Four ChatAdmin plans by what you manage and how you operate: Essential, Standard (recommended), Enterprise and MSP. Public monthly prices for Essential and Standard; Enterprise and MSP on request. No deployment project, no per-employee licensing. A plan is not Microsoft authority.">
+<meta property="og:title" content="Pricing — MSP, Standard and Essential plans for ChatAdmin">
+<meta property="og:description" content="ChatAdmin plans by what you manage and how you operate: MSP for service providers, Standard (recommended) and Essential, each with a public monthly price; larger organisations on request. No deployment project, no per-employee licensing. A plan is not Microsoft authority.">
 <meta property="og:url" content="https://neopiq.ai/pricing.html">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -54,6 +54,12 @@
       <h2>Which plan? Three questions.</h2>
       <!-- @data:decision-path -->
 <ol class="path" aria-label="Three questions that lead to a plan">
+  <li class="path__q" id="path-msp">
+    <p class="path__question">Do you manage customer tenants?</p>
+    <ul class="path__answers">
+      <li><a class="path__answer" href="pricing.html#plan-msp"><span class="path__text">Yes</span> <span class="path__arrow" aria-hidden="true">&rarr;</span> <span class="path__plan">MSP &middot; CHF 299 / month</span></a></li>
+    </ul>
+  </li>
   <li class="path__q" id="path-scope">
     <p class="path__question">What do you manage?</p>
     <ul class="path__answers">
@@ -67,12 +73,6 @@
       <li><a class="path__answer" href="pricing.html#plan-enterprise"><span class="path__text">Yes</span> <span class="path__arrow" aria-hidden="true">&rarr;</span> <span class="path__plan">Enterprise</span></a></li>
     </ul>
   </li>
-  <li class="path__q" id="path-msp">
-    <p class="path__question">Do you manage customer tenants?</p>
-    <ul class="path__answers">
-      <li><a class="path__answer" href="pricing.html#plan-msp"><span class="path__text">Yes</span> <span class="path__arrow" aria-hidden="true">&rarr;</span> <span class="path__plan">MSP</span></a></li>
-    </ul>
-  </li>
 </ol>
 <!-- @end -->
     </div>
@@ -82,16 +82,21 @@
     <div class="wrap">
       <h2 class="sr-only">The plans</h2>
       <!-- @data:pricing-cards -->
-<div class="plan-cards plan-cards--4">
-  <article class="plan-card plan-card--essential" id="plan-essential">
-    <p class="plan-card__statement">&ldquo;I manage Microsoft 365 and Microsoft Entra.&rdquo;</p>
-    <h3 class="plan-card__name">Essential</h3>
-    <p class="plan-card__scope">Microsoft 365 + Microsoft Entra</p>
-    <p class="plan-card__price"><span class="plan-card__amount">CHF 49 <small>/ month</small></span></p>
-    <p class="plan-card__users">1 ChatAdmin operator</p>
-    <p class="plan-card__line">One organisation, one Microsoft tenant. Exchange Online, Teams, SharePoint, OneDrive, users, groups and licences.</p>
-    <p class="plan-card__line">The same execution, approval and verification as every plan: the boundary is scope, not quality.</p>
-    <p class="plan-card__action"><a class="btn btn--primary btn--small" href="app.html">Get started</a></p>
+<div class="plan-cards plan-cards--3">
+  <article class="plan-card plan-card--msp" id="plan-msp">
+    <p class="plan-card__statement">&ldquo;I manage Microsoft environments for customers.&rdquo;</p>
+    <h3 class="plan-card__name">MSP</h3>
+    <p class="plan-card__scope">Multi-tenant administration for service providers</p>
+    <p class="plan-card__price"><span class="plan-card__amount">CHF 299 <small>/ month</small></span></p>
+    <p class="plan-card__users">Includes 5 managed customers; CHF 29/month for each additional managed customer; each managed customer gets Standard.</p>
+    <p class="plan-card__line">One workspace across your customers' Microsoft tenants: each customer kept separate, your technicians signed in with their own Microsoft accounts, one overview across every connected customer.</p>
+    <p class="plan-card__line">Today ChatAdmin reads and checks in your customers' tenants; changes are made in Microsoft's admin centers until changes open on ChatAdmin.</p>
+    <p class="plan-card__line">Free for 14 days with up to three managed customers, each with Standard; no payment method. Neopiq switches the trial on; then set up directly with Neopiq, no online payment needed.</p>
+    <ul class="plan-card__org">
+      <li>Customer directory, connection links, the active customer on every screen <span class="status status--now">available now</span></li>
+      <li>Cross-tenant discovery: reads across connected tenants, never a write <span class="status status--now">available now</span></li>
+    </ul>
+    <p class="plan-card__action"><a class="btn btn--primary btn--small" href="app.html">Start a 14-day free trial</a></p>
   </article>
   <article class="plan-card plan-card--standard plan-card--recommended" id="plan-standard">
     <p class="plan-card__badge">Recommended</p>
@@ -104,35 +109,20 @@
     <p class="plan-card__line">The core product and the best fit for most Microsoft-dependent SMBs; it keeps growing deeper inside its four platforms.</p>
     <p class="plan-card__action"><a class="btn btn--primary btn--small" href="app.html">Get started</a></p>
   </article>
-  <article class="plan-card plan-card--enterprise" id="plan-enterprise">
-    <p class="plan-card__statement">&ldquo;We need endpoint administration, security operations or organisational governance.&rdquo;</p>
-    <h3 class="plan-card__name">Enterprise</h3>
-    <p class="plan-card__scope">Standard + Intune + Defender + governance + enterprise integrations</p>
-    <p class="plan-card__price"><span class="plan-card__amount plan-card__amount--open">Introductory pricing on request</span></p>
-    <p class="plan-card__line">Microsoft IT operations and security: everything in the Standard plan, and wider. Defined by scope and operational dependency, not by company size.</p>
-    <ul class="plan-card__org">
-      <li>Microsoft Intune: endpoint administration <span class="status status--planned">planned</span></li>
-      <li>Microsoft Defender for Endpoint: security operations <span class="status status--planned">planned</span></li>
-      <li>Organisational governance: Users &amp; Access, Activity, execution policies <span class="status status--dev">in development</span></li>
-      <li>Enterprise integrations, ServiceNow first <span class="status status--planned">planned</span></li>
-    </ul>
-    <p class="plan-card__action"><a class="btn btn--secondary btn--small" href="mailto:contact@neopiq.ai?subject=ChatAdmin%20Enterprise%20plan">Contact us</a></p>
-  </article>
-  <article class="plan-card plan-card--msp" id="plan-msp">
-    <p class="plan-card__statement">&ldquo;I manage Microsoft environments for customers.&rdquo;</p>
-    <h3 class="plan-card__name">MSP</h3>
-    <p class="plan-card__scope">Multi-tenant administration for service providers</p>
-    <p class="plan-card__price"><span class="plan-card__amount plan-card__amount--open">Pricing published after validation</span></p>
-    <p class="plan-card__line">A separate operating model on the same platform: one workspace across your customers' tenants, your technicians' own delegated Microsoft authority, controlled execution in the selected tenant.</p>
-    <ul class="plan-card__org">
-      <li>Customer directory, connection links, the active tenant on every screen and every card <span class="status status--dev">in development</span></li>
-      <li>Cross-tenant discovery: reads across connected tenants, never a write <span class="status status--dev">in development</span></li>
-    </ul>
-    <p class="plan-card__action"><a class="btn btn--secondary btn--small" href="mailto:contact@neopiq.ai?subject=ChatAdmin%20MSP%20plan">Contact us</a></p>
+  <article class="plan-card plan-card--essential" id="plan-essential">
+    <p class="plan-card__statement">&ldquo;I manage Microsoft 365 and Microsoft Entra.&rdquo;</p>
+    <h3 class="plan-card__name">Essential</h3>
+    <p class="plan-card__scope">Microsoft 365 + Microsoft Entra</p>
+    <p class="plan-card__price"><span class="plan-card__amount">CHF 49 <small>/ month</small></span></p>
+    <p class="plan-card__users">1 ChatAdmin operator</p>
+    <p class="plan-card__line">One organisation, one Microsoft tenant. Exchange Online, Teams, SharePoint, OneDrive, users, groups and licences.</p>
+    <p class="plan-card__line">The same execution, approval and verification as every plan: the boundary is scope, not quality.</p>
+    <p class="plan-card__action"><a class="btn btn--primary btn--small" href="app.html">Get started</a></p>
   </article>
 </div>
-<p class="plan-cards__note">Prices in Swiss francs, per organisation and month, for one Microsoft tenant. No per-employee licensing, no execution credits, no question or token limits. Neopiq GmbH is not registered for VAT.</p>
-<p class="plan-cards__note"><span class="status status--dev">in development</span> Buying online opens with the Paddle launch: a monthly subscription for Essential or the Standard plan. Until then, write to us; Enterprise and MSP are always agreed by contract.</p>
+<p class="plan-cards__note plan-cards__line" id="plan-enterprise">Larger organisations: <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20Enterprise%20plan">contact us</a>.</p>
+<p class="plan-cards__note">Prices in Swiss francs per month: Essential and Standard per organisation, for one Microsoft tenant; MSP per service provider, with the managed customers above. No per-employee licensing, no execution credits, no question or token limits. Neopiq GmbH is not registered for VAT.</p>
+<p class="plan-cards__note"><span class="status status--dev">in development</span> Buying online opens with the Paddle launch: a monthly subscription for the Standard plan or Essential. Until then, a plan is agreed directly with Neopiq: write to us. An MSP can start with a 14-day free trial on ChatAdmin's start page; larger organisations are agreed by contract.</p>
 <p class="plan-cards__note"><strong>A plan is not Microsoft authority: it decides what ChatAdmin can do for your organisation and never adds Microsoft rights to anyone.</strong></p>
 <!-- @end -->
     </div>
@@ -144,11 +134,11 @@
       <!-- @data:plan-claims -->
 <ul class="bullets bullets--large plan-claims" aria-label="What every plan includes">
   <li>No deployment project. No Neopiq consulting required.</li>
-  <li>Connect your Microsoft tenant and start. <span class="status status--dev">in development</span></li>
+  <li>Connect your Microsoft tenant with one administrator consent and start: ChatAdmin reads with your own Microsoft rights. <span class="status status--now">available now</span></li>
   <li>No per-employee licensing.</li>
   <li>No artificial execution credits: no question limits, no token limits, nothing metered that you have to watch.</li>
-  <li>A person approves every change.</li>
-  <li>Execution with verification: every result is read back from Microsoft.</li>
+  <li>A person approves every change. Changes are not open for customers yet; when they open, each one waits on your own Approve card.</li>
+  <li>Execution with verification: every result is read back from Microsoft - in Neopiq's own environment today, for customers when changes open.</li>
 </ul>
 <p class="plan-claims__note muted">Your Microsoft licences, roles and service prerequisites still apply: a plan never adds Microsoft rights, and ChatAdmin asks for the permissions a capability needs before it uses them.</p>
 <!-- @end -->
@@ -169,8 +159,8 @@
     <div class="wrap narrow">
       <h2>Today</h2>
       <ul class="bullets">
-        <li>Open ChatAdmin and sign in with your Microsoft work account. Neopiq&rsquo;s own organisation gets the full product; anyone else sees the demonstration and can <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20pilot%20request">request a pilot</a>. <span class="status status--now">available now</span></li>
-        <li>Connecting your own organisation: a verified administrator connects it and consents; nothing is installed. <span class="status status--dev">in development</span></li>
+        <li>Open ChatAdmin and sign in with your Microsoft work account: the plans, and for an MSP a free trial. <span class="status status--now">available now</span></li>
+        <li>Connecting your own organisation: one administrator consent for read access; nothing is installed. ChatAdmin then reads with your own Microsoft rights. <span class="status status--now">available now</span></li>
         <li>The whole path, step by step, with what works today: <a href="try.html">Get started</a>.</li>
       </ul>
       <div class="cta-row">
