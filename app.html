@@ -17,6 +17,7 @@
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script src="assets/js/opening.js" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -25,11 +26,19 @@
   <section class="section">
     <div class="wrap narrow">
       <h1>Opening ChatAdmin</h1>
+      <div class="opening" role="status" aria-live="polite">
+        <span class="opening__spinner" aria-hidden="true"></span>
+        <p class="opening__line"><strong data-opening-step>Starting ChatAdmin&hellip;</strong>
+          <span class="opening__time" data-opening-time hidden></span></p>
+      </div>
+      <noscript><p>Without JavaScript this page shows no timer, but it still moves on by itself.</p></noscript>
       <p class="lede">
-        You should be taken to ChatAdmin automatically. There you sign in with your Microsoft work account;
-        signing in identifies you and reads or changes nothing in your tenant. Any Microsoft work account can
-        sign in; you land on the plan choice and the activation checklist. Until online payment opens, a plan is
-        agreed by contacting Neopiq.
+        ChatAdmin pauses when nobody is using it, so the first visit after a quiet spell can take up to half a minute
+        while it starts. This page moves on by itself as soon as ChatAdmin answers; there is nothing to click.
+      </p>
+      <p>
+        There you sign in with your Microsoft work account. Signing in identifies you and reads or changes nothing in
+        your tenant; you land on the plan choice and the activation checklist.
       </p>
       <div class="btn-row">
         <a class="btn btn--primary" href="https://app-chatadmin-hub.nicefield-f64590ef.switzerlandnorth.azurecontainerapps.io/start">Open ChatAdmin</a>
