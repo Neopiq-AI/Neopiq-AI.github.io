@@ -592,10 +592,16 @@
         </li>
         <li>
           <strong>What it is used for.</strong> Only to serve that customer: better answers, its
-          MSP&rsquo;s view of it, and recommendations to that customer about its own tenant, which its
-          administrator can switch off. It is never used for marketing, never for other customers and
-          never combined across customers. Like everything in a conversation, facts from it reach the
-          language model when they are part of a turn.
+          MSP&rsquo;s view of it (for an MSP, also totals across that MSP&rsquo;s own customers &mdash;
+          counts only, shown only to the MSP&rsquo;s own members, a number from one or two customers shown
+          as &ldquo;fewer than 3&rdquo;), and recommendations to that customer about its own tenant.
+          Operational recommendations, for example unassigned licences, are shown until the
+          customer&rsquo;s ChatAdmin administrator switches them off. A recommendation to buy a Microsoft
+          product is shown only after that administrator has switched such recommendations on; the
+          profile is never used to recommend ChatAdmin&rsquo;s own plans or upgrades. It is never used
+          for Neopiq&rsquo;s marketing, never shown to other customers, and never combined across
+          customers except in an MSP&rsquo;s totals for its own customers. Like everything in a
+          conversation, facts from it reach the language model when they are part of a turn.
         </li>
         <li>
           <strong>Your control.</strong> The customer&rsquo;s ChatAdmin administrator sees the profile
