@@ -576,8 +576,10 @@
           Microsoft Entra, Microsoft 365, Azure, Power Platform, Intune); its licences, by
           Microsoft&rsquo;s product name, with the numbers purchased, assigned and available; and
           totals such as the numbers of users, guests, mailboxes, subscriptions, environments and
-          devices. Each fact carries the time it was read. For very small tenants, and tenants whose
-          size is not known yet, it holds only which services are present.
+          devices. Each fact carries the time it was read. It also keeps a short list of the last
+          changes to those numbers (for example a licence count going from 20 to 25), each with its
+          date. For very small tenants, and tenants whose size is not known yet, it holds only which
+          services are present.
         </li>
         <li>
           <strong>What it never holds.</strong> Names, sign-in names, e-mail addresses, device or group
