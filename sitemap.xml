@@ -14,16 +14,18 @@
   round, 2026-11-17: choosing a plan is Get started's first step) are noindex
   redirect stubs and are deliberately absent, like app.html (the forwarding
   page to the live product).
-  product-d365.html and /tools/level0/ (the free Planning Data Auditor) are kept
-  indexable but are out of the primary journey (2026-10-31).
+  product-d365.html and /tools/level0/ are deliberately absent since 2026-11-18
+  (the owner: the Dynamics 365 line is not shown to visitors for now):
+  product-d365.html is a noindex stub that forwards to the home page, and
+  /tools/level0/ stays served with noindex but is linked from no page.
 
   404.html is deliberately absent. It is served as the not-found body and
   carries <meta name="robots" content="noindex">, so listing it here would
   contradict the page itself.
 
   product-supply-chain.html, product-process-data.html and product-azure-admin.html
-  are also deliberately absent. The first two were merged into product-d365.html;
-  the third was renamed to product-chatadmin.html when the admin product was named
+  are also deliberately absent. The first two were merged into product-d365.html
+  and, like it, forward to the home page since 2026-11-18; the third was renamed to product-chatadmin.html when the admin product was named
   ChatAdmin. All three survive only as noindex <meta refresh> stubs that forward
   the old URLs; check-site.py fails the build if any is added here.
 
@@ -37,9 +39,6 @@
   <url><loc>https://neopiq.ai/security.html</loc></url>
   <url><loc>https://neopiq.ai/try.html</loc></url>
   <url><loc>https://neopiq.ai/contact.html</loc></url>
-
-  <url><loc>https://neopiq.ai/product-d365.html</loc></url>
-  <url><loc>https://neopiq.ai/tools/level0/</loc></url>
 
   <url><loc>https://neopiq.ai/imprint.html</loc></url>
   <url><loc>https://neopiq.ai/privacy.html</loc></url>
