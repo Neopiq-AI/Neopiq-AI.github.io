@@ -35,4 +35,21 @@
     ev.preventDefault();
     player.start(id);
   });
+
+  /* the featured request (marked aria-current in the page) plays when the frame first comes into view, if it is not the
+   * statically rendered joiner (2026-11-18: the Copilot Studio diagnosis is the first demo) */
+  var featured = frame.querySelector('.demo-picks a[aria-current="true"]');
+  var fid = featured ? featured.getAttribute('data-scenario') : '';
+  if (fid && fid !== 'joiner' && D.SCENARIOS[fid]) {
+    var started = false;
+    var go = function () { if (!started) { started = true; player.start(fid); } };
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) { io.disconnect(); go(); }
+      }, { threshold: 0.25 });
+      io.observe(frame);
+    } else {
+      go();
+    }
+  }
 })();
