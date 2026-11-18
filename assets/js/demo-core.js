@@ -721,7 +721,7 @@
       env.appendChild(document.createTextNode('Environment: '));
       env.appendChild(el('strong', null, card.env));
       c.appendChild(env);
-      c.appendChild(el('p', 'card-approval__facts', 'Approved by a signed-in person · declines after five minutes of silence · bound to ' + ENV));
+      c.appendChild(el('p', 'card-approval__facts', 'Only a person signed in with their own Microsoft account can approve this card · declines after five minutes of silence · bound to ' + ENV));
       var ol = el('ol', 'plan');
       card.steps.forEach(function (s) { ol.appendChild(el('li', null, s[1])); });
       c.appendChild(ol);
