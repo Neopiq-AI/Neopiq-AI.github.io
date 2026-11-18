@@ -45,13 +45,14 @@
   <section class="hero">
     <div class="wrap">
       <h1>Security</h1>
-      <p class="lead">ChatAdmin makes real changes in Microsoft Entra, Microsoft 365, Microsoft Azure and Microsoft Power Platform. This is how it stays under your control.</p>
+      <p class="lead">ChatAdmin reads your Microsoft Entra, Microsoft 365, Microsoft Azure, Microsoft Power Platform, Microsoft Intune and Microsoft Defender environment with your own Microsoft rights; in customers&rsquo; tenants it makes no changes. This is how it stays under your control.</p>
     </div>
   </section>
 
   <section class="section" id="approval">
     <div class="wrap narrow">
-      <h2>Approval on every change <span class="status status--now">available now</span></h2>
+      <h2>A person approves every change</h2>
+      <p>Changes are not open for customers yet. In Neopiq&rsquo;s own environment, and for customers when changes open:</p>
       <ul class="bullets">
         <li>Reads run at once. Every change stops at an Approve / Reject card naming the area, the environment, every step and the checks it ran.</li>
         <li>A person approves. Nothing is approved by software; an automated check may only reject.</li>
@@ -65,14 +66,14 @@
   <section class="section section--alt" id="limits">
     <div class="wrap narrow">
       <h2>What it can and cannot do</h2>
-      <p>It reads directory objects, licences, mailbox sizes and permissions, Teams and SharePoint membership, Azure resources and costs, and Power Platform environments. It changes only what a card shows. Today it acts through identities a Neopiq operator set up for one Microsoft tenant.</p>
+      <p>It reads directory objects, licences, sign-in error codes, Conditional Access policies, mailbox sizes and permissions, Teams and SharePoint membership, usage reports, Azure resources and costs, Power Platform environments and Copilot Studio agents, Intune information and Microsoft Defender incidents and alerts, within the rights of the person who asks. In customers&rsquo; tenants it only reads. Some Microsoft permissions it asks for (Azure, Power Platform, Dataverse, and Files.Read.All and Sites.Read.All in Microsoft 365) are not limited to reading; ChatAdmin&rsquo;s code uses them only to read and never reads file content.</p>
       <p><strong>It never:</strong></p>
       <ul class="bullets bullets--never">
-        <li>Read a message, a calendar or a file&rsquo;s contents</li>
+        <li>Read the body of a message, a calendar entry, a chat or a file</li>
         <li>Create a client secret or password, or read a secret out of a vault</li>
         <li>Assign Global Administrator from chat, or grant Owner in Azure</li>
         <li>Forward mail outside your organisation, or delete a mailbox, team, site or file</li>
-        <li>Touch Conditional Access, authentication methods, domains or tenant settings</li>
+        <li>Change Conditional Access, authentication methods, domains or tenant settings</li>
         <li>Act between your turns: no schedule, no background job</li>
       </ul>
     </div>
@@ -85,7 +86,7 @@
         <li>Your Microsoft work account, identity scopes only. ChatAdmin learns your name, sign-in name and tenant id, and shows them on every card. <span class="status status--now">available now</span></li>
         <li>No administrative access is requested; nothing in your tenant is read or changed. The sign-in token is verified once and discarded.</li>
         <li>An organisation with a ChatAdmin plan uses it in its own tenant; without a plan you see the plans.</li>
-        <li>In your own organisation: one administrator consent for read access, nothing installed, your own Microsoft rights and no Neopiq keys. <span class="status status--now">available now</span> Changes are not open for customers yet; when they open, your own sign-in approves each one.</li>
+        <li>In your own organisation: an administrator consent for the permissions ChatAdmin uses to read (some areas ask for their own consent the first time), nothing installed, your own Microsoft rights and no Neopiq keys. Changes are not open for customers yet; when they open, your own sign-in approves each one.</li>
       </ul>
     </div>
   </section>
@@ -95,7 +96,7 @@
       <h2>Data</h2>
       <ul class="bullets">
         <li>Session transcripts (requests, answers, cards, decisions) are kept in Neopiq&rsquo;s own Microsoft Azure storage, with secret-shaped values removed.</li>
-        <li>What ChatAdmin reads goes to the language model; anything that looks like a key or password is blanked first.</li>
+        <li>What ChatAdmin reads goes to the language model of Anthropic, which processes it in the United States; anything that looks like a key or password is blanked first.</li>
         <li>This website stores and sends nothing: no cookies, no tracking.</li>
       </ul>
       <p><span class="status status--now">available now</span> A daily job deletes transcripts and event logs older than 90 days; everything of an organisation that leaves is deleted on request.</p>

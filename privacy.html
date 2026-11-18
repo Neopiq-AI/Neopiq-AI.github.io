@@ -64,8 +64,9 @@
         <p>
           <strong>Note, 2026-11-17.</strong> The section on <a href="#admin-agent">ChatAdmin</a>
           below describes ChatAdmin as it runs today, and the sections on how long anything is kept,
-          who receives data and changes to this notice have been brought into line with it. This
-          notice as a whole is under legal review. The parts about the website itself are unchanged:
+          who receives data and changes to this notice have been brought into line with it. The parts
+          of the ChatAdmin section that are still being completed are marked as such. The parts about
+          the website itself are unchanged:
           apart from the free check, which runs entirely in your browser and uploads nothing, only the
           home page and the demo page (the demonstration) and the page that opens ChatAdmin run small
           scripts, all loaded from this site; they send nothing anywhere and store nothing.
@@ -118,11 +119,11 @@
           under <a href="#framework">which law applies</a>, does the GDPR apply here at all.
           Data-protection questions go to the contact address above and are answered by the
           management directly.</li>
-        <li>Representative in the EU under GDPR Art. 27: none is appointed, because on the
-          assessment under <a href="#framework">which law applies</a> the GDPR does not apply to
-          this site. A Swiss controller needs no separate Swiss representative. If the company
-          ever starts offering its services to people in the EU, a representative will be
-          appointed and named here before that happens.</li>
+        <li>Representative in the EU under GDPR Art. 27: for this website none is needed, because on
+          the assessment under <a href="#framework">which law applies</a> the GDPR does not apply to it.
+          A Swiss controller needs no separate Swiss representative. ChatAdmin can be used by
+          businesses in the European Union and the United Kingdom; our representatives there under
+          GDPR Art. 27 and UK GDPR Art. 27 have not been appointed yet and will be named here.</li>
       </ul>
       <p>
         The same details, with the VAT position, are in the
@@ -130,10 +131,12 @@
       </p>
       <p>
         ChatAdmin processes data about customers&rsquo; staff and about customers&rsquo; Microsoft
-        tenants, and for managed service providers about the tenants of their own customers. Which
-        role Neopiq and each customer (or managed service provider) hold for that processing is being
-        reviewed with counsel and will be stated here. Until then, questions about it go to the
-        contact address above.
+        tenants, and for managed service providers about the tenants of their own customers. Neopiq
+        processes what ChatAdmin reads from a customer's tenant, what users type and the conversation
+        transcripts on behalf of the customer, which decides about that processing. Neopiq itself
+        decides about, and is responsible for, the sign-in identities, the organisation and member
+        records, the plan and billing records and its own logs. Questions go to the contact address
+        above.
       </p>
 
       <h2 id="framework">Which law applies</h2>
@@ -158,14 +161,13 @@
         below are stated in their broadest form, and legal bases are given for each processing
         operation. That is deliberate &mdash; it costs nothing, and it means nothing on this page
         becomes wrong if a court or authority ever reads Art. 3(2) more broadly than we do. The
-        assessment will be revisited, and this notice rewritten, before anything on this site is
-        offered to people in the EU rather than merely visible to them.
+        assessment covers this website only; for ChatAdmin, see the next paragraph.
       </p>
       <p>
         The assessment above was made for this website. ChatAdmin is a separate service that
-        organisations sign up for themselves; which law applies to it, the legal bases for its
-        processing and whether the GDPR applies to it are being reviewed with counsel, and the
-        result will be stated in this notice.
+        organisations sign up for themselves. For ChatAdmin we apply the Swiss Federal Act on Data
+        Protection and, where ChatAdmin processes personal data of people in the European Union or the
+        United Kingdom, the GDPR and the UK GDPR as well.
       </p>
 
       <h2 id="not-collected">What this site does not collect</h2>
@@ -299,12 +301,13 @@
       </p>
       <p>
         ChatAdmin is different. Neopiq runs it, and keeps its records, in Microsoft Azure in the
-        Switzerland North region. Its language model is provided by Anthropic, a company established
-        in the United States, which receives the conversation as described under
-        <a href="#admin-agent">ChatAdmin</a>; this notice does not state where Anthropic processes it.
-        Payments, once they open, go through Paddle.com, whose checkout gives its address in London,
-        United Kingdom. The safeguards that apply to these transfers are being reviewed with counsel
-        and will be stated here.
+        Switzerland North region. Its language model is provided by Anthropic, which receives the
+        conversation as described under <a href="#admin-agent">ChatAdmin</a> and processes it in the
+        United States, under the EU standard contractual clauses with the Swiss addendum recognised by
+        the FDPIC, which are part of Anthropic's data processing addendum. Payments, once they open, go
+        through Paddle.com, whose checkout gives its address in London, United Kingdom; Switzerland
+        recognises the United Kingdom as providing adequate protection. A copy of these safeguards can
+        be requested at the contact address.
       </p>
 
       <h2 id="writing-to-us">If you write to us</h2>
@@ -432,8 +435,13 @@
         <li>
           ChatAdmin reads a customer&rsquo;s tenant only under the signed-in person&rsquo;s own
           Microsoft sign-in, after an administrator of that tenant has consented to ChatAdmin&rsquo;s
-          permissions. It never has more rights than the person using it. The consent asks for read
-          permissions only: changes in customers&rsquo; tenants are not open yet.
+          permissions. It never has more rights than the person using it. ChatAdmin's software only
+          reads in customers&rsquo; tenants; changes are not open for customers. Some Microsoft
+          permissions it asks for are not limited to reading: for Azure, Power Platform and Dataverse,
+          Microsoft offers only permissions that also allow changes within your own rights, and two
+          Microsoft 365 permissions (Files.Read.All, Sites.Read.All) would allow reading the content of
+          files you can read. ChatAdmin does not use them for changes or for file content; that limit
+          is in ChatAdmin's code. Some areas ask for their own consent the first time you use them.
         </li>
         <li>
           The Microsoft access ChatAdmin obtains for a request is used for that request and is not
@@ -441,9 +449,14 @@
         </li>
         <li>
           What is read depends on what you ask: for example users, groups, role holders, licences,
-          mailbox sizes and permissions, Teams and SharePoint membership, Azure resources and costs,
-          and Power Platform environments. ChatAdmin never reads the content of messages, calendars
-          or files.
+          sign-in error codes, directory audit entries, Conditional Access policies, consent settings
+          and sensitivity-label definitions; mailbox sizes and permissions, Teams and SharePoint
+          membership, Teams app status and usage reports with per-user activity counts; Azure resources
+          and costs; Power Platform environments and Copilot Studio agents; Intune devices with their
+          names and primary users; and Microsoft Defender security incidents and alerts, which can name
+          affected users, devices and mailboxes. ChatAdmin does not read the body of messages, calendar
+          entries, chats or files; alert, audit and report records can contain message subjects and
+          file names.
         </li>
         <li>
           What the reads return is shown to you in the conversation and recorded in its transcript.
@@ -465,8 +478,11 @@
         </li>
         <li>
           Anthropic&rsquo;s commercial terms apply to this traffic; they state that Anthropic may not
-          train models on customer content from its services. What Anthropic keeps, and for how long,
-          is governed by its terms; Neopiq&rsquo;s deletion described below does not reach it.
+          train models on customer content from its services. Anthropic deletes the conversation within
+          30 days; content that its systems flag under its Usage Policy is kept up to 2 years. Neopiq has
+          requested Zero Data Retention; once Anthropic has activated it, Anthropic does not store the
+          conversation after returning its answer, except where needed to comply with law or to combat
+          misuse. Neopiq&rsquo;s deletion described below does not reach Anthropic.
         </li>
       </ul>
 
@@ -476,8 +492,9 @@
           <strong>Transcripts.</strong> Each conversation is recorded: your messages, ChatAdmin&rsquo;s
           answers, the reads it ran and their results (shortened to a bounded length), the approval
           cards shown and their outcome, and the signed-in identity. Values that look like credentials
-          are removed before anything is written; personal data is not. Neopiq&rsquo;s operators read
-          transcripts for support, to reconstruct what ChatAdmin did, and to analyse incidents; you can
+          are removed before anything is written; personal data is not. Neopiq&rsquo;s staff read a
+          transcript only for a support request about it, to investigate a security incident or a
+          malfunction, or to carry out a deletion or export; nobody at Neopiq browses transcripts. You can
           download a conversation from your own browser. A daily job deletes transcripts
           <strong>90 days</strong> after the day of the conversation.
         </li>
@@ -516,8 +533,7 @@
           deleted by age. Two exceptions: the daily log of plan and billing events is deleted after
           <strong>90 days</strong>, and a trial request that never became a trial is deleted
           <strong>90 days</strong> after it was last changed. Everything of an organisation that
-          leaves is deleted on request (below). A fixed deletion period after the end of a contract is
-          being reviewed with counsel.
+          leaves is deleted on request (below).
         </li>
       </ul>
 
@@ -635,8 +651,12 @@
         </li>
       </ul>
       <p class="small muted">
-        The legal bases for this processing, and Neopiq&rsquo;s role for each part of it, are being
-        reviewed with counsel and will be stated in this section.
+        Where Neopiq decides about the processing (sign-in, organisation and member records, plans and
+        billing, logs), its legal bases are the contract with your organisation and Neopiq's legitimate
+        interest in providing a working, secure service (GDPR Art. 6(1)(b) and (f); revFADP Art. 31),
+        and for accounting records a legal obligation (Code of Obligations Art. 958f). For what
+        ChatAdmin reads from your tenant and the conversations, Neopiq acts for your organisation, which
+        decides about it.
       </p>
 
       <h2 id="recipients">Who receives your data</h2>
@@ -733,12 +753,12 @@
         </li>
         <li>
           <strong>Everything of a tenant</strong> &mdash; deleted on request; see
-          <a href="#chatadmin-deletion">deletion</a>. A fixed period after the end of a contract is
-          being reviewed with counsel.
+          <a href="#chatadmin-deletion">deletion</a>.
         </li>
         <li>
-          <strong>At Anthropic and Paddle</strong> &mdash; under their own terms, not under
-          Neopiq&rsquo;s periods.
+          <strong>At Anthropic</strong> &mdash; deleted within 30 days; content that Anthropic's systems
+          flag under its Usage Policy is kept up to 2 years. <strong>At Paddle</strong> &mdash; under
+          Paddle's terms.
         </li>
       </ul>
 
@@ -807,8 +827,8 @@
         video, or the cloud reporting step described on the <a href="pricing.html">pricing page</a>
         as not yet open. For ChatAdmin, the section on <a href="#admin-agent">ChatAdmin</a> is updated
         when what ChatAdmin keeps, or for how long, changes &mdash; for example when online payment
-        opens. The notice is under legal review, and the points
-        marked as being reviewed with counsel will be stated once that review is done.
+        opens. The ChatAdmin part of this notice will be completed when ChatAdmin's subscription terms
+        and data processing agreement are published.
       </p>
       <p>
         The current version is always the one published on this page. There is no mailing list to
