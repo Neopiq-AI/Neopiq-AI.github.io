@@ -6,14 +6,19 @@
 <!-- THE PRODUCT ADDRESS (ops4, 2026-11-03). Every "Open ChatAdmin" / "Sign in" link on this site points at this page,
      and this page is the ONE place the address is written: in the refresh below and in the visible link. When
      app.neopiq.ai is bound to the hub, change both to the app.neopiq.ai address and republish; nothing else changes.
-     check-site.py enforces: the two are identical, https, on app.neopiq.ai or *.azurecontainerapps.io. -->
-<!-- CUST round (2026-11-08): the hub's start path is live since 2026-11-08 evening (the commercial layer, HUB_COMMERCIAL=1),
-     so BOTH addresses on this page (the refresh and the visible link) end in /start: a visitor lands on the plan choice and
-     the activation checklist. Nothing else on the site changes: every "Open ChatAdmin" and every "Get started" card already
-     ends here. If the commercial layer is ever switched off again, remove /start from both addresses and republish. -->
-<meta http-equiv="refresh" content="0; url=https://app-chatadmin-hub.nicefield-f64590ef.switzerlandnorth.azurecontainerapps.io/start">
+     check-site.py enforces: the two are identical, https, on app.neopiq.ai or *.azurecontainerapps.io. (Since the wait
+     round, 2026-11-17, assets/js/wake.js holds the same origin as its one constant; check-site.py checks they agree.) -->
+<!-- CUST round (2026-11-08): both addresses end in /start, the hub's plan choice and activation checklist. -->
+<!-- The flow round (2026-11-17): a plan card links here as app.html?plan=msp|standard|essential; the plan travels on to
+     /start?plan=..., which the hub reads to lead with that plan's card. -->
+<!-- The wait round (2026-11-17, the owner: no always-on hub, hide its cold start instead). This page is the "getting
+     ready" step: it shows at once (it is static, on neopiq.ai), draws a progress bar with honest stages and three short
+     facts, asks the hub's /healthz whether it answers (assets/js/opening.js) and forwards to /start (keeping ?plan=) as
+     soon as it does, or after 45 seconds anyway. A warm hub answers in well under a second, so the page then forwards at
+     once. Without JavaScript the refresh inside <noscript> below forwards at once, as before (no plan carried). -->
+<noscript><meta http-equiv="refresh" content="0; url=https://app-chatadmin-hub.nicefield-f64590ef.switzerlandnorth.azurecontainerapps.io/start"></noscript>
 <title>Opening ChatAdmin</title>
-<meta name="description" content="Forwards to ChatAdmin, where you sign in with your Microsoft work account.">
+<meta name="description" content="Gets ChatAdmin ready and forwards you to it, where you sign in with your Microsoft work account.">
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -23,27 +28,24 @@
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <main id="main">
-  <section class="section">
+  <section class="section ready-page">
     <div class="wrap narrow">
-      <h1>Opening ChatAdmin</h1>
-      <div class="opening" role="status" aria-live="polite">
-        <span class="opening__spinner" aria-hidden="true"></span>
-        <p class="opening__line"><strong data-opening-step>Starting ChatAdmin&hellip;</strong>
-          <span class="opening__time" data-opening-time hidden></span></p>
+      <p class="ready__brand"><span class="brand__mark" aria-hidden="true">N</span> Neopiq ChatAdmin</p>
+      <h1>Getting ChatAdmin ready</h1>
+      <div class="ready" role="status" aria-live="polite">
+        <p class="ready__stage" data-ready-stage>Starting your ChatAdmin workspace in Switzerland</p>
+        <div class="ready__bar" role="progressbar" aria-label="Getting ChatAdmin ready" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-ready-bar hidden><span class="ready__fill" data-ready-fill></span></div>
+        <p class="ready__hint">Usually ready in under 30 seconds. This page moves on by itself.</p>
       </div>
-      <noscript><p>Without JavaScript this page shows no timer, but it still moves on by itself.</p></noscript>
-      <p class="lede">
-        ChatAdmin pauses when nobody is using it, so the first visit after a quiet spell can take up to half a minute
-        while it starts. This page moves on by itself as soon as ChatAdmin answers; there is nothing to click.
-      </p>
-      <p>
-        There you sign in with your Microsoft work account. Signing in identifies you and reads or changes nothing in
-        your tenant; you land on the plan choice and the activation checklist.
-      </p>
+      <ul class="ready__facts" aria-label="While you wait" data-ready-facts>
+        <li data-fact>Read only by default: ChatAdmin works within your own Microsoft rights, and you sign in with Microsoft, so ChatAdmin never sees or keeps your password.</li>
+        <li data-fact>ChatAdmin runs in Microsoft Azure in Switzerland (Switzerland North) and keeps its records there.</li>
+        <li data-fact><!-- @data:trial-line --><p class="trial-line">For IT service providers: free for 14 days with up to three managed customers. No payment method.</p><!-- @end --></li>
+      </ul>
+      <noscript><p class="small muted">This page forwards you to ChatAdmin by itself. If nothing happens, use the button below.</p></noscript>
       <div class="btn-row">
-        <a class="btn btn--primary" href="https://app-chatadmin-hub.nicefield-f64590ef.switzerlandnorth.azurecontainerapps.io/start">Open ChatAdmin</a>
-        <a class="btn btn--ghost" href="demo/">See the demonstration instead</a>
-        <a class="btn btn--ghost" href="try.html">What signing in does</a>
+        <a class="btn btn--primary" data-product href="https://app-chatadmin-hub.nicefield-f64590ef.switzerlandnorth.azurecontainerapps.io/start">Open ChatAdmin now</a>
+        <a class="btn btn--ghost" href="demo/">Try the demo instead</a>
       </div>
     </div>
   </section>

@@ -435,6 +435,14 @@ td .status { white-space: nowrap; }
 .inspect li.is-pending::before { content: "\00B7"; color: var(--text-muted); }
 .inspect li.is-failed::before { content: "\00D7"; color: var(--focus); }
 .inspect__detail { color: var(--text-muted); font-size: var(--fs-sm); }
+/* a diagnosis (the Microsoft Copilot Studio request): the wave labels over the checklist, then the verdict */
+.inspect__wave { font-size: var(--fs-sm); font-weight: 650; color: var(--text-muted); margin: 0 0 .35rem; }
+.diagnosis { border-top: 1px dashed var(--border); padding-top: .6rem; margin-top: .25rem; }
+.diagnosis__h { font-weight: 700; margin: 0 0 .35rem; }
+.diagnosis ol { padding-left: 1.4rem; margin: 0 0 .75rem; }
+.diagnosis li { margin-bottom: .3rem; font-size: .93rem; }
+.diagnosis p { font-size: .93rem; }
+.diagnosis__who { font-weight: 650; }
 /* the proposal block: "N changes ready" + Review & approve */
 .proposal {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem var(--s-4);
@@ -836,3 +844,54 @@ button.btn { font: inherit; font-weight: 600; }
   .opening__spinner { animation: opening-pulse 1.6s ease-in-out infinite; }
   @keyframes opening-pulse { 50% { opacity: .35; } }
 }
+
+/* ==== FLOW round (2026-11-17): one primary action (Get started), Pricing as Get started's first step, the steps in the
+   order a visitor walks them, a few questions answered before the sign-in. Existing token pairs only (check-contrast.py);
+   nothing above this block is edited. ==== */
+.hero__for { color: var(--text); font-weight: 600; max-width: 40rem; margin-bottom: var(--s-4); }
+.trial-line { font-size: var(--fs-sm); color: var(--text-muted); margin: var(--s-3) 0 0; }
+/* "Which describes you?" with the plan and its price on each statement; three in a row on a wide screen */
+@media (min-width: 64rem) { .identify--3 { grid-template-columns: repeat(3, 1fr); } }
+.identify__plan { margin-top: .2rem; }
+/* the path on the home page: four steps, two by two on a medium screen, in a row on a wide one */
+@media (min-width: 52rem) and (max-width: 71.99rem) { .journey--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 72rem) {
+  .journey--4 { grid-template-columns: repeat(4, 1fr); gap: var(--s-3); }
+  .journey--4 .journey__step { padding: var(--s-4) var(--s-4) var(--s-4) 2.9rem; }
+  .journey--4 .journey__step::before { left: .9rem; top: 1rem; }
+}
+/* Get started: the steps of the page as a numbered strip under the title (anchor links), and each section's number */
+.flow-steps { list-style: none; padding: 0; margin: var(--s-5) 0 0; counter-reset: flow; display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.flow-steps li { counter-increment: flow; margin: 0; }
+.flow-steps a { display: inline-flex; align-items: center; gap: .45rem; padding: .35rem .8rem .35rem .4rem; border: 1px solid var(--border); border-radius: var(--radius-pill); background: var(--surface); color: var(--text); text-decoration: none; font-size: var(--fs-sm); font-weight: 600; }
+.flow-steps a::before { content: counter(flow); display: grid; place-items: center; width: 1.45rem; height: 1.45rem; border-radius: 50%; background: var(--accent-soft); color: var(--accent-text); font-family: var(--mono); font-size: .75rem; font-weight: 700; }
+.flow-steps a:hover { border-color: var(--accent); color: var(--text); }
+.step-num { display: inline-grid; place-items: center; width: 1.9rem; height: 1.9rem; margin-right: .45rem; border-radius: 50%; background: var(--accent-soft); color: var(--accent-text); font-family: var(--mono); font-size: .95rem; font-weight: 700; vertical-align: .12em; }
+#plans, #start, #connect, #ask, #buy, #questions, .plan-card[id] { scroll-margin-top: 5rem; }
+/* questions: plain disclosures */
+.faq { display: grid; gap: var(--s-2); }
+.faq__item { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.faq__item > summary { padding: .75rem 1rem; font-weight: 650; list-style: none; display: flex; align-items: center; gap: .6rem; }
+.faq__item > summary::-webkit-details-marker { display: none; }
+.faq__item > summary::before { content: "\25B8"; color: var(--accent-text); transition: transform var(--dur) var(--ease); }
+.faq__item[open] > summary::before { transform: rotate(90deg); }
+.faq__item > :not(summary) { margin: 0 1rem var(--s-3); }
+.faq__item > ul { margin-top: var(--s-2); }
+
+/* ==== WAIT round (2026-11-17): app.html as the "getting ready" step while a paused hub starts (assets/js/opening.js).
+   Existing token pairs only; nothing above this block is edited. ==== */
+.ready-page { min-height: 100vh; display: flex; align-items: center; }
+.ready-page .wrap { width: 100%; }
+.ready__brand { display: flex; align-items: center; gap: .6rem; font-weight: 700; margin-bottom: var(--s-5); }
+.ready { margin: var(--s-4) 0 var(--s-5); padding: var(--s-4) var(--s-5); border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow); }
+.ready__stage { font-size: var(--fs-md); font-weight: 650; margin: 0 0 var(--s-3); }
+.ready__bar { height: .6rem; border-radius: var(--radius-pill); background: var(--accent-soft); overflow: hidden; margin-bottom: var(--s-3); }
+.ready__bar[hidden] { display: none; }
+.ready__fill { display: block; height: 100%; width: 0; border-radius: inherit; background: var(--accent); transition: width .2s linear; }
+.ready__hint { font-size: var(--fs-sm); color: var(--text-muted); margin: 0; }
+.ready__facts { list-style: none; padding: 0; margin: 0 0 var(--s-5); min-height: 4.5rem; }
+.ready__facts li { position: relative; padding-left: 1.6rem; margin-bottom: .5rem; color: var(--text-muted); }
+.ready__facts li::before { content: "\2713"; position: absolute; left: 0; top: 0; font-weight: 700; color: var(--l0); }
+.ready__facts li[hidden] { display: none; }
+.ready__facts .trial-line { margin: 0; font-size: inherit; }
+@media (prefers-reduced-motion: reduce) { .ready__fill { transition: none; } }

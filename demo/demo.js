@@ -62,7 +62,7 @@
     });
   }
 
-  /* deep links: demo/#joiner, #roles, #mailbox, #leaver, #licences, #azure, #powerplatform */
+  /* deep links: demo/#joiner, #roles, #mailbox, #leaver, #licences, #azure, #powerplatform, #copilot */
   var hash = (location.hash || '').replace('#', '');
   if (D.SCENARIOS[hash]) {
     player.start(hash);

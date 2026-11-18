@@ -1,36 +1,118 @@
-/* app.html, "Opening ChatAdmin": the page stays on screen while the browser follows the meta refresh to the
- * ChatAdmin hub. The hub sleeps when unused (every app scales to zero), so its first answer can take 20-30 s;
- * until it answers, the browser keeps showing this page. This script only shows that the wait is progress:
- * the elapsed seconds and a status line. It makes no request and keeps nothing (check-site.py rule 9);
- * the navigation itself is the meta refresh, which also works without this script.
+/* app.html, "Getting ChatAdmin ready" (the wait round, 2026-11-17; the owner: no always-on hub, hide its cold start).
+ * The ChatAdmin hub pauses when nobody uses it (every app scales to zero), so its first answer can take 20-30 s. This
+ * page is static and on neopiq.ai, so it shows at once. It:
+ *   - asks the hub to wake its products (POST /api/wake, no cookie, the answer never read),
+ *   - asks /healthz whether the hub answers (no cookie; a plain GET that reads the status when the hub allows this site
+ *     by CORS, and otherwise, after the browser refuses the cross-site answer, which only happens once the hub HAS
+ *     answered, one GET in no-cors mode whose arrival is the signal),
+ *   - draws a determinate bar (eased towards 90% over the usual start time, 100% when the hub answers) and honest stages:
+ *     "Starting your ChatAdmin workspace in Switzerland" -> "Almost ready" (after most of the usual time) -> "Opening
+ *     sign-in" (only once the hub has answered, or at the 45 s cap),
+ *   - rotates three short facts (all three stay visible with reduced motion, and without JavaScript),
+ *   - forwards with location.replace (so Back returns to the page before, never into a loop) to the visible link's
+ *     address plus ?plan=msp|standard|essential when the page was opened with one.
+ * The address comes from the page's own link (a[data-product]); this file writes no address. Nothing is stored.
+ * check-site.py rule 9 lets this file (and wake.js) make requests, to the product address only.
  */
 (function () {
   'use strict';
-  var STEPS = [
-    [0, 'Starting ChatAdmin…'],
-    [4, 'Waking ChatAdmin up…'],
-    [12, 'Still starting: ChatAdmin was idle, so this takes a little longer…'],
-    [25, 'Almost there…'],
-    [45, 'This is taking longer than usual. You can keep waiting or use the button below.']
-  ];
-  var t0 = 0, timer = null;
+  var EXPECT_S = 25, CAP_S = 45, PROBE_TIMEOUT_MS = 20000, RETRY_MS = 1500, FACT_MS = 6000, TICK_MS = 200;
+  var STAGES = ['Starting your ChatAdmin workspace in Switzerland', 'Almost ready', 'Opening sign-in'];
+  var target = null, origin = null, t0 = 0, done = false, ticker = null, rotator = null;
 
-  function render() {
-    var stepEl = document.querySelector('[data-opening-step]');
-    var timeEl = document.querySelector('[data-opening-time]');
-    if (!stepEl || !timeEl) { return; }
-    var secs = Math.floor((Date.now() - t0) / 1000);
-    var text = STEPS[0][1];
-    for (var i = 0; i < STEPS.length; i++) { if (secs >= STEPS[i][0]) { text = STEPS[i][1]; } }
-    stepEl.textContent = text;
-    if (secs >= 2) { timeEl.hidden = false; timeEl.textContent = secs + ' s'; }
+  function q(sel) { return document.querySelector(sel); }
+  function reducedMotion() {
+    try { return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); } catch (e) { return false; }
+  }
+
+  function setStage(i) {
+    var el = q('[data-ready-stage]');
+    if (el && el.textContent !== STAGES[i]) { el.textContent = STAGES[i]; }
+  }
+  function setBar(pct) {
+    var bar = q('[data-ready-bar]'), fill = q('[data-ready-fill]');
+    if (!bar || !fill) { return; }
+    pct = Math.max(0, Math.min(100, Math.round(pct)));
+    fill.style.width = pct + '%';
+    bar.setAttribute('aria-valuenow', String(pct));
+  }
+  function tick() {
+    var s = (Date.now() - t0) / 1000;
+    var pct = s < EXPECT_S ? 90 * (1 - Math.pow(1 - s / EXPECT_S, 2)) : 90 + 5 * Math.min(1, (s - EXPECT_S) / (CAP_S - EXPECT_S));
+    setBar(pct);
+    setStage(s >= EXPECT_S * 0.6 ? 1 : 0);
+    if (s >= CAP_S) { go(); }
+  }
+
+  function go() {
+    if (done) { return; }
+    done = true;
+    if (ticker) { clearInterval(ticker); }
+    if (rotator) { clearInterval(rotator); }
+    setStage(2);
+    setBar(100);
+    window.location.replace(target);
+  }
+  var attempts = 0;
+  /* 1.5 s, then a little longer each time, at most 5 s: an unreachable hub is not asked more than needed */
+  function retry() { if (!done) { attempts += 1; setTimeout(probe, Math.min(5000, RETRY_MS + attempts * 500)); } }
+
+  function probe() {
+    if (done) { return; }
+    var url = origin + '/healthz';
+    var ctl = typeof window.AbortController === 'function' ? new window.AbortController() : null;
+    var kill = ctl ? setTimeout(function () { ctl.abort(); }, PROBE_TIMEOUT_MS) : null;
+    var opts = { method: 'GET', cache: 'no-store', credentials: 'omit' };
+    if (ctl) { opts.signal = ctl.signal; }
+    window.fetch(url, opts).then(function (r) {
+      if (kill) { clearTimeout(kill); }
+      if (r.ok) { go(); } else { retry(); }
+    }, function (err) {
+      if (kill) { clearTimeout(kill); }
+      if (done) { return; }
+      if (err && err.name === 'AbortError') { retry(); return; }
+      /* refused: by CORS (the hub answered, this site may not read it) or by the network. A no-cors GET tells the two
+         apart: it arrives only from a hub that answers. */
+      window.fetch(url, { method: 'GET', mode: 'no-cors', cache: 'no-store', credentials: 'omit' })
+        .then(function () { go(); }, function () { retry(); });
+    });
+  }
+
+  function wakeProducts() {
+    try {
+      window.fetch(origin + '/api/wake', { method: 'POST', mode: 'no-cors', credentials: 'omit', keepalive: true, cache: 'no-store' })
+        .catch(function () { /* a courtesy: the health check decides */ });
+    } catch (e) { /* no wake */ }
+  }
+
+  function rotateFacts() {
+    var facts = document.querySelectorAll('[data-fact]');
+    if (facts.length < 2 || reducedMotion()) { return; }
+    var i = 0;
+    function show() {
+      for (var k = 0; k < facts.length; k++) { facts[k].hidden = k !== i; }
+    }
+    show();
+    rotator = setInterval(function () { i = (i + 1) % facts.length; show(); }, FACT_MS);
   }
 
   function start() {
+    var link = q('a[data-product]');
+    if (!link) { return; }
+    var base = link.getAttribute('href');
+    var m = /[?&]plan=(msp|standard|essential)(?:&|$)/.exec(window.location.search || '');
+    target = base + (m ? '?plan=' + m[1] : '');
+    link.setAttribute('href', target);
+    try { origin = new window.URL(base).origin; } catch (e) { origin = null; }
+    if (!origin || typeof window.fetch !== 'function') { window.location.replace(target); return; }
+    var bar = q('[data-ready-bar]');
+    if (bar) { bar.hidden = false; }
     t0 = Date.now();
-    if (timer) { clearInterval(timer); }
-    render();
-    timer = setInterval(render, 500);
+    tick();
+    ticker = setInterval(tick, TICK_MS);
+    rotateFacts();
+    wakeProducts();
+    probe();
   }
 
   if (document.readyState === 'loading') {
@@ -38,6 +120,4 @@
   } else {
     start();
   }
-  /* Back from the hub (the page restored from the back-forward cache): count again from zero. */
-  window.addEventListener('pageshow', function (ev) { if (ev.persisted) { start(); } });
 }());

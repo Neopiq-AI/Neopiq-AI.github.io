@@ -30,14 +30,13 @@
       <label for="nav-toggle" class="nav-toggle"><span class="nav-toggle__icon" aria-hidden="true"></span><span class="nav-toggle__text">Menu</span></label>
       <ul class="nav-list">
         <li><a href="demo/">Demo</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
         <li><a href="security.html">Security</a></li>
-        <li><a href="try.html">Get started</a></li>
-        <li class="nav-list__action"><a class="btn btn--ghost btn--small" href="demo/" title="Seven requests on a sample environment, no sign-in">Try the demo</a></li>
+        <li><a href="app.html">Sign in</a></li>
       </ul>
-      <a class="btn btn--primary btn--small site-nav__open" href="app.html" title="The live product: sign in with your Microsoft work account">Open ChatAdmin</a>
+      <a class="btn btn--primary btn--small site-nav__open" href="try.html" title="Choose your plan and start free">Get started</a>
     </nav>
   </div>
+  <script src="assets/js/wake.js" defer></script>
 </header>
 <!-- @end -->
 
@@ -54,7 +53,9 @@
       <h1>Privacy policy</h1>
       <p class="lead">
         This site is static HTML and CSS. It sets no cookies, loads nothing from anywhere else and
-        has no form to submit, and the few scripts it runs are described in the note below. The only
+        has no form to submit, and the few scripts it runs are described in the note below. Pages
+        with a sign-in action wake the ChatAdmin service in the background, so that it is ready when
+        you open it, with a request that carries no cookie and no identifier. The only
         personal data processed when you visit is the server-log record that any web server keeps
         when it serves a page. This notice covers the website, the free check and correspondence
         with us, and, in a section of its own, <a href="#admin-agent">ChatAdmin</a>: the product
@@ -65,11 +66,14 @@
           <strong>Note, 2026-11-17.</strong> The section on <a href="#admin-agent">ChatAdmin</a>
           below describes ChatAdmin as it runs today, and the sections on how long anything is kept,
           who receives data and changes to this notice have been brought into line with it. The parts
-          of the ChatAdmin section that are still being completed are marked as such. The parts about
-          the website itself are unchanged:
-          apart from the free check, which runs entirely in your browser and uploads nothing, only the
-          home page and the demo page (the demonstration) and the page that opens ChatAdmin run small
-          scripts, all loaded from this site; they send nothing anywhere and store nothing.
+          of the ChatAdmin section that are still being completed are marked as such. About the website
+          itself: apart from the free check, which runs entirely in your browser and uploads nothing, the
+          home page and the demo page (the demonstration) run small scripts, all loaded from this site,
+          that send nothing anywhere and store nothing. Since 2026-11-17 the pages with a sign-in action
+          also wake the ChatAdmin service in the background (one request, no cookie, no identifier; the
+          time of it is kept in the tab&rsquo;s session storage until the tab closes), and the page that
+          opens ChatAdmin asks it whether it is ready; both are described under
+          <a href="#scripts">No tracking scripts</a>.
         </p>
       </div>
     </div>
@@ -179,20 +183,29 @@
         <article class="card">
           <h3>No cookies and no tracking</h3>
           <p>
-            No cookie is set by these pages, and nothing is written to local storage or session
-            storage. There is no analytics service, no tag manager, no tracking pixel, no
+            No cookie is set by these pages, and nothing is written to local storage. The only thing
+            kept in your browser is the time of the last wake request (described next), in this
+            tab&rsquo;s session storage, which the browser clears when the tab closes. There is no analytics service, no tag manager, no tracking pixel, no
             advertising network, no social plug-in and no cross-site identifier. You are not
             profiled, and no automated decision-making takes place.
           </p>
         </article>
         <article class="card">
-          <h3>No tracking scripts</h3>
+          <h3 id="scripts">No tracking scripts</h3>
           <p>
-            Three pages run small scripts of their own: the home page and the demo page (the
-            demonstration) and the page that opens ChatAdmin (a progress indicator while it starts). They
-            are served from this site, send nothing anywhere and store nothing. No page loads a script
-            from anywhere else, and the site&rsquo;s own build check fails the build if a script makes a
-            network request, uses browser storage or is loaded from another site.
+            Every script is served from this site; no page loads a script from anywhere else. The home
+            page and the demo page (the demonstration) run scripts that send nothing anywhere and store
+            nothing.
+          </p>
+          <p>
+            ChatAdmin pauses when nobody uses it and takes up to half a minute to start. So that it is
+            ready when you open it, every page with a sign-in action sends, after it has loaded, one
+            request to the ChatAdmin service asking it to start: no cookie, no identifier, no content,
+            and its answer is not read. A tab sends it at most once every five minutes, and not at all
+            when your browser asks to save data. The page that opens ChatAdmin asks the service whether
+            it is ready, the same way, and then forwards you to it. The site&rsquo;s own build check fails
+            the build if any other script makes a request or uses browser storage, or if these requests
+            go anywhere but the ChatAdmin service.
           </p>
         </article>
         <article class="card">
@@ -200,8 +213,10 @@
           <p>
             The only file these pages load is one stylesheet served from this same site. There is no
             content delivery network, no remote web font, no remote image, no embedded video and no
-            map. Because nothing is requested from another server, no other company learns your IP
-            address from your visit here.
+            map. Because nothing is requested from another company&rsquo;s server, no other company learns
+            your IP address from your visit here. The one request beyond this site goes to the ChatAdmin
+            service (the wake request above), which Neopiq runs in Microsoft Azure, Switzerland North;
+            like any web server it sees the IP address the request comes from.
           </p>
         </article>
         <article class="card">
@@ -861,7 +876,7 @@
     <div class="site-footer__grid">
       <div class="site-footer__about">
         <p class="site-footer__brand"><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
-        <p class="muted">Tell it what you need. It inspects your Microsoft environment, proposes the change, waits for your approval, executes and verifies. Nothing changes without a person saying yes.</p>
+        <p class="muted">Ask about your Microsoft tenants in plain language. ChatAdmin reads with your own Microsoft rights and explains what it finds. Nothing changes without a person saying yes.</p>
         <p class="small">
           Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
           UID CHE-345.914.300 &middot; not registered for VAT<br>
@@ -872,11 +887,16 @@
       <div class="site-footer__col">
         <h2>ChatAdmin</h2>
         <ul>
-          <li><a href="app.html">Open ChatAdmin</a></li>
-          <li><a href="demo/">Demo</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="security.html">Security</a></li>
           <li><a href="try.html">Get started</a></li>
+          <li><a href="try.html#plans">Plans and prices</a></li>
+          <li><a href="demo/">Demo</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="app.html">Sign in</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h2>Company</h2>
+        <ul>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -891,7 +911,7 @@
     </div>
     <div class="site-footer__legal">
       <p class="small">
-        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Dynamics 365 and
+        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Intune, Microsoft Dynamics 365 and
         Microsoft Power Platform are trademarks of the Microsoft group of companies. Neopiq GmbH is
         an independent software vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
       </p>

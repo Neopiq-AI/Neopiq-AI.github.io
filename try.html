@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Get started with ChatAdmin</title>
-<meta name="description" content="Five steps: sign in with Microsoft, choose a plan, check out, an administrator gives read access with one consent, start. Each step with its status today.">
+<title>Get started with ChatAdmin — plans, prices and the free trial</title>
+<meta name="description" content="Choose the ChatAdmin plan that fits (MSP for IT service providers, Standard or Essential for one organisation), sign in with your Microsoft work account, connect your tenant with an administrator consent and ask. Prices in Swiss francs per month.">
 <link rel="canonical" href="https://neopiq.ai/try.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="Get started with ChatAdmin">
-<meta property="og:description" content="Five steps: sign in with Microsoft, choose a plan, check out, an administrator gives read access with one consent, start. Each step with its status today.">
+<meta property="og:title" content="Get started with ChatAdmin — plans, prices and the free trial">
+<meta property="og:description" content="Choose the ChatAdmin plan that fits (MSP for IT service providers, Standard or Essential for one organisation), sign in with your Microsoft work account, connect your tenant with an administrator consent and ask. Prices in Swiss francs per month.">
 <meta property="og:url" content="https://neopiq.ai/try.html">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -30,14 +30,13 @@
       <label for="nav-toggle" class="nav-toggle"><span class="nav-toggle__icon" aria-hidden="true"></span><span class="nav-toggle__text">Menu</span></label>
       <ul class="nav-list">
         <li><a href="demo/">Demo</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
         <li><a href="security.html">Security</a></li>
-        <li><a href="try.html" aria-current="page">Get started</a></li>
-        <li class="nav-list__action"><a class="btn btn--ghost btn--small" href="demo/" title="Seven requests on a sample environment, no sign-in">Try the demo</a></li>
+        <li><a href="app.html">Sign in</a></li>
       </ul>
-      <a class="btn btn--primary btn--small site-nav__open" href="app.html" title="The live product: sign in with your Microsoft work account">Open ChatAdmin</a>
+      <a class="btn btn--primary btn--small site-nav__open" href="try.html" title="Choose your plan and start free">Get started</a>
     </nav>
   </div>
+  <script src="assets/js/wake.js" defer></script>
 </header>
 <!-- @end -->
 
@@ -45,48 +44,164 @@
   <section class="hero">
     <div class="wrap">
       <h1>Get started</h1>
-      <p class="lead">Five steps from your Microsoft sign-in to your first answers about your own tenant. All work today except buying online, which opens with the Paddle launch: until then a plan is agreed directly with Neopiq.</p>
+      <p class="lead">Choose the plan that fits, sign in with your Microsoft work account and connect your tenant. Nothing to install.</p>
+      <ol class="flow-steps" aria-label="The steps on this page">
+        <li><a href="#plans">Choose your plan</a></li>
+        <li><a href="#start">Sign in and start</a></li>
+        <li><a href="#connect">Connect your tenant</a></li>
+        <li><a href="#ask">Ask</a></li>
+        <li><a href="#buy">Buy when you are ready</a></li>
+      </ol>
     </div>
   </section>
 
-  <section class="section" id="steps">
+  <!-- 1. Choose: the visitor's own sentence on each card, the plan, its price, its one action (the plan travels to ChatAdmin's start page) -->
+  <section class="section" id="plans">
     <div class="wrap">
-      <h2 class="sr-only">The steps</h2>
-      <ol class="journey journey--5" aria-label="Getting started, each step with its status">
-        <li class="journey__step journey__step--now" id="signin">
-          <span class="journey__name">Sign in with Microsoft</span>
-          <span class="status status--now">available now</span>
-          <p class="journey__note">Open ChatAdmin and use your Microsoft work account. Signing in identifies you; it reads and changes nothing in your tenant.</p>
-          <p class="journey__note">An organisation with a ChatAdmin plan uses it in its own tenant; without a plan ChatAdmin shows the plans.</p>
-          <p class="journey__note">The first visit after a quiet spell can take up to a minute.</p>
-          <a class="btn btn--primary btn--small" href="app.html">Open ChatAdmin</a>
-        </li>
-        <li class="journey__step journey__step--now" id="plan">
-          <span class="journey__name">Choose a plan</span>
-          <span class="status status--now">available now</span>
-          <p class="journey__note">The Standard plan or Essential, by what you manage; MSP set up directly with Neopiq; larger organisations by contract.</p>
-          <!-- @data:pricing-line --><p class="pricing-line">MSP <strong>CHF 299 / month</strong> (5 managed customers included) &middot; Standard <strong>CHF 99 / month</strong> <span class="pricing-line__rec">Recommended</span> &middot; Essential <strong>CHF 49 / month</strong> &middot; Larger organisations: <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20plan">contact us</a></p><!-- @end -->
-          <p class="journey__note">On ChatAdmin&rsquo;s start page. Until the checkout opens, a plan is agreed directly with Neopiq; an MSP can start a free trial there at once.</p>
-          <a class="btn btn--ghost btn--small" href="pricing.html">Plans and prices</a>
-        </li>
-        <li class="journey__step journey__step--dev" id="checkout">
-          <span class="journey__name">Check out</span>
-          <span class="status status--dev">in development</span>
-          <p class="journey__note">A monthly subscription paid by card, for Essential or the Standard plan. It opens with the Paddle launch; no checkout exists today.</p>
-        </li>
-        <li class="journey__step journey__step--now" id="connect">
-          <span class="journey__name">An administrator gives read access</span>
-          <span class="status status--now">available now</span>
-          <p class="journey__note">On ChatAdmin&rsquo;s start page a Global Administrator of your tenant connects and accepts Microsoft&rsquo;s consent for the permissions ChatAdmin uses to read; some areas ask for their own consent the first time you use them. Nothing is installed.</p>
-          <p class="journey__note">ChatAdmin then reads with your own Microsoft rights, never more.</p>
-        </li>
-        <li class="journey__step journey__step--now" id="start">
-          <span class="journey__name">Start</span>
-          <span class="status status--now">available now</span>
-          <p class="journey__note">Ask about Microsoft Entra, Microsoft 365, Microsoft Azure and Microsoft Power Platform in your own tenant: ChatAdmin reads and explains. Changes are not open for customers yet: ChatAdmin gives the steps in the Microsoft admin center instead; when changes open, each one waits on your own Approve card.</p>
-        </li>
-      </ol>
-      <p class="small muted mt-4">Not ready to sign in? <a href="demo/">Try the demo</a>: seven requests on a sample environment, nothing of yours touched.</p>
+      <h2><span class="step-num" aria-hidden="true">1</span> Choose the plan that fits</h2>
+      <p class="muted">Start with the sentence that sounds like you.</p>
+      <!-- @data:pricing-cards -->
+<div class="plan-cards plan-cards--3">
+  <article class="plan-card plan-card--msp" id="plan-msp">
+    <p class="plan-card__statement">&ldquo;I manage Microsoft environments for customers.&rdquo;</p>
+    <h3 class="plan-card__name">MSP</h3>
+    <p class="plan-card__scope">Multi-tenant administration for service providers</p>
+    <p class="plan-card__price"><span class="plan-card__amount">CHF 299 <small>/ month</small></span></p>
+    <p class="plan-card__users">Includes 5 managed customers; CHF 29/month for each additional managed customer; each managed customer gets Standard.</p>
+    <p class="plan-card__line">One workspace across your customers' Microsoft tenants: each customer kept separate, your technicians signed in with their own Microsoft accounts, one overview across every connected customer.</p>
+    <p class="plan-card__line">Each managed customer gets Standard, including Microsoft Intune reads (devices, compliance, configuration, apps) where the customer has Intune.</p>
+    <p class="plan-card__line">Today ChatAdmin reads and checks in your customers' tenants; changes are made in Microsoft's admin centers until changes open on ChatAdmin.</p>
+    <p class="plan-card__line">Free for 14 days with up to three managed customers, each with Standard; no payment method. The trial starts the moment you ask; after it, the MSP plan is set up directly with Neopiq until online payment opens.</p>
+    <ul class="plan-card__org">
+      <li>Customer directory, connection links, the active customer on every screen</li>
+      <li>Cross-tenant discovery: reads across connected tenants, never a write</li>
+    </ul>
+    <p class="plan-card__action"><a class="btn btn--primary btn--small" href="app.html?plan=msp">Start a 14-day free trial</a></p>
+  </article>
+  <article class="plan-card plan-card--standard plan-card--recommended" id="plan-standard">
+    <p class="plan-card__badge">Recommended</p>
+    <p class="plan-card__statement">&ldquo;I manage Microsoft 365, Microsoft Entra, Microsoft Azure and Microsoft Power Platform.&rdquo;</p>
+    <h3 class="plan-card__name">Standard</h3>
+    <p class="plan-card__scope">Microsoft 365 + Microsoft Entra + Microsoft Azure + Microsoft Power Platform</p>
+    <p class="plan-card__price"><span class="plan-card__amount">CHF 99 <small>/ month</small></span></p>
+    <p class="plan-card__users">2 ChatAdmin operators</p>
+    <p class="plan-card__line">One organisation, one Microsoft tenant: all four platforms in one conversation.</p>
+    <p class="plan-card__line">The best fit for most small and mid-sized organisations that run on Microsoft; it keeps growing deeper inside its four platforms.</p>
+    <p class="plan-card__line">Microsoft Intune included, read only: devices, compliance, configuration profiles, apps and Autopilot, when your tenant has Intune.</p>
+    <p class="plan-card__action"><a class="btn btn--primary btn--small" href="app.html?plan=standard">Get started</a></p>
+  </article>
+  <article class="plan-card plan-card--essential" id="plan-essential">
+    <p class="plan-card__statement">&ldquo;I manage Microsoft 365 and Microsoft Entra.&rdquo;</p>
+    <h3 class="plan-card__name">Essential</h3>
+    <p class="plan-card__scope">Microsoft 365 + Microsoft Entra</p>
+    <p class="plan-card__price"><span class="plan-card__amount">CHF 49 <small>/ month</small></span></p>
+    <p class="plan-card__users">1 ChatAdmin operator</p>
+    <p class="plan-card__line">One organisation, one Microsoft tenant. Exchange Online, Teams, SharePoint, OneDrive, users, groups and licences.</p>
+    <p class="plan-card__line">The same ChatAdmin as every plan: the boundary is scope, not quality.</p>
+    <p class="plan-card__action"><a class="btn btn--primary btn--small" href="app.html?plan=essential">Get started</a></p>
+  </article>
+</div>
+<p class="plan-cards__note plan-cards__line" id="plan-enterprise">Larger organisations: <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20Enterprise%20plan">contact us</a>.</p>
+<p class="plan-cards__note"><span class="status status--dev">in development</span> Buying Standard or Essential online. IT service providers start their free trial right away; until online buying opens, we set up Standard or Essential directly when you write to <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20plan">contact@neopiq.ai</a>.</p>
+<p class="plan-cards__note">Prices in Swiss francs per month: Essential and Standard per organisation, for one Microsoft tenant; MSP per service provider, with the managed customers above. No per-employee licensing, no execution credits, no question or token limits. Neopiq GmbH is not registered for VAT. Online purchases go through Paddle, our reseller and Merchant of Record, which charges VAT where it applies; the prices shown include it.</p>
+<p class="plan-cards__note"><strong>A plan is not Microsoft authority: it decides what ChatAdmin can do for your organisation and never adds Microsoft rights to anyone.</strong></p>
+<!-- @end -->
+      <details class="faq__item mt-4">
+        <summary>What every plan includes</summary>
+        <!-- @data:plan-claims -->
+<ul class="bullets bullets--large plan-claims" aria-label="What every plan includes">
+  <li>No deployment project. No Neopiq consulting required.</li>
+  <li>Connect your Microsoft tenant with an administrator consent and start: ChatAdmin reads with your own Microsoft rights.</li>
+  <li>No per-employee licensing.</li>
+  <li>No artificial execution credits: no question limits, no token limits, nothing metered that you have to watch.</li>
+  <li>A person approves every change. In your tenant ChatAdmin reads and explains today; when changes open, each one waits on your own Approve card and its result is read back from Microsoft.</li>
+</ul>
+<p class="plan-claims__note muted">Your Microsoft licences, roles and service prerequisites still apply: a plan never adds Microsoft rights, and ChatAdmin asks for the permissions a capability needs before it uses them.</p>
+<!-- @end -->
+      </details>
+    </div>
+  </section>
+
+  <!-- 2. Start: what happens after the click, per audience -->
+  <section class="section section--alt" id="start">
+    <div class="wrap">
+      <h2><span class="step-num" aria-hidden="true">2</span> Sign in and start</h2>
+      <div class="grid grid--2">
+        <div class="card">
+          <h3>IT service providers (MSP)</h3>
+          <p>Select the trial on the MSP card and sign in with your Microsoft work account. Give your company name and how many customers you manage, and your free trial starts at once. No payment method.</p>
+        </div>
+        <div class="card">
+          <h3>One organisation (Standard or Essential)</h3>
+          <p>Select Get started on your plan&rsquo;s card and sign in with your Microsoft work account. Until online buying opens, we set up your plan with you directly: <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20plan">contact@neopiq.ai</a>.</p>
+        </div>
+      </div>
+      <p class="small muted mt-4">Signing in identifies you: ChatAdmin learns your name, sign-in name and tenant. It reads and changes nothing in your tenant. ChatAdmin pauses when nobody uses it, so the first visit after a quiet spell can take up to half a minute.</p>
+    </div>
+  </section>
+
+  <!-- 3. Connect -->
+  <section class="section" id="connect">
+    <div class="wrap narrow">
+      <h2><span class="step-num" aria-hidden="true">3</span> Connect your tenant</h2>
+      <p>A Global Administrator of your tenant accepts Microsoft&rsquo;s consent for the permissions ChatAdmin uses to read; some areas ask for their own consent the first time you use them. Nothing is installed, and no Neopiq key or secret is kept in your tenant. ChatAdmin then reads with your own Microsoft rights, never more.</p>
+      <p>Not a Global Administrator yourself? ChatAdmin gives you an address to send to one. It holds nothing secret and grants nothing.</p>
+      <p>IT service providers connect each customer the same way: ChatAdmin makes a connection link for the customer&rsquo;s administrator, and every customer stays separate.</p>
+    </div>
+  </section>
+
+  <!-- 4. Ask -->
+  <section class="section section--alt" id="ask">
+    <div class="wrap narrow">
+      <h2><span class="step-num" aria-hidden="true">4</span> Ask</h2>
+      <p>Ask in your own words about Microsoft Entra, Microsoft 365, Microsoft Azure, Microsoft Power Platform and Microsoft Intune. For example:</p>
+      <ul class="bullets bullets--read">
+        <li>Who has administrator access?</li>
+        <li>Review our available Microsoft licences.</li>
+        <li>Why did our Azure resources change?</li>
+      </ul>
+      <p>ChatAdmin reads and explains. Changes are not open for customers yet: for a change, ChatAdmin gives you the steps in the Microsoft admin center. When changes open, each one waits on your own Approve card.</p>
+      <p><a href="demo/">See these requests on a sample environment &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- 5. Buy -->
+  <section class="section" id="buy">
+    <div class="wrap narrow">
+      <h2><span class="step-num" aria-hidden="true">5</span> Buy when you are ready</h2>
+      <p>From your trial: ChatAdmin&rsquo;s start page shows how to continue before the trial ends. Your workspace, customers and connections stay as they are.</p>
+      <p>Or from this page: choose your plan in <a href="#plans">step 1</a>.</p>
+      <p><span class="status status--dev">in development</span> Paying online. Until it opens, Neopiq sets up the plan with you directly.</p>
+    </div>
+  </section>
+
+  <!-- Questions a careful buyer asks before signing in -->
+  <section class="section section--alt" id="questions">
+    <div class="wrap narrow">
+      <h2>Questions</h2>
+      <div class="faq">
+        <details class="faq__item">
+          <summary>Do I need a payment method for the trial?</summary>
+          <p>No. The free trial for IT service providers needs no payment method.</p>
+        </details>
+        <details class="faq__item">
+          <summary>What does signing in give ChatAdmin?</summary>
+          <p>Your name, your sign-in name and your tenant id. Signing in asks for no administrative access and reads or changes nothing in your tenant.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Can ChatAdmin change things in my tenant?</summary>
+          <p>Not yet. In your tenant ChatAdmin reads and explains, and gives you the steps for a change in the Microsoft admin center. When changes open, each one waits on an Approve / Reject card that a person decides.</p>
+        </details>
+        <details class="faq__item">
+          <summary>Where is my data kept, and for how long?</summary>
+          <p>Conversations are kept in Neopiq&rsquo;s own Microsoft Azure storage, with anything that looks like a key or password removed, and deleted after 90 days. <a href="security.html#data">More on security</a>.</p>
+        </details>
+        <details class="faq__item">
+          <summary>We are a larger organisation.</summary>
+          <p>Write to <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20Enterprise%20plan">contact@neopiq.ai</a> and we agree the scope with you.</p>
+        </details>
+      </div>
+      <p class="small muted mt-4">Not ready to sign in? <a href="demo/">Try the demo</a>: eight requests on a sample environment, no sign-in.</p>
     </div>
   </section>
 </main>
@@ -97,7 +212,7 @@
     <div class="site-footer__grid">
       <div class="site-footer__about">
         <p class="site-footer__brand"><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
-        <p class="muted">Tell it what you need. It inspects your Microsoft environment, proposes the change, waits for your approval, executes and verifies. Nothing changes without a person saying yes.</p>
+        <p class="muted">Ask about your Microsoft tenants in plain language. ChatAdmin reads with your own Microsoft rights and explains what it finds. Nothing changes without a person saying yes.</p>
         <p class="small">
           Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
           UID CHE-345.914.300 &middot; not registered for VAT<br>
@@ -108,11 +223,16 @@
       <div class="site-footer__col">
         <h2>ChatAdmin</h2>
         <ul>
-          <li><a href="app.html">Open ChatAdmin</a></li>
-          <li><a href="demo/">Demo</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="security.html">Security</a></li>
           <li><a href="try.html">Get started</a></li>
+          <li><a href="try.html#plans">Plans and prices</a></li>
+          <li><a href="demo/">Demo</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="app.html">Sign in</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h2>Company</h2>
+        <ul>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -127,7 +247,7 @@
     </div>
     <div class="site-footer__legal">
       <p class="small">
-        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Dynamics 365 and
+        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Intune, Microsoft Dynamics 365 and
         Microsoft Power Platform are trademarks of the Microsoft group of companies. Neopiq GmbH is
         an independent software vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
       </p>

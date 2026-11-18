@@ -5,7 +5,7 @@
  *   - no network: no fetch, XMLHttpRequest, WebSocket, EventSource, sendBeacon, dynamic import;
  *   - no storage: no localStorage, sessionStorage, IndexedDB, cookies;
  *   - no framework, no remote asset, no absolute URL; everything lives in the page until it is closed.
- * Seven scripted scenarios over the FICTIONAL sample tenant "Contoso Example" (the same name the Microsoft 365
+ * Eight scripted scenarios over the FICTIONAL sample tenant "Contoso Example" (the same name the Microsoft 365
  * agent's simulated tenant uses). Each card carries one neutral "simulated" tag (.tag--sim, not a product status);
  * the page's band or the frame's bar says it once more. Nothing here can change anything anywhere.
  *
@@ -326,10 +326,145 @@
         specialists: 'Microsoft Power Platform (Agent PP), through the Power Platform administration APIs.',
         identifiers: 'environment id 7444… · geo Europe · no Dataverse · the group step would be manage_environment, the policy step create_dlp_policy (both in development)'
       }
+    },
+
+    /* The eighth request (2026-11-18): the Microsoft Copilot Studio diagnosis, scripted on ChatAdmin's playbook
+       (records/cust/copilot-studio/ROOT-CAUSE-CATALOG-2026-11-17.md sections 3 and 4): wave 1 in parallel, wave 2
+       targeted, a verdict (confirmed / ruled out / not checked), then the fix plan by dependency and least risk,
+       one card per change, the maker's republish between the policy card and the catalogue card. */
+    copilot: {
+      id: 'copilot',
+      label: 'Our Microsoft Copilot Studio agent “HR Helper” won’t publish to Microsoft Teams. Find out why.',
+      short: 'A diagnosis across six areas · 4 changes on 4 cards · Microsoft Copilot Studio, Microsoft Teams',
+      areas: 'Microsoft Power Platform · Microsoft Entra · Microsoft 365 · Microsoft Intune · Microsoft Defender · Microsoft Azure',
+      keywords: ['copilot', 'copilot studio', 'hr helper', 'agent', 'bot', 'chatbot', 'publish', 'teams', 'won’t', 'won\'t', 'find out why'],
+      inspect: [
+        { wave: 'Wave 1 · in parallel · Microsoft Power Platform and Microsoft Entra',
+          text: 'HR Helper found — environment Production, signs users in with Microsoft; knowledge: the SharePoint folder HR Policies; one action, Leave balance, whose key sits in Azure Key Vault; not quarantined; today’s publish attempt failed',
+          read: ['Power Platform', 'describe_copilot_agent', 'HR Helper: environment Production, authentication Authenticate with Microsoft, last publish failed today 09:12, channel Microsoft Teams pending, knowledge HR site / HR Policies, action Leave balance (HTTP, key from a Key Vault secret), quarantined false'] },
+        { together: true,
+          text: 'Data-loss-prevention policies checked — the policy HR data, created 4 days ago, puts the Microsoft Teams + Microsoft 365 channel connector in Blocked',
+          read: ['Power Platform', 'check_agent_dlp', 'policy HR data (scope: Production only, created 4 days ago): connector Microsoft Teams + Microsoft 365 Channel in Copilot Studio = Blocked; the agent’s other connectors in Business'] },
+        { together: true,
+          text: 'The maker checked — Laura Brun (HR) is Environment Maker in Production and a member of its security group',
+          read: ['Power Platform', 'check_maker_readiness', 'laura.brun@contoso.example: security role Environment Maker in Production; environment security group HR Makers: member'] },
+        { together: true,
+          text: 'Licences checked — Laura holds a paid Microsoft Copilot Studio user licence; all 14 members of All Employees have Microsoft Teams in their licence',
+          read: ['Entra', 'describe_user', 'laura.brun@: Microsoft Copilot Studio User License (not a trial); group All Employees: 14 of 14 with the TEAMS1 service plan enabled'] },
+        { together: true,
+          text: 'Conditional Access What If for a sample user opening Microsoft Teams — allowed; one policy asks for multifactor authentication, nothing blocks',
+          read: ['Entra', 'evaluate_conditional_access', 'user lukas.frei@contoso.example, app Microsoft Teams: 2 policies apply; result grant (multifactor authentication required, satisfied)'] },
+        { wave: 'Wave 2 · targeted by what wave 1 found · Microsoft 365, Microsoft Intune, Microsoft Defender, Microsoft Azure',
+          text: 'Microsoft Teams app status read — HR Helper was submitted to your organisation’s catalogue 8 days ago and still waits for admin approval',
+          read: ['Microsoft 365', 'list_teams_apps', 'search "HR Helper": publishingState submitted, requested by laura.brun@, 8 days ago; not published'] },
+        { together: true,
+          text: 'Knowledge folder checked — HR Policies is shared with the HR group only; All Employees cannot read it',
+          read: ['Microsoft 365', 'list_folder_access', 'HR site / HR Policies: unique permissions; HR (4 members) edit; All Employees no access'] },
+        { together: true,
+          text: 'Devices checked in Microsoft Intune — the sample user’s two devices are compliant; not a device cause',
+          read: ['Intune', 'list_managed_devices', 'owner lukas.frei@: 2 devices, both compliant; no non-compliant device in All Employees'] },
+        { together: true,
+          text: 'Security checked in Microsoft Defender — no open incident or alert on HR Helper, its identity or its maker',
+          read: ['Defender', 'list_incidents', 'status open, last 30 days: 0 on HR Helper, its identity or laura.brun@; alerts: 0 matching'] },
+        { together: true,
+          text: 'Key Vault access checked — the Microsoft Copilot Studio service no longer holds Key Vault Secrets User on kv-hr-helper; the assignment was removed 3 days ago in a role clean-up',
+          read: ['Azure', 'list_role_assignments', 'scope kv-hr-helper: no Key Vault Secrets User for Microsoft Copilot Studio Service; activity log: roleAssignments/delete by it.ops@contoso.example 3 days ago, 16:40'] }
+      ],
+      reason: 'Four causes, and they stack: two keep HR Helper out of Microsoft Teams, two would break it for everyone once it is there. Each fix waits on its own card, least risk first.',
+      verdict: {
+        confirmed: [
+          'Publishing fails: the data-loss-prevention policy HR data puts the Microsoft Teams + Microsoft 365 channel connector in Blocked.',
+          'Nobody can find it in Microsoft Teams: the app waits for admin approval in your organisation’s catalogue.',
+          'Everyone outside HR would get empty answers: the knowledge folder HR Policies is not shared with All Employees.',
+          'The Leave balance action fails: the Microsoft Copilot Studio service lost its Key Vault Secrets User role on kv-hr-helper.'
+        ],
+        ruledOut: 'licences (the maker’s and every user’s), Conditional Access, devices (Microsoft Intune), security incidents and alerts (Microsoft Defender), quarantine, the maker’s role, the sign-in setting.',
+        notChecked: 'the Microsoft Teams org-wide app settings — an owner step in the Microsoft Teams admin center, needed only if HR Helper still does not appear after the fixes.',
+        plan: [
+          ['ChatAdmin, on your approval · Microsoft Azure', 'Give the Microsoft Copilot Studio service Key Vault Secrets User on kv-hr-helper, that vault only.'],
+          ['ChatAdmin, on your approval · Microsoft 365', 'Give All Employees read access to the HR Policies folder; HR keeps edit.'],
+          ['ChatAdmin, on your approval · Microsoft Power Platform', 'Move the Microsoft Teams + Microsoft 365 channel connector from Blocked to Business in HR data — the policy covers Production only.'],
+          ['Laura Brun, the maker · Microsoft Copilot Studio', 'Republish HR Helper: the published version carries the policy state.'],
+          ['ChatAdmin, on your approval · Microsoft 365', 'Approve HR Helper in your organisation’s Microsoft Teams catalogue.'],
+          ['ChatAdmin · verify', 'Re-read each cause with the read that found it, then check what a sample user sees.']
+        ]
+      },
+      proposal: { count: 4, note: '4 cards, least risk first · Microsoft Azure, Microsoft 365, Microsoft Power Platform, then Microsoft 365 after the maker republishes' },
+      cards: [
+        { id: 'card-copilot-azure', area: 'Microsoft Azure', agent: 'Agent A', env: ENV_A, risk: 'approval',
+          identity: 'the delegated sign-in of a named administrator, acting with that person’s rights and never more',
+          steps: [
+            ['grant_role', 'Give the Microsoft Copilot Studio service the role Key Vault Secrets User on kv-hr-helper — scope: that vault only']
+          ],
+          preview: 'Checked before this card: the narrowest role that reads a secret · scope the vault, not the resource group · Owner and User Access Administrator are never granted.',
+          run: [
+            ['grant_role', 'Role — read back: Key Vault Secrets User for the Microsoft Copilot Studio service on kv-hr-helper', 'PUT roleAssignments at the vault scope; re-read: list_role_assignments']
+          ],
+          onReject: {
+            result: { state: 'declined', executed: 'nothing ran', verified: 'kv-hr-helper is unchanged; the three other cards were not shown', audit: '1 card shown, rejected' },
+            explain: 'Rejected — nothing ran and the plan stops here. Without the role the Leave balance action keeps failing. Say what to change and I will propose the card again; I do not retry on my own.'
+          }
+        },
+        { id: 'card-copilot-folder', area: 'Microsoft 365', agent: 'Agent M', env: ENV_M, risk: 'approval',
+          identity: 'the delegated sign-in of a named administrator, acting with that person’s rights and never more',
+          steps: [
+            ['grant_folder_access', 'Give the group All Employees read access to the folder HR Policies on the HR site — HR keeps edit']
+          ],
+          preview: 'Checked before this card: All Employees is a security group with 14 members · read only, this folder only · no file is opened or moved.',
+          run: [
+            ['grant_folder_access', 'HR Policies — read back: All Employees can read; HR keeps edit', 'POST /drives/{id}/items/{id}/invite (read, requireSignIn, no mail); re-read: list_folder_access']
+          ],
+          onReject: {
+            result: { state: 'partial', executed: '1 of 4 changes ran — the folder was not shared', verified: 'the Key Vault role from the first card stays in place', audit: '2 cards shown: 1 approved, 1 rejected' },
+            explain: 'Rejected — HR Policies stays HR-only, so HR Helper cannot answer from it for anyone outside HR. If only some documents should be shared, say which and I will propose a narrower card. The two remaining cards were not shown.'
+          }
+        },
+        { id: 'card-copilot-dlp', area: 'Microsoft Power Platform', agent: 'Agent PP', env: ENV_PP, risk: 'high',
+          riskReason: 'a data-loss-prevention policy change applies to every environment in its scope, here Production only',
+          identity: 'the delegated sign-in of a Power Platform administrator through Microsoft’s first-party client',
+          steps: [
+            ['manage_dlp_policy', 'In the policy HR data, move the Microsoft Teams + Microsoft 365 channel connector from Blocked to Business — nothing else in the policy changes']
+          ],
+          preview: 'Checked before this card: HR data covers Production only · one connector moves · the change applies to every agent and flow in Production.',
+          run: [
+            ['manage_dlp_policy', 'Policy HR data — read back: the Microsoft Teams + Microsoft 365 channel connector in Business', 'PolicyV2 update; re-read: describe_dlp_policy'],
+            ['check_agent_dlp', 'HR Helper — read back: no connector of the agent is blocked', 'the verification read']
+          ],
+          onReject: {
+            result: { state: 'partial', executed: '2 of 4 changes ran — the policy was not changed', verified: 'the Key Vault role and the folder access stay in place; HR data still blocks the Microsoft Teams channel', audit: '3 cards shown: 2 approved, 1 rejected' },
+            explain: 'Rejected — HR data keeps the Microsoft Teams channel blocked, so HR Helper cannot be published there. If the block is intended, HR Helper can only be offered on a channel the policy allows. Your call; I do not retry on my own.'
+          }
+        },
+        { id: 'card-copilot-teams', area: 'Microsoft 365', agent: 'Agent M', env: ENV_M, risk: 'approval',
+          riskReason: 'approving the app makes it available to the whole organisation',
+          before: 'Maker step — Laura Brun republishes HR Helper in Microsoft Copilot Studio; in this sample her “done” is simulated. The last card waits for it.',
+          identity: 'the delegated sign-in of a named administrator, acting with that person’s rights and never more',
+          steps: [
+            ['publish_teams_app', 'Approve HR Helper in your organisation’s Microsoft Teams catalogue (submitted → published)']
+          ],
+          preview: 'Checked before this card: the republish succeeded with no data-policy error · the app is still waiting for approval · the catalogue entry names the same agent.',
+          run: [
+            ['publish_teams_app', 'HR Helper app — read back: published in your organisation’s catalogue', 'PATCH appCatalogs/teamsApps/{id}/appDefinitions/{id} publishingState published; re-read: list_teams_apps'],
+            ['audit_teams_app_visibility', 'A sample user — read back: sees HR Helper under Apps, can read HR Policies, Microsoft Teams plan on', 'the verification read for lukas.frei@']
+          ],
+          onReject: {
+            result: { state: 'partial', executed: '3 of 4 changes ran — the app was not approved', verified: 'the role, the folder access and the policy change stay in place; the maker’s republish is done', audit: '4 cards shown: 3 approved, 1 rejected' },
+            explain: 'Rejected — HR Helper is published from Microsoft Copilot Studio but stays unapproved in your organisation’s catalogue, so nobody sees it in Microsoft Teams. Ask again when you are ready and I will propose the same card.'
+          }
+        }
+      ],
+      result: { state: 'executed', executed: '4 of 4 changes on 4 cards, plus the maker’s republish', verified: 'each cause re-read with the read that found it; a sample user sees HR Helper in Microsoft Teams', audit: '4 cards shown, 4 approved; everything in the session transcript' },
+      explain: 'HR Helper is published and approved: everyone in All Employees finds it under Apps in Microsoft Teams, it answers from HR Policies, and Leave balance reads its key again. Not done: pinning it for everyone — a Microsoft Teams app setup policy, an owner step in the Microsoft Teams admin center. A newly approved app can take a while to appear in every Microsoft Teams client.',
+      limits: 'In your own tenant, changes are not open for customers yet: ChatAdmin reads and explains, and gives each fix as steps in the Microsoft admin center instead; when changes open, each one waits on your own Approve card.',
+      tech: {
+        specialists: 'Wave 1 in parallel: Microsoft Power Platform (Agent PP) and Microsoft Entra (Agent E). Wave 2 in parallel: Microsoft 365 (Agent M), Microsoft Intune (Agent I, read only), Microsoft Defender (Agent D, read only), Microsoft Azure (Agent A). Coordinated by ChatAdmin’s coordinator, which holds no key and cannot approve; it combines the findings into the verdict.',
+        identifiers: 'agent HR Helper 0c4e… · environment Production 9d1a… · policy HR data 5b27… · Teams app 2f8a… (submitted before, published after) · /subscriptions/…4f21/resourceGroups/rg-hr-apps/providers/Microsoft.KeyVault/vaults/kv-hr-helper'
+      }
     }
   };
 
-  var ORDER = ['joiner', 'roles', 'mailbox', 'leaver', 'licences', 'azure', 'powerplatform'];
+  var ORDER = ['joiner', 'roles', 'mailbox', 'leaver', 'licences', 'azure', 'powerplatform', 'copilot'];
+  var ORDINALS = ['First', 'Second', 'Third', 'Fourth', 'Fifth', 'Sixth'];
   var RISK_WORDS = { approval: 'approval required — a state change behind one card',
                      high: 'high — the card plus a typed confirmation of the target in the customer model',
                      extreme: 'extreme — the card plus a fresh sign-in in the customer model' };
@@ -485,26 +620,64 @@
       if (typeof opts.onComplete === 'function') opts.onComplete();
     }
 
-    /* INSPECTION: the lines appear pending and complete one by one, then the reasoning. */
+    /* The diagnosis verdict (optional, sc.verdict): confirmed causes, ruled out, not checked, the fix plan with who acts. */
+    function addVerdict(parent, v) {
+      var box = el('div', 'diagnosis');
+      box.appendChild(el('p', 'diagnosis__h', 'Confirmed — ' + v.confirmed.length + ' causes'));
+      var ol = el('ol');
+      v.confirmed.forEach(function (t) { ol.appendChild(el('li', null, t)); });
+      box.appendChild(ol);
+      var ro = el('p');
+      ro.appendChild(el('strong', null, 'Ruled out: '));
+      ro.appendChild(document.createTextNode(v.ruledOut));
+      box.appendChild(ro);
+      if (v.notChecked) {
+        var nc = el('p');
+        nc.appendChild(el('strong', null, 'Not checked: '));
+        nc.appendChild(document.createTextNode(v.notChecked));
+        box.appendChild(nc);
+      }
+      box.appendChild(el('p', 'diagnosis__h', 'Fix plan — dependencies first, then least risk'));
+      var plan = el('ol');
+      v.plan.forEach(function (s) {
+        var li = el('li');
+        li.appendChild(el('span', 'diagnosis__who', s[0]));
+        li.appendChild(document.createTextNode(': ' + s[1]));
+        plan.appendChild(li);
+      });
+      box.appendChild(plan);
+      parent.appendChild(box);
+    }
+
+    /* INSPECTION: the lines appear pending and complete one by one, then the reasoning. An item with "wave" opens
+       a labelled group; an item with "together" completes close behind the one before it (reads of one wave run in parallel). */
     function addInspection(sc, done) {
       var m = el('div', 'msg msg--admin');
       phase(m, 'Inspection');
-      var ul = el('ul', 'inspect');
+      var ul = null;
+      var at = 0;
+      var times = [];
       var items = sc.inspect.map(function (i) {
+        if (i.wave || !ul) {
+          if (i.wave) m.appendChild(el('p', 'inspect__wave', i.wave));
+          ul = el('ul', 'inspect');
+          m.appendChild(ul);
+        }
+        at += i.together ? 170 : (i.wave ? 900 : 460);
+        times.push(at);
         var li = el('li', 'is-pending', i.text);
         ul.appendChild(li);
         return li;
       });
-      m.appendChild(ul);
       reveal(m);
-      var step = 460;
       items.forEach(function (li, idx) {
-        later(step * (idx + 1), function () {
+        later(times[idx], function () {
           li.classList.remove('is-pending');
           if (idx === items.length - 1) {
             later(320, function () {
               if (sc.reason) {
                 m.appendChild(el('p', null, sc.reason));
+                if (sc.verdict) addVerdict(m, sc.verdict);
                 say('Inspection complete: ' + sc.proposal.count + ' changes ready.');
               } else {
                 say('Inspection complete: reads only, no card.');
@@ -642,7 +815,9 @@
               say('Scenario finished: executed and verified.');
               later(250, addConvert);
             } else {
-              addSystem('Second card — ' + sc.cards[index + 1].area + ' · ' + sc.cards[index + 1].steps.length + ' steps');
+              var next = sc.cards[index + 1];
+              if (next.before) addSystem(next.before);
+              addSystem((ORDINALS[index + 1] || 'Next') + ' card — ' + next.area + ' · ' + next.steps.length + (next.steps.length === 1 ? ' step' : ' steps'));
               later(250, function () { runCards(sc, index + 1, decisions); });
             }
           });
@@ -681,7 +856,7 @@
       addUser(text);
       var m = el('div', 'msg msg--admin');
       phase(m, 'Answer');
-      m.appendChild(el('p', null, 'In this sample I can show seven things:'));
+      m.appendChild(el('p', null, 'In this sample I can show eight things:'));
       var ul = el('ul');
       ORDER.forEach(function (sid) { ul.appendChild(el('li', null, SCENARIOS[sid].label + ' — ' + SCENARIOS[sid].short)); });
       m.appendChild(ul);

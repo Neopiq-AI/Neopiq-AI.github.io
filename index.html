@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neopiq ChatAdmin — run Microsoft IT through a conversation</title>
-<meta name="description" content="ChatAdmin runs Microsoft Entra, Microsoft 365, Microsoft Azure and Microsoft Power Platform administration through a conversation, and a person approves every change. Open ChatAdmin, or try the demo on a sample environment.">
+<title>Neopiq ChatAdmin — ask your Microsoft tenants, get clear answers</title>
+<meta name="description" content="ChatAdmin reads Microsoft Entra, Microsoft 365, Microsoft Azure, Microsoft Power Platform and Microsoft Intune with your own Microsoft rights and explains what it finds, in plain language. For IT service providers and for an organisation's own IT. Get started, or try the demo on a sample environment.">
 <link rel="canonical" href="https://neopiq.ai/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="Neopiq ChatAdmin — run Microsoft IT through a conversation">
-<meta property="og:description" content="ChatAdmin runs Microsoft Entra, Microsoft 365, Microsoft Azure and Microsoft Power Platform administration through a conversation, and a person approves every change. Open ChatAdmin, or try the demo on a sample environment.">
+<meta property="og:title" content="Neopiq ChatAdmin — ask your Microsoft tenants, get clear answers">
+<meta property="og:description" content="ChatAdmin reads Microsoft Entra, Microsoft 365, Microsoft Azure, Microsoft Power Platform and Microsoft Intune with your own Microsoft rights and explains what it finds, in plain language. For IT service providers and for an organisation's own IT. Get started, or try the demo on a sample environment.">
 <meta property="og:url" content="https://neopiq.ai/">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="assets/site.css">
@@ -30,25 +30,24 @@
       <label for="nav-toggle" class="nav-toggle"><span class="nav-toggle__icon" aria-hidden="true"></span><span class="nav-toggle__text">Menu</span></label>
       <ul class="nav-list">
         <li><a href="demo/">Demo</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
         <li><a href="security.html">Security</a></li>
-        <li><a href="try.html">Get started</a></li>
-        <li class="nav-list__action"><a class="btn btn--ghost btn--small" href="demo/" title="Seven requests on a sample environment, no sign-in">Try the demo</a></li>
+        <li><a href="app.html">Sign in</a></li>
       </ul>
-      <a class="btn btn--primary btn--small site-nav__open" href="app.html" title="The live product: sign in with your Microsoft work account">Open ChatAdmin</a>
+      <a class="btn btn--primary btn--small site-nav__open" href="try.html" title="Choose your plan and start free">Get started</a>
     </nav>
   </div>
+  <script src="assets/js/wake.js" defer></script>
 </header>
 <!-- @end -->
 
 <main id="main">
 
-  <!-- 1. SEE: one headline, one sentence, the four areas, the two actions -->
+  <!-- 1. The value, in the visitor's words; one primary action (Get started), the demo as the quiet alternative -->
   <section class="hero hero--home">
     <div class="wrap">
-      <h1>Run Microsoft IT through a conversation.</h1>
-      <p class="lead">Say what you need. ChatAdmin inspects your Microsoft environment, proposes the change, and acts only after you approve it.</p>
-      <p class="muted">Today it reads and checks your tenant; changes open soon.</p>
+      <h1>Ask your Microsoft tenants. Get clear answers.</h1>
+      <p class="lead">ChatAdmin reads Microsoft Entra, Microsoft 365, Microsoft Azure, Microsoft Power Platform and Microsoft Intune with your own Microsoft rights and answers in plain language: who has administrator access, which licences sit unused, what changed in Azure and why.</p>
+      <p class="hero__for">For IT service providers who look after their customers&rsquo; tenants, and for the IT team of a single organisation.</p>
       <!-- @data:areas -->
 <ul class="areas" aria-label="The Microsoft areas ChatAdmin operates">
   <li class="areas__item areas__item--base">Microsoft 365</li>
@@ -59,50 +58,47 @@
 </ul>
 <!-- @end -->
       <div class="cta-row">
-        <a class="btn btn--primary btn--large" href="app.html">Open ChatAdmin</a>
+        <a class="btn btn--primary btn--large" href="try.html">Get started</a>
         <a class="btn btn--ghost btn--large" href="demo/">Try the demo</a>
       </div>
-      <p class="small muted mt-4">Sign in with your Microsoft work account. An organisation with a ChatAdmin plan uses it in its own tenant; without a plan you see the plans, and an MSP can request a free trial.</p>
+      <!-- @data:trial-line --><p class="trial-line">For IT service providers: free for 14 days with up to three managed customers. No payment method.</p><!-- @end -->
     </div>
   </section>
 
-  <!-- 2. TRY: the demo in place -->
+  <!-- 2. Self-identification: the visitor's own sentence leads to the plan card in Get started's first step -->
   <section class="section section--alt" id="who">
     <div class="wrap">
       <h2>Which describes you?</h2>
-      <!-- @data:identify plain -->
-<ul class="identify" aria-label="Which of these describes you?">
+      <!-- @data:identify -->
+<ul class="identify identify--3" aria-label="Which of these describes you?">
   <li class="identify__row">
-    <a class="identify__item identify__item--msp" href="pricing.html#plan-msp">
+    <a class="identify__item identify__item--msp" href="try.html#plan-msp">
       <span class="identify__statement">&ldquo;I manage Microsoft environments for customers.&rdquo;</span>
+      <span class="identify__plan">MSP &middot; CHF 299 / month &middot; 5 managed customers included</span>
       <span class="identify__go" aria-hidden="true">&rarr;</span>
     </a>
   </li>
   <li class="identify__row">
-    <a class="identify__item identify__item--standard" href="pricing.html#plan-standard">
+    <a class="identify__item identify__item--standard" href="try.html#plan-standard">
       <span class="identify__statement">&ldquo;I manage Microsoft 365, Microsoft Entra, Microsoft Azure and Microsoft Power Platform.&rdquo;</span>
+      <span class="identify__plan">Standard &middot; CHF 99 / month &middot; Recommended</span>
       <span class="identify__go" aria-hidden="true">&rarr;</span>
     </a>
   </li>
   <li class="identify__row">
-    <a class="identify__item identify__item--essential" href="pricing.html#plan-essential">
+    <a class="identify__item identify__item--essential" href="try.html#plan-essential">
       <span class="identify__statement">&ldquo;I manage Microsoft 365 and Microsoft Entra.&rdquo;</span>
-      <span class="identify__go" aria-hidden="true">&rarr;</span>
-    </a>
-  </li>
-  <li class="identify__row">
-    <a class="identify__item identify__item--enterprise" href="pricing.html#plan-enterprise">
-      <span class="identify__statement">&ldquo;We need endpoint administration, security operations or organisational governance.&rdquo;</span>
+      <span class="identify__plan">Essential &middot; CHF 49 / month</span>
       <span class="identify__go" aria-hidden="true">&rarr;</span>
     </a>
   </li>
 </ul>
 <!-- @end -->
-      <!-- @data:pricing-line --><p class="pricing-line">MSP <strong>CHF 299 / month</strong> (5 managed customers included) &middot; Standard <strong>CHF 99 / month</strong> <span class="pricing-line__rec">Recommended</span> &middot; Essential <strong>CHF 49 / month</strong> &middot; Larger organisations: <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20plan">contact us</a></p><!-- @end -->
-      <p class="mt-4"><a href="pricing.html">Plans and prices</a></p>
+      <p class="small muted mt-4">Larger organisations: <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20Enterprise%20plan">contact us</a>.</p>
     </div>
   </section>
 
+  <!-- 3. See it: the demo in place (W-DEMO's region) -->
   <section class="section" id="experience">
     <div class="wrap">
       <!-- @region:demo -->
@@ -230,7 +226,8 @@
         <div class="demo-frame__foot">
           <div class="convert" role="group" aria-label="Next step">
             <p class="convert__q">Want this on your own Microsoft environment?</p>
-            <p class="convert__action"><a class="btn btn--primary" href="app.html">Open ChatAdmin</a> <a class="btn btn--ghost" href="try.html">Get started</a> <a class="btn btn--ghost btn--small" href="demo/">Open the full demo</a></p>
+            <p class="convert__action"><a class="btn btn--primary" href="try.html">Get started</a> <a class="btn btn--ghost btn--small" href="demo/">Open the full demo</a></p>
+            <p class="convert__note">A sample environment, every result simulated. In your own tenant ChatAdmin reads and explains today; changes like this one are not open for customers yet.</p>
           </div>
         </div>
         <noscript><p class="small muted" style="margin:.6rem 1rem 0">A static rendering of one request. Playing the others in place needs JavaScript (two small scripts from this site; no network, no storage); the request links above open the full demo page instead.</p></noscript>
@@ -241,71 +238,57 @@
     </div>
   </section>
 
-  <!-- 3. TRUST: how it stays safe -->
-  <section class="section section--alt" id="safe">
+  <!-- 4. The path, in the order the visitor walks it -->
+  <section class="section section--alt" id="how">
     <div class="wrap">
-      <h2>How it stays safe</h2>
+      <h2>From first click to first answer</h2>
+      <ol class="journey journey--4" aria-label="How getting started works">
+        <li class="journey__step">
+          <span class="journey__name">Choose your plan</span>
+          <p class="journey__note">MSP for IT service providers; Standard or Essential for one organisation.</p>
+        </li>
+        <li class="journey__step">
+          <span class="journey__name">Sign in with Microsoft</span>
+          <p class="journey__note">Your Microsoft work account. An IT service provider adds a company name and a customer count, and the free trial starts.</p>
+        </li>
+        <li class="journey__step">
+          <span class="journey__name">Connect your tenant</span>
+          <p class="journey__note">A Global Administrator accepts Microsoft&rsquo;s consent for the permissions ChatAdmin uses to read. Nothing to install.</p>
+        </li>
+        <li class="journey__step">
+          <span class="journey__name">Ask</span>
+          <p class="journey__note">Users, licences, administrator roles, Azure resources, Power Platform environments, managed devices: ChatAdmin reads and explains.</p>
+        </li>
+      </ol>
+      <div class="cta-row mt-4">
+        <a class="btn btn--primary" href="try.html">Get started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Trust: what a cautious administrator asks first -->
+  <section class="section" id="safe">
+    <div class="wrap narrow">
+      <h2>Safe by design</h2>
       <ul class="bullets bullets--large">
-        <li>ChatAdmin proposes; a person approves. Every change waits on an Approve / Reject card, and nothing is approved by software.</li>
-        <li>An unanswered card declines itself after five minutes. Every result is read back from Microsoft before it is reported.</li>
-        <li>Signing in reads and changes nothing in your tenant: your identity only, no administrative access.</li>
-        <li>In your own organisation ChatAdmin reads with your own Microsoft rights, never more, with no Neopiq key or secret kept there. <span class="status status--now">available now</span> Changes are not open for customers yet: ChatAdmin gives the steps in the Microsoft admin center instead.</li>
+        <li>Signing in identifies you. It reads and changes nothing in your tenant.</li>
+        <li>ChatAdmin reads with your own Microsoft rights, never more, and keeps no Neopiq key or secret in your tenant.</li>
+        <li>A person approves every change on an Approve / Reject card; software never approves. Changes are not open for customers yet: today ChatAdmin gives you the steps in the Microsoft admin center.</li>
+        <li>Conversations are deleted after 90 days. This website sets no cookies and tracks nothing.</li>
       </ul>
-      <p><a href="security.html">Security</a></p>
+      <p><a href="security.html">How ChatAdmin protects your tenant &rarr;</a></p>
     </div>
   </section>
 
-  <!-- 4. Self-identification before plan names -->
-
-  <!-- 5. Honest status, one list -->
-  <section class="section" id="status">
-    <div class="wrap">
-      <h2>What works today</h2>
-      <!-- @data:status-list home compact -->
-<ul class="status-list status-list--compact" data-list="home">
-  <li class="status-list__item status-list__item--now">
-    <span class="status status--now">available now</span>
-    <span class="status-list__body"><a class="status-list__label" href="demo/">The demo on a sample environment</a></span>
-  </li>
-  <li class="status-list__item status-list__item--now">
-    <span class="status status--now">available now</span>
-    <span class="status-list__body"><a class="status-list__label" href="app.html">ChatAdmin, with Microsoft sign-in</a></span>
-  </li>
-  <li class="status-list__item status-list__item--now">
-    <span class="status status--now">available now</span>
-    <span class="status-list__body"><a class="status-list__label" href="security.html#approval">Every change on an Approve / Reject card</a></span>
-  </li>
-  <li class="status-list__item status-list__item--now">
-    <span class="status status--now">available now</span>
-    <span class="status-list__body"><a class="status-list__label" href="try.html#connect">Connecting your own organisation</a></span>
-  </li>
-  <li class="status-list__item status-list__item--now">
-    <span class="status status--now">available now</span>
-    <span class="status-list__body"><a class="status-list__label" href="try.html">Users &amp; Access and Activity for your organisation</a></span>
-  </li>
-  <li class="status-list__item status-list__item--now">
-    <span class="status status--now">available now</span>
-    <span class="status-list__body"><a class="status-list__label" href="pricing.html#plan-msp">Multi-tenant operation for MSPs</a></span>
-  </li>
-  <li class="status-list__item status-list__item--dev">
-    <span class="status status--dev">in development</span>
-    <span class="status-list__body"><a class="status-list__label" href="try.html#checkout">Buying a plan online</a></span>
-  </li>
-</ul>
-<!-- @end -->
-    </div>
-  </section>
-
-  <!-- 6. START: the two public prices, Recommended: Standard, the two actions -->
+  <!-- 6. The close: the prices in one line, the one action -->
   <section class="section cta-band" id="start">
     <div class="wrap center">
       <h2>Start with ChatAdmin</h2>
       <!-- @data:pricing-line --><p class="pricing-line">MSP <strong>CHF 299 / month</strong> (5 managed customers included) &middot; Standard <strong>CHF 99 / month</strong> <span class="pricing-line__rec">Recommended</span> &middot; Essential <strong>CHF 49 / month</strong> &middot; Larger organisations: <a href="mailto:contact@neopiq.ai?subject=ChatAdmin%20plan">contact us</a></p><!-- @end -->
       <div class="cta-row">
-        <a class="btn btn--primary btn--large" href="app.html">Open ChatAdmin</a>
-        <a class="btn btn--ghost btn--large" href="try.html">Get started</a>
-        <a class="btn btn--ghost" href="pricing.html">Plans and prices</a>
+        <a class="btn btn--primary btn--large" href="try.html">Get started</a>
       </div>
+      <p class="small muted mt-4">Already using ChatAdmin? <a href="app.html">Sign in</a></p>
     </div>
   </section>
 
@@ -317,7 +300,7 @@
     <div class="site-footer__grid">
       <div class="site-footer__about">
         <p class="site-footer__brand"><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
-        <p class="muted">Tell it what you need. It inspects your Microsoft environment, proposes the change, waits for your approval, executes and verifies. Nothing changes without a person saying yes.</p>
+        <p class="muted">Ask about your Microsoft tenants in plain language. ChatAdmin reads with your own Microsoft rights and explains what it finds. Nothing changes without a person saying yes.</p>
         <p class="small">
           Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
           UID CHE-345.914.300 &middot; not registered for VAT<br>
@@ -328,11 +311,16 @@
       <div class="site-footer__col">
         <h2>ChatAdmin</h2>
         <ul>
-          <li><a href="app.html">Open ChatAdmin</a></li>
-          <li><a href="demo/">Demo</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="security.html">Security</a></li>
           <li><a href="try.html">Get started</a></li>
+          <li><a href="try.html#plans">Plans and prices</a></li>
+          <li><a href="demo/">Demo</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="app.html">Sign in</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h2>Company</h2>
+        <ul>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -347,7 +335,7 @@
     </div>
     <div class="site-footer__legal">
       <p class="small">
-        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Dynamics 365 and
+        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Intune, Microsoft Dynamics 365 and
         Microsoft Power Platform are trademarks of the Microsoft group of companies. Neopiq GmbH is
         an independent software vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
       </p>

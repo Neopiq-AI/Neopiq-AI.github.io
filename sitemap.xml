@@ -7,10 +7,11 @@
   tracked for this tree yet, and inventing them would be worse than omitting
   them (all three elements are optional).
 
-  Listed in the order of the lean site (2026-11-03): Home, the demo, Pricing,
-  Security, Get started, Contact, then the pages outside the journey, then Legal.
-  The pages the lean round removed (product-chatadmin, how-it-works,
-  permissions, solutions-*, ecosystem, docs, support, about) are noindex
+  Listed in the order of the site: Home, the demo, Security, Get started,
+  Contact, then the pages outside the journey, then Legal. The pages the lean
+  round (2026-11-03) removed (product-chatadmin, how-it-works, permissions,
+  solutions-*, ecosystem, docs, support, about) and pricing.html (the flow
+  round, 2026-11-17: choosing a plan is Get started's first step) are noindex
   redirect stubs and are deliberately absent, like app.html (the forwarding
   page to the live product).
   product-d365.html and /tools/level0/ (the free Planning Data Auditor) are kept
@@ -33,7 +34,6 @@
 
   <url><loc>https://neopiq.ai/</loc></url>
   <url><loc>https://neopiq.ai/demo/</loc></url>
-  <url><loc>https://neopiq.ai/pricing.html</loc></url>
   <url><loc>https://neopiq.ai/security.html</loc></url>
   <url><loc>https://neopiq.ai/try.html</loc></url>
   <url><loc>https://neopiq.ai/contact.html</loc></url>

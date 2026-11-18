@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Try ChatAdmin — seven requests on a sample environment, no sign-in</title>
-<meta name="description" content="Play seven scripted ChatAdmin requests over the fictional sample tenant Contoso Example: a joiner, administrator access, a shared mailbox, a leaver, a licence review, an Azure change investigation and a Power Platform environment. The real operating model: inspection, a proposal, an Approve / Reject card you click, execution, verification, an explanation. Not connected to your Microsoft environment; every result is simulated.">
+<title>ChatAdmin demo — eight requests on a sample environment, no sign-in</title>
+<meta name="description" content="Play eight scripted ChatAdmin requests over the fictional sample tenant Contoso Example: a joiner, administrator access, a shared mailbox, a leaver, a licence review, an Azure change investigation and a Power Platform environment. The real operating model: inspection, a proposal, an Approve / Reject card you click, execution, verification, an explanation. Not connected to your Microsoft environment; every result is simulated.">
 <link rel="canonical" href="https://neopiq.ai/demo/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neopiq">
-<meta property="og:title" content="Try ChatAdmin — seven requests on a sample environment, no sign-in">
-<meta property="og:description" content="Play seven scripted ChatAdmin requests over the fictional sample tenant Contoso Example: a joiner, administrator access, a shared mailbox, a leaver, a licence review, an Azure change investigation and a Power Platform environment. The real operating model: inspection, a proposal, an Approve / Reject card you click, execution, verification, an explanation. Not connected to your Microsoft environment; every result is simulated.">
+<meta property="og:title" content="ChatAdmin demo — eight requests on a sample environment, no sign-in">
+<meta property="og:description" content="Play eight scripted ChatAdmin requests over the fictional sample tenant Contoso Example: a joiner, administrator access, a shared mailbox, a leaver, a licence review, an Azure change investigation and a Power Platform environment. The real operating model: inspection, a proposal, an Approve / Reject card you click, execution, verification, an explanation. Not connected to your Microsoft environment; every result is simulated.">
 <meta property="og:url" content="https://neopiq.ai/demo/">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="../assets/site.css">
@@ -30,14 +30,13 @@
       <label for="nav-toggle" class="nav-toggle"><span class="nav-toggle__icon" aria-hidden="true"></span><span class="nav-toggle__text">Menu</span></label>
       <ul class="nav-list">
         <li><a href="../demo/" aria-current="page">Demo</a></li>
-        <li><a href="../pricing.html">Pricing</a></li>
         <li><a href="../security.html">Security</a></li>
-        <li><a href="../try.html">Get started</a></li>
-        <li class="nav-list__action"><a class="btn btn--ghost btn--small" href="../demo/" title="Seven requests on a sample environment, no sign-in" aria-current="page">Try the demo</a></li>
+        <li><a href="../app.html">Sign in</a></li>
       </ul>
-      <a class="btn btn--primary btn--small site-nav__open" href="../app.html" title="The live product: sign in with your Microsoft work account">Open ChatAdmin</a>
+      <a class="btn btn--primary btn--small site-nav__open" href="../try.html" title="Choose your plan and start free">Get started</a>
     </nav>
   </div>
+  <script src="../assets/js/wake.js" defer></script>
 </header>
 <!-- @end -->
 
@@ -51,8 +50,8 @@
 
   <section class="section" style="padding-block:1.75rem">
     <div class="wrap">
-      <h1>Try ChatAdmin</h1>
-      <p class="lede">Seven requests across Microsoft Entra, Microsoft 365, Microsoft Azure and Microsoft Power Platform, run the way the product runs them. Pick one, or type your own.</p>
+      <h1>ChatAdmin demo</h1>
+      <p class="lede">Eight requests across Microsoft Entra, Microsoft 365, Microsoft Azure and Microsoft Power Platform on the sample environment Contoso Example: no sign-in, nothing of yours touched, every result simulated. Pick one, or type your own.</p>
 
       <div class="demo-layout">
         <aside class="demo-side">
@@ -73,7 +72,7 @@
                 <input type="text" id="demo-input" name="q" maxlength="200" placeholder="e.g. onboard a new colleague">
                 <button type="submit" class="btn btn--ghost btn--small">Ask</button>
               </div>
-              <p class="small muted" style="margin-top:.5rem">Type a request; the nearest of the seven plays.</p>
+              <p class="small muted" style="margin-top:.5rem">Type a request; the nearest of the eight plays.</p>
             </form>
             <div class="demo-controls">
               <button type="button" class="btn btn--ghost btn--small" id="demo-reset">Start over</button>
@@ -96,8 +95,8 @@
           <template id="demo-convert">
             <div class="convert" role="group" aria-label="Next step">
               <p class="convert__q">Want this on your own Microsoft environment?</p>
-              <p class="convert__action"><a class="btn btn--primary" href="../app.html">Open ChatAdmin</a> <a class="btn btn--ghost" href="../try.html">Get started</a></p>
-              <p class="convert__note">You sign in with your Microsoft work account; signing in reads and changes nothing in your tenant. An organisation with a ChatAdmin plan uses it in its own tenant; without a plan you see the plans.</p>
+              <p class="convert__action"><a class="btn btn--primary" href="../try.html">Get started</a></p>
+              <p class="convert__note">Choose your plan, then sign in with your Microsoft work account; signing in reads and changes nothing in your tenant. In your own tenant ChatAdmin reads and explains today; changes like the ones played here are not open for customers yet.</p>
             </div>
           </template>
           <p class="demo-note">Agent names, API operations and identifiers live under &ldquo;Show technical details&rdquo; at the end of each request &mdash; closed by default, never needed to follow along.</p>
@@ -112,11 +111,11 @@
       <ul class="bullets">
         <li>A real card is approved by a signed-in person and declines itself after five minutes of silence. Here it waits.</li>
         <li>Real execution reads every changed object back from Microsoft. Here the read-back is scripted.</li>
-        <li>Real answers come from your environment and your own words. Here free text picks the nearest of seven scripted requests.</li>
+        <li>Real answers come from your environment and your own words. Here free text picks the nearest of eight scripted requests.</li>
+        <li>In your own tenant ChatAdmin reads and explains today. Changes like the ones played here run in Neopiq&rsquo;s own environment; for customers they are not open yet, and ChatAdmin gives the steps in the Microsoft admin center instead.</li>
       </ul>
       <div class="cta-row">
-        <a class="btn btn--primary" href="../app.html">Open ChatAdmin</a>
-        <a class="btn btn--ghost" href="../try.html">Get started</a>
+        <a class="btn btn--primary" href="../try.html">Get started</a>
       </div>
     </div>
   </section>
@@ -129,7 +128,7 @@
     <div class="site-footer__grid">
       <div class="site-footer__about">
         <p class="site-footer__brand"><strong>Neopiq</strong> &mdash; ChatAdmin, Microsoft administration by conversation</p>
-        <p class="muted">Tell it what you need. It inspects your Microsoft environment, proposes the change, waits for your approval, executes and verifies. Nothing changes without a person saying yes.</p>
+        <p class="muted">Ask about your Microsoft tenants in plain language. ChatAdmin reads with your own Microsoft rights and explains what it finds. Nothing changes without a person saying yes.</p>
         <p class="small">
           Neopiq GmbH &middot; c/o Ludwig Limbeck AG, Sinserstrasse 67, 6330 Cham, Switzerland<br>
           UID CHE-345.914.300 &middot; not registered for VAT<br>
@@ -140,11 +139,16 @@
       <div class="site-footer__col">
         <h2>ChatAdmin</h2>
         <ul>
-          <li><a href="../app.html">Open ChatAdmin</a></li>
-          <li><a href="../demo/">Demo</a></li>
-          <li><a href="../pricing.html">Pricing</a></li>
-          <li><a href="../security.html">Security</a></li>
           <li><a href="../try.html">Get started</a></li>
+          <li><a href="../try.html#plans">Plans and prices</a></li>
+          <li><a href="../demo/">Demo</a></li>
+          <li><a href="../security.html">Security</a></li>
+          <li><a href="../app.html">Sign in</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__col">
+        <h2>Company</h2>
+        <ul>
           <li><a href="../contact.html">Contact</a></li>
         </ul>
       </div>
@@ -159,7 +163,7 @@
     </div>
     <div class="site-footer__legal">
       <p class="small">
-        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Dynamics 365 and
+        Microsoft, Microsoft Azure, Microsoft Entra, Microsoft 365, Microsoft Intune, Microsoft Dynamics 365 and
         Microsoft Power Platform are trademarks of the Microsoft group of companies. Neopiq GmbH is
         an independent software vendor and is not affiliated with, endorsed by, or sponsored by Microsoft.
       </p>
