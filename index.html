@@ -106,7 +106,7 @@
       <div class="demo-frame demo-frame--compact" data-demo="home">
         <div class="demo-frame__bar">
           <p class="demo-frame__title">ChatAdmin</p>
-          <p class="demo-frame__env">Sample environment Contoso Example &middot; every result simulated</p>
+          <p class="demo-frame__env">Sample environment Contoso Example &middot; signed in as Jack Miller &middot; every result simulated</p>
         </div>
         <nav class="demo-picks" aria-label="Requests to play">
           <ul>
@@ -152,7 +152,7 @@
                 <span class="tag tag--sim">simulated</span>
               </div>
               <p class="card-approval__env">Environment: <strong>Contoso Example &middot; Microsoft Entra tenant &middot; operated by Neopiq</strong></p>
-              <p class="card-approval__facts">Only a person signed in with their own Microsoft account can approve this card &middot; declines after five minutes of silence &middot; bound to Contoso Example</p>
+              <p class="card-approval__facts">Approved by Jack Miller (jack.miller@contoso.example) at 10:42 &middot; bound to Contoso Example</p>
               <ol class="plan">
                 <li>Create the account Sarah Meier, sarah.meier@contoso.example, usage location Switzerland &mdash; the first password is generated on the server and never shown</li>
                 <li>Add her to the Finance group</li>
@@ -160,7 +160,7 @@
               </ol>
               <p class="card-approval__preview">Checked before this card: the sign-in name is not taken &middot; the group exists &middot; the licence is owned and a seat is free.</p>
               <div class="card-approval__actions">
-                <p class="verdict verdict--approved">&#10003; Approved &mdash; running 3 steps</p>
+                <p class="verdict verdict--approved">&#10003; Approved by Jack Miller &mdash; running 3 steps</p>
               </div>
             </div>
 
@@ -217,7 +217,7 @@
                     <li><span class="chip chip--change"><span class="chip__area">Microsoft 365 &middot;</span> grant_mailbox_permission</span></li>
                   </ul>
                   <p><span class="tech__k">Identifiers</span> user id 6f1c&hellip; &middot; group Finance 53be&hellip; &middot; Business Basic: 1 seat free of 3 before, 0 after</p>
-                  <pre class="audit">{"event":"card_resolved","environment":"Contoso Example","cards":2,"decisions":["approved","approved"],"approved_by":"signed-in person","simulated":true}</pre>
+                  <pre class="audit">{"event":"card_resolved","environment":"Contoso Example","cards":2,"decisions":["approved","approved"],"approved_by":"jack.miller@contoso.example","simulated":true}</pre>
                 </div>
               </details>
             </div>

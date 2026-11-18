@@ -20,6 +20,9 @@
   'use strict';
 
   var ENV = 'Contoso Example';
+  /* the person the visitor plays (2026-11-18, the owner: a demo reads as if someone is operating) */
+  var USER = 'Jack Miller';
+  var USER_UPN = 'jack.miller@contoso.example';
   var ENV_E = ENV + ' · Microsoft Entra tenant · operated by Neopiq';
   var ENV_M = ENV + ' · Microsoft 365 tenant · operated by Neopiq';
   var ENV_A = ENV + ' · Azure subscription …4f21 · operated by Neopiq';
@@ -601,7 +604,7 @@
       }
       kv(body, 'Identifiers', sc.tech.identifiers);
       var audit = { event: sc.cards ? 'card_resolved' : 'turn_completed', environment: ENV };
-      if (sc.cards) { audit.cards = decisions.length; audit.decisions = decisions; audit.approved_by = 'signed-in person'; }
+      if (sc.cards) { audit.cards = decisions.length; audit.decisions = decisions; audit.approved_by = USER_UPN; }
       else { audit.reads = sc.inspect.length; audit.cards = 0; }
       audit.simulated = true;
       body.appendChild(el('pre', 'audit', JSON.stringify(audit)));
@@ -721,7 +724,8 @@
       env.appendChild(document.createTextNode('Environment: '));
       env.appendChild(el('strong', null, card.env));
       c.appendChild(env);
-      c.appendChild(el('p', 'card-approval__facts', 'Only a person signed in with their own Microsoft account can approve this card · declines after five minutes of silence · bound to ' + ENV));
+      var facts = el('p', 'card-approval__facts', 'Waiting for your approval · signed in as ' + USER + ' · declines after five minutes of silence · bound to ' + ENV);
+      c.appendChild(facts);
       var ol = el('ol', 'plan');
       card.steps.forEach(function (s) { ol.appendChild(el('li', null, s[1])); });
       c.appendChild(ol);
@@ -736,9 +740,12 @@
       c.appendChild(actions);
       function decide(approved) {
         c.classList.add('is-decided', approved ? 'is-approved' : 'is-rejected');
+        var now = new Date();
+        var hhmm = ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2);
+        facts.textContent = (approved ? 'Approved by ' : 'Rejected by ') + USER + ' (' + USER_UPN + ') at ' + hhmm + ' · bound to ' + ENV;
         actions.appendChild(el('p', 'verdict ' + (approved ? 'verdict--approved' : 'verdict--rejected'),
-          approved ? '✓ Approved — running ' + card.steps.length + (card.steps.length === 1 ? ' step' : ' steps')
-                   : '✗ Rejected — nothing ran'));
+          approved ? '✓ Approved by ' + USER + ' — running ' + card.steps.length + (card.steps.length === 1 ? ' step' : ' steps')
+                   : '✗ Rejected by ' + USER + ' — nothing ran'));
         say(approved ? card.area + ': approved, running the steps.' : card.area + ': rejected, nothing ran.');
         onDecision(approved);
       }
