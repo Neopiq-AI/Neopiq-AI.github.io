@@ -10,7 +10,8 @@
  *     sign-in" (only once the hub has answered, or at the 45 s cap),
  *   - rotates three short facts (all three stay visible with reduced motion, and without JavaScript),
  *   - forwards with location.replace (so Back returns to the page before, never into a loop) to the visible link's
- *     address plus ?plan=msp|standard|essential when the page was opened with one.
+ *     address plus ?plan=msp|standard|essential, ?via=<channel> and ?ref=<invitation code> when the page was opened
+ *     with them (each validated; nothing else is carried).
  * The address comes from the page's own link (a[data-product]); this file writes no address. Nothing is stored.
  * check-site.py rule 9 lets this file (and wake.js) make requests, to the product address only.
  */
@@ -100,8 +101,16 @@
     var link = q('a[data-product]');
     if (!link) { return; }
     var base = link.getAttribute('href');
-    var m = /[?&]plan=(msp|standard|essential)(?:&|$)/.exec(window.location.search || '');
-    target = base + (m ? '?plan=' + m[1] : '');
+    // carried on to /start: the plan (msp|standard|essential), the entry channel (via=marketplace|linkedin|...)
+    // and an invitation code (ref=...); each validated so nothing else from the address reaches the hub
+    var q = window.location.search || '', keep = [];
+    var m = /[?&]plan=(msp|standard|essential)(?:&|$)/.exec(q);
+    if (m) keep.push('plan=' + m[1]);
+    var v = /[?&]via=([a-z][a-z0-9-]{1,23})(?:&|$)/.exec(q);
+    if (v) keep.push('via=' + v[1]);
+    var r = /[?&]ref=([A-Za-z0-9_-]{6,64})(?:&|$)/.exec(q);
+    if (r) keep.push('ref=' + r[1]);
+    target = base + (keep.length ? '?' + keep.join('&') : '');
     link.setAttribute('href', target);
     try { origin = new window.URL(base).origin; } catch (e) { origin = null; }
     if (!origin || typeof window.fetch !== 'function') { window.location.replace(target); return; }
