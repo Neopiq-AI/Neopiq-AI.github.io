@@ -542,19 +542,44 @@
           it manages.
         </li>
         <li>
-          <strong>Trial waiting list.</strong> When this week&rsquo;s free-trial places are taken, you can
+          <strong>Waiting list.</strong> When today&rsquo;s first-look places or this week&rsquo;s free-trial places are taken, you can
           leave your company name, a contact e-mail address, the plan you are interested in and an
           optional note, so that we can write to you when a place opens. We keep these details until
           your trial starts (they then become part of your customer records), until you leave the
           waiting list (they are deleted at once), or until you ask us to delete them; they are never
           used for anything else.
         </li>
+        <li id="first-look">
+          <strong>First look.</strong> When an administrator starts the free first look, ChatAdmin records the tenant,
+          the administrator&rsquo;s sign-in name as the contact, the company name and the start time, and for each
+          question the tenant id and the time, to count the day&rsquo;s questions.
+        </li>
+        <li id="referrals">
+          <strong>Invitations.</strong> Each organisation has one invitation link with an opaque code, which is not
+          derived from its tenant id. For it ChatAdmin keeps the code, the number of other organisations that started
+          their first look through it, and for each of them a one-way hash of its tenant id (never the id itself) with
+          the date. The invited organisation&rsquo;s record notes, with the date, a hash of the inviting tenant. Neopiq
+          sends no invitation e-mail: you share the link yourself, from Outlook, Teams or LinkedIn or by copying it, and
+          what you send goes through those services, not through Neopiq.
+        </li>
+        <li id="msp-verification">
+          <strong>Checking that an organisation is an IT service provider.</strong> When an organisation asks for the
+          MSP trial, ChatAdmin checks, with the administrator&rsquo;s own Microsoft sign-in and the permissions already
+          granted, whether Microsoft shows partner contracts for the tenant; or it reads once the public home page of
+          one of the tenant&rsquo;s verified domains and has the language model (Anthropic, see
+          <a href="#chatadmin-model">the language model</a>) analyse it once. ChatAdmin keeps only the result
+          (verified, pending a review, confirmed or declined), how it was reached and the kind of evidence - never the
+          page&rsquo;s text - and, for a request a person at Neopiq reviews, the contact, the company name and the
+          domains. While a review is pending, the fact that a person of one of those domains connected another tenant is
+          noted on it as evidence.
+        </li>
         <li>
           <strong>How long.</strong> These records are kept while the organisation exists and are not
           deleted by age. Two exceptions: the daily log of plan and billing events is deleted after
           <strong>90 days</strong>, and a trial request that never became a trial is deleted
-          <strong>90 days</strong> after it was last changed. Everything of an organisation that
-          leaves is deleted on request (below).
+          <strong>90 days</strong> after it was last changed. The first-look, invitation and verification records are
+          kept like the trial records. Everything of an organisation that leaves is deleted on request (below); an
+          inviting organisation&rsquo;s count then keeps only the hash of that organisation.
         </li>
       </ul>
 
@@ -856,7 +881,7 @@
         announce changes through, because there is no mailing list.
       </p>
       <p class="small muted">
-        This version is effective from 17 November 2026. The parts about the website, the free check
+        This version is effective from 19 November 2026. The parts about the website, the free check
         and correspondence are unchanged from the version effective from 16 August 2026.
       </p>
 
