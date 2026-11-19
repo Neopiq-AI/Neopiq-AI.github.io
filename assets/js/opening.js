@@ -103,12 +103,12 @@
     var base = link.getAttribute('href');
     // carried on to /start: the plan (msp|standard|essential), the entry channel (via=marketplace|linkedin|...)
     // and an invitation code (ref=...); each validated so nothing else from the address reaches the hub
-    var q = window.location.search || '', keep = [];
-    var m = /[?&]plan=(msp|standard|essential)(?:&|$)/.exec(q);
+    var qs = window.location.search || '', keep = [];
+    var m = /[?&]plan=(msp|standard|essential)(?:&|$)/.exec(qs);
     if (m) keep.push('plan=' + m[1]);
-    var v = /[?&]via=([a-z][a-z0-9-]{1,23})(?:&|$)/.exec(q);
+    var v = /[?&]via=([a-z][a-z0-9-]{1,23})(?:&|$)/.exec(qs);
     if (v) keep.push('via=' + v[1]);
-    var r = /[?&]ref=([A-Za-z0-9_-]{6,64})(?:&|$)/.exec(q);
+    var r = /[?&]ref=([A-Za-z0-9_-]{6,64})(?:&|$)/.exec(qs);
     if (r) keep.push('ref=' + r[1]);
     target = base + (keep.length ? '?' + keep.join('&') : '');
     link.setAttribute('href', target);
